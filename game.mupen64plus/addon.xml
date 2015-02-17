@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="gameclient.mupen64plus"
+		name="Nintendo 64 (Mupen64plus)"
+		version="2.0.2"
+		provider-name="Libretro Team">
+	<requires>
+		<import addon="library.xbmc.libretro" version="1.0.0"/>
+	</requires>
+	<extension point="xbmc.gameclient"
+			library_android=""
+			library_linux="mupen64plus_libretro.so"
+			library_osx=""
+			library_windx=""
+			library_wingl="">
+		<platforms>Nintendo 64</platforms>
+		<extensions>n64|v64|z64</extensions>
+		<supports_vfs>true</supports_vfs>
+		<supports_no_game>false</supports_no_game>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Mupen64Plus (2.0-rc2)</summary>
+		<description>Supported files: n64|v64|z64
+
+Last updated 2014-5-30 (eb7565f)</description>
+		<license></license>
+		<platform></platform>
+		<nofanart>true</nofanart>
+		<noicon>true</noicon>
+		
+	</extension>
+</addon>

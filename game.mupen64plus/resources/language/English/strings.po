@@ -1,0 +1,81 @@
+# XBMC Media Center language file
+# Addon Name: Nintendo 64 (Mupen64plus)
+# Addon id: gameclient.mupen64plus
+# Addon Provider: Libretro Team
+msgid ""
+msgstr ""
+"Project-Id-Version: Libretro Clients\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: 2014-05-30 17:00+8\n"
+"PO-Revision-Date: 2014-05-30 17:00+8\n"
+"Last-Translator: XBMC Translation Team\n"
+"Language-Team: English (http://www.transifex.com/projects/p/xbmc-addons/language/en/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30000"
+msgid "Settings"
+msgstr ""
+
+msgctxt "#30001"
+msgid "CPU Core"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Buttons B and A"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Analog Deadzone (percent)"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Player 1 Pak"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Player 2 Pak"
+msgstr ""
+
+msgctxt "#30006"
+msgid "Player 3 Pak"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Player 4 Pak"
+msgstr ""
+
+msgctxt "#30008"
+msgid "Disable Expansion RAM"
+msgstr ""
+
+msgctxt "#30009"
+msgid "GFX Accuracy (restart)"
+msgstr ""
+
+msgctxt "#30010"
+msgid "GFX Plugin"
+msgstr ""
+
+msgctxt "#30011"
+msgid "RSP Plugin"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Resolution (restart)"
+msgstr ""
+
+msgctxt "#30013"
+msgid "Glide texture filtering"
+msgstr ""
+
+msgctxt "#30014"
+msgid "VI Refresh (Overclock)"
+msgstr ""
+
+msgctxt "#30015"
+msgid "Framerate (restart)"
+msgstr ""

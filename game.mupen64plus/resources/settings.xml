@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="30000">
+		<setting label="30001" type="labelenum" id="mupen64-cpucore" values="dynamic_recompiler|cached_interpreter|pure_interpreter" default="dynamic_recompiler"/>
+		<setting label="30002" type="labelenum" id="mupen64-button-orientation-ab" values="BA|YB" default="BA"/>
+		<setting label="30003" type="labelenum" id="mupen64-astick-deadzone" values="15|20|25|30|0|5|10" default="15"/>
+		<setting label="30004" type="labelenum" id="mupen64-pak1" values="none|memory|rumble" default="none"/>
+		<setting label="30005" type="labelenum" id="mupen64-pak2" values="none|memory|rumble" default="none"/>
+		<setting label="30006" type="labelenum" id="mupen64-pak3" values="none|memory|rumble" default="none"/>
+		<setting label="30007" type="labelenum" id="mupen64-pak4" values="none|memory|rumble" default="none"/>
+		<setting label="30008" type="labelenum" id="mupen64-disableexpmem" values="no|yes" default="no"/>
+		<setting label="30009" type="labelenum" id="mupen64-gfxplugin-accuracy" values="high|medium|low" default="high"/>
+		<setting label="30010" type="labelenum" id="mupen64-gfxplugin" values="auto|glide64|gln64|rice|angrylion" default="auto"/>
+		<setting label="30011" type="labelenum" id="mupen64-rspplugin" values="auto|hle|cxd4" default="auto"/>
+		<setting label="30012" type="labelenum" id="mupen64-screensize" values="640x360|640x480|720x576|800x600|960x540|960x640|1024x576|1024x768|1280x720|1280x768|1280x960|1280x1024|1600x1200|1920x1080|1920x1200|1920x1600|2048x1152|2048x1536|2048x2048|320x240" default="640x360"/>
+		<setting label="30013" type="labelenum" id="mupen64-filtering" values="automatic|N64 3-point|bilinear|nearest" default="automatic"/>
+		<setting label="30014" type="labelenum" id="mupen64-virefresh" values="1500|2200" default="1500"/>
+		<setting label="30015" type="labelenum" id="mupen64-framerate" values="original|fullspeed" default="original"/>
+	</category>
+</settings>

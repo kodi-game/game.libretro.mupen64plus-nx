@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="gameclient.mupen64plus"
+<addon id="game.mupen64plus"
 		name="Nintendo 64 (Mupen64plus)"
 		version="2.0.2"
 		provider-name="Libretro Team">
 	<requires>
-		<import addon="library.xbmc.libretro" version="1.0.0"/>
+		<import addon="game.library" version="1.0.0"/>
 	</requires>
 	<extension point="xbmc.gameclient"
 			library_android=""
-			library_linux="mupen64plus_libretro.so"
+			library_linux="game.mupen64plus.so"
 			library_osx=""
 			library_windx=""
 			library_wingl="">

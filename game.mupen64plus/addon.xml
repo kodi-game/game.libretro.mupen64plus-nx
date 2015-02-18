@@ -4,7 +4,7 @@
 		version="2.0.2"
 		provider-name="Libretro Team">
 	<requires>
-		<import addon="game.library" version="1.0.0"/>
+		<import addon="game.libretro" version="1.0.0"/>
 	</requires>
 	<extension point="xbmc.gameclient"
 			library_android=""

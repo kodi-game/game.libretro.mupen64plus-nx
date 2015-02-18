@@ -16,7 +16,7 @@ externalproject_add(mupen64plus
                     PREFIX mupen64plus
                     CONFIGURE_COMMAND ""
                     INSTALL_COMMAND ""
-                    BUILD_COMMAND make
+                    BUILD_COMMAND make DEBUG=1
                     BUILD_IN_SOURCE 1)
 
 set(MUPEN64PLUS_CUSTOM_BINARY ${PROJECT_BINARY_DIR}/mupen64plus/src/mupen64plus/mupen64plus_libretro${CMAKE_SHARED_LIBRARY_SUFFIX}

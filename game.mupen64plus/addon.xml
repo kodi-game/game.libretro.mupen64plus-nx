@@ -2,16 +2,17 @@
 <addon id="game.mupen64plus"
 		name="Nintendo 64 (Mupen64plus)"
 		version="2.0.2"
-		provider-name="Libretro Team">
+		provider-name="Libretro">
 	<requires>
 		<import addon="game.libretro" version="1.0.0"/>
+		<import addon="game.controller.n64" version="1.0.0"/>
 	</requires>
 	<extension point="xbmc.gameclient"
-			library_android=""
+			library_android="game.mupen64plus.so"
 			library_linux="game.mupen64plus.so"
-			library_osx=""
-			library_windx=""
-			library_wingl="">
+			library_osx="game.mupen64plus.dylib"
+			library_windx="game.mupen64plus.dll"
+			library_wingl="game.mupen64plus.dll">
 		<platforms>Nintendo 64</platforms>
 		<extensions>n64|v64|z64</extensions>
 		<supports_vfs>true</supports_vfs>

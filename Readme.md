@@ -37,13 +37,35 @@ cmake -G"Eclipse CDT4 - Unix Makefiles" \
       $HOME/workspace/xbmc/project/cmake/addons
 ```
 
-The compiled .so will be placed at
+# Building in-tree (cross-compiling)
+
+Kodi's build system will fetch the add-on from the GitHub URL and git hash specified in [game.mupen64plus.txt](https://github.com/garbear/xbmc/blob/retroplayer-15alpha2/project/cmake/addons/addons/game.mupen64plus/game.mupen64plus.txt).
+
+## Linux
+
+Ensure that kodi has been built successfully. Then, from the root of the source tree, run
+
+```shell
+make install DESTDIR=$HOME/kodi
+```
+
+Build the add-on
+
+```shell
+make -C tools/depends/target/binary-addons PREFIX=$HOME/kodi ADDONS="game.mupen64plus"
+```
+
+The compiled .so can be found at
 
 ```
-build/game.mupen64plus-prefix/src/game.mupen64plus-build/mupen64plus/src/mupen64plus/mupen64plus_libretro.so
+$HOME/kodi/lib/kodi/addons/game.mupen64plus/game.mupen64plus.so
 ```
 
-Create a symlink from `xbmc/addons/game.mupen64plus/game.mupen64plus.so` to this file so that Kodi will alway use the most recent build.
+To rebuild the add-on or compile a different one, clean the build directory
+
+```shell
+make -C tools/depends/target/binary-addons clean
+```
 
 ## Windows
 
@@ -61,29 +83,6 @@ The generated solution can be found at
 project\cmake\addons\build\kodi-addons.sln
 ```
 
-Currently, the build system corrupts `addons/game.mupen64plus/game.mupen64plus.dll`. You can find the correct .dll here
-
-```
-project\cmake\addons\build\game.mupen64plus-prefix\src\game.mupen64plus-build\mupen64plus\src\mupen64plus\mupen64plus_libretro.dll
-```
-
-Copy this to `addons/game.mupen64plus/` and rename to `game.mupen64plus.dll` to match the DLL name in [addon.xml](https://github.com/kodi-game/game.mupen64plus/blob/master/game.mupen64plus/addon.xml).
-
-# Building in-tree (cross-compiling)
-
-Kodi's build system will fetch the add-on from the GitHub URL and git hash specified in [game.mupen64plus.txt](https://github.com/garbear/xbmc/blob/retroplayer-15alpha2/project/cmake/addons/addons/game.mupen64plus/game.mupen64plus.txt).
-
-## Windows
-
-Remember, CMake and an external MinGW are required.
-
-```shell
-cd tools\buildsteps\win32
-make-addons.bat game.mupen64plus
-```
-
-See above for the location of the correct .dll.
-
 ## OSX
 
 Per [README.osx](https://github.com/garbear/xbmc/blob/retroplayer-15alpha2/docs/README.osx), enter the `tools/depends` directory and make the add-on:
@@ -92,25 +91,8 @@ Per [README.osx](https://github.com/garbear/xbmc/blob/retroplayer-15alpha2/docs/
 cd tools/depends
 make -C target/binary-addons ADDONS="game.mupen64plus"
 ```
-Currently, the build system corrupts `addons/game.mupen64plus/game.mupen64plus.dylib`. You can find the correct .dylib here
 
-```
-tools/depends/target/binary-addons/macosx10.10_x86_64-target/game.mupen64plus-prefix/src/game.mupen64plus-build/mupen64plus/src/mupen64plus/mupen64plus_libretro.dylib
-```
-
-The solution I've found is to symlink to the correct .dylib
-
-```shell
-cd addons/game.mupen64plus/
-rm game.mupen64plus.*
-ln -s ../../tools/depends/target/binary-addons/macosx10.10_x86_64-target/game.mupen64plus-prefix/src/game.mupen64plus-build/mupen64plus/src/mupen64plus/mupen64plus_libretro.dylib   game.mupen64plus.dylib
-```
-
-Unfortunately the symlink gets overwritten when the add-on is rebuilt.
-
-## Cleaning build directory
-
-Run the following to clean the build directory. Note, this will clean all add-ons, not just game.mupen64plus.
+To rebuild the add-on or compile a different one, clean the build directory
 
 ```shell
 make -C target/binary-addons clean

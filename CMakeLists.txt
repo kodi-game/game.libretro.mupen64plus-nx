@@ -40,8 +40,7 @@ externalproject_add(mupen64plus
                     BUILD_IN_SOURCE 1)
 
 set(MUPEN64PLUS_CUSTOM_BINARY ${PROJECT_BINARY_DIR}/mupen64plus/src/mupen64plus/mupen64plus_libretro${CMAKE_SHARED_LIBRARY_SUFFIX}
-                              mupen64plus_libretro${CMAKE_SHARED_LIBRARY_SUFFIX} mupen64plus)
+                              game.mupen64plus${CMAKE_SHARED_LIBRARY_SUFFIX} mupen64plus)
 
 build_addon(game.mupen64plus MUPEN64PLUS DEPLIBS)
 add_dependencies(game.mupen64plus mupen64plus)
-SET_TARGET_PROPERTIES(game.mupen64plus PROPERTIES LINKER_LANGUAGE CXX)

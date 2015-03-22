@@ -1,4 +1,4 @@
-project(game.mupen64plus)
+project(game.libretro.mupen64plus)
 
 cmake_minimum_required(VERSION 2.6)
 
@@ -40,7 +40,7 @@ externalproject_add(mupen64plus
                     BUILD_IN_SOURCE 1)
 
 set(MUPEN64PLUS_CUSTOM_BINARY ${PROJECT_BINARY_DIR}/mupen64plus/src/mupen64plus/mupen64plus_libretro${CMAKE_SHARED_LIBRARY_SUFFIX}
-                              game.mupen64plus${CMAKE_SHARED_LIBRARY_SUFFIX} mupen64plus)
+                              game.libretro.mupen64plus${CMAKE_SHARED_LIBRARY_SUFFIX} mupen64plus)
 
-build_addon(game.mupen64plus MUPEN64PLUS DEPLIBS)
-add_dependencies(game.mupen64plus mupen64plus)
+build_addon(game.libretro.mupen64plus MUPEN64PLUS DEPLIBS)
+add_dependencies(game.libretro.mupen64plus mupen64plus)

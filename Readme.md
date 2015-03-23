@@ -14,8 +14,7 @@ cd build
 Generate a build environment with config for debugging
 
 ```shell
-cmake -DADDONS_TO_BUILD=game.libretro.mupen64plus \
-      -DCMAKE_BUILD_TYPE=Debug \
+cmake -DCMAKE_BUILD_TYPE=Debug \
       -DCMAKE_INSTALL_PREFIX=$HOME/workspace/xbmc/addons \
       $HOME/workspace/xbmc/project/cmake/addons
 ```
@@ -27,7 +26,6 @@ It is also possible to generate Eclipse project files with cmake
 ```shell
 cmake -G"Eclipse CDT4 - Unix Makefiles" \
       -D_ECLIPSE_VERSION=4.4 \
-      -DADDONS_TO_BUILD=game.libretro.mupen64plus \
       -DCMAKE_BUILD_TYPE=Debug \
       -DCMAKE_INSTALL_PREFIX=$HOME/workspace/xbmc/addons \
       $HOME/workspace/xbmc/project/cmake/addons
@@ -65,6 +63,8 @@ make -C tools/depends/target/binary-addons clean
 
 ## Windows
 
+We will use CMake to generate a `kodi-addons.sln` Visual Studio solution and project files. Add-ons can be built individually through their specific project, or all at once by building the solution.
+
 First, download and install [CMake](http://www.cmake.org/download/) and [MinGW](http://www.mingw.org/). Add the MinGW `bin` folder to your path (e.g. `C:\MinGW\bin`).
 
 Run the script from [PR 6658](https://github.com/xbmc/xbmc/pull/6658) to create Visual Studio project files
@@ -78,6 +78,8 @@ The generated solution can be found at
 ```
 project\cmake\addons\build\kodi-addons.sln
 ```
+
+No source code is downloaded at the CMake stage; when the project is built, the add-on's source will be downloaded and compiled.
 
 ## OSX
 

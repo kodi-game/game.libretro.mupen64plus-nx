@@ -2,13 +2,11 @@
 
 ## Linux
 
-Clone the repo and create a build directory
+Create and enter a build directory
 
 ```shell
-git clone https://github.com/kodi-game/game.libretro.mupen64plus.git
+mkdir game.libretro.mupen64plus
 cd game.libretro.mupen64plus
-mkdir build
-cd build
 ```
 
 Generate a build environment with config for debugging
@@ -17,21 +15,11 @@ Generate a build environment with config for debugging
 cmake -DADDONS_TO_BUILD=game.libretro.mupen64plus \
       -DCMAKE_BUILD_TYPE=Debug \
       -DCMAKE_INSTALL_PREFIX=$HOME/workspace/xbmc/addons \
+      -DPACKAGE_ZIP=1 \
       $HOME/workspace/xbmc/project/cmake/addons
 ```
 
-If you are developing in Eclipse, you can create a "makefile project with existing code" using `game.libretro.mupen64plus/` as the existing code location. To build, enter Properties -> "C/C++ Build" and change the build command to `make -C build`.
-
-It is also possible to generate Eclipse project files with cmake
-
-```shell
-cmake -G"Eclipse CDT4 - Unix Makefiles" \
-      -D_ECLIPSE_VERSION=4.4 \
-      -DADDONS_TO_BUILD=game.libretro.mupen64plus \
-      -DCMAKE_BUILD_TYPE=Debug \
-      -DCMAKE_INSTALL_PREFIX=$HOME/workspace/xbmc/addons \
-      $HOME/workspace/xbmc/project/cmake/addons
-```
+The add-on can then be built with `make`.
 
 # Building in-tree (cross-compiling)
 

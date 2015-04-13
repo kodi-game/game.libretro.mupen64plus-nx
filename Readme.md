@@ -27,11 +27,7 @@ Kodi's build system will fetch the add-on from the GitHub URL and git hash speci
 
 ## Linux
 
-Ensure that kodi has been built successfully. Then, from the root of the source tree, run
-
-```shell
-make install DESTDIR=$HOME/kodi
-```
+Configure Kodi using `./configure --prefix=$HOME/kodi`. Then run `make` and `make install`.
 
 Build the add-on
 

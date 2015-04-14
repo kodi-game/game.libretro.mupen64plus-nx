@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Work in progress
+
+See also:
+* https://github.com/libretro/mupen64plus-libretro/blob/master/mupen64plus-core/src/plugin/emulate_game_controller_via_libretro.c
+
+-->
+<buttonmap>
+  <controller id="game.controller.n64" type="joypad">
+    <feature name="a" mapto="a"/>
+    <feature name="b" mapto="b"/>
+    <feature name="cup" mapto="x"/>
+    <feature name="cdown" mapto="y"/>
+    <feature name="cright" mapto="r"/>
+    <feature name="cleft" mapto="l"/>
+    <feature name="start" mapto="start"/>
+    <feature name="up" mapto="up"/>
+    <feature name="down" mapto="down"/>
+    <feature name="right" mapto="right"/>
+    <feature name="left" mapto="left"/>
+    <feature name="leftbumper" mapto="r2"/>
+    <feature name="rightbumper" mapto="l2"/>
+    <feature name="z" mapto="l3"/>
+    <feature name="analogstick" mapto="leftstick"/>
+  </controller>
+</buttonmap>
+

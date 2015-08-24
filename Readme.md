@@ -49,11 +49,15 @@ make -C tools/depends/target/binary-addons clean
 
 ## Windows
 
-We will use CMake to generate a `kodi-addons.sln` Visual Studio solution and project files. Add-ons can be built individually through their specific project, or all at once by building the solution.
+Download and install [CMake](http://www.cmake.org/download/) and [MinGW](http://www.mingw.org/). Add the MinGW `bin` folder to your path (e.g. `C:\MinGW\bin`).
 
-First, download and install [CMake](http://www.cmake.org/download/) and [MinGW](http://www.mingw.org/). Add the MinGW `bin` folder to your path (e.g. `C:\MinGW\bin`).
+To compile on windows, open a command prompt at `tools\buildsteps\win32` and run the script:
 
-Run the script from [PR 6658](https://github.com/xbmc/xbmc/pull/6658) to create Visual Studio project files
+```
+make-addons.bat install game.libretro.mupen64plus
+```
+
+Alternatively, generate the `kodi-addons.sln` Visual Studio solution and project files.
 
 ```
 tools\windows\prepare-binary-addons-dev.bat
@@ -64,6 +68,8 @@ The generated solution can be found at
 ```
 project\cmake\addons\build\kodi-addons.sln
 ```
+
+Add-ons can be built individually through their specific project, or all at once by building the solution.
 
 No source code is downloaded at the CMake stage; when the project is built, the add-on's source will be downloaded and compiled.
 

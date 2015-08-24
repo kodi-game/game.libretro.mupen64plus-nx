@@ -1,6 +1,6 @@
-# Building out-of-tree (recommended)
+## Building out-of-tree (recommended)
 
-## Linux
+### Linux
 
 Create and enter a build directory
 
@@ -21,11 +21,11 @@ cmake -DADDONS_TO_BUILD=game.libretro.mupen64plus \
 
 The add-on can then be built with `make`.
 
-# Building in-tree (cross-compiling)
+## Building in-tree (cross-compiling)
 
 Kodi's build system will fetch the add-on from the GitHub URL and git hash specified in [game.libretro.mupen64plus.txt](https://github.com/garbear/xbmc/blob/retroplayer-15alpha2/project/cmake/addons/addons/game.libretro.mupen64plus/game.libretro.mupen64plus.txt).
 
-## Linux
+### Linux
 
 Configure Kodi using `./configure --prefix=$HOME/kodi`. Then run `make` and `make install`.
 
@@ -47,7 +47,7 @@ To rebuild the add-on or compile a different one, clean the build directory
 make -C tools/depends/target/binary-addons clean
 ```
 
-## Windows
+### Windows
 
 Download and install [CMake](http://www.cmake.org/download/) and [MinGW](http://www.mingw.org/). Add the MinGW `bin` folder to your path (e.g. `C:\MinGW\bin`).
 
@@ -73,7 +73,7 @@ Add-ons can be built individually through their specific project, or all at once
 
 No source code is downloaded at the CMake stage; when the project is built, the add-on's source will be downloaded and compiled.
 
-## OSX
+### OSX
 
 Per [README.osx](https://github.com/garbear/xbmc/blob/retroplayer-15alpha2/docs/README.osx), enter the `tools/depends` directory and make the add-on:
 

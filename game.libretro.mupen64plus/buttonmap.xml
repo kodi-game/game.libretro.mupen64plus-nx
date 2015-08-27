@@ -8,7 +8,7 @@ See also:
 
 -->
 <buttonmap>
-  <controller id="game.controller.n64" type="joypad">
+  <controller id="game.controller.n64" type="analog">
     <feature name="a" mapto="a"/>
     <feature name="b" mapto="b"/>
     <feature name="cup" mapto="x"/>

@@ -44,4 +44,4 @@ install(FILES ${PROJECT_SOURCE_DIR}/mupen64plus_libretro${CMAKE_SHARED_LIBRARY_S
         DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
 
 # write the mupen64plus-config.cmake script
-file(WRITE ${CMAKE_INSTALL_PREFIX}/mupen64plus-config.cmake "set(MUPEN64PLUS_LIB ${CMAKE_INSTALL_PREFIX}/lib/mupen64plus_libretro${CMAKE_SHARED_LIBRARY_SUFFIX})")
+file(WRITE ${CMAKE_INSTALL_PREFIX}/libretro-mupen64plus-config.cmake "set(MUPEN64PLUS_LIB ${CMAKE_INSTALL_PREFIX}/lib/mupen64plus_libretro${CMAKE_SHARED_LIBRARY_SUFFIX})")

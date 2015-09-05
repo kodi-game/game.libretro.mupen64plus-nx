@@ -7,7 +7,7 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})
 enable_language(CXX)
 
 find_package(kodi REQUIRED)
-find_package(mupen64plus REQUIRED)
+find_package(libretro-mupen64plus REQUIRED)
 
 set(DEPLIBS mupen64plus)
 set(MUPEN64PLUS_CUSTOM_BINARY ${MUPEN64PLUS_LIB}

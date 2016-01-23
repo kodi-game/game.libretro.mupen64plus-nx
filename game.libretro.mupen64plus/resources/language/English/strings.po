@@ -25,7 +25,7 @@ msgid "CPU Core"
 msgstr ""
 
 msgctxt "#30002"
-msgid "Buttons B and A"
+msgid "Audio Buffer Size"
 msgstr ""
 
 msgctxt "#30003"
@@ -49,11 +49,11 @@ msgid "Player 4 Pak"
 msgstr ""
 
 msgctxt "#30008"
-msgid "Disable Expansion RAM"
+msgid "Enable Expansion Pak RAM"
 msgstr ""
 
 msgctxt "#30009"
-msgid "GFX Accuracy (restart)"
+msgid "GFX Accuracy"
 msgstr ""
 
 msgctxt "#30010"
@@ -65,17 +65,49 @@ msgid "RSP Plugin"
 msgstr ""
 
 msgctxt "#30012"
-msgid "Resolution (restart)"
+msgid "Resolution"
 msgstr ""
 
 msgctxt "#30013"
-msgid "Glide texture filtering"
+msgid "Aspect ratio hint"
 msgstr ""
 
 msgctxt "#30014"
-msgid "VI Refresh (Overclock)"
+msgid "Texture Filtering"
 msgstr ""
 
 msgctxt "#30015"
-msgid "Framerate (restart)"
+msgid "(Glide64) Polygon Offset Factor"
+msgstr ""
+
+msgctxt "#30016"
+msgid "(Glide64) Polygon Offset Units"
+msgstr ""
+
+msgctxt "#30017"
+msgid "(Angrylion) VI Overlay"
+msgstr ""
+
+msgctxt "#30018"
+msgid "VI Refresh (Overclock)"
+msgstr ""
+
+msgctxt "#30019"
+msgid "Buffer Swap"
+msgstr ""
+
+msgctxt "#30020"
+msgid "Framerate"
+msgstr ""
+
+msgctxt "#30021"
+msgid "(Glide64) Vertex cache VBO"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Boot Device"
+msgstr ""
+
+msgctxt "#30023"
+msgid "64DD Hardware"
 msgstr ""

@@ -8,11 +8,7 @@
 		<import addon="game.controller.n64" version="1.0.0"/>
 	</requires>
 	<extension point="kodi.gameclient"
-			library_android="libgame.libretro.mupen64plus.so"
-			library_linux="game.libretro.mupen64plus.so"
-			library_osx="game.libretro.mupen64plus.dylib"
-			library_windx="game.libretro.mupen64plus.dll"
-			library_wingl="game.libretro.mupen64plus.dll">
+			library_@PLATFORM@="@LIBRARY_FILENAME@">
 		<platforms>Nintendo 64</platforms>
 		<extensions>n64|v64|z64|bin|u1|ndd</extensions>
 		<supports_vfs>true</supports_vfs>
@@ -25,8 +21,9 @@
 
 Supported files: .n64, .v64, .z64, .bin, .u1, .ndd</description>
 		<license>GPLv2</license>
-		<platform></platform>
+		<platform>@PLATFORM@</platform>
 		<nofanart>true</nofanart>
 		<noicon>true</noicon>
 	</extension>
 </addon>
+

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="game.libretro.mupen64plus"
-		name="Nintendo 64 (Mupen64plus)"
+		name="Nintendo 64 (Mupen64 Plus)"
 		version="2.0.2"
 		provider-name="Libretro">
 	<requires>
@@ -20,7 +20,7 @@
 		<supports_keyboard>false</supports_keyboard>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en">Mupen64Plus (2.0-rc2)</summary>
+		<summary lang="en">Mupen64 Plus v2.0-rc2</summary>
 		<description>Mupen64 is a N64 emulator desgined to be multi-OS. It uses a plugin system and is highly compatible.
 
 Supported files: .n64, .v64, .z64, .bin, .u1, .ndd</description>

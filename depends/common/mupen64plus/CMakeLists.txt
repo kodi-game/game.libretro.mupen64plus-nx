@@ -1,10 +1,7 @@
+cmake_minimum_required(VERSION 3.1)
 project(mupen64plus)
 
-cmake_minimum_required(VERSION 2.6)
-
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})
-
-enable_language(CXX)
 
 include(ExternalProject)
 

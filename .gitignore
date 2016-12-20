@@ -1,1 +1,26 @@
-addon.xml
+# build artifacts
+build/
+obj-x86_64-linux-gnu/
+game.*/addon.xml
+
+# commonly used editors
+# vim
+*.swp
+
+# Eclipse
+*.project
+*.cproject
+.classpath
+.settings/
+
+# Sublime
+*.sublime-*
+
+# KDevelop 4
+*.kdev4
+
+# gedit
+*~
+
+# CLion
+.idea

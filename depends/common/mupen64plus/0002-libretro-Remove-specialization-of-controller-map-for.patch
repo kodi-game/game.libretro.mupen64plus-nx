@@ -4,6 +4,8 @@ Date: Sun, 13 Sep 2015 19:40:12 +0200
 Subject: libretro: Remove specialization of controller map for
  certain games
 
+Upstream-Status: Inappropriate, only for testing
+
 ---
  .../plugin/emulate_game_controller_via_libretro.c  | 166 ---------------------
  1 file changed, 166 deletions(-)

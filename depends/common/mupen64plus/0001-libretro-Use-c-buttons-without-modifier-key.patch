@@ -3,6 +3,8 @@ From: Wolfgang Haupt <haupt.wolfgang@gmail.com>
 Date: Sun, 13 Sep 2015 17:29:00 +0200
 Subject: libretro: Use c-buttons without modifier key
 
+Upstream-Status: Inappropriate, only for testing
+
 ---
  .../src/plugin/emulate_game_controller_via_libretro.c     | 15 ++++++++++++++-
  1 file changed, 14 insertions(+), 1 deletion(-)

@@ -1,14 +1,14 @@
-From 717b800f4e7d2f69da040ffa6312549bd3b44349 Mon Sep 17 00:00:00 2001
+From 14cf0bd30410a1389c90b788d690b5856b766d19 Mon Sep 17 00:00:00 2001
 From: Wolfgang Haupt <haupt.wolfgang@gmail.com>
 Date: Sun, 13 Sep 2015 17:29:00 +0200
-Subject: [PATCH 1/2] use c-buttons without modifier key
+Subject: libretro: Use c-buttons without modifier key
 
 ---
  .../src/plugin/emulate_game_controller_via_libretro.c     | 15 ++++++++++++++-
  1 file changed, 14 insertions(+), 1 deletion(-)
 
 diff --git a/mupen64plus-core/src/plugin/emulate_game_controller_via_libretro.c b/mupen64plus-core/src/plugin/emulate_game_controller_via_libretro.c
-index e08af9d..ee13999 100644
+index 34f3060c..64bcaae3 100644
 --- a/mupen64plus-core/src/plugin/emulate_game_controller_via_libretro.c
 +++ b/mupen64plus-core/src/plugin/emulate_game_controller_via_libretro.c
 @@ -85,6 +85,8 @@ static void inputGetKeys_default_descriptor(void)
@@ -47,7 +47,7 @@ index e08af9d..ee13999 100644
  
        { 3, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT , RETRO_DEVICE_ID_ANALOG_X, "Control Stick X" },
        { 3, RETRO_DEVICE_ANALOG, RETRO_DEVICE_INDEX_ANALOG_LEFT , RETRO_DEVICE_ID_ANALOG_Y, "Control Stick Y" },
-@@ -716,7 +724,7 @@ static void inputGetKeys_default( int Control, BUTTONS *Keys )
+@@ -744,7 +752,7 @@ static void inputGetKeys_default( int Control, BUTTONS *Keys )
  
     Keys->R_TRIG = input_cb(Control, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_R);
  
@@ -56,7 +56,7 @@ index e08af9d..ee13999 100644
     if (hold_cstick)
     {
        Keys->R_CBUTTON = input_cb(Control, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_A);
-@@ -730,6 +738,11 @@ static void inputGetKeys_default( int Control, BUTTONS *Keys )
+@@ -760,6 +768,11 @@ static void inputGetKeys_default( int Control, BUTTONS *Keys )
        Keys->A_BUTTON = input_cb(Control, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_A);
        Keys->L_TRIG = input_cb(Control, RETRO_DEVICE_JOYPAD, 0,   RETRO_DEVICE_ID_JOYPAD_L);
        Keys->Z_TRIG = input_cb(Control, RETRO_DEVICE_JOYPAD, 0,   RETRO_DEVICE_ID_JOYPAD_L2);
@@ -69,5 +69,5 @@ index e08af9d..ee13999 100644
  
  
 -- 
-2.3.2 (Apple Git-55)
+2.11.0
 

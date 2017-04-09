@@ -21,93 +21,133 @@ msgid "Settings"
 msgstr ""
 
 msgctxt "#30001"
-msgid "64DD Hardware"
+msgid "16:9 Resolution"
 msgstr ""
 
 msgctxt "#30002"
-msgid "(Angrylion) VI Overlay"
+msgid "4:3 Resolution"
 msgstr ""
 
 msgctxt "#30003"
-msgid "Aspect ratio hint (reinit)"
+msgid "Bilinear filtering mode"
 msgstr ""
 
 msgctxt "#30004"
-msgid "Analog Deadzone (percent)"
+msgid "Continuous texrect coords"
 msgstr ""
 
 msgctxt "#30005"
-msgid "Audio Buffer Size (restart)"
+msgid "Count Per Op"
 msgstr ""
 
 msgctxt "#30006"
-msgid "Boot Device"
+msgid "Crop Mode"
 msgstr ""
 
 msgctxt "#30007"
-msgid "Buffer Swap"
+msgid "Color buffer to RDRAM"
 msgstr ""
 
 msgctxt "#30008"
-msgid "CPU Core"
+msgid "Depth buffer to RDRAM"
 msgstr ""
 
 msgctxt "#30009"
-msgid "Enable Expansion Pak RAM"
+msgid "Framebuffer Emulation"
 msgstr ""
 
 msgctxt "#30010"
-msgid "Texture Filtering"
+msgid "GPU shader depth write"
 msgstr ""
 
 msgctxt "#30011"
-msgid "Framerate (restart)"
+msgid "Hardware per-pixel lighting"
 msgstr ""
 
 msgctxt "#30012"
-msgid "GFX Plugin"
+msgid "Less accurate blending mode"
 msgstr ""
 
 msgctxt "#30013"
-msgid "GFX Accuracy (restart)"
+msgid "Native res. 2D texrects"
 msgstr ""
 
 msgctxt "#30014"
-msgid "Player 1 Pak"
+msgid "Cache GPU Shaders"
 msgstr ""
 
 msgctxt "#30015"
-msgid "Player 2 Pak"
+msgid "MSAA level"
 msgstr ""
 
 msgctxt "#30016"
-msgid "Player 3 Pak"
+msgid "Aspect Ratio"
 msgstr ""
 
 msgctxt "#30017"
-msgid "Player 4 Pak"
+msgid "Analog Deadzone (percent)"
 msgstr ""
 
 msgctxt "#30018"
-msgid "(Glide64) Polygon Offset Factor"
+msgid "Analog Sensitivity (percent)"
 msgstr ""
 
 msgctxt "#30019"
-msgid "(Glide64) Polygon Offset Units"
+msgid "CPU Core"
 msgstr ""
 
 msgctxt "#30020"
-msgid "RSP Plugin"
+msgid "Down C Button"
 msgstr ""
 
 msgctxt "#30021"
-msgid "Resolution (restart)"
+msgid "Left C Button"
 msgstr ""
 
 msgctxt "#30022"
-msgid "(Glide64) Vertex cache VBO (restart)"
+msgid "Player 1 Pak"
 msgstr ""
 
 msgctxt "#30023"
-msgid "VI Refresh (Overclock)"
+msgid "Player 2 Pak"
+msgstr ""
+
+msgctxt "#30024"
+msgid "Player 3 Pak"
+msgstr ""
+
+msgctxt "#30025"
+msgid "Player 4 Pak"
+msgstr ""
+
+msgctxt "#30026"
+msgid "Right C Button"
+msgstr ""
+
+msgctxt "#30027"
+msgid "RSP Mode"
+msgstr ""
+
+msgctxt "#30028"
+msgid "Texture Enhancement"
+msgstr ""
+
+msgctxt "#30029"
+msgid "Filter background textures"
+msgstr ""
+
+msgctxt "#30030"
+msgid "Texture filter"
+msgstr ""
+
+msgctxt "#30031"
+msgid "Use High-Res textures"
+msgstr ""
+
+msgctxt "#30032"
+msgid "Use High-Res Full Alpha Channel"
+msgstr ""
+
+msgctxt "#30033"
+msgid "Up C Button"
 msgstr ""

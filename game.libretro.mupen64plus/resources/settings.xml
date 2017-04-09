@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
 	<category label="30000">
-		<setting label="30001" type="select" id="mupen64-64dd-hardware" values="disabled|enabled" default="disabled"/>
-		<setting label="30002" type="select" id="mupen64-angrylion-vioverlay" values="disabled|enabled" default="disabled"/>
-		<setting label="30003" type="select" id="mupen64-aspectratiohint" values="normal|widescreen" default="normal"/>
-		<setting label="30004" type="select" id="mupen64-astick-deadzone" values="15|20|25|30|0|5|10" default="15"/>
-		<setting label="30005" type="select" id="mupen64-audio-buffer-size" values="2048|1024" default="2048"/>
-		<setting label="30006" type="select" id="mupen64-boot-device" values="Default|64DD IPL" default="Default"/>
-		<setting label="30007" type="select" id="mupen64-bufferswap" values="off|on" default="off"/>
-		<setting label="30008" type="select" id="mupen64-cpucore" values="dynamic_recompiler|cached_interpreter|pure_interpreter" default="dynamic_recompiler"/>
-		<setting label="30009" type="select" id="mupen64-disable_expmem" values="enabled|disabled" default="enabled"/>
-		<setting label="30010" type="select" id="mupen64-filtering" values="automatic|N64 3-point|bilinear|nearest" default="automatic"/>
-		<setting label="30011" type="select" id="mupen64-framerate" values="original|fullspeed" default="original"/>
-		<setting label="30012" type="select" id="mupen64-gfxplugin" values="auto|glide64|gln64|rice|angrylion|parallel" default="auto"/>
-		<setting label="30013" type="select" id="mupen64-gfxplugin-accuracy" values="veryhigh|high|medium|low" default="veryhigh"/>
-		<setting label="30014" type="select" id="mupen64-pak1" values="none|memory|rumble" default="none"/>
-		<setting label="30015" type="select" id="mupen64-pak2" values="none|memory|rumble" default="none"/>
-		<setting label="30016" type="select" id="mupen64-pak3" values="none|memory|rumble" default="none"/>
-		<setting label="30017" type="select" id="mupen64-pak4" values="none|memory|rumble" default="none"/>
-		<setting label="30018" type="select" id="mupen64-polyoffset-factor" values="-3.0|-2.5|-2.0|-1.5|-1.0|-0.5|0.0|0.5|1.0|1.5|2.0|2.5|3.0|3.5|4.0|4.5|5.0|-3.5|-4.0|-4.5|-5.0" default="-3.0"/>
-		<setting label="30019" type="select" id="mupen64-polyoffset-units" values="-3.0|-2.5|-2.0|-1.5|-1.0|-0.5|0.0|0.5|1.0|1.5|2.0|2.5|3.0|3.5|4.0|4.5|5.0|-3.5|-4.0|-4.5|-5.0" default="-3.0"/>
-		<setting label="30020" type="select" id="mupen64-rspplugin" values="auto|hle|parallel|cxd4" default="auto"/>
-		<setting label="30021" type="select" id="mupen64-screensize" values="640x480|960x720|1280x960|1600x1200|1920x1440|2240x1680|320x240" default="640x480"/>
-		<setting label="30022" type="select" id="mupen64-vcache-vbo" values="off|on" default="off"/>
-		<setting label="30023" type="select" id="mupen64-virefresh" values="1500|2200" default="1500"/>
+		<setting label="30001" type="select" id="mupen64plus-169screensize" values="640x360|960x540|1280x720|1920x1080|3840x2160" default="640x360"/>
+		<setting label="30002" type="select" id="mupen64plus-43screensize" values="320x240|640x480|960x720|1280x960|1600x1200|1920x1440" default="320x240"/>
+		<setting label="30003" type="select" id="mupen64plus-BilinearMode" values="standard|3point" default="standard"/>
+		<setting label="30004" type="select" id="mupen64plus-CorrectTexrectCoords" values="Off|Auto|Force" default="Off"/>
+		<setting label="30005" type="select" id="mupen64plus-CountPerOp" values="0|1|2|3" default="0"/>
+		<setting label="30006" type="select" id="mupen64plus-CropMode" values="Auto|Off" default="Auto"/>
+		<setting label="30007" type="select" id="mupen64plus-EnableCopyColorToRDRAM" values="Async|Sync|Off" default="Async"/>
+		<setting label="30008" type="select" id="mupen64plus-EnableCopyDepthToRDRAM" values="Software|FromMem|Off" default="Software"/>
+		<setting label="30009" type="select" id="mupen64plus-EnableFBEmulation" values="True|False" default="True"/>
+		<setting label="30010" type="select" id="mupen64plus-EnableFragmentDepthWrite" values="True|False" default="True"/>
+		<setting label="30011" type="select" id="mupen64plus-EnableHWLighting" values="False|True" default="False"/>
+		<setting label="30012" type="select" id="mupen64plus-EnableLegacyBlending" values="False|True" default="False"/>
+		<setting label="30013" type="select" id="mupen64plus-EnableNativeResTexrects" values="False|True" default="False"/>
+		<setting label="30014" type="select" id="mupen64plus-EnableShadersStorage" values="True|False" default="True"/>
+		<setting label="30015" type="select" id="mupen64plus-MultiSampling" values="0|2|4|8|16" default="0"/>
+		<setting label="30016" type="select" id="mupen64plus-aspect" values="4:3|16:9|16:9 adjusted" default="4:3"/>
+		<setting label="30017" type="select" id="mupen64plus-astick-deadzone" values="15|20|25|30|0|5|10" default="15"/>
+		<setting label="30018" type="select" id="mupen64plus-astick-sensitivity" values="100|95|90|85|80|105|110" default="100"/>
+		<setting label="30019" type="select" id="mupen64plus-cpucore" values="dynamic_recompiler|cached_interpreter|pure_interpreter" default="dynamic_recompiler"/>
+		<setting label="30020" type="select" id="mupen64plus-d-cbutton" values="C3|C4|C1|C2" default="C3"/>
+		<setting label="30021" type="select" id="mupen64plus-l-cbutton" values="C2|C3|C4|C1" default="C2"/>
+		<setting label="30022" type="select" id="mupen64plus-pak1" values="memory|rumble|none" default="memory"/>
+		<setting label="30023" type="select" id="mupen64plus-pak2" values="none|memory|rumble" default="none"/>
+		<setting label="30024" type="select" id="mupen64plus-pak3" values="none|memory|rumble" default="none"/>
+		<setting label="30025" type="select" id="mupen64plus-pak4" values="none|memory|rumble" default="none"/>
+		<setting label="30026" type="select" id="mupen64plus-r-cbutton" values="C1|C2|C3|C4" default="C1"/>
+		<setting label="30027" type="select" id="mupen64plus-rspmode" values="HLE|LLE" default="HLE"/>
+		<setting label="30028" type="select" id="mupen64plus-txEnhancementMode" values="None|As Is|X2|X2SAI|HQ2X|HQ2XS|LQ2X|LQ2XS|HQ4X|2xBRZ|3xBRZ|4xBRZ|5xBRZ|6xBRZ" default="None"/>
+		<setting label="30029" type="select" id="mupen64plus-txFilterIgnoreBG" values="True|False" default="True"/>
+		<setting label="30030" type="select" id="mupen64plus-txFilterMode" values="None|Smooth filtering 1|Smooth filtering 2|Smooth filtering 3|Smooth filtering 4|Sharp filtering 1|Sharp filtering 2" default="None"/>
+		<setting label="30031" type="select" id="mupen64plus-txHiresEnable" values="False|True" default="False"/>
+		<setting label="30032" type="select" id="mupen64plus-txHiresFullAlphaChannel" values="False|True" default="False"/>
+		<setting label="30033" type="select" id="mupen64plus-u-cbutton" values="C4|C1|C2|C3" default="C4"/>
 	</category>
 </settings>

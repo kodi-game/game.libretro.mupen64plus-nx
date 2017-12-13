@@ -24,3 +24,7 @@ game.*/addon.xml
 
 # CLion
 .idea
+
+# OSX ignorables
+.DS_Store
+._*

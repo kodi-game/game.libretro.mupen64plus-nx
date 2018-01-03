@@ -1,29 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-
-Work in progress
-
-See also:
-* https://github.com/libretro/mupen64plus-libretro/blob/master/mupen64plus-core/src/plugin/emulate_game_controller_via_libretro.c
-
--->
-<buttonmap>
-  <controller id="game.controller.n64" type="analog">
-    <feature name="a" mapto="a"/>
-    <feature name="b" mapto="b"/>
-    <feature name="cup" mapto="x"/>
-    <feature name="cdown" mapto="r3"/>
-    <feature name="cright" mapto="l3"/>
-    <feature name="cleft" mapto="y"/>
-    <feature name="start" mapto="start"/>
-    <feature name="up" mapto="up"/>
-    <feature name="down" mapto="down"/>
-    <feature name="right" mapto="right"/>
-    <feature name="left" mapto="left"/>
-    <feature name="leftbumper" mapto="l"/>
-    <feature name="rightbumper" mapto="r"/>
-    <feature name="z" mapto="l2"/>
-    <feature name="analogstick" mapto="leftstick"/>
-  </controller>
+<buttonmap version="2">
+	<controller id="game.controller.n64" type="RETRO_DEVICE_ANALOG">
+		<feature name="a" mapto="RETRO_DEVICE_ID_JOYPAD_B"/>
+		<feature name="b" mapto="RETRO_DEVICE_ID_JOYPAD_Y"/>
+		<feature name="cup" mapto="RETRO_DEVICE_INDEX_ANALOG_RIGHT" direction="up"/>
+		<feature name="cdown" mapto="RETRO_DEVICE_INDEX_ANALOG_RIGHT" direction="down"/>
+		<feature name="cright" mapto="RETRO_DEVICE_INDEX_ANALOG_RIGHT" direction="right"/>
+		<feature name="cleft" mapto="RETRO_DEVICE_INDEX_ANALOG_RIGHT" direction="left"/>
+		<feature name="up" mapto="RETRO_DEVICE_ID_JOYPAD_UP"/>
+		<feature name="down" mapto="RETRO_DEVICE_ID_JOYPAD_DOWN"/>
+		<feature name="right" mapto="RETRO_DEVICE_ID_JOYPAD_RIGHT"/>
+		<feature name="left" mapto="RETRO_DEVICE_ID_JOYPAD_LEFT"/>
+		<feature name="leftbumper" mapto="RETRO_DEVICE_ID_JOYPAD_L"/>
+		<feature name="rightbumper" mapto="RETRO_DEVICE_ID_JOYPAD_R"/>
+		<feature name="z" mapto="RETRO_DEVICE_ID_JOYPAD_L2"/>
+		<feature name="analogstick" mapto="RETRO_DEVICE_INDEX_ANALOG_LEFT"/>
+        <feature name="motor" mapto="RETRO_RUMBLE_WEAK"/>
+	</controller>
 </buttonmap>
-

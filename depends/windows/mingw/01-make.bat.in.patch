@@ -1,0 +1,8 @@
+--- /dev/null
++++ b/make.bat.in
+@@ -0,0 +1,5 @@
++@ECHO OFF
++SETLOCAL
++
++SET PATH=@CMAKE_CURRENT_SOURCE_DIR@\@MINGW_PATH@\bin;@CMAKE_CURRENT_SOURCE_DIR@\usr\bin;%PATH%
++make.exe %*

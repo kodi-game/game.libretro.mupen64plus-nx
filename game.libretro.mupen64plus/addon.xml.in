@@ -15,8 +15,8 @@
 		<supports_standalone>false</supports_standalone>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en">Nintendo - Nintendo 64 (Mupen64Plus) 2.5</summary>
-		<description>Mupen64 is a N64 emulator desgined to be multi-OS. It uses a plugin system and is highly compatible.
+		<summary lang="en_GB">Nintendo - Nintendo 64 (Mupen64Plus) 2.5</summary>
+		<description lang="en_GB">Mupen64 is a N64 emulator desgined to be multi-OS. It uses a plugin system and is highly compatible.
 
 Supported files: .n64, .v64, .z64, .bin, .u1, .ndd</description>
 		<license>GPLv2</license>

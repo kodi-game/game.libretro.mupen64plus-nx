@@ -23,8 +23,9 @@ matrix:
       compiler: clang
     - os: osx
       osx_image: xcode7.3
-    - os: osx
-      osx_image: xcode6.4
+    # Disabled due to build error: "ld: library not found for -lgcc_s.10.4"
+    #- os: osx
+    #  osx_image: xcode6.4
 
 #
 # Some of the OS X images don't have cmake, contrary to what people

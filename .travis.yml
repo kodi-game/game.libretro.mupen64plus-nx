@@ -14,11 +14,11 @@ env:
 matrix:
   include:
     - os: linux
-      dist: trusty
+      dist: xenial
       sudo: required
       compiler: gcc
     - os: linux
-      dist: trusty
+      dist: xenial
       sudo: required
       compiler: clang
     - os: osx
@@ -38,4 +38,4 @@ before_script:
   - echo ${app_id} $TRAVIS_BUILD_DIR $TRAVIS_COMMIT > definition/${app_id}/${app_id}.txt
   - cmake -DADDONS_TO_BUILD=${app_id} -DADDON_SRC_PREFIX=$TRAVIS_BUILD_DIR/.. -DADDONS_DEFINITION_DIR=$TRAVIS_BUILD_DIR/build/definition -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$TRAVIS_BUILD_DIR/../xbmc/addons -DPACKAGE_ZIP=1 $TRAVIS_BUILD_DIR/../xbmc/cmake/addons
 
-script: make
+script: make -j$(getconf _NPROCESSORS_ONLN)

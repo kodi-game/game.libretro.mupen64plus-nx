@@ -18,7 +18,7 @@
 		<setting label="30015" type="select" id="mupen64plus-MultiSampling" values="0|2|4|8|16" default="0"/>
 		<setting label="30016" type="select" id="mupen64plus-aspect" values="4:3|16:9|16:9 adjusted" default="4:3"/>
 		<setting label="30017" type="select" id="mupen64plus-astick-deadzone" values="15|20|25|30|0|5|10" default="15"/>
-		<setting label="30018" type="select" id="mupen64plus-astick-sensitivity" values="100|95|90|85|80|105|110" default="100"/>
+		<setting label="30018" type="select" id="mupen64plus-astick-sensitivity" values="100|105|110|115|120|125|130|135|140|145|150|50|55|60|65|70|75|80|85|90|95" default="100"/>
 		<setting label="30019" type="select" id="mupen64plus-cpucore" values="dynamic_recompiler|cached_interpreter|pure_interpreter" default="dynamic_recompiler"/>
 		<setting label="30020" type="select" id="mupen64plus-d-cbutton" values="C3|C4|C1|C2" default="C3"/>
 		<setting label="30021" type="select" id="mupen64plus-l-cbutton" values="C2|C3|C4|C1" default="C2"/>

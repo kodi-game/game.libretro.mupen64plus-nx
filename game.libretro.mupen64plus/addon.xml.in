@@ -21,5 +21,6 @@
 Supported files: .n64, .v64, .z64, .bin, .u1, .ndd</description>
 		<license>GPLv2</license>
 		<platform>@PLATFORM@</platform>
+		<source>https://github.com/kodi-game/game.libretro.mupen64plus</source>
 	</extension>
 </addon>

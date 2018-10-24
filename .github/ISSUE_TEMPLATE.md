@@ -14,21 +14,9 @@ Here is a clear and concise description of what the problem is:
 
 
 
-## Expected Behavior
-Here is a clear and concise description of what was expected to happen:
-<!--- Tell us what should happen -->
-<!--- Put your text below this line -->
-
-
-
-## Actual Behavior
-<!--- Tell us what happens instead -->
-<!--- Put your text below this line -->
-
-
-
-## Possible Fix
-<!--- Not obligatory, but suggest a fix or reason for the bug -->
+## RetroArch Behavior
+Here is a clear and concise description of what happens in RetroArch with the same core/game:
+<!--- Please test the core and game in RetroArch and tell us if the same bug happens -->
 <!--- Put your text below this line -->
 
 
@@ -56,13 +44,6 @@ Here are some links or screenshots to help explain the problem:
 
 
 
-## Additional context or screenshots (if appropriate)
-Here is some additional context or explanation that might help:
-<!--- How has this bug affected you? What were you trying to accomplish? -->
-<!--- Put your text below this line -->
-
-
-
 ### Your Environment
 Used Operating system:
 <!--- Include as many relevant details about the environment you experienced the bug in -->
@@ -75,8 +56,9 @@ Used Operating system:
  - [ ] Windows
  - [ ] Windows UWP
 
- - Operating system version/name:
- - Kodi version:
+Operating system version/name:
+
+Kodi version:
 
 
 

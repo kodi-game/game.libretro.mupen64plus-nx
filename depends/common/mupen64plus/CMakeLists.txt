@@ -57,4 +57,4 @@ externalproject_add(${PROJECT_NAME}
 
 # install the generated shared library
 install(FILES ${PROJECT_SOURCE_DIR}/${LIBRETRO_BINARY_DIR}/${LIBRETRO_SONAME}
-        DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/libretro)
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/libretro RENAME mupen64plus_libretro${CMAKE_SHARED_LIBRARY_SUFFIX})

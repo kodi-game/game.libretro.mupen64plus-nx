@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="game.libretro.mupen64plus"
 		name="Nintendo - Nintendo 64 (Mupen64Plus)"
-		version="2.5.0.6"
+		version="2.5.0.7"
 		provider-name="Libretro">
 	<requires>
 		<import addon="game.libretro" version="1.0.0"/>

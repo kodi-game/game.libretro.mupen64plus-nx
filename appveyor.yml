@@ -1,6 +1,6 @@
 version: BuildNr.{build}
 
-image: Visual Studio 2015
+image: Visual Studio 2017
 
 shallow_clone: true
 
@@ -10,14 +10,14 @@ environment:
   app_id: game.libretro.mupen64plus
 
   matrix:
-    - GENERATOR: "Visual Studio 14"
+    - GENERATOR: "Visual Studio 15"
       CONFIGURATION: Release
-    - GENERATOR: "Visual Studio 14 Win64"
+    - GENERATOR: "Visual Studio 15 Win64"
       CONFIGURATION: Release
 
 build_script:
   - cd ..
-  - git clone --depth=1 https://github.com/xbmc/xbmc.git
+  - git clone --branch Leia --depth=1 https://github.com/xbmc/xbmc.git
   - mklink /j xbmc\project\BuildDependencies\msys64 C:\msys64
   - cd %app_id%
   - mkdir build

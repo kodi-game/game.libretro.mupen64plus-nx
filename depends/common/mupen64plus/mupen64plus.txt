@@ -1,1 +1,1 @@
-mupen64plus https://github.com/libretro/mupen64plus-libretro/archive/b21e3292e6ff7afb954d4871362ab6e6473d680f.zip
+mupen64plus https://github.com/libretro/mupen64plus-libretro/archive/ab8134ac90a567581df6de4fc427dd67bfad1b17.zip

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.5)
 project(game.libretro.mupen64plus)
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})

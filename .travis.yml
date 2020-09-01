@@ -9,7 +9,7 @@ language: cpp
 #
 env:
   global:
-    - app_id=game.libretro.mupen64plus
+    - app_id=game.libretro.mupen64plus-nx
 
 matrix:
   include:

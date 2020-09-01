@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="game.libretro.mupen64plus"
-		name="Nintendo - Nintendo 64 (Mupen64Plus)"
-		version="2.5.0.7"
-		provider-name="Libretro">
+<addon id="game.libretro.mupen64plus-nx"
+		name="Nintendo - Nintendo 64 (Mupen64Plus-Next)"
+		version="2.1.0.8"
+		provider-name="m4xw, Hacktarux, gonetz, GLideN64 Contributors, Mupen64Plus Team">
 	<requires>
 		<import addon="game.libretro" version="1.0.0"/>
 		<import addon="game.controller.n64" version="1.0.0"/>
@@ -10,17 +10,17 @@
 	<extension point="kodi.gameclient"
 			library_@PLATFORM@="@LIBRARY_FILENAME@">
 		<platforms>Nintendo 64</platforms>
-		<extensions>n64|v64|z64|bin|u1|ndd</extensions>
+		<extensions>n64|v64|z64|bin|u1</extensions>
 		<supports_vfs>true</supports_vfs>
 		<supports_standalone>false</supports_standalone>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en_GB">Nintendo - Nintendo 64 (Mupen64Plus) 2.5</summary>
+		<summary lang="en_GB">Nintendo - Nintendo 64 (Mupen64Plus-Next) 2.1-OpenGL</summary>
 		<description lang="en_GB">Mupen64 is a N64 emulator desgined to be multi-OS. It uses a plugin system and is highly compatible.
 
-Supported files: .n64, .v64, .z64, .bin, .u1, .ndd</description>
+Supported files: .n64, .v64, .z64, .bin, .u1</description>
 		<license>GPLv2</license>
 		<platform>@PLATFORM@</platform>
-		<source>https://github.com/kodi-game/game.libretro.mupen64plus</source>
+		<source>https://github.com/kodi-game/game.libretro.mupen64plus-nx</source>
 	</extension>
 </addon>

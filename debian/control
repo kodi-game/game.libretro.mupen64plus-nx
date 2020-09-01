@@ -1,17 +1,17 @@
-Source: kodi-game-libretro-mupen64plus
+Source: kodi-game-libretro-mupen64plus-nx
 Priority: extra
 Maintainer: wsnipex <wsnipex@a1.net>
 Build-Depends: debhelper (>= 9.0.0),
                cmake,
                kodi-addon-dev,
-               libretro-mupen64plus (>= 2.5.0) | mupen64plus (>= 2.5.0)
+               libretro-mupen64plus-nx (>= 2.1.0) | mupen64plus-nx (>= 2.1.0)
 Standards-Version: 3.9.8
 Section: libs
 
-Package: kodi-game-libretro-mupen64plus
+Package: kodi-game-libretro-mupen64plus-nx
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, kodi, kodi-game-libretro
 Enhances: kodi
-Description: Nintendo - Nintendo 64 (Mupen64Plus) core for kodi's retroplayer
- Nintendo - Nintendo 64 (Mupen64Plus) core for kodi's retroplayer
+Description: Nintendo - Nintendo 64 (Mupen64Plus-Next) core for kodi's retroplayer
+ Nintendo - Nintendo 64 (Mupen64Plus-Next) core for kodi's retroplayer

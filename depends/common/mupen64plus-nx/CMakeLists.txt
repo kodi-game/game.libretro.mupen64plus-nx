@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(mupen64plus)
+project(mupen64plus-nx)
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})
 
@@ -8,7 +8,7 @@ include(ExternalProject)
 string(TOUPPER ${PROJECT_NAME} PROJECT_NAME_UC)
 
 set(LIBRETRO_BINARY_DIR .)
-set(LIBRETRO_SONAME mupen64plus_libretro${CMAKE_SHARED_LIBRARY_SUFFIX})
+set(LIBRETRO_SONAME mupen64plus_next_libretro${CMAKE_SHARED_LIBRARY_SUFFIX})
 set(LIBRETRO_JNISONAME libretro${CMAKE_SHARED_LIBRARY_SUFFIX})
 
 if(CMAKE_BUILD_TYPE MATCHES Debug)
@@ -24,7 +24,7 @@ elseif(CORE_SYSTEM_NAME STREQUAL osx)
   set(BUILD_COMMAND $(MAKE) -C . -f Makefile  platform=osx ${LIBRETRO_DEBUG} GIT_VERSION=)
 elseif(CORE_SYSTEM_NAME STREQUAL ios OR CORE_SYSTEM_NAME STREQUAL darwin_embedded)
   if(CORE_PLATFORM_NAME STREQUAL ios)
-    set(LIBRETRO_SONAME mupen64plus_libretro_ios${CMAKE_SHARED_LIBRARY_SUFFIX})
+    set(LIBRETRO_SONAME mupen64plus_next_libretro_ios${CMAKE_SHARED_LIBRARY_SUFFIX})
     if(CPU STREQUAL arm64)
       set(PLATFORM ios-arm64)
     else()
@@ -32,7 +32,7 @@ elseif(CORE_SYSTEM_NAME STREQUAL ios OR CORE_SYSTEM_NAME STREQUAL darwin_embedde
     endif()
     set(BUILD_COMMAND IOSSDK=${CMAKE_OSX_SYSROOT} $(MAKE) -C . -f Makefile  platform=${PLATFORM} ${LIBRETRO_DEBUG} GIT_VERSION=)
   elseif(CORE_PLATFORM_NAME STREQUAL tvos)
-    set(LIBRETRO_SONAME mupen64plus_libretro_tvos${CMAKE_SHARED_LIBRARY_SUFFIX})
+    set(LIBRETRO_SONAME mupen64plus_next_libretro_tvos${CMAKE_SHARED_LIBRARY_SUFFIX})
     set(BUILD_COMMAND IOSSDK=${CMAKE_OSX_SYSROOT} $(MAKE) -C . -f Makefile  platform=tvos-arm64 ${LIBRETRO_DEBUG} GIT_VERSION=)
   endif()
 elseif(CORE_SYSTEM_NAME STREQUAL android)
@@ -67,4 +67,4 @@ externalproject_add(${PROJECT_NAME}
 
 # install the generated shared library
 install(FILES ${PROJECT_SOURCE_DIR}/${LIBRETRO_BINARY_DIR}/${LIBRETRO_SONAME}
-        DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/libretro RENAME mupen64plus_libretro${CMAKE_SHARED_LIBRARY_SUFFIX})
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/libretro RENAME mupen64plus_next_libretro${CMAKE_SHARED_LIBRARY_SUFFIX})

@@ -4,10 +4,10 @@ image: Visual Studio 2017
 
 shallow_clone: true
 
-clone_folder: c:\projects\game.libretro.mupen64plus
+clone_folder: c:\projects\game.libretro.mupen64plus-nx
 
 environment:
-  app_id: game.libretro.mupen64plus
+  app_id: game.libretro.mupen64plus-nx
 
   matrix:
     - GENERATOR: "Visual Studio 15"

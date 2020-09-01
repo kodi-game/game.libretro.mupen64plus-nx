@@ -1,6 +1,6 @@
 Format: http://dep.debian.net/deps/dep5
-Upstream-Name: game.libretro.mupen64plus
-Source: https://github.com/kodi-game/game.libretro.mupen64plus
+Upstream-Name: game.libretro.mupen64plus-nx
+Source: https://github.com/kodi-game/game.libretro.mupen64plus-nx
 
 Files: *
 Copyright: 2005-2019 Team Kodi

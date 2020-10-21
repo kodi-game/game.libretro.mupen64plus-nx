@@ -85,177 +85,181 @@ msgid "Hardware per-pixel lighting"
 msgstr ""
 
 msgctxt "#30017"
-msgid "LOD Emulation"
+msgid "Use alternative method for High-Res Checksums"
 msgstr ""
 
 msgctxt "#30018"
-msgid "Less accurate blending mode"
+msgid "LOD Emulation"
 msgstr ""
 
 msgctxt "#30019"
-msgid "N64 Depth Compare"
+msgid "Less accurate blending mode"
 msgstr ""
 
 msgctxt "#30020"
-msgid "Native Resolution Factor"
+msgid "N64 Depth Compare"
 msgstr ""
 
 msgctxt "#30021"
-msgid "Native res. 2D texrects"
+msgid "Native Resolution Factor"
 msgstr ""
 
 msgctxt "#30022"
-msgid "Overscan"
+msgid "Native res. 2D texrects"
 msgstr ""
 
 msgctxt "#30023"
-msgid "Cache GPU Shaders"
+msgid "Overscan"
 msgstr ""
 
 msgctxt "#30024"
-msgid "Cache Textures"
+msgid "Cache GPU Shaders"
 msgstr ""
 
 msgctxt "#30025"
-msgid "FXAA"
+msgid "Cache Textures"
 msgstr ""
 
 msgctxt "#30026"
-msgid "Disable Expansion Pak"
+msgid "FXAA"
 msgstr ""
 
 msgctxt "#30027"
-msgid "Frame Duplication"
+msgid "Disable Expansion Pak"
 msgstr ""
 
 msgctxt "#30028"
-msgid "Framerate"
+msgid "Frame Duplication"
 msgstr ""
 
 msgctxt "#30029"
-msgid "Hybrid Filter"
+msgid "Framerate"
 msgstr ""
 
 msgctxt "#30030"
-msgid "Ignore emulated TLB Exceptions"
+msgid "Hybrid Filter"
 msgstr ""
 
 msgctxt "#30031"
-msgid "Max texture cache size"
+msgid "Ignore emulated TLB Exceptions"
 msgstr ""
 
 msgctxt "#30032"
-msgid "MSAA level"
+msgid "Max texture cache size"
 msgstr ""
 
 msgctxt "#30033"
-msgid "Overscan Offset (Bottom)"
+msgid "MSAA level"
 msgstr ""
 
 msgctxt "#30034"
-msgid "Overscan Offset (Left)"
+msgid "Overscan Offset (Bottom)"
 msgstr ""
 
 msgctxt "#30035"
-msgid "Overscan Offset (Right)"
+msgid "Overscan Offset (Left)"
 msgstr ""
 
 msgctxt "#30036"
-msgid "Overscan Offset (Top)"
+msgid "Overscan Offset (Right)"
 msgstr ""
 
 msgctxt "#30037"
-msgid "Image Dithering Mode"
+msgid "Overscan Offset (Top)"
 msgstr ""
 
 msgctxt "#30038"
-msgid "Threaded Renderer"
+msgid "Image Dithering Mode"
 msgstr ""
 
 msgctxt "#30039"
-msgid "Independent C-button Controls"
+msgid "Threaded Renderer"
 msgstr ""
 
 msgctxt "#30040"
-msgid "Aspect Ratio"
+msgid "Independent C-button Controls"
 msgstr ""
 
 msgctxt "#30041"
-msgid "Analog Deadzone (percent)"
+msgid "Aspect Ratio"
 msgstr ""
 
 msgctxt "#30042"
-msgid "Analog Sensitivity (percent)"
+msgid "Analog Deadzone (percent)"
 msgstr ""
 
 msgctxt "#30043"
-msgid "CPU Core"
+msgid "Analog Sensitivity (percent)"
 msgstr ""
 
 msgctxt "#30044"
-msgid "Down C Button"
+msgid "CPU Core"
 msgstr ""
 
 msgctxt "#30045"
-msgid "Left C Button"
+msgid "Down C Button"
 msgstr ""
 
 msgctxt "#30046"
-msgid "Player 1 Pak"
+msgid "Left C Button"
 msgstr ""
 
 msgctxt "#30047"
-msgid "Player 2 Pak"
+msgid "Player 1 Pak"
 msgstr ""
 
 msgctxt "#30048"
-msgid "Player 3 Pak"
+msgid "Player 2 Pak"
 msgstr ""
 
 msgctxt "#30049"
-msgid "Player 4 Pak"
+msgid "Player 3 Pak"
 msgstr ""
 
 msgctxt "#30050"
-msgid "Right C Button"
+msgid "Player 4 Pak"
 msgstr ""
 
 msgctxt "#30051"
-msgid "RDP Plugin"
+msgid "Right C Button"
 msgstr ""
 
 msgctxt "#30052"
-msgid "RSP Plugin"
+msgid "RDP Plugin"
 msgstr ""
 
 msgctxt "#30053"
-msgid "Use High-Res Texture Cache Compression"
+msgid "RSP Plugin"
 msgstr ""
 
 msgctxt "#30054"
-msgid "Texture Enhancement"
+msgid "Use High-Res Texture Cache Compression"
 msgstr ""
 
 msgctxt "#30055"
-msgid "Don't filter background textures"
+msgid "Texture Enhancement"
 msgstr ""
 
 msgctxt "#30056"
-msgid "Texture filter"
+msgid "Don't filter background textures"
 msgstr ""
 
 msgctxt "#30057"
-msgid "Use High-Res textures"
+msgid "Texture filter"
 msgstr ""
 
 msgctxt "#30058"
-msgid "Use High-Res Full Alpha Channel"
+msgid "Use High-Res textures"
 msgstr ""
 
 msgctxt "#30059"
-msgid "Up C Button"
+msgid "Use High-Res Full Alpha Channel"
 msgstr ""
 
 msgctxt "#30060"
+msgid "Up C Button"
+msgstr ""
+
+msgctxt "#30061"
 msgid "VI Refresh (Overclock)"
 msgstr ""

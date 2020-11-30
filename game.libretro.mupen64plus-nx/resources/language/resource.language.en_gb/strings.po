@@ -21,7 +21,7 @@ msgid "Settings"
 msgstr ""
 
 msgctxt "#30001"
-msgid "16:9 Resolution"
+msgid "Wide Resolution"
 msgstr ""
 
 msgctxt "#30002"

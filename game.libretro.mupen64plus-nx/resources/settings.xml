@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
 	<category label="30000">
-		<setting label="30001" type="select" id="mupen64plus-169screensize" values="960x540|640x360|1280x720|1920x1080|2560x1440|3840x2160|4096x2160|7680x4320" default="960x540"/>
+		<setting label="30001" type="select" id="mupen64plus-169screensize" values="960x540|640x360|1280x720|1706x720|1366x768|1920x810|1920x1080|2560x1080|2560x1440|3414x1440|3840x2160|4096x2160|5120x2160|7680x3240|7680x4320|10240x4320" default="960x540"/>
 		<setting label="30002" type="select" id="mupen64plus-43screensize" values="640x480|320x240|960x720|1280x960|1440x1080|1600x1200|1920x1440|2240x1680|2560x1920|2880x2160|3200x2400|3520x2640|3840x2880" default="640x480"/>
 		<setting label="30003" type="select" id="mupen64plus-BackgroundMode" values="OnePiece|Stripped" default="OnePiece"/>
 		<setting label="30004" type="select" id="mupen64plus-BilinearMode" values="standard|3point" default="standard"/>

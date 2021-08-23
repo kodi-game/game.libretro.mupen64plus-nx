@@ -207,69 +207,73 @@ msgid "Use enhanced Hi-Res Storage"
 msgstr ""
 
 msgctxt "#30045"
-msgid "Frame Duplication"
+msgid "INI Behaviour"
 msgstr ""
 
 msgctxt "#30046"
-msgid "Framerate"
+msgid "Frame Duplication"
 msgstr ""
 
 msgctxt "#30047"
-msgid "VI Refresh (Overclock)"
+msgid "Framerate"
 msgstr ""
 
 msgctxt "#30048"
-msgid "Analog Deadzone (percent)"
+msgid "VI Refresh (Overclock)"
 msgstr ""
 
 msgctxt "#30049"
-msgid "Analog Sensitivity (percent)"
+msgid "Analog Deadzone (percent)"
 msgstr ""
 
 msgctxt "#30050"
-msgid "Right C Button"
+msgid "Analog Sensitivity (percent)"
 msgstr ""
 
 msgctxt "#30051"
-msgid "Left C Button"
+msgid "Right C Button"
 msgstr ""
 
 msgctxt "#30052"
-msgid "Down C Button"
+msgid "Left C Button"
 msgstr ""
 
 msgctxt "#30053"
-msgid "Up C Button"
+msgid "Down C Button"
 msgstr ""
 
 msgctxt "#30054"
-msgid "Independent C-button Controls"
+msgid "Up C Button"
 msgstr ""
 
 msgctxt "#30055"
-msgid "Disable Expansion Pak"
+msgid "Independent C-button Controls"
 msgstr ""
 
 msgctxt "#30056"
-msgid "Ignore emulated TLB Exceptions"
+msgid "Disable Expansion Pak"
 msgstr ""
 
 msgctxt "#30057"
-msgid "Player 1 Pak"
+msgid "Ignore emulated TLB Exceptions"
 msgstr ""
 
 msgctxt "#30058"
-msgid "Player 2 Pak"
+msgid "Player 1 Pak"
 msgstr ""
 
 msgctxt "#30059"
-msgid "Player 3 Pak"
+msgid "Player 2 Pak"
 msgstr ""
 
 msgctxt "#30060"
-msgid "Player 4 Pak"
+msgid "Player 3 Pak"
 msgstr ""
 
 msgctxt "#30061"
+msgid "Player 4 Pak"
+msgstr ""
+
+msgctxt "#30062"
 msgid "Count Per Op"
 msgstr ""

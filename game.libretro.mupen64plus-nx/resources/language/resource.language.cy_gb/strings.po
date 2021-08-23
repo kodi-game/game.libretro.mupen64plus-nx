@@ -16,6 +16,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=(n==0) ? 0 : (n==1) ? 1 : (n==2) ? 2 : (n==3) ? 3 :(n==6) ? 4 : 5;\n"
 
+msgctxt "Addon Summary"
+msgid "Nintendo - Nintendo 64 (Mupen64Plus-Next) 2.2-OpenGL"
+msgstr ""
+
+msgctxt "Addon Description"
+msgid "Mupen64 is an N64 emulator desgined to be multi-OS. It uses a plugin system and is highly compatible.
+
+Supported files: .n64, .v64, .z64, .bin, .u1"
+msgstr ""
+
 msgctxt "#30000"
 msgid "Settings"
 msgstr ""

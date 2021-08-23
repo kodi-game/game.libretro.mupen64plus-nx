@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="game.libretro.mupen64plus-nx"
 		name="Nintendo - Nintendo 64 (Mupen64Plus-Next)"
-		version="2.1.0.15"
+		version="2.2.0.16"
 		provider-name="m4xw, Hacktarux, gonetz, GLideN64 Contributors, Mupen64Plus Team">
 	<requires>
 		<import addon="game.libretro" version="1.0.0"/>
@@ -15,7 +15,7 @@
 		<supports_standalone>false</supports_standalone>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en_GB">Nintendo - Nintendo 64 (Mupen64Plus-Next) 2.1-OpenGL</summary>
+		<summary lang="en_GB">Nintendo - Nintendo 64 (Mupen64Plus-Next) 2.2-OpenGL</summary>
 		<description lang="en_GB">Mupen64 is an N64 emulator desgined to be multi-OS. It uses a plugin system and is highly compatible.
 
 Supported files: .n64, .v64, .z64, .bin, .u1</description>

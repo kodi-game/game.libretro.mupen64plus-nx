@@ -45,22 +45,23 @@
 		<setting label="30042" type="select" id="mupen64plus-EnableEnhancedTextureStorage" values="False|True" default="False"/>
 		<setting label="30043" type="select" id="mupen64plus-EnableHiResAltCRC" values="False|True" default="False"/>
 		<setting label="30044" type="select" id="mupen64plus-EnableEnhancedHighResStorage" values="False|True" default="False"/>
-		<setting label="30045" type="select" id="mupen64plus-FrameDuping" values="False|True" default="False"/>
-		<setting label="30046" type="select" id="mupen64plus-Framerate" values="Original|Fullspeed" default="Original"/>
-		<setting label="30047" type="select" id="mupen64plus-virefresh" values="Auto|1500|2200" default="Auto"/>
-		<setting label="30048" type="select" id="mupen64plus-astick-deadzone" values="15|0|5|10|20|25|30" default="15"/>
-		<setting label="30049" type="select" id="mupen64plus-astick-sensitivity" values="100|50|55|60|65|70|75|80|85|90|95|105|110|115|120|125|130|135|140|145|150" default="100"/>
-		<setting label="30050" type="select" id="mupen64plus-r-cbutton" values="C1|C2|C3|C4" default="C1"/>
-		<setting label="30051" type="select" id="mupen64plus-l-cbutton" values="C2|C1|C3|C4" default="C2"/>
-		<setting label="30052" type="select" id="mupen64plus-d-cbutton" values="C3|C1|C2|C4" default="C3"/>
-		<setting label="30053" type="select" id="mupen64plus-u-cbutton" values="C4|C1|C2|C3" default="C4"/>
-		<setting label="30054" type="select" id="mupen64plus-alt-map" values="False|True" default="False"/>
-		<setting label="30055" type="select" id="mupen64plus-ForceDisableExtraMem" values="False|True" default="False"/>
-		<setting label="30056" type="select" id="mupen64plus-IgnoreTLBExceptions" values="False|OnlyNotEnabled|AlwaysIgnoreTLB" default="False"/>
-		<setting label="30057" type="select" id="mupen64plus-pak1" values="memory|none|rumble" default="memory"/>
-		<setting label="30058" type="select" id="mupen64plus-pak2" values="none|memory|rumble" default="none"/>
-		<setting label="30059" type="select" id="mupen64plus-pak3" values="none|memory|rumble" default="none"/>
-		<setting label="30060" type="select" id="mupen64plus-pak4" values="none|memory|rumble" default="none"/>
-		<setting label="30061" type="select" id="mupen64plus-CountPerOp" values="0|1|2|3|4|5" default="0"/>
+		<setting label="30045" type="select" id="mupen64plus-GLideN64IniBehaviour" values="late|early|disabled" default="late"/>
+		<setting label="30046" type="select" id="mupen64plus-FrameDuping" values="False|True" default="False"/>
+		<setting label="30047" type="select" id="mupen64plus-Framerate" values="Original|Fullspeed" default="Original"/>
+		<setting label="30048" type="select" id="mupen64plus-virefresh" values="Auto|1500|2200" default="Auto"/>
+		<setting label="30049" type="select" id="mupen64plus-astick-deadzone" values="15|0|5|10|20|25|30" default="15"/>
+		<setting label="30050" type="select" id="mupen64plus-astick-sensitivity" values="100|50|55|60|65|70|75|80|85|90|95|105|110|115|120|125|130|135|140|145|150" default="100"/>
+		<setting label="30051" type="select" id="mupen64plus-r-cbutton" values="C1|C2|C3|C4" default="C1"/>
+		<setting label="30052" type="select" id="mupen64plus-l-cbutton" values="C2|C1|C3|C4" default="C2"/>
+		<setting label="30053" type="select" id="mupen64plus-d-cbutton" values="C3|C1|C2|C4" default="C3"/>
+		<setting label="30054" type="select" id="mupen64plus-u-cbutton" values="C4|C1|C2|C3" default="C4"/>
+		<setting label="30055" type="select" id="mupen64plus-alt-map" values="False|True" default="False"/>
+		<setting label="30056" type="select" id="mupen64plus-ForceDisableExtraMem" values="False|True" default="False"/>
+		<setting label="30057" type="select" id="mupen64plus-IgnoreTLBExceptions" values="False|OnlyNotEnabled|AlwaysIgnoreTLB" default="False"/>
+		<setting label="30058" type="select" id="mupen64plus-pak1" values="memory|none|rumble|transfer" default="memory"/>
+		<setting label="30059" type="select" id="mupen64plus-pak2" values="none|memory|rumble|transfer" default="none"/>
+		<setting label="30060" type="select" id="mupen64plus-pak3" values="none|memory|rumble|transfer" default="none"/>
+		<setting label="30061" type="select" id="mupen64plus-pak4" values="none|memory|rumble|transfer" default="none"/>
+		<setting label="30062" type="select" id="mupen64plus-CountPerOp" values="0|1|2|3|4|5" default="0"/>
 	</category>
 </settings>

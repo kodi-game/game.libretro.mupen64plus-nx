@@ -21,7 +21,7 @@ msgid "Nintendo - Nintendo 64 (Mupen64Plus-Next) 2.2-OpenGL"
 msgstr ""
 
 msgctxt "Addon Description"
-msgid "Mupen64 is an N64 emulator desgined to be multi-OS. It uses a plugin system and is highly compatible.Supported files: .n64, .v64, .z64, .bin, .u1"
+msgid "Mupen64 is an N64 emulator desgined to be multi-OS. It uses a plugin system and is highly compatible."
 msgstr ""
 
 msgctxt "#30000"

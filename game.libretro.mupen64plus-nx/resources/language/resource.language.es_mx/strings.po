@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: game.libretro.mupen64plus-nx\n"
-"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: 2017-02-04 09:56i\n"
 "PO-Revision-Date: 2021-07-12 12:29+0000\n"
 "Last-Translator: Edson Armando <edsonarmando78@outlook.com>\n"

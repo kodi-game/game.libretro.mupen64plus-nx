@@ -20,6 +20,7 @@
 		<platform>@PLATFORM@</platform>
 		<source>https://github.com/kodi-game/game.libretro.mupen64plus-nx</source>
 		<summary lang="en_GB">Nintendo - Nintendo 64 (Mupen64Plus-Next) 2.2-OpenGL</summary>
+		<description lang="da_DK">Mupen64 er en N64-emulator designet til at være multi-OS. Den bruger et plugin-system og er yderst kompatibel.</description>
 		<description lang="en_GB">Mupen64 is an N64 emulator desgined to be multi-OS. It uses a plugin system and is highly compatible.</description>
 	</extension>
 </addon>

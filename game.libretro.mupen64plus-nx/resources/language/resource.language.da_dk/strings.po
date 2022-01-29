@@ -30,249 +30,501 @@ msgid "Settings"
 msgstr "Indstillinger"
 
 msgctxt "#30001"
-msgid "CPU Core"
-msgstr "CPU-kerne"
+msgid "4:3 Resolution"
+msgstr ""
 
 msgctxt "#30002"
-msgid "RDP Plugin"
-msgstr "RDP Plugin"
+msgid "Wide Resolution"
+msgstr ""
 
 msgctxt "#30003"
-msgid "RSP Plugin"
-msgstr "RSP Plugin"
+msgid "Aspect Ratio"
+msgstr ""
 
 msgctxt "#30004"
-msgid "4:3 Resolution"
-msgstr "4:3 opløsning"
+msgid "Native Resolution Factor"
+msgstr ""
 
 msgctxt "#30005"
-msgid "Wide Resolution"
-msgstr "Bred opløsning"
+msgid "Threaded Renderer"
+msgstr ""
 
 msgctxt "#30006"
-msgid "Aspect Ratio"
-msgstr "Billedformat"
+msgid "Bilinear filtering mode"
+msgstr ""
 
 msgctxt "#30007"
-msgid "Native Resolution Factor"
-msgstr "Intern faktor for opløsning"
+msgid "Hybrid Filter"
+msgstr ""
 
 msgctxt "#30008"
-msgid "Threaded Renderer"
-msgstr "Threaded rendering"
+msgid "Dithering"
+msgstr ""
 
 msgctxt "#30009"
-msgid "Bilinear filtering mode"
-msgstr "Tilstand for bilineær filtrering"
+msgid "Dithering Quantization"
+msgstr ""
 
 msgctxt "#30010"
-msgid "Hybrid Filter"
-msgstr "Hybridfilter"
+msgid "Image Dithering Mode"
+msgstr ""
 
 msgctxt "#30011"
-msgid "Dithering"
-msgstr "Nuanceændring"
+msgid "MSAA level"
+msgstr ""
 
 msgctxt "#30012"
-msgid "Dithering Quantization"
-msgstr "Kvantisering af nuanceændring"
+msgid "FXAA"
+msgstr ""
 
 msgctxt "#30013"
-msgid "Image Dithering Mode"
-msgstr "Tilstand for nuanceændring af billede"
+msgid "LOD Emulation"
+msgstr ""
 
 msgctxt "#30014"
-msgid "MSAA level"
-msgstr "MSAA-niveau"
+msgid "Framebuffer Emulation"
+msgstr ""
 
 msgctxt "#30015"
-msgid "FXAA"
-msgstr "FXAA"
+msgid "Copy auxiliary buffers to RDRAM"
+msgstr ""
 
 msgctxt "#30016"
-msgid "LOD Emulation"
-msgstr "LOD-emulering"
+msgid "Color buffer to RDRAM"
+msgstr ""
 
 msgctxt "#30017"
-msgid "Framebuffer Emulation"
-msgstr "Emulering af framebuffer"
+msgid "Depth buffer to RDRAM"
+msgstr ""
 
 msgctxt "#30018"
-msgid "Copy auxiliary buffers to RDRAM"
-msgstr "Kopier ekstrabuffere til RDRAM"
+msgid "Background Mode"
+msgstr ""
 
 msgctxt "#30019"
-msgid "Color buffer to RDRAM"
-msgstr "Farvebuffer til RDRAM"
+msgid "Hardware per-pixel lighting"
+msgstr ""
 
 msgctxt "#30020"
-msgid "Depth buffer to RDRAM"
-msgstr "Dybdebuffer til RDRAM"
+msgid "Continuous texrect coords"
+msgstr ""
 
 msgctxt "#30021"
-msgid "Background Mode"
-msgstr "Baggrundstilstand"
+msgid "Enable native-res boundaries for texture coordinates"
+msgstr ""
 
 msgctxt "#30022"
-msgid "Hardware per-pixel lighting"
-msgstr "Hardware belysning per pixel"
+msgid "Native res. 2D texrects"
+msgstr ""
 
 msgctxt "#30023"
-msgid "Continuous texrect coords"
-msgstr "Kontinuerlige texrect-koordinater"
+msgid "Less accurate blending mode"
+msgstr ""
 
 msgctxt "#30024"
-msgid "Native res. 2D texrects"
-msgstr "Intern opløsning 2D texrects"
+msgid "GPU shader depth write"
+msgstr ""
 
 msgctxt "#30025"
-msgid "Less accurate blending mode"
-msgstr "Mindre nøjagtig blandingstilstand"
+msgid "N64 Depth Compare"
+msgstr ""
 
 msgctxt "#30026"
-msgid "GPU shader depth write"
-msgstr "Dybde for GPU shader-skrivning"
+msgid "Cache GPU Shaders"
+msgstr ""
 
 msgctxt "#30027"
-msgid "N64 Depth Compare"
-msgstr "N64 dybdesammenligning"
+msgid "Cache Textures"
+msgstr ""
 
 msgctxt "#30028"
-msgid "Cache GPU Shaders"
-msgstr "Cache PGU-shadere"
+msgid "Overscan"
+msgstr ""
 
 msgctxt "#30029"
-msgid "Cache Textures"
-msgstr "Cache teksturer"
+msgid "Overscan Offset (Top)"
+msgstr ""
 
 msgctxt "#30030"
-msgid "Overscan"
-msgstr "Overskandering"
+msgid "Overscan Offset (Left)"
+msgstr ""
 
 msgctxt "#30031"
-msgid "Overscan Offset (Top)"
-msgstr "Forskydning af overskandering (top)"
+msgid "Overscan Offset (Right)"
+msgstr ""
 
 msgctxt "#30032"
-msgid "Overscan Offset (Left)"
-msgstr "Forskydning af overskandering (venstre)"
+msgid "Overscan Offset (Bottom)"
+msgstr ""
 
 msgctxt "#30033"
-msgid "Overscan Offset (Right)"
-msgstr "Forskydning af overskandering (højre)"
+msgid "Max texture cache size"
+msgstr ""
 
 msgctxt "#30034"
-msgid "Overscan Offset (Bottom)"
-msgstr "Forskydning af overskandering (bund)"
+msgid "Texture filter"
+msgstr ""
 
 msgctxt "#30035"
-msgid "Max texture cache size"
-msgstr "Maksimal størrelse på teksturstørrelse"
+msgid "Texture Enhancement"
+msgstr ""
 
 msgctxt "#30036"
-msgid "Texture filter"
-msgstr "Teksturfilter"
+msgid "Don't filter background textures"
+msgstr ""
 
 msgctxt "#30037"
-msgid "Texture Enhancement"
-msgstr "Forbedring af tekstur"
+msgid "Use High-Res textures"
+msgstr ""
 
 msgctxt "#30038"
-msgid "Don't filter background textures"
-msgstr "Filtrer ikke baggrundsteksturer"
+msgid "Use High-Res Texture Cache Compression"
+msgstr ""
 
 msgctxt "#30039"
-msgid "Use High-Res textures"
-msgstr "Brug strukturer i høj opløsning"
+msgid "Use High-Res Full Alpha Channel"
+msgstr ""
 
 msgctxt "#30040"
-msgid "Use High-Res Texture Cache Compression"
-msgstr "Brug komprimering af strukturcache i høj opløsning"
+msgid "Use enhanced Texture Storage"
+msgstr ""
 
 msgctxt "#30041"
-msgid "Use High-Res Full Alpha Channel"
-msgstr "Brug fuld alpha-kanal i høj opløsning"
+msgid "Use alternative method for High-Res Checksums"
+msgstr ""
 
 msgctxt "#30042"
-msgid "Use enhanced Texture Storage"
-msgstr "Brug forbedret strukturlagring"
+msgid "Use enhanced Hi-Res Storage"
+msgstr ""
 
 msgctxt "#30043"
-msgid "Use alternative method for High-Res Checksums"
-msgstr "Brug alternativ metode til checksums i høj opløsning"
+msgid "INI Behaviour"
+msgstr ""
 
 msgctxt "#30044"
-msgid "Use enhanced Hi-Res Storage"
-msgstr "Brug forbedret lagring i høj opløsning"
+msgid "CPU Core"
+msgstr ""
 
 msgctxt "#30045"
-msgid "INI Behaviour"
-msgstr "INI-adfærd"
+msgid "RDP Plugin"
+msgstr ""
 
 msgctxt "#30046"
-msgid "Frame Duplication"
-msgstr "Duplikering af frame"
+msgid "RSP Plugin"
+msgstr ""
 
 msgctxt "#30047"
-msgid "Framerate"
-msgstr "Billedfrekvens"
+msgid "Frame Duplication"
+msgstr ""
 
 msgctxt "#30048"
-msgid "VI Refresh (Overclock)"
-msgstr "Opdater VI (overclock)"
+msgid "Framerate"
+msgstr ""
 
 msgctxt "#30049"
-msgid "Analog Deadzone (percent)"
-msgstr "Analog dødzone (procent)"
+msgid "VI Refresh (Overclock)"
+msgstr ""
 
 msgctxt "#30050"
-msgid "Analog Sensitivity (percent)"
-msgstr "Analog følsomhed (procent)"
+msgid "Disable Expansion Pak"
+msgstr ""
 
 msgctxt "#30051"
-msgid "Right C Button"
-msgstr "Højre C-knap"
+msgid "Ignore emulated TLB Exceptions"
+msgstr ""
 
 msgctxt "#30052"
-msgid "Left C Button"
-msgstr "Venstre C-knap"
+msgid "Count Per Op"
+msgstr ""
 
 msgctxt "#30053"
-msgid "Down C Button"
-msgstr "Ned C-knap"
+msgid "Analog Deadzone (percent)"
+msgstr ""
 
 msgctxt "#30054"
-msgid "Up C Button"
-msgstr "Op C-knap"
+msgid "Analog Sensitivity (percent)"
+msgstr ""
 
 msgctxt "#30055"
-msgid "Independent C-button Controls"
-msgstr "Uafhængig C-knap kontrol"
+msgid "Right C Button"
+msgstr ""
 
 msgctxt "#30056"
-msgid "Disable Expansion Pak"
-msgstr "Deaktiver udvidelsespakke"
+msgid "Left C Button"
+msgstr ""
 
 msgctxt "#30057"
-msgid "Ignore emulated TLB Exceptions"
-msgstr "Ignorer emulerede TLB-undtagelser"
+msgid "Down C Button"
+msgstr ""
 
 msgctxt "#30058"
-msgid "Player 1 Pak"
-msgstr "Spiller 1 Pakke"
+msgid "Up C Button"
+msgstr ""
 
 msgctxt "#30059"
-msgid "Player 2 Pak"
-msgstr "Spiller 2 Pakke"
+msgid "Independent C-button Controls"
+msgstr ""
 
 msgctxt "#30060"
-msgid "Player 3 Pak"
-msgstr "Spiller 3 Pakke"
+msgid "Player 1 Pak"
+msgstr ""
 
 msgctxt "#30061"
-msgid "Player 4 Pak"
-msgstr "Spiller 4 Pakke"
+msgid "Player 2 Pak"
+msgstr ""
 
 msgctxt "#30062"
-msgid "Count Per Op"
-msgstr "Antal pr. op"
+msgid "Player 3 Pak"
+msgstr ""
+
+msgctxt "#30063"
+msgid "Player 4 Pak"
+msgstr ""
+
+#~ msgctxt "#30001"
+#~ msgid "CPU Core"
+#~ msgstr "CPU-kerne"
+
+#~ msgctxt "#30002"
+#~ msgid "RDP Plugin"
+#~ msgstr "RDP Plugin"
+
+#~ msgctxt "#30003"
+#~ msgid "RSP Plugin"
+#~ msgstr "RSP Plugin"
+
+#~ msgctxt "#30004"
+#~ msgid "4:3 Resolution"
+#~ msgstr "4:3 opløsning"
+
+#~ msgctxt "#30005"
+#~ msgid "Wide Resolution"
+#~ msgstr "Bred opløsning"
+
+#~ msgctxt "#30006"
+#~ msgid "Aspect Ratio"
+#~ msgstr "Billedformat"
+
+#~ msgctxt "#30007"
+#~ msgid "Native Resolution Factor"
+#~ msgstr "Intern faktor for opløsning"
+
+#~ msgctxt "#30008"
+#~ msgid "Threaded Renderer"
+#~ msgstr "Threaded rendering"
+
+#~ msgctxt "#30009"
+#~ msgid "Bilinear filtering mode"
+#~ msgstr "Tilstand for bilineær filtrering"
+
+#~ msgctxt "#30010"
+#~ msgid "Hybrid Filter"
+#~ msgstr "Hybridfilter"
+
+#~ msgctxt "#30011"
+#~ msgid "Dithering"
+#~ msgstr "Nuanceændring"
+
+#~ msgctxt "#30012"
+#~ msgid "Dithering Quantization"
+#~ msgstr "Kvantisering af nuanceændring"
+
+#~ msgctxt "#30013"
+#~ msgid "Image Dithering Mode"
+#~ msgstr "Tilstand for nuanceændring af billede"
+
+#~ msgctxt "#30014"
+#~ msgid "MSAA level"
+#~ msgstr "MSAA-niveau"
+
+#~ msgctxt "#30015"
+#~ msgid "FXAA"
+#~ msgstr "FXAA"
+
+#~ msgctxt "#30016"
+#~ msgid "LOD Emulation"
+#~ msgstr "LOD-emulering"
+
+#~ msgctxt "#30017"
+#~ msgid "Framebuffer Emulation"
+#~ msgstr "Emulering af framebuffer"
+
+#~ msgctxt "#30018"
+#~ msgid "Copy auxiliary buffers to RDRAM"
+#~ msgstr "Kopier ekstrabuffere til RDRAM"
+
+#~ msgctxt "#30019"
+#~ msgid "Color buffer to RDRAM"
+#~ msgstr "Farvebuffer til RDRAM"
+
+#~ msgctxt "#30020"
+#~ msgid "Depth buffer to RDRAM"
+#~ msgstr "Dybdebuffer til RDRAM"
+
+#~ msgctxt "#30021"
+#~ msgid "Background Mode"
+#~ msgstr "Baggrundstilstand"
+
+#~ msgctxt "#30022"
+#~ msgid "Hardware per-pixel lighting"
+#~ msgstr "Hardware belysning per pixel"
+
+#~ msgctxt "#30023"
+#~ msgid "Continuous texrect coords"
+#~ msgstr "Kontinuerlige texrect-koordinater"
+
+#~ msgctxt "#30024"
+#~ msgid "Native res. 2D texrects"
+#~ msgstr "Intern opløsning 2D texrects"
+
+#~ msgctxt "#30025"
+#~ msgid "Less accurate blending mode"
+#~ msgstr "Mindre nøjagtig blandingstilstand"
+
+#~ msgctxt "#30026"
+#~ msgid "GPU shader depth write"
+#~ msgstr "Dybde for GPU shader-skrivning"
+
+#~ msgctxt "#30027"
+#~ msgid "N64 Depth Compare"
+#~ msgstr "N64 dybdesammenligning"
+
+#~ msgctxt "#30028"
+#~ msgid "Cache GPU Shaders"
+#~ msgstr "Cache PGU-shadere"
+
+#~ msgctxt "#30029"
+#~ msgid "Cache Textures"
+#~ msgstr "Cache teksturer"
+
+#~ msgctxt "#30030"
+#~ msgid "Overscan"
+#~ msgstr "Overskandering"
+
+#~ msgctxt "#30031"
+#~ msgid "Overscan Offset (Top)"
+#~ msgstr "Forskydning af overskandering (top)"
+
+#~ msgctxt "#30032"
+#~ msgid "Overscan Offset (Left)"
+#~ msgstr "Forskydning af overskandering (venstre)"
+
+#~ msgctxt "#30033"
+#~ msgid "Overscan Offset (Right)"
+#~ msgstr "Forskydning af overskandering (højre)"
+
+#~ msgctxt "#30034"
+#~ msgid "Overscan Offset (Bottom)"
+#~ msgstr "Forskydning af overskandering (bund)"
+
+#~ msgctxt "#30035"
+#~ msgid "Max texture cache size"
+#~ msgstr "Maksimal størrelse på teksturstørrelse"
+
+#~ msgctxt "#30036"
+#~ msgid "Texture filter"
+#~ msgstr "Teksturfilter"
+
+#~ msgctxt "#30037"
+#~ msgid "Texture Enhancement"
+#~ msgstr "Forbedring af tekstur"
+
+#~ msgctxt "#30038"
+#~ msgid "Don't filter background textures"
+#~ msgstr "Filtrer ikke baggrundsteksturer"
+
+#~ msgctxt "#30039"
+#~ msgid "Use High-Res textures"
+#~ msgstr "Brug strukturer i høj opløsning"
+
+#~ msgctxt "#30040"
+#~ msgid "Use High-Res Texture Cache Compression"
+#~ msgstr "Brug komprimering af strukturcache i høj opløsning"
+
+#~ msgctxt "#30041"
+#~ msgid "Use High-Res Full Alpha Channel"
+#~ msgstr "Brug fuld alpha-kanal i høj opløsning"
+
+#~ msgctxt "#30042"
+#~ msgid "Use enhanced Texture Storage"
+#~ msgstr "Brug forbedret strukturlagring"
+
+#~ msgctxt "#30043"
+#~ msgid "Use alternative method for High-Res Checksums"
+#~ msgstr "Brug alternativ metode til checksums i høj opløsning"
+
+#~ msgctxt "#30044"
+#~ msgid "Use enhanced Hi-Res Storage"
+#~ msgstr "Brug forbedret lagring i høj opløsning"
+
+#~ msgctxt "#30045"
+#~ msgid "INI Behaviour"
+#~ msgstr "INI-adfærd"
+
+#~ msgctxt "#30046"
+#~ msgid "Frame Duplication"
+#~ msgstr "Duplikering af frame"
+
+#~ msgctxt "#30047"
+#~ msgid "Framerate"
+#~ msgstr "Billedfrekvens"
+
+#~ msgctxt "#30048"
+#~ msgid "VI Refresh (Overclock)"
+#~ msgstr "Opdater VI (overclock)"
+
+#~ msgctxt "#30049"
+#~ msgid "Analog Deadzone (percent)"
+#~ msgstr "Analog dødzone (procent)"
+
+#~ msgctxt "#30050"
+#~ msgid "Analog Sensitivity (percent)"
+#~ msgstr "Analog følsomhed (procent)"
+
+#~ msgctxt "#30051"
+#~ msgid "Right C Button"
+#~ msgstr "Højre C-knap"
+
+#~ msgctxt "#30052"
+#~ msgid "Left C Button"
+#~ msgstr "Venstre C-knap"
+
+#~ msgctxt "#30053"
+#~ msgid "Down C Button"
+#~ msgstr "Ned C-knap"
+
+#~ msgctxt "#30054"
+#~ msgid "Up C Button"
+#~ msgstr "Op C-knap"
+
+#~ msgctxt "#30055"
+#~ msgid "Independent C-button Controls"
+#~ msgstr "Uafhængig C-knap kontrol"
+
+#~ msgctxt "#30056"
+#~ msgid "Disable Expansion Pak"
+#~ msgstr "Deaktiver udvidelsespakke"
+
+#~ msgctxt "#30057"
+#~ msgid "Ignore emulated TLB Exceptions"
+#~ msgstr "Ignorer emulerede TLB-undtagelser"
+
+#~ msgctxt "#30058"
+#~ msgid "Player 1 Pak"
+#~ msgstr "Spiller 1 Pakke"
+
+#~ msgctxt "#30059"
+#~ msgid "Player 2 Pak"
+#~ msgstr "Spiller 2 Pakke"
+
+#~ msgctxt "#30060"
+#~ msgid "Player 3 Pak"
+#~ msgstr "Spiller 3 Pakke"
+
+#~ msgctxt "#30061"
+#~ msgid "Player 4 Pak"
+#~ msgstr "Spiller 4 Pakke"
+
+#~ msgctxt "#30062"
+#~ msgid "Count Per Op"
+#~ msgstr "Antal pr. op"

@@ -1,1 +1,1 @@
-mingw http://mirrors.kodi.tv/build-deps/win32/msys2/msys2-base-x86_64-20161025.tar.xz
+mingw http://mirrors.kodi.tv/build-deps/win32/msys2/msys2-base-x86_64-20210725.tar.xz

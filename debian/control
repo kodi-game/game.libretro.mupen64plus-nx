@@ -4,7 +4,7 @@ Maintainer: wsnipex <wsnipex@a1.net>
 Build-Depends: debhelper (>= 9.0.0),
                cmake,
                kodi-addon-dev,
-               libretro-mupen64plus-nx (>= 2.3.0) | mupen64plus-nx (>= 2.3.0)
+               libretro-mupen64plus-nx (>= 2.4.0) | mupen64plus-nx (>= 2.4.0)
 Standards-Version: 3.9.8
 Section: libs
 

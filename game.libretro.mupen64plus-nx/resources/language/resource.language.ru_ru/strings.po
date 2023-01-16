@@ -30,256 +30,276 @@ msgid "Settings"
 msgstr "Настройки"
 
 msgctxt "#30001"
-msgid "4:3 Resolution"
-msgstr ""
-
-msgctxt "#30002"
-msgid "Wide Resolution"
-msgstr ""
-
-msgctxt "#30003"
-msgid "Aspect Ratio"
-msgstr ""
-
-msgctxt "#30004"
-msgid "Native Resolution Factor"
-msgstr ""
-
-msgctxt "#30005"
-msgid "Threaded Renderer"
-msgstr ""
-
-msgctxt "#30006"
-msgid "Bilinear filtering mode"
-msgstr ""
-
-msgctxt "#30007"
-msgid "Hybrid Filter"
-msgstr ""
-
-msgctxt "#30008"
-msgid "Dithering"
-msgstr ""
-
-msgctxt "#30009"
-msgid "Dithering Quantization"
-msgstr ""
-
-msgctxt "#30010"
-msgid "Image Dithering Mode"
-msgstr ""
-
-msgctxt "#30011"
-msgid "MSAA level"
-msgstr ""
-
-msgctxt "#30012"
-msgid "FXAA"
-msgstr ""
-
-msgctxt "#30013"
-msgid "LOD Emulation"
-msgstr ""
-
-msgctxt "#30014"
-msgid "Framebuffer Emulation"
-msgstr ""
-
-msgctxt "#30015"
-msgid "Copy auxiliary buffers to RDRAM"
-msgstr ""
-
-msgctxt "#30016"
-msgid "Color buffer to RDRAM"
-msgstr ""
-
-msgctxt "#30017"
-msgid "Depth buffer to RDRAM"
-msgstr ""
-
-msgctxt "#30018"
-msgid "Background Mode"
-msgstr ""
-
-msgctxt "#30019"
-msgid "Hardware per-pixel lighting"
-msgstr ""
-
-msgctxt "#30020"
-msgid "Continuous texrect coords"
-msgstr ""
-
-msgctxt "#30021"
-msgid "Enable native-res boundaries for texture coordinates"
-msgstr ""
-
-msgctxt "#30022"
-msgid "Native res. 2D texrects"
-msgstr ""
-
-msgctxt "#30023"
-msgid "Less accurate blending mode"
-msgstr ""
-
-msgctxt "#30024"
-msgid "GPU shader depth write"
-msgstr ""
-
-msgctxt "#30025"
-msgid "N64 Depth Compare"
-msgstr ""
-
-msgctxt "#30026"
-msgid "Cache GPU Shaders"
-msgstr ""
-
-msgctxt "#30027"
-msgid "Cache Textures"
-msgstr ""
-
-msgctxt "#30028"
-msgid "Overscan"
-msgstr ""
-
-msgctxt "#30029"
-msgid "Overscan Offset (Top)"
-msgstr ""
-
-msgctxt "#30030"
-msgid "Overscan Offset (Left)"
-msgstr ""
-
-msgctxt "#30031"
-msgid "Overscan Offset (Right)"
-msgstr ""
-
-msgctxt "#30032"
-msgid "Overscan Offset (Bottom)"
-msgstr ""
-
-msgctxt "#30033"
-msgid "Max texture cache size"
-msgstr ""
-
-msgctxt "#30034"
-msgid "Texture filter"
-msgstr ""
-
-msgctxt "#30035"
-msgid "Texture Enhancement"
-msgstr ""
-
-msgctxt "#30036"
-msgid "Don't filter background textures"
-msgstr ""
-
-msgctxt "#30037"
-msgid "Use High-Res textures"
-msgstr ""
-
-msgctxt "#30038"
-msgid "Use High-Res Texture Cache Compression"
-msgstr ""
-
-msgctxt "#30039"
-msgid "Use High-Res Full Alpha Channel"
-msgstr ""
-
-msgctxt "#30040"
-msgid "Use enhanced Texture Storage"
-msgstr ""
-
-msgctxt "#30041"
-msgid "Use alternative method for High-Res Checksums"
-msgstr ""
-
-msgctxt "#30042"
-msgid "Use enhanced Hi-Res Storage"
-msgstr ""
-
-msgctxt "#30043"
-msgid "INI Behaviour"
-msgstr ""
-
-msgctxt "#30044"
-msgid "CPU Core"
-msgstr "Ядро CPU"
-
-msgctxt "#30045"
 msgid "RDP Plugin"
 msgstr ""
 
+msgctxt "#30002"
+msgid "4:3 Resolution"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Wide Resolution"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Aspect Ratio"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Native Resolution Factor"
+msgstr ""
+
+msgctxt "#30006"
+msgid "Threaded Renderer"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Bilinear filtering mode"
+msgstr ""
+
+msgctxt "#30008"
+msgid "Hybrid Filter"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Dithering"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Dithering Quantization"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Image Dithering Mode"
+msgstr ""
+
+msgctxt "#30012"
+msgid "MSAA level"
+msgstr ""
+
+msgctxt "#30013"
+msgid "FXAA"
+msgstr ""
+
+msgctxt "#30014"
+msgid "LOD Emulation"
+msgstr ""
+
+msgctxt "#30015"
+msgid "Framebuffer Emulation"
+msgstr ""
+
+msgctxt "#30016"
+msgid "Copy auxiliary buffers to RDRAM"
+msgstr ""
+
+msgctxt "#30017"
+msgid "Color buffer to RDRAM"
+msgstr ""
+
+msgctxt "#30018"
+msgid "Depth buffer to RDRAM"
+msgstr ""
+
+msgctxt "#30019"
+msgid "Background Mode"
+msgstr ""
+
+msgctxt "#30020"
+msgid "Hardware per-pixel lighting"
+msgstr ""
+
+msgctxt "#30021"
+msgid "Continuous texrect coords"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Enable inaccurate texture coordinates"
+msgstr ""
+
+msgctxt "#30023"
+msgid "Enable native-res boundaries for texture coordinates"
+msgstr ""
+
+msgctxt "#30024"
+msgid "Native res. 2D texrects"
+msgstr ""
+
+msgctxt "#30025"
+msgid "Less accurate blending mode"
+msgstr ""
+
+msgctxt "#30026"
+msgid "GPU shader depth write"
+msgstr ""
+
+msgctxt "#30027"
+msgid "N64 Depth Compare"
+msgstr ""
+
+msgctxt "#30028"
+msgid "Cache GPU Shaders"
+msgstr "Кешировать GPU шейдеры"
+
+msgctxt "#30029"
+msgid "Cache Textures"
+msgstr "Кешировать текстуры"
+
+msgctxt "#30030"
+msgid "Overscan"
+msgstr "Overscan"
+
+msgctxt "#30031"
+msgid "Overscan Offset (Top)"
+msgstr "Overscan смещение (Верху)"
+
+msgctxt "#30032"
+msgid "Overscan Offset (Left)"
+msgstr "Overscan смещение (Слева)"
+
+msgctxt "#30033"
+msgid "Overscan Offset (Right)"
+msgstr "Overscan смещение (Справа)"
+
+msgctxt "#30034"
+msgid "Overscan Offset (Bottom)"
+msgstr "Overscan смещение (Внизу)"
+
+msgctxt "#30035"
+msgid "Max High-Res VRAM Limit"
+msgstr ""
+
+msgctxt "#30036"
+msgid "Max texture cache size"
+msgstr ""
+
+msgctxt "#30037"
+msgid "Texture filter"
+msgstr ""
+
+msgctxt "#30038"
+msgid "Texture Enhancement"
+msgstr ""
+
+msgctxt "#30039"
+msgid "Don't filter background textures"
+msgstr ""
+
+msgctxt "#30040"
+msgid "Use High-Res textures"
+msgstr ""
+
+msgctxt "#30041"
+msgid "Use High-Res Texture Cache Compression"
+msgstr ""
+
+msgctxt "#30042"
+msgid "Use High-Res Full Alpha Channel"
+msgstr ""
+
+msgctxt "#30043"
+msgid "Use enhanced Texture Storage"
+msgstr ""
+
+msgctxt "#30044"
+msgid "Use alternative method for High-Res Checksums"
+msgstr ""
+
+msgctxt "#30045"
+msgid "Use enhanced Hi-Res Storage"
+msgstr ""
+
 msgctxt "#30046"
-msgid "RSP Plugin"
+msgid "INI Behaviour"
 msgstr ""
 
 msgctxt "#30047"
-msgid "Frame Duplication"
+msgid "CPU Core"
 msgstr ""
 
 msgctxt "#30048"
-msgid "Framerate"
-msgstr "Частота кадров"
+msgid "RSP Plugin"
+msgstr ""
 
 msgctxt "#30049"
-msgid "VI Refresh (Overclock)"
+msgid "Frame Duplication"
 msgstr ""
 
 msgctxt "#30050"
-msgid "Disable Expansion Pak"
+msgid "Framerate"
 msgstr ""
 
 msgctxt "#30051"
-msgid "Ignore emulated TLB Exceptions"
+msgid "VI Refresh (Overclock)"
 msgstr ""
 
 msgctxt "#30052"
-msgid "Count Per Op"
+msgid "Disable Expansion Pak"
 msgstr ""
 
 msgctxt "#30053"
-msgid "Analog Deadzone (percent)"
+msgid "Ignore emulated TLB Exceptions"
 msgstr ""
 
 msgctxt "#30054"
-msgid "Analog Sensitivity (percent)"
+msgid "Count Per Op"
 msgstr ""
 
 msgctxt "#30055"
-msgid "Right C Button"
+msgid "Count Per Op Divider (Overclock)"
 msgstr ""
 
 msgctxt "#30056"
-msgid "Left C Button"
+msgid "Analog Deadzone (percent)"
 msgstr ""
 
 msgctxt "#30057"
-msgid "Down C Button"
+msgid "Analog Sensitivity (percent)"
 msgstr ""
 
 msgctxt "#30058"
-msgid "Up C Button"
+msgid "Right C Button"
 msgstr ""
 
 msgctxt "#30059"
-msgid "Independent C-button Controls"
+msgid "Left C Button"
 msgstr ""
 
 msgctxt "#30060"
-msgid "Player 1 Pak"
+msgid "Down C Button"
 msgstr ""
 
 msgctxt "#30061"
-msgid "Player 2 Pak"
+msgid "Up C Button"
 msgstr ""
 
 msgctxt "#30062"
-msgid "Player 3 Pak"
+msgid "Independent C-button Controls"
 msgstr ""
 
 msgctxt "#30063"
+msgid "Player 1 Pak"
+msgstr ""
+
+msgctxt "#30064"
+msgid "Player 2 Pak"
+msgstr ""
+
+msgctxt "#30065"
+msgid "Player 3 Pak"
+msgstr ""
+
+msgctxt "#30066"
 msgid "Player 4 Pak"
 msgstr ""
+
+#~ msgctxt "#30044"
+#~ msgid "CPU Core"
+#~ msgstr "Ядро CPU"
+
+#~ msgctxt "#30048"
+#~ msgid "Framerate"
+#~ msgstr "Частота кадров"
 
 #~ msgctxt "#30001"
 #~ msgid "CPU Core"
@@ -336,34 +356,6 @@ msgstr ""
 #~ msgctxt "#30022"
 #~ msgid "Hardware per-pixel lighting"
 #~ msgstr "Аппаратное попиксельное освещение"
-
-#~ msgctxt "#30028"
-#~ msgid "Cache GPU Shaders"
-#~ msgstr "Кешировать GPU шейдеры"
-
-#~ msgctxt "#30029"
-#~ msgid "Cache Textures"
-#~ msgstr "Кешировать текстуры"
-
-#~ msgctxt "#30030"
-#~ msgid "Overscan"
-#~ msgstr "Overscan"
-
-#~ msgctxt "#30031"
-#~ msgid "Overscan Offset (Top)"
-#~ msgstr "Overscan смещение (Верху)"
-
-#~ msgctxt "#30032"
-#~ msgid "Overscan Offset (Left)"
-#~ msgstr "Overscan смещение (Слева)"
-
-#~ msgctxt "#30033"
-#~ msgid "Overscan Offset (Right)"
-#~ msgstr "Overscan смещение (Справа)"
-
-#~ msgctxt "#30034"
-#~ msgid "Overscan Offset (Bottom)"
-#~ msgstr "Overscan смещение (Внизу)"
 
 #~ msgctxt "#30035"
 #~ msgid "Max texture cache size"

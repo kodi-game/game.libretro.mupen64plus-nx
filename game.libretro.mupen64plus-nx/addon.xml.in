@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="game.libretro.mupen64plus-nx"
 		name="Nintendo - Nintendo 64 (Mupen64Plus-Next)"
-		version="2.4.0.29"
+		version="2.4.0.30"
 		provider-name="m4xw, Hacktarux, gonetz, GLideN64 Contributors, Mupen64Plus Team">
 	<requires>
 		<import addon="game.libretro" version="1.0.0"/>

@@ -1,1 +1,1 @@
-mupen64plus-nx https://github.com/libretro/mupen64plus-libretro-nx/archive/b76ea63eeeba4c3b0364504a7cea01f1b826c3ae.tar.gz
+mupen64plus-nx https://github.com/libretro/mupen64plus-libretro-nx/archive/4d270850bd09f8630110da701b73107e45a6e202.tar.gz

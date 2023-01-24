@@ -13,7 +13,7 @@ GPLv2
 
 ### Icon
 
-![Icon](game.libretro.mupen64plus-nx/resources/icon.png)
+![Nintendo - Nintendo 64 (Mupen64Plus-Next) icon](game.libretro.mupen64plus-nx/resources/icon.png)
 
 ### Fanart
 

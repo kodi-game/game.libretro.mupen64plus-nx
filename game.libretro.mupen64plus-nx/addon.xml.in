@@ -24,6 +24,7 @@
 		</assets>
 		<summary lang="en_GB">Nintendo - Nintendo 64 (Mupen64Plus-Next) 2.2-OpenGL</summary>
 		<description lang="da_DK">Mupen64 er en N64-emulator designet til at være multi-OS. Den bruger et plugin-system og er yderst kompatibel.</description>
+		<description lang="de_DE">Mupen64 ist ein N64-Emulator, der für mehrere Betriebssysteme konzipiert wurde. Er verwendet ein Pluginsystem und ist sehr kompatibel.</description>
 		<description lang="en_GB">Mupen64 is an N64 emulator desgined to be multi-OS. It uses a plugin system and is highly compatible.</description>
 		<description lang="es_ES">Mupen64 es un emulador de N64 diseñado para ser multi-OS. Utiliza un sistema de plugins y es altamente compatible.</description>
 		<description lang="zh_CN">Mupen64 是一款设计为多操作系统的 N64 模拟器。它使用插件系统，并且高度兼容。</description>

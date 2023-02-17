@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: game.libretro.mupen64plus-nx\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: 2017-02-04 09:56i\n"
-"PO-Revision-Date: 2022-02-15 10:13+0000\n"
+"PO-Revision-Date: 2023-02-17 23:08+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-game/game-libretro-mupen64plus-nx/da_dk/>\n"
 "Language: da_dk\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.15.2\n"
 
 msgctxt "Addon Summary"
 msgid "Nintendo - Nintendo 64 (Mupen64Plus-Next) 2.2-OpenGL"
@@ -43,7 +43,7 @@ msgstr ""
 
 msgctxt "#30004"
 msgid "Aspect Ratio"
-msgstr ""
+msgstr "Billedformat"
 
 msgctxt "#30005"
 msgid "Native Resolution Factor"
@@ -55,7 +55,7 @@ msgstr ""
 
 msgctxt "#30007"
 msgid "Bilinear filtering mode"
-msgstr ""
+msgstr "Tilstand for bilineær filtrering"
 
 msgctxt "#30008"
 msgid "Hybrid Filter"
@@ -63,7 +63,7 @@ msgstr ""
 
 msgctxt "#30009"
 msgid "Dithering"
-msgstr ""
+msgstr "Nuanceændring"
 
 msgctxt "#30010"
 msgid "Dithering Quantization"
@@ -75,19 +75,19 @@ msgstr ""
 
 msgctxt "#30012"
 msgid "MSAA level"
-msgstr ""
+msgstr "MSAA-niveau"
 
 msgctxt "#30013"
 msgid "FXAA"
-msgstr ""
+msgstr "FXAA"
 
 msgctxt "#30014"
 msgid "LOD Emulation"
-msgstr ""
+msgstr "LOD-emulering"
 
 msgctxt "#30015"
 msgid "Framebuffer Emulation"
-msgstr ""
+msgstr "Emulering af framebuffer"
 
 msgctxt "#30016"
 msgid "Copy auxiliary buffers to RDRAM"
@@ -95,23 +95,23 @@ msgstr ""
 
 msgctxt "#30017"
 msgid "Color buffer to RDRAM"
-msgstr ""
+msgstr "Farvebuffer til RDRAM"
 
 msgctxt "#30018"
 msgid "Depth buffer to RDRAM"
-msgstr ""
+msgstr "Dybdebuffer til RDRAM"
 
 msgctxt "#30019"
 msgid "Background Mode"
-msgstr ""
+msgstr "Baggrundstilstand"
 
 msgctxt "#30020"
 msgid "Hardware per-pixel lighting"
-msgstr ""
+msgstr "Hardware-belysning per pixel"
 
 msgctxt "#30021"
 msgid "Continuous texrect coords"
-msgstr ""
+msgstr "Kontinuerlige texrect-koordinater"
 
 msgctxt "#30022"
 msgid "Enable inaccurate texture coordinates"
@@ -171,15 +171,15 @@ msgstr ""
 
 msgctxt "#30036"
 msgid "Max texture cache size"
-msgstr ""
+msgstr "Maksimal størrelse på teksturstørrelse"
 
 msgctxt "#30037"
 msgid "Texture filter"
-msgstr ""
+msgstr "Teksturfilter"
 
 msgctxt "#30038"
 msgid "Texture Enhancement"
-msgstr ""
+msgstr "Forbedring af tekstur"
 
 msgctxt "#30039"
 msgid "Don't filter background textures"
@@ -187,19 +187,19 @@ msgstr ""
 
 msgctxt "#30040"
 msgid "Use High-Res textures"
-msgstr ""
+msgstr "Brug strukturer i høj opløsning"
 
 msgctxt "#30041"
 msgid "Use High-Res Texture Cache Compression"
-msgstr ""
+msgstr "Brug komprimering af strukturcache i høj opløsning"
 
 msgctxt "#30042"
 msgid "Use High-Res Full Alpha Channel"
-msgstr ""
+msgstr "Brug fuld alpha-kanal i høj opløsning"
 
 msgctxt "#30043"
 msgid "Use enhanced Texture Storage"
-msgstr ""
+msgstr "Brug forbedret strukturlagring"
 
 msgctxt "#30044"
 msgid "Use alternative method for High-Res Checksums"
@@ -207,7 +207,7 @@ msgstr ""
 
 msgctxt "#30045"
 msgid "Use enhanced Hi-Res Storage"
-msgstr ""
+msgstr "Brug forbedret lagring i høj opløsning"
 
 msgctxt "#30046"
 msgid "INI Behaviour"
@@ -215,23 +215,23 @@ msgstr ""
 
 msgctxt "#30047"
 msgid "CPU Core"
-msgstr ""
+msgstr "CPU-kerne"
 
 msgctxt "#30048"
 msgid "RSP Plugin"
-msgstr ""
+msgstr "RSP Plugin"
 
 msgctxt "#30049"
 msgid "Frame Duplication"
-msgstr ""
+msgstr "Duplikering af frame"
 
 msgctxt "#30050"
 msgid "Framerate"
-msgstr ""
+msgstr "Billedfrekvens"
 
 msgctxt "#30051"
 msgid "VI Refresh (Overclock)"
-msgstr ""
+msgstr "Opdater VI (overclock)"
 
 msgctxt "#30052"
 msgid "Disable Expansion Pak"
@@ -243,7 +243,7 @@ msgstr ""
 
 msgctxt "#30054"
 msgid "Count Per Op"
-msgstr ""
+msgstr "Antal pr. op"
 
 msgctxt "#30055"
 msgid "Count Per Op Divider (Overclock)"
@@ -251,11 +251,11 @@ msgstr ""
 
 msgctxt "#30056"
 msgid "Analog Deadzone (percent)"
-msgstr ""
+msgstr "Analog dødzone (procent)"
 
 msgctxt "#30057"
 msgid "Analog Sensitivity (percent)"
-msgstr ""
+msgstr "Analog følsomhed (procent)"
 
 msgctxt "#30058"
 msgid "Right C Button"
@@ -275,23 +275,23 @@ msgstr ""
 
 msgctxt "#30062"
 msgid "Independent C-button Controls"
-msgstr ""
+msgstr "Uafhængig C-knap kontrol"
 
 msgctxt "#30063"
 msgid "Player 1 Pak"
-msgstr ""
+msgstr "Spiller 1 Pak"
 
 msgctxt "#30064"
 msgid "Player 2 Pak"
-msgstr ""
+msgstr "Spiller 2 Pakke"
 
 msgctxt "#30065"
 msgid "Player 3 Pak"
-msgstr ""
+msgstr "Spiller 3 Pak"
 
 msgctxt "#30066"
 msgid "Player 4 Pak"
-msgstr ""
+msgstr "Spiller 4 Pak"
 
 #~ msgctxt "#30001"
 #~ msgid "4:3 Resolution"

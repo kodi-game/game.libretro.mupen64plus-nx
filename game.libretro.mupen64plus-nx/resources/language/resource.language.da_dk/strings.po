@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: game.libretro.mupen64plus-nx\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: 2017-02-04 09:56i\n"
-"PO-Revision-Date: 2023-02-17 23:08+0000\n"
+"PO-Revision-Date: 2023-02-28 11:36+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
 "Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-game/game-libretro-mupen64plus-nx/da_dk/>\n"
 "Language: da_dk\n"
@@ -31,15 +31,15 @@ msgstr "Indstillinger"
 
 msgctxt "#30001"
 msgid "RDP Plugin"
-msgstr ""
+msgstr "RDP Plugin"
 
 msgctxt "#30002"
 msgid "4:3 Resolution"
-msgstr ""
+msgstr "4:3 opløsning"
 
 msgctxt "#30003"
 msgid "Wide Resolution"
-msgstr ""
+msgstr "Bred opløsning"
 
 msgctxt "#30004"
 msgid "Aspect Ratio"
@@ -47,11 +47,11 @@ msgstr "Billedformat"
 
 msgctxt "#30005"
 msgid "Native Resolution Factor"
-msgstr ""
+msgstr "Intern faktor for opløsning"
 
 msgctxt "#30006"
 msgid "Threaded Renderer"
-msgstr ""
+msgstr "Threaded rendering"
 
 msgctxt "#30007"
 msgid "Bilinear filtering mode"
@@ -59,7 +59,7 @@ msgstr "Tilstand for bilineær filtrering"
 
 msgctxt "#30008"
 msgid "Hybrid Filter"
-msgstr ""
+msgstr "Hybridfilter"
 
 msgctxt "#30009"
 msgid "Dithering"
@@ -67,11 +67,11 @@ msgstr "Nuanceændring"
 
 msgctxt "#30010"
 msgid "Dithering Quantization"
-msgstr ""
+msgstr "Kvantisering af nuanceændring"
 
 msgctxt "#30011"
 msgid "Image Dithering Mode"
-msgstr ""
+msgstr "Tilstand for nuanceændring af billede"
 
 msgctxt "#30012"
 msgid "MSAA level"
@@ -91,7 +91,7 @@ msgstr "Emulering af framebuffer"
 
 msgctxt "#30016"
 msgid "Copy auxiliary buffers to RDRAM"
-msgstr ""
+msgstr "Kopier ekstrabuffere til RDRAM"
 
 msgctxt "#30017"
 msgid "Color buffer to RDRAM"
@@ -115,11 +115,11 @@ msgstr "Kontinuerlige texrect-koordinater"
 
 msgctxt "#30022"
 msgid "Enable inaccurate texture coordinates"
-msgstr ""
+msgstr "Aktiver unøjagtige overfladekoordinater"
 
 msgctxt "#30023"
 msgid "Enable native-res boundaries for texture coordinates"
-msgstr ""
+msgstr "Aktiver grænser ved intern opløsning for teksturkoordinater"
 
 msgctxt "#30024"
 msgid "Native res. 2D texrects"
@@ -167,7 +167,7 @@ msgstr "Forskydning af overskandering (bund)"
 
 msgctxt "#30035"
 msgid "Max High-Res VRAM Limit"
-msgstr ""
+msgstr "Maksimal grænse for VRAM i høj opløsning"
 
 msgctxt "#30036"
 msgid "Max texture cache size"
@@ -183,7 +183,7 @@ msgstr "Forbedring af tekstur"
 
 msgctxt "#30039"
 msgid "Don't filter background textures"
-msgstr ""
+msgstr "Filtrer ikke baggrundsteksturer"
 
 msgctxt "#30040"
 msgid "Use High-Res textures"
@@ -203,7 +203,7 @@ msgstr "Brug forbedret strukturlagring"
 
 msgctxt "#30044"
 msgid "Use alternative method for High-Res Checksums"
-msgstr ""
+msgstr "Brug alternativ metode til checksums i høj opløsning"
 
 msgctxt "#30045"
 msgid "Use enhanced Hi-Res Storage"
@@ -211,7 +211,7 @@ msgstr "Brug forbedret lagring i høj opløsning"
 
 msgctxt "#30046"
 msgid "INI Behaviour"
-msgstr ""
+msgstr "INI-adfærd"
 
 msgctxt "#30047"
 msgid "CPU Core"
@@ -235,11 +235,11 @@ msgstr "Opdater VI (overclock)"
 
 msgctxt "#30052"
 msgid "Disable Expansion Pak"
-msgstr ""
+msgstr "Deaktiver udvidelsespakke"
 
 msgctxt "#30053"
 msgid "Ignore emulated TLB Exceptions"
-msgstr ""
+msgstr "Ignorer emulerede TLB-undtagelser"
 
 msgctxt "#30054"
 msgid "Count Per Op"
@@ -259,19 +259,19 @@ msgstr "Analog følsomhed (procent)"
 
 msgctxt "#30058"
 msgid "Right C Button"
-msgstr ""
+msgstr "Højre C-knap"
 
 msgctxt "#30059"
 msgid "Left C Button"
-msgstr ""
+msgstr "Venstre C-knap"
 
 msgctxt "#30060"
 msgid "Down C Button"
-msgstr ""
+msgstr "Ned C-knap"
 
 msgctxt "#30061"
 msgid "Up C Button"
-msgstr ""
+msgstr "Op C-knap"
 
 msgctxt "#30062"
 msgid "Independent C-button Controls"
@@ -279,7 +279,7 @@ msgstr "Uafhængig C-knap kontrol"
 
 msgctxt "#30063"
 msgid "Player 1 Pak"
-msgstr "Spiller 1 Pak"
+msgstr "Spiller 1 Pakke"
 
 msgctxt "#30064"
 msgid "Player 2 Pak"
@@ -287,11 +287,11 @@ msgstr "Spiller 2 Pakke"
 
 msgctxt "#30065"
 msgid "Player 3 Pak"
-msgstr "Spiller 3 Pak"
+msgstr "Spiller 3 Pakke"
 
 msgctxt "#30066"
 msgid "Player 4 Pak"
-msgstr "Spiller 4 Pak"
+msgstr "Spiller 4 Pakke"
 
 #~ msgctxt "#30001"
 #~ msgid "4:3 Resolution"

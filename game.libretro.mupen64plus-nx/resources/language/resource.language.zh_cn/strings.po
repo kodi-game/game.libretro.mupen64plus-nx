@@ -7,19 +7,19 @@ msgstr ""
 "Project-Id-Version: game.libretro.mupen64plus-nx\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: 2017-02-04 09:56i\n"
-"PO-Revision-Date: 2023-03-23 23:23+0000\n"
-"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"PO-Revision-Date: 2023-06-01 08:42+0000\n"
+"Last-Translator: taxigps <taxigps@sina.com>\n"
 "Language-Team: Chinese (China) <https://kodi.weblate.cloud/projects/kodi-add-ons-game/game-libretro-mupen64plus-nx/zh_cn/>\n"
 "Language: zh_cn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.2\n"
+"X-Generator: Weblate 4.17\n"
 
 msgctxt "Addon Summary"
 msgid "Nintendo - Nintendo 64 (Mupen64Plus-Next)"
-msgstr ""
+msgstr "任天堂 - Nintendo 64 (Mupen64Plus-Next)"
 
 msgctxt "Addon Description"
 msgid "Mupen64 is an N64 emulator desgined to be multi-OS. It uses a plugin system and is highly compatible."
@@ -31,15 +31,15 @@ msgstr "设置"
 
 msgctxt "#30001"
 msgid "RDP Plugin"
-msgstr ""
+msgstr "RDP 插件"
 
 msgctxt "#30002"
 msgid "4:3 Resolution"
-msgstr ""
+msgstr "4:3 分辨率"
 
 msgctxt "#30003"
 msgid "Wide Resolution"
-msgstr ""
+msgstr "宽分辨率"
 
 msgctxt "#30004"
 msgid "Aspect Ratio"
@@ -47,11 +47,11 @@ msgstr "宽高比"
 
 msgctxt "#30005"
 msgid "Native Resolution Factor"
-msgstr ""
+msgstr "固有分辨率因子"
 
 msgctxt "#30006"
 msgid "Threaded Renderer"
-msgstr ""
+msgstr "线程渲染器"
 
 msgctxt "#30007"
 msgid "Bilinear filtering mode"
@@ -59,7 +59,7 @@ msgstr "双线性滤波模式"
 
 msgctxt "#30008"
 msgid "Hybrid Filter"
-msgstr ""
+msgstr "混合滤波器"
 
 msgctxt "#30009"
 msgid "Dithering"
@@ -67,11 +67,11 @@ msgstr "抖动"
 
 msgctxt "#30010"
 msgid "Dithering Quantization"
-msgstr ""
+msgstr "抖动量化"
 
 msgctxt "#30011"
 msgid "Image Dithering Mode"
-msgstr ""
+msgstr "图像抖动模式"
 
 msgctxt "#30012"
 msgid "MSAA level"
@@ -91,7 +91,7 @@ msgstr "帧缓冲区仿真"
 
 msgctxt "#30016"
 msgid "Copy auxiliary buffers to RDRAM"
-msgstr ""
+msgstr "将辅助缓冲区复制到 RDRAM"
 
 msgctxt "#30017"
 msgid "Color buffer to RDRAM"
@@ -115,11 +115,11 @@ msgstr "连续纹理矩形坐标"
 
 msgctxt "#30022"
 msgid "Enable inaccurate texture coordinates"
-msgstr ""
+msgstr "启用不准确的纹理坐标"
 
 msgctxt "#30023"
 msgid "Enable native-res boundaries for texture coordinates"
-msgstr ""
+msgstr "为纹理坐标启用本机分辨率边界"
 
 msgctxt "#30024"
 msgid "Native res. 2D texrects"
@@ -167,7 +167,7 @@ msgstr "过扫描偏移（底部）"
 
 msgctxt "#30035"
 msgid "Max High-Res VRAM Limit"
-msgstr ""
+msgstr "最大高分辨率 VRAM 限制"
 
 msgctxt "#30036"
 msgid "Max texture cache size"
@@ -183,7 +183,7 @@ msgstr "纹理增强"
 
 msgctxt "#30039"
 msgid "Don't filter background textures"
-msgstr ""
+msgstr "不过滤背景纹理"
 
 msgctxt "#30040"
 msgid "Use High-Res textures"
@@ -203,7 +203,7 @@ msgstr "使用增强的纹理存储"
 
 msgctxt "#30044"
 msgid "Use alternative method for High-Res Checksums"
-msgstr ""
+msgstr "使用高分辨率校验和的替代方法"
 
 msgctxt "#30045"
 msgid "Use enhanced Hi-Res Storage"
@@ -211,7 +211,7 @@ msgstr "使用增强的高分辨率存储"
 
 msgctxt "#30046"
 msgid "INI Behaviour"
-msgstr ""
+msgstr "INI 行为"
 
 msgctxt "#30047"
 msgid "CPU Core"
@@ -235,11 +235,11 @@ msgstr "VI 刷新（超频）"
 
 msgctxt "#30052"
 msgid "Disable Expansion Pak"
-msgstr ""
+msgstr "禁用扩展包"
 
 msgctxt "#30053"
 msgid "Ignore emulated TLB Exceptions"
-msgstr ""
+msgstr "忽略模拟 TLB 异常"
 
 msgctxt "#30054"
 msgid "Count Per Op"
@@ -247,7 +247,7 @@ msgstr "每次操作的计数"
 
 msgctxt "#30055"
 msgid "Count Per Op Divider (Overclock)"
-msgstr ""
+msgstr "计数每操作分配器（超频）"
 
 msgctxt "#30056"
 msgid "Analog Deadzone (percent)"
@@ -259,19 +259,19 @@ msgstr "模拟灵敏度（百分比）"
 
 msgctxt "#30058"
 msgid "Right C Button"
-msgstr ""
+msgstr "右 C 按钮"
 
 msgctxt "#30059"
 msgid "Left C Button"
-msgstr ""
+msgstr "左 C 按钮"
 
 msgctxt "#30060"
 msgid "Down C Button"
-msgstr ""
+msgstr "下 C 按钮"
 
 msgctxt "#30061"
 msgid "Up C Button"
-msgstr ""
+msgstr "上 C 按钮"
 
 msgctxt "#30062"
 msgid "Independent C-button Controls"

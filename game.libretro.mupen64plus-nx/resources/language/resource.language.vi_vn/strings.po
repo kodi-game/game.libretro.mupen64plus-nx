@@ -24,10 +24,6 @@ msgctxt "Addon Description"
 msgid "Mupen64 is an N64 emulator desgined to be multi-OS. It uses a plugin system and is highly compatible."
 msgstr ""
 
-msgctxt "#30000"
-msgid "Settings"
-msgstr ""
-
 msgctxt "#30001"
 msgid "RDP Plugin"
 msgstr ""

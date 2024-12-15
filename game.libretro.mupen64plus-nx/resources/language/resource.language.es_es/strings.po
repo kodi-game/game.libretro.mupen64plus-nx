@@ -25,10 +25,6 @@ msgctxt "Addon Description"
 msgid "Mupen64 is an N64 emulator desgined to be multi-OS. It uses a plugin system and is highly compatible."
 msgstr "Mupen64 es un emulador de N64 diseñado para ser multi-OS. Utiliza un sistema de plugins y es altamente compatible."
 
-msgctxt "#30000"
-msgid "Settings"
-msgstr "Ajustes"
-
 msgctxt "#30001"
 msgid "RDP Plugin"
 msgstr "Plugin RDP"
@@ -292,6 +288,10 @@ msgstr "Pak Jugador 3"
 msgctxt "#30066"
 msgid "Player 4 Pak"
 msgstr "Pak Jugador 4"
+
+#~ msgctxt "#30000"
+#~ msgid "Settings"
+#~ msgstr "Ajustes"
 
 #~ msgctxt "#30001"
 #~ msgid "4:3 Resolution"

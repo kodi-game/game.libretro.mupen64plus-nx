@@ -5,8 +5,6 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})
 
 find_package(Kodi REQUIRED)
 
-set(CMAKE_CXX_STANDARD 17)
-
 # CMake on windows only searches for .lib libraries (static library or import library).
 # The libretro game library is dynamically loaded so even if an import library would exists it's of no use.
 if(CMAKE_SYSTEM_NAME STREQUAL Windows)

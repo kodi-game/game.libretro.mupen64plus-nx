@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: game.libretro.mupen64plus-nx\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: 2017-02-04 09:56i\n"
-"PO-Revision-Date: 2025-04-08 15:13+0000\n"
+"PO-Revision-Date: 2025-04-11 09:05+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://kodi.weblate.cloud/projects/kodi-add-ons-game/game-libretro-mupen64plus-nx/sv_se/>\n"
 "Language: sv_se\n"
@@ -27,7 +27,7 @@ msgstr "Mupen64 är en N64-emulator som är utformad för att vara multi-OS. Den
 
 msgctxt "#30001"
 msgid "RDP Plugin"
-msgstr ""
+msgstr "RDP-tillägg"
 
 msgctxt "#30002"
 msgid "4:3 Resolution"
@@ -35,7 +35,7 @@ msgstr ""
 
 msgctxt "#30003"
 msgid "Wide Resolution"
-msgstr ""
+msgstr "Bred upplösning"
 
 msgctxt "#30004"
 msgid "Aspect Ratio"
@@ -71,15 +71,15 @@ msgstr ""
 
 msgctxt "#30012"
 msgid "MSAA level"
-msgstr ""
+msgstr "MSAA-nivå"
 
 msgctxt "#30013"
 msgid "FXAA"
-msgstr ""
+msgstr "FXAA"
 
 msgctxt "#30014"
 msgid "LOD Emulation"
-msgstr ""
+msgstr "LOD-emulering"
 
 msgctxt "#30015"
 msgid "Framebuffer Emulation"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: game.libretro.mupen64plus-nx\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: 2017-02-04 09:56i\n"
-"PO-Revision-Date: 2025-04-11 09:05+0000\n"
+"PO-Revision-Date: 2025-04-12 12:26+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://kodi.weblate.cloud/projects/kodi-add-ons-game/game-libretro-mupen64plus-nx/sv_se/>\n"
 "Language: sv_se\n"
@@ -29,45 +29,52 @@ msgctxt "#30001"
 msgid "RDP Plugin"
 msgstr "RDP-tillägg"
 
+#, fuzzy
 msgctxt "#30002"
 msgid "4:3 Resolution"
-msgstr ""
+msgstr "4:3 Upplösning"
 
 msgctxt "#30003"
 msgid "Wide Resolution"
 msgstr "Bred upplösning"
 
+#, fuzzy
 msgctxt "#30004"
 msgid "Aspect Ratio"
-msgstr ""
+msgstr "Bildförhållande"
 
+#, fuzzy
 msgctxt "#30005"
 msgid "Native Resolution Factor"
-msgstr ""
+msgstr "Nativ upplösningsfaktor"
 
 msgctxt "#30006"
 msgid "Threaded Renderer"
-msgstr ""
+msgstr "Trådad rendering"
 
+#, fuzzy
 msgctxt "#30007"
 msgid "Bilinear filtering mode"
-msgstr ""
+msgstr "Bilineärt filtreringsläge"
 
+#, fuzzy
 msgctxt "#30008"
 msgid "Hybrid Filter"
-msgstr ""
+msgstr "Hybridfilter"
 
 msgctxt "#30009"
 msgid "Dithering"
-msgstr ""
+msgstr "Dithering"
 
+#, fuzzy
 msgctxt "#30010"
 msgid "Dithering Quantization"
-msgstr ""
+msgstr "Dithering Kvantisering"
 
+#, fuzzy
 msgctxt "#30011"
 msgid "Image Dithering Mode"
-msgstr ""
+msgstr "Dithering-läge för bild"
 
 msgctxt "#30012"
 msgid "MSAA level"
@@ -81,213 +88,262 @@ msgctxt "#30014"
 msgid "LOD Emulation"
 msgstr "LOD-emulering"
 
+#, fuzzy
 msgctxt "#30015"
 msgid "Framebuffer Emulation"
-msgstr ""
+msgstr "Emulering av framebuffert"
 
+#, fuzzy
 msgctxt "#30016"
 msgid "Copy auxiliary buffers to RDRAM"
-msgstr ""
+msgstr "Kopiera hjälpbuffertar till RDRAM"
 
+#, fuzzy
 msgctxt "#30017"
 msgid "Color buffer to RDRAM"
-msgstr ""
+msgstr "Färgbuffert till RDRAM"
 
+#, fuzzy
 msgctxt "#30018"
 msgid "Depth buffer to RDRAM"
-msgstr ""
+msgstr "Djupbuffert till RDRAM"
 
+#, fuzzy
 msgctxt "#30019"
 msgid "Background Mode"
-msgstr ""
+msgstr "Bakgrundsläge"
 
+#, fuzzy
 msgctxt "#30020"
 msgid "Hardware per-pixel lighting"
-msgstr ""
+msgstr "Hårdvara för per-pixel-belysning"
 
+#, fuzzy
 msgctxt "#30021"
 msgid "Continuous texrect coords"
-msgstr ""
+msgstr "Kontinuerliga texrect-koordinater"
 
+#, fuzzy
 msgctxt "#30022"
 msgid "Enable inaccurate texture coordinates"
-msgstr ""
+msgstr "Aktivera felaktiga texturkoordinater"
 
+#, fuzzy
 msgctxt "#30023"
 msgid "Enable native-res boundaries for texture coordinates"
-msgstr ""
+msgstr "Aktivera native-res-gränser för texturkoordinater"
 
+#, fuzzy
 msgctxt "#30024"
 msgid "Native res. 2D texrects"
-msgstr ""
+msgstr "Ursprunglig res. 2D-texter"
 
+#, fuzzy
 msgctxt "#30025"
 msgid "Less accurate blending mode"
-msgstr ""
+msgstr "Mindre exakt blandningsläge"
 
+#, fuzzy
 msgctxt "#30026"
 msgid "GPU shader depth write"
-msgstr ""
+msgstr "Skrivning av GPU-shaderdjup"
 
+#, fuzzy
 msgctxt "#30027"
 msgid "N64 Depth Compare"
-msgstr ""
+msgstr "N64 djupjämförelse"
 
+#, fuzzy
 msgctxt "#30028"
 msgid "Cache GPU Shaders"
-msgstr ""
+msgstr "Cache GPU-shaders"
 
+#, fuzzy
 msgctxt "#30029"
 msgid "Cache Textures"
-msgstr ""
+msgstr "Cache-texturer"
 
+#, fuzzy
 msgctxt "#30030"
 msgid "Overscan"
-msgstr ""
+msgstr "Beskär överskanning"
 
+#, fuzzy
 msgctxt "#30031"
 msgid "Overscan Offset (Top)"
-msgstr ""
+msgstr "Offset för överskanning (topp)"
 
+#, fuzzy
 msgctxt "#30032"
 msgid "Overscan Offset (Left)"
-msgstr ""
+msgstr "Offset för överskanning (vänster)"
 
+#, fuzzy
 msgctxt "#30033"
 msgid "Overscan Offset (Right)"
-msgstr ""
+msgstr "Offset för överskanning (höger)"
 
+#, fuzzy
 msgctxt "#30034"
 msgid "Overscan Offset (Bottom)"
-msgstr ""
+msgstr "Offset för överskanning (botten)"
 
+#, fuzzy
 msgctxt "#30035"
 msgid "Max High-Res VRAM Limit"
-msgstr ""
+msgstr "Max VRAM-gräns för högupplösta bilder"
 
+#, fuzzy
 msgctxt "#30036"
 msgid "Max texture cache size"
-msgstr ""
+msgstr "Maximal storlek på texturcache"
 
+#, fuzzy
 msgctxt "#30037"
 msgid "Texture filter"
-msgstr ""
+msgstr "Texturfilter"
 
 msgctxt "#30038"
 msgid "Texture Enhancement"
-msgstr ""
+msgstr "Förbättring av textur"
 
+#, fuzzy
 msgctxt "#30039"
 msgid "Don't filter background textures"
-msgstr ""
+msgstr "Filtrera inte bakgrundstexturer"
 
+#, fuzzy
 msgctxt "#30040"
 msgid "Use High-Res textures"
-msgstr ""
+msgstr "Använd högupplösta texturer"
 
+#, fuzzy
 msgctxt "#30041"
 msgid "Use High-Res Texture Cache Compression"
-msgstr ""
+msgstr "Använd komprimering av texturcache för högupplösta bilder"
 
+#, fuzzy
 msgctxt "#30042"
 msgid "Use High-Res Full Alpha Channel"
-msgstr ""
+msgstr "Använd full alfakanal i högupplöst format"
 
+#, fuzzy
 msgctxt "#30043"
 msgid "Use enhanced Texture Storage"
-msgstr ""
+msgstr "Använd förbättrad texturlagring"
 
+#, fuzzy
 msgctxt "#30044"
 msgid "Use alternative method for High-Res Checksums"
-msgstr ""
+msgstr "Använd alternativ metod för High-Res Checksums"
 
+#, fuzzy
 msgctxt "#30045"
 msgid "Use enhanced Hi-Res Storage"
-msgstr ""
+msgstr "Använd förbättrad Hi-Res-lagring"
 
+#, fuzzy
 msgctxt "#30046"
 msgid "INI Behaviour"
-msgstr ""
+msgstr "INI Beteende"
 
+#, fuzzy
 msgctxt "#30047"
 msgid "CPU Core"
-msgstr ""
+msgstr "CPU-KÄRNA"
 
 msgctxt "#30048"
 msgid "RSP Plugin"
-msgstr ""
+msgstr "RSP-insticksmodul"
 
+#, fuzzy
 msgctxt "#30049"
 msgid "Frame Duplication"
-msgstr ""
+msgstr "Duplicering av ramar"
 
 msgctxt "#30050"
 msgid "Framerate"
-msgstr ""
+msgstr "Bildfrekvens"
 
+#, fuzzy
 msgctxt "#30051"
 msgid "VI Refresh (Overclock)"
-msgstr ""
+msgstr "VI Uppdatering (överklockning)"
 
+#, fuzzy
 msgctxt "#30052"
 msgid "Disable Expansion Pak"
-msgstr ""
+msgstr "Avaktivera Expansion Pak"
 
+#, fuzzy
 msgctxt "#30053"
 msgid "Ignore emulated TLB Exceptions"
-msgstr ""
+msgstr "Ignorera emulerade TLB-undantag"
 
+#, fuzzy
 msgctxt "#30054"
 msgid "Count Per Op"
-msgstr ""
+msgstr "Antal per operation"
 
+#, fuzzy
 msgctxt "#30055"
 msgid "Count Per Op Divider (Overclock)"
-msgstr ""
+msgstr "Räkning per op-delare (överklockning)"
 
+#, fuzzy
 msgctxt "#30056"
 msgid "Analog Deadzone (percent)"
-msgstr ""
+msgstr "Analog dödzon (procent)"
 
+#, fuzzy
 msgctxt "#30057"
 msgid "Analog Sensitivity (percent)"
-msgstr ""
+msgstr "Analog känslighet (procent)"
 
+#, fuzzy
 msgctxt "#30058"
 msgid "Right C Button"
-msgstr ""
+msgstr "Höger C-knapp"
 
+#, fuzzy
 msgctxt "#30059"
 msgid "Left C Button"
-msgstr ""
+msgstr "Vänster C-knapp"
 
+#, fuzzy
 msgctxt "#30060"
 msgid "Down C Button"
-msgstr ""
+msgstr "Ned C-knappen"
 
+#, fuzzy
 msgctxt "#30061"
 msgid "Up C Button"
-msgstr ""
+msgstr "Upp C-knapp"
 
+#, fuzzy
 msgctxt "#30062"
 msgid "Independent C-button Controls"
-msgstr ""
+msgstr "Oberoende kontroller med C-knapp"
 
+#, fuzzy
 msgctxt "#30063"
 msgid "Player 1 Pak"
-msgstr ""
+msgstr "Spelare 1 Pak"
 
+#, fuzzy
 msgctxt "#30064"
 msgid "Player 2 Pak"
-msgstr ""
+msgstr "Spelare 2 Pak"
 
+#, fuzzy
 msgctxt "#30065"
 msgid "Player 3 Pak"
-msgstr ""
+msgstr "Spelare 3 Pak"
 
+#, fuzzy
 msgctxt "#30066"
 msgid "Player 4 Pak"
-msgstr ""
+msgstr "Spelare 4 Pak"
 
 #~ msgctxt "#30000"
 #~ msgid "Settings"

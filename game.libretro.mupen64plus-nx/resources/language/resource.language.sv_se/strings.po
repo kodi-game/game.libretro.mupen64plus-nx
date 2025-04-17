@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: game.libretro.mupen64plus-nx\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: 2017-02-04 09:56i\n"
-"PO-Revision-Date: 2025-04-14 08:16+0000\n"
+"PO-Revision-Date: 2025-04-17 04:26+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://kodi.weblate.cloud/projects/kodi-add-ons-game/game-libretro-mupen64plus-nx/sv_se/>\n"
 "Language: sv_se\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11\n"
 
 msgctxt "Addon Summary"
 msgid "Nintendo - Nintendo 64 (Mupen64Plus-Next)"
@@ -29,7 +29,6 @@ msgctxt "#30001"
 msgid "RDP Plugin"
 msgstr "RDP-tillägg"
 
-#, fuzzy
 msgctxt "#30002"
 msgid "4:3 Resolution"
 msgstr "4:3 Upplösning"
@@ -38,7 +37,6 @@ msgctxt "#30003"
 msgid "Wide Resolution"
 msgstr "Bred upplösning"
 
-#, fuzzy
 msgctxt "#30004"
 msgid "Aspect Ratio"
 msgstr "Bildförhållande"
@@ -51,12 +49,10 @@ msgctxt "#30006"
 msgid "Threaded Renderer"
 msgstr "Trådad rendering"
 
-#, fuzzy
 msgctxt "#30007"
 msgid "Bilinear filtering mode"
-msgstr "Bilineärt filtreringsläge"
+msgstr "Bilinjärt filtreringsläge"
 
-#, fuzzy
 msgctxt "#30008"
 msgid "Hybrid Filter"
 msgstr "Hybridfilter"
@@ -97,7 +93,6 @@ msgctxt "#30016"
 msgid "Copy auxiliary buffers to RDRAM"
 msgstr "Kopiera hjälpbuffertar till RDRAM"
 
-#, fuzzy
 msgctxt "#30017"
 msgid "Color buffer to RDRAM"
 msgstr "Färgbuffert till RDRAM"
@@ -107,7 +102,6 @@ msgctxt "#30018"
 msgid "Depth buffer to RDRAM"
 msgstr "Djupbuffert till RDRAM"
 
-#, fuzzy
 msgctxt "#30019"
 msgid "Background Mode"
 msgstr "Bakgrundsläge"
@@ -147,7 +141,6 @@ msgctxt "#30026"
 msgid "GPU shader depth write"
 msgstr "Skrivning av GPU-shaderdjup"
 
-#, fuzzy
 msgctxt "#30027"
 msgid "N64 Depth Compare"
 msgstr "N64 djupjämförelse"
@@ -162,10 +155,9 @@ msgctxt "#30029"
 msgid "Cache Textures"
 msgstr "Cache-texturer"
 
-#, fuzzy
 msgctxt "#30030"
 msgid "Overscan"
-msgstr "Beskär överskanning"
+msgstr "Överskanning"
 
 #, fuzzy
 msgctxt "#30031"
@@ -197,7 +189,6 @@ msgctxt "#30036"
 msgid "Max texture cache size"
 msgstr "Maximal storlek på texturcache"
 
-#, fuzzy
 msgctxt "#30037"
 msgid "Texture filter"
 msgstr "Texturfilter"
@@ -241,15 +232,13 @@ msgctxt "#30045"
 msgid "Use enhanced Hi-Res Storage"
 msgstr "Använd förbättrad Hi-Res-lagring"
 
-#, fuzzy
 msgctxt "#30046"
 msgid "INI Behaviour"
-msgstr "INI Beteende"
+msgstr "INI-beteende"
 
-#, fuzzy
 msgctxt "#30047"
 msgid "CPU Core"
-msgstr "CPU-KÄRNA"
+msgstr "CPU-kärna"
 
 msgctxt "#30048"
 msgid "RSP Plugin"
@@ -269,10 +258,9 @@ msgctxt "#30051"
 msgid "VI Refresh (Overclock)"
 msgstr "VI Uppdatering (överklockning)"
 
-#, fuzzy
 msgctxt "#30052"
 msgid "Disable Expansion Pak"
-msgstr "Avaktivera Expansion Pak"
+msgstr "Inaktivera Expansion Pak"
 
 #, fuzzy
 msgctxt "#30053"
@@ -289,32 +277,26 @@ msgctxt "#30055"
 msgid "Count Per Op Divider (Overclock)"
 msgstr "Räkning per op-delare (överklockning)"
 
-#, fuzzy
 msgctxt "#30056"
 msgid "Analog Deadzone (percent)"
 msgstr "Analog dödzon (procent)"
 
-#, fuzzy
 msgctxt "#30057"
 msgid "Analog Sensitivity (percent)"
 msgstr "Analog känslighet (procent)"
 
-#, fuzzy
 msgctxt "#30058"
 msgid "Right C Button"
 msgstr "Höger C-knapp"
 
-#, fuzzy
 msgctxt "#30059"
 msgid "Left C Button"
 msgstr "Vänster C-knapp"
 
-#, fuzzy
 msgctxt "#30060"
 msgid "Down C Button"
-msgstr "Ned C-knappen"
+msgstr "Ner C-knappen"
 
-#, fuzzy
 msgctxt "#30061"
 msgid "Up C Button"
 msgstr "Upp C-knapp"

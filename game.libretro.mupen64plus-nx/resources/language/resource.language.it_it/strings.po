@@ -293,6 +293,78 @@ msgctxt "#30067"
 msgid "Enable color buffer copy from RDRAM"
 msgstr ""
 
+msgctxt "#30068"
+msgid "(ParaLLEl-RDP) Synchronous RDP"
+msgstr ""
+
+msgctxt "#30069"
+msgid "(ParaLLEl-RDP) Crop overscan"
+msgstr ""
+
+msgctxt "#30070"
+msgid "(ParaLLEl-RDP) VI Divot filter"
+msgstr ""
+
+msgctxt "#30071"
+msgid "(ParaLLEl-RDP) VI Gamma dither"
+msgstr ""
+
+msgctxt "#30072"
+msgid "(ParaLLEl-RDP) VI anti-aliasing"
+msgstr ""
+
+msgctxt "#30073"
+msgid "(ParaLLEl-RDP) VI bilinear"
+msgstr ""
+
+msgctxt "#30074"
+msgid "(ParaLLEl-RDP) VI dither filter"
+msgstr ""
+
+msgctxt "#30075"
+msgid "(ParaLLEl-RDP) Upscaling factor (restart)"
+msgstr ""
+
+msgctxt "#30076"
+msgid "(ParaLLEl-RDP) SSAA framebuffer effects (restart)"
+msgstr ""
+
+msgctxt "#30077"
+msgid "(ParaLLEl-RDP) Dither SSAA framebuffer effects (restart)"
+msgstr ""
+
+msgctxt "#30078"
+msgid "(ParaLLEl-RDP) Downsampling factor"
+msgstr ""
+
+msgctxt "#30079"
+msgid "(ParaLLEl-RDP) Native texture LOD"
+msgstr ""
+
+msgctxt "#30080"
+msgid "(ParaLLEl-RDP) Native resolution TEX_RECT"
+msgstr ""
+
+msgctxt "#30081"
+msgid "(ParaLLEl-RDP) Deinterlacing method"
+msgstr ""
+
+msgctxt "#30082"
+msgid "VI Overlay"
+msgstr ""
+
+msgctxt "#30083"
+msgid "Thread sync level"
+msgstr ""
+
+msgctxt "#30084"
+msgid "Multi-threading"
+msgstr ""
+
+msgctxt "#30085"
+msgid "Hide overscan"
+msgstr ""
+
 #~ msgctxt "#30000"
 #~ msgid "Settings"
 #~ msgstr "Impostazioni"

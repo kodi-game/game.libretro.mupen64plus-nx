@@ -3,7 +3,7 @@
 	<category label="128">
 		<setting label="30001" type="select" id="mupen64plus-rdp-plugin" values="gliden64" default="gliden64"/>
 		<setting label="30002" type="select" id="mupen64plus-43screensize" values="640x480|320x240|960x720|1280x960|1440x1080|1600x1200|1920x1440|2240x1680|2560x1920|2880x2160|3200x2400|3520x2640|3840x2880" default="640x480"/>
-		<setting label="30003" type="select" id="mupen64plus-169screensize" values="960x540|640x360|1280x720|1706x720|1366x768|1920x810|1920x1080|2560x1080|2560x1440|3414x1440|3840x2160|4096x2160|5120x2160|7680x3240|7680x4320|10240x4320" default="960x540"/>
+		<setting label="30003" type="select" id="mupen64plus-169screensize" values="960x540|640x360|1280x720|1706x720|1366x768|1920x810|1920x1080|2560x1080|2560x1440|3414x1440|3840x2160|4096x2160|5120x1440|5120x2160|7680x3240|7680x4320|7680x2160|10240x4320" default="960x540"/>
 		<setting label="30004" type="select" id="mupen64plus-aspect" values="4:3|16:9|16:9 adjusted" default="4:3"/>
 		<setting label="30005" type="select" id="mupen64plus-EnableNativeResFactor" values="0|1|2|3|4|5|6|7|8" default="0"/>
 		<setting label="30006" type="select" id="mupen64plus-ThreadedRenderer" values="False|True" default="False"/>
@@ -18,6 +18,7 @@
 		<setting label="30015" type="select" id="mupen64plus-EnableFBEmulation" values="True|False" default="True"/>
 		<setting label="30016" type="select" id="mupen64plus-EnableCopyAuxToRDRAM" values="False|True" default="False"/>
 		<setting label="30017" type="select" id="mupen64plus-EnableCopyColorToRDRAM" values="Async|Off|Sync|TripleBuffer" default="Async"/>
+		<setting label="30067" type="select" id="mupen64plus-EnableCopyColorFromRDRAM" values="False|True" default="False"/>
 		<setting label="30018" type="select" id="mupen64plus-EnableCopyDepthToRDRAM" values="Software|Off|FromMem" default="Software"/>
 		<setting label="30019" type="select" id="mupen64plus-BackgroundMode" values="OnePiece|Stripped" default="OnePiece"/>
 		<setting label="30020" type="select" id="mupen64plus-EnableHWLighting" values="False|True" default="False"/>

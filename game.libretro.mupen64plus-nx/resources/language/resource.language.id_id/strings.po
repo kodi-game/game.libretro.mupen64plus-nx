@@ -289,6 +289,10 @@ msgctxt "#30066"
 msgid "Player 4 Pak"
 msgstr ""
 
+msgctxt "#30067"
+msgid "Enable color buffer copy from RDRAM"
+msgstr ""
+
 #~ msgctxt "#30000"
 #~ msgid "Settings"
 #~ msgstr "Pengaturan"

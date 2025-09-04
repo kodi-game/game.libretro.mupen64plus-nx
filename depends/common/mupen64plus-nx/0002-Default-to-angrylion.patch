@@ -1,7 +1,7 @@
 From c7bf17de860187007df99b9a6ad60fc80dfe3785 Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Wed, 3 Sep 2025 00:02:30 -0700
-Subject: [PATCH 2/3] Default to angrylion
+Subject: [PATCH 2/4] Default to angrylion
 
 ---
  libretro/libretro_core_options.h | 2 +-

@@ -29,7 +29,7 @@ else()
 endif()
 
 execute_process(COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/usr/bin/bash.exe --login -c "pacman-key --init" ERROR_QUIET)
-execute_process(COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/usr/bin/bash.exe --login -c "pacman --noconfirm -S make ${HOST}-gcc")
+execute_process(COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/usr/bin/bash.exe --login -c "pacman --noconfirm -S make ${HOST}-gcc nasm")
 
 file(GLOB_RECURSE shared_libs ${CMAKE_CURRENT_SOURCE_DIR}/${MINGW_PATH}/*.dll.a)
 file(REMOVE ${shared_libs})

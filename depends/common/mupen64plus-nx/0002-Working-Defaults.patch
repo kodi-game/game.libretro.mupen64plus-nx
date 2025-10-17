@@ -1,3 +1,12 @@
+From 5411bf5f6e6269eea2880d1c70753db8d6258b61 Mon Sep 17 00:00:00 2001
+From: Zoe Gidiere <duplexsys@protonmail.com>
+Date: Fri, 17 Oct 2025 13:35:37 -0600
+Subject: [PATCH] [PATCH 2/4] Working Defaults
+
+---
+ libretro/libretro_core_options.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
 diff --git a/libretro/libretro_core_options.h b/libretro/libretro_core_options.h
 index f89a088..6d76653 100644
 --- a/libretro/libretro_core_options.h
@@ -20,3 +29,6 @@ index f89a088..6d76653 100644
      },
      {
          CORE_NAME "-FrameDuping",
+-- 
+2.45.0
+

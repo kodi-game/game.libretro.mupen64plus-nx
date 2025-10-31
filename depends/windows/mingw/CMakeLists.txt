@@ -1,14 +1,13 @@
 cmake_minimum_required(VERSION 3.5)
 project(mingw)
 
-# TODO: Upload msys2 packages to mirrors
-#foreach(repo msys mingw32 mingw64)
-#  if(${repo} STREQUAL msys)
-#    file(WRITE ${CMAKE_CURRENT_SOURCE_DIR}/etc/pacman.d/mirrorlist.${repo} "Server = http://mirrors.kodi.tv/build-deps/win32/msys2/repos/${repo}2/$arch\n")
-#  else()
-#    file(WRITE ${CMAKE_CURRENT_SOURCE_DIR}/etc/pacman.d/mirrorlist.${repo} "Server = http://mirrors.kodi.tv/build-deps/win32/msys2/repos/${repo}\n")
-#  endif()
-#endforeach()
+foreach(repo msys mingw32 mingw64)
+  if(${repo} STREQUAL msys)
+    file(WRITE ${CMAKE_CURRENT_SOURCE_DIR}/etc/pacman.d/mirrorlist.${repo} "Server = http://mirrors.kodi.tv/build-deps/win32/msys2/repos/${repo}2/$arch\n")
+  else()
+    file(WRITE ${CMAKE_CURRENT_SOURCE_DIR}/etc/pacman.d/mirrorlist.${repo} "Server = http://mirrors.kodi.tv/build-deps/win32/msys2/repos/${repo}\n")
+  endif()
+endforeach()
 
 include(CheckSymbolExists)
 check_symbol_exists(_X86_ "Windows.h" _X86_)

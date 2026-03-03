@@ -28,6 +28,9 @@ set(LIBRETRO_JNISONAME libretro${CMAKE_SHARED_LIBRARY_SUFFIX})
 
 if(CMAKE_BUILD_TYPE MATCHES Debug)
   set(LIBRETRO_DEBUG DEBUG=1)
+
+  # Disable LTO for Debug so DWARF survives and LLDB can step into the core
+  list(APPEND LIBRETRO_DEBUG LTO=)
 endif()
 
 if(CORE_SYSTEM_NAME STREQUAL windows)

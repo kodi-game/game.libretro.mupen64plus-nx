@@ -1,0 +1,29 @@
+From 31921a3c3b5879504b95503f9a5ec28f689b736e Mon Sep 17 00:00:00 2001
+From: Garrett Brown <themagnificentmrb@gmail.com>
+Date: Mon, 2 Mar 2026 16:21:18 -0800
+Subject: [PATCH 6/6] mupen64plus-nx: Fix bundled zlib build on macOS
+
+Stop macro-defining fdopen() to NULL in zutil.h. On macOS fdopen is a real
+function, so the macro override breaks <stdio.h> and causes the build to fail.
+---
+ custom/dependencies/libzlib/zutil.h | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/custom/dependencies/libzlib/zutil.h b/custom/dependencies/libzlib/zutil.h
+index 24ab06b1..bcd42729 100644
+--- a/custom/dependencies/libzlib/zutil.h
++++ b/custom/dependencies/libzlib/zutil.h
+@@ -124,9 +124,7 @@ extern z_const char * const z_errmsg[10]; /* indexed by 2-zlib_error */
+ #    if defined(__MWERKS__) && __dest_os != __be_os && __dest_os != __win32_os
+ #      include <unix.h> /* for fdopen */
+ #    else
+-#      ifndef fdopen
+-#        define fdopen(fd,mode) NULL /* No fdopen() */
+-#      endif
++       /* fdopen is available on macOS; don't macro-override it (breaks stdio.h) */
+ #    endif
+ #  endif
+ #endif
+-- 
+2.53.0
+

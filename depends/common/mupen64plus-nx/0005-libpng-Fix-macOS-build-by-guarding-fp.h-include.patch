@@ -1,0 +1,42 @@
+From 3af76b42e9d85b834a1f02d2d924c6881c390896 Mon Sep 17 00:00:00 2001
+From: Garrett Brown <garrett.brown@aclima.earth>
+Date: Mon, 2 Mar 2026 15:58:06 -0800
+Subject: [PATCH 5/5] libpng: Fix macOS build by guarding <fp.h> include
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Apple SDKs don’t ship <fp.h>, but libpng will include it on TARGET_OS_MAC
+when <math.h> hasn't been included yet.
+
+Use __has_include to include <fp.h> only when available and fall back to
+<math.h>, fixing builds with Apple Clang/macOS ARM.
+---
+ custom/dependencies/libpng/pngpriv.h | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/custom/dependencies/libpng/pngpriv.h b/custom/dependencies/libpng/pngpriv.h
+index 7216050d..bcedea7f 100644
+--- a/custom/dependencies/libpng/pngpriv.h
++++ b/custom/dependencies/libpng/pngpriv.h
+@@ -515,7 +515,16 @@
+     * <fp.h> if possible.
+     */
+ #    if !defined(__MATH_H__) && !defined(__MATH_H) && !defined(__cmath__)
+-#      include <fp.h>
++#      if defined(__has_include)
++#        if __has_include(<fp.h>)
++#          include <fp.h>
++#        else
++#          include <math.h>
++#        endif
++#      else
++         /* No __has_include: safest option on modern toolchains */
++#        include <math.h>
++#      endif
+ #    endif
+ #  else
+ #    include <math.h>
+-- 
+2.53.0
+

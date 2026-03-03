@@ -1,7 +1,7 @@
-From e3598f579ef60c80bab2ff55796e3f268807146e Mon Sep 17 00:00:00 2001
+From 269acb75ec95d42057baeff6bbdc0f2a58c0ee0e Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Wed, 3 Sep 2025 16:59:04 -0700
-Subject: [PATCH 4/4] Fix compiler error on Windows
+Subject: [PATCH 4/5] Fix compiler error on Windows
 
 Error was:
 
@@ -14,7 +14,7 @@ Error was:
  1 file changed, 3 insertions(+)
 
 diff --git a/libretro/libretro.c b/libretro/libretro.c
-index c4f570f3b..b8b016484 100644
+index c4f570f3..b8b01648 100644
 --- a/libretro/libretro.c
 +++ b/libretro/libretro.c
 @@ -19,6 +19,9 @@
@@ -28,5 +28,5 @@ index c4f570f3b..b8b016484 100644
  #include <string.h>
  #include <compat/strl.h>
 -- 
-2.43.0
+2.53.0
 

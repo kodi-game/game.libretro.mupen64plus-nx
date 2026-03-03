@@ -1,14 +1,14 @@
-From 40fdde51fa7aa07dbde07ca9e3c5254aa4ce158a Mon Sep 17 00:00:00 2001
+From bd4a83394e2c3ad9fe75ca29248b3ca07a49d628 Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Tue, 2 Sep 2025 23:55:00 -0700
-Subject: [PATCH 1/4] Enable all options
+Subject: [PATCH 1/5] Enable all options
 
 ---
  libretro/libretro_core_options.h | 24 ------------------------
  1 file changed, 24 deletions(-)
 
 diff --git a/libretro/libretro_core_options.h b/libretro/libretro_core_options.h
-index fb39aa98e..f89a088ad 100644
+index fb39aa98..f89a088a 100644
 --- a/libretro/libretro_core_options.h
 +++ b/libretro/libretro_core_options.h
 @@ -46,20 +46,16 @@ struct retro_core_option_v2_category option_cats_us[] = {
@@ -137,5 +137,5 @@ index fb39aa98e..f89a088ad 100644
              { NULL, NULL },
          },
 -- 
-2.43.0
+2.53.0
 

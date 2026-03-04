@@ -1,1 +1,1 @@
-mupen64plus-nx https://github.com/kodi-game/mupen64plus-libretro-nx/archive/c0101c54047a7e854a9067e36ea27fc2230cf877.tar.gz
+mupen64plus-nx https://github.com/kodi-game/mupen64plus-libretro-nx/archive/47eb46ea8dbaacf3e1d817e3d0869dad8a91d863.tar.gz

@@ -1,7 +1,7 @@
-From 2ae29cff80cedb1d21088310c8501a1ba8e35b95 Mon Sep 17 00:00:00 2001
+From d5f862ebb59315a65a8a2efde2578643049f7c0c Mon Sep 17 00:00:00 2001
 From: Zoe Gidiere <duplexsys@protonmail.com>
 Date: Fri, 17 Oct 2025 13:35:37 -0600
-Subject: [PATCH 2/6] Working Defaults
+Subject: [PATCH 2/7] Working Defaults
 
 ---
  libretro/libretro_core_options.h | 4 ++--

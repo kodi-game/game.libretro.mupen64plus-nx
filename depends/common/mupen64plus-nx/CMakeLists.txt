@@ -54,7 +54,7 @@ if(CORE_SYSTEM_NAME STREQUAL windows)
                     GIT_VERSION=
                     MSYSTEM=${MSYSTEM}
                     platform=win
-                    )
+                    HAVE_THR_AL=1)
 elseif(CORE_SYSTEM_NAME STREQUAL linux)
   set(BUILD_COMMAND $(MAKE)
                     -C .
@@ -63,7 +63,7 @@ elseif(CORE_SYSTEM_NAME STREQUAL linux)
                     ${LIBRETRO_DEBUG}
                     GIT_VERSION=
                     platform=unix
-                    )
+                    HAVE_THR_AL=1)
 elseif(CORE_SYSTEM_NAME STREQUAL osx)
   if(CPU STREQUAL arm64)
     set(ARCH arm)
@@ -81,7 +81,7 @@ elseif(CORE_SYSTEM_NAME STREQUAL osx)
                     LIBRETRO_APPLE_ISYSROOT=${CMAKE_OSX_SYSROOT}
                     LIBRETRO_APPLE_PLATFORM=${CPU}-apple-macos
                     platform=osx
-                    )
+                    HAVE_THR_AL=1)
 elseif(CORE_SYSTEM_NAME STREQUAL ios OR CORE_SYSTEM_NAME STREQUAL darwin_embedded)
   if(CORE_PLATFORM_NAME STREQUAL ios)
     set(LIBRETRO_SONAME mupen64plus_next_libretro_ios${CMAKE_SHARED_LIBRARY_SUFFIX})
@@ -97,7 +97,7 @@ elseif(CORE_SYSTEM_NAME STREQUAL ios OR CORE_SYSTEM_NAME STREQUAL darwin_embedde
                                                   ${LIBRETRO_DEBUG}
                                                   GIT_VERSION=
                                                   platform=${PLATFORM}
-                                                  )
+                                                  HAVE_THR_AL=1)
   elseif(CORE_PLATFORM_NAME STREQUAL tvos)
     set(LIBRETRO_SONAME mupen64plus_next_libretro_tvos${CMAKE_SHARED_LIBRARY_SUFFIX})
     set(BUILD_COMMAND IOSSDK=${CMAKE_OSX_SYSROOT} $(MAKE)
@@ -107,7 +107,7 @@ elseif(CORE_SYSTEM_NAME STREQUAL ios OR CORE_SYSTEM_NAME STREQUAL darwin_embedde
                                                   ${LIBRETRO_DEBUG}
                                                   GIT_VERSION=
                                                   platform=tvos-arm64
-                                                  )
+                                                  HAVE_THR_AL=1)
   endif()
 elseif(CORE_SYSTEM_NAME STREQUAL android)
   if(NOT NDKROOT)
@@ -130,7 +130,7 @@ elseif(CORE_SYSTEM_NAME STREQUAL android)
                                     NDK_LIBS_OUT=${PROJECT_SOURCE_DIR}/${LIBRETRO_BINARY_DIR}
                                     V=1
                                     V7NEONOPTIMIZATION=1
-                                    
+                                    HAVE_THR_AL=1
                     && cp ${PROJECT_SOURCE_DIR}/${LIBRETRO_BINARY_DIR}/${PLATFORM}/${LIBRETRO_JNISONAME} ${PROJECT_SOURCE_DIR}/${LIBRETRO_BINARY_DIR}/${LIBRETRO_SONAME})
 elseif(CORE_SYSTEM_NAME STREQUAL freebsd)
   set(BUILD_COMMAND $(MAKE)
@@ -140,7 +140,7 @@ elseif(CORE_SYSTEM_NAME STREQUAL freebsd)
                     ${LIBRETRO_DEBUG}
                     GIT_VERSION=
                     platform=unix
-                    )
+                    HAVE_THR_AL=1)
 else()
   message(FATAL_ERROR "${PROJECT_NAME} - Unknown system: ${CORE_SYSTEM_NAME}")
 endif()

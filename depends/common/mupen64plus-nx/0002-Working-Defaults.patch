@@ -4,8 +4,8 @@ Date: Fri, 17 Oct 2025 13:35:37 -0600
 Subject: [PATCH 2/6] Working Defaults
 
 ---
- libretro/libretro_core_options.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ libretro/libretro_core_options.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/libretro/libretro_core_options.h b/libretro/libretro_core_options.h
 index f89a088a..6d766532 100644
@@ -20,7 +20,13 @@ index f89a088a..6d766532 100644
      },
      {
          CORE_NAME "-43screensize",
-@@ -1386,7 +1386,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
+@@ -1381,12 +1381,12 @@ struct retro_core_option_v2_definition option_defs_us[] = {
+         NULL,
+         NULL,
+         {
+-            {"cxd4", "CXD4"},
+             {"parallel", "ParaLLEl"},
++            {"cxd4", "CXD4"},
              {"hle", "HLE"},
              { NULL, NULL },
          },

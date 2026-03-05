@@ -31,7 +31,7 @@ index f89a088a..6d766532 100644
              { NULL, NULL },
          },
 -        "hle"
-+        "cxd4"
++        "parallel"
      },
      {
          CORE_NAME "-FrameDuping",

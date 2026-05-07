@@ -56,13 +56,21 @@ if(CORE_SYSTEM_NAME STREQUAL windows)
                     platform=win
                     HAVE_THR_AL=1 LLE=1 HAVE_PARALLEL_RSP=1)
 elseif(CORE_SYSTEM_NAME STREQUAL linux)
+  if(CMAKE_SYSTEM_PROCESSOR STREQUAL arm64 OR CMAKE_SYSTEM_PROCESSOR STREQUAL aarch64)
+    set(PLATFORM unix-aarch64)
+  elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^arm")
+    set(PLATFORM unix-neon)
+  else()
+    set(PLATFORM unix)
+  endif()
+
   set(BUILD_COMMAND $(MAKE)
                     -C .
                     -f Makefile
                     ${build_job_count}
                     ${LIBRETRO_DEBUG}
                     GIT_VERSION=
-                    platform=unix
+                    platform=${PLATFORM}
                     HAVE_THR_AL=1 LLE=1 HAVE_PARALLEL_RSP=1)
 elseif(CORE_SYSTEM_NAME STREQUAL osx)
   if(CPU STREQUAL arm64)

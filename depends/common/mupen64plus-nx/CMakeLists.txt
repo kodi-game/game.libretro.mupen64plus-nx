@@ -65,8 +65,12 @@ elseif(CORE_SYSTEM_NAME STREQUAL linux)
                     platform=unix
                     HAVE_THR_AL=1 LLE=1 HAVE_PARALLEL_RSP=1)
 elseif(CORE_SYSTEM_NAME STREQUAL osx)
+  set(PLATFORM_CMAKE_OPTIONS)
   if(CPU STREQUAL arm64)
     set(ARCH arm)
+  elseif(CPU STREQUAL x86_64)
+    set(ARCH intel)
+    set(PLATFORM_CMAKE_OPTIONS )
   else()
     set(ARCH intel)
   endif()
@@ -75,12 +79,17 @@ elseif(CORE_SYSTEM_NAME STREQUAL osx)
                     -f Makefile
                     ${build_job_count}
                     ${LIBRETRO_DEBUG}
+                    CC=${CMAKE_C_COMPILER}
+                    CXX=${CMAKE_CXX_COMPILER}
                     arch=${ARCH}
                     CROSS_COMPILE=1
                     GIT_VERSION=
+                    SDKROOT=${CMAKE_OSX_SYSROOT}
+                    MACOSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
                     LIBRETRO_APPLE_ISYSROOT=${CMAKE_OSX_SYSROOT}
-                    LIBRETRO_APPLE_PLATFORM=${CPU}-apple-macos
+                    LIBRETRO_APPLE_PLATFORM=${CPU}-apple-macos${CMAKE_OSX_DEPLOYMENT_TARGET}
                     platform=osx
+                    ${PLATFORM_CMAKE_OPTIONS}
                     HAVE_THR_AL=1 LLE=1 HAVE_PARALLEL_RSP=1)
 elseif(CORE_SYSTEM_NAME STREQUAL ios OR CORE_SYSTEM_NAME STREQUAL darwin_embedded)
   if(CORE_PLATFORM_NAME STREQUAL ios)

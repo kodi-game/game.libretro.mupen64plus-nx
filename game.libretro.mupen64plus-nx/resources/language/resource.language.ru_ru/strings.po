@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: game.libretro.mupen64plus-nx\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: 2017-02-04 09:56i\n"
-"PO-Revision-Date: 2026-08-19 18:16+0000\n"
-"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
+"PO-Revision-Date: 2026-08-22 13:17+0000\n"
+"Last-Translator: Dmitry Petrov <dimakrm361@gmail.com>\n"
 "Language-Team: Russian <https://kodi.weblate.cloud/projects/kodi-add-ons-game/game-libretro-mupen64plus-nx/ru_ru/>\n"
 "Language: ru_ru\n"
 "MIME-Version: 1.0\n"
@@ -367,295 +367,295 @@ msgstr "Скрыть вылет за края"
 
 msgctxt "#30086"
 msgid "Select a RDP Plugin, use Angrylion (if available) for best compability, GLideN64 for Performance"
-msgstr ""
+msgstr "Выбор плагина RDP, используйте Angrylion (если доступен) для лучшей совместимости, GLideN64 для производительности"
 
 msgctxt "#30087"
 msgid "Angrylion"
-msgstr ""
+msgstr "Angrylion"
 
 msgctxt "#30088"
 msgid "ParaLLEl-RDP"
-msgstr ""
+msgstr "ParaLLEl-RDP"
 
 msgctxt "#30089"
 msgid "GLideN64"
-msgstr ""
+msgstr "GLideN64"
 
 msgctxt "#30090"
 msgid "Select the R4300 CPU Backend, use Interpreter for best compability"
-msgstr ""
+msgstr "Выберите движок ЦПУ R4300, используйте интепретатор для лучшей совместимости"
 
 msgctxt "#30091"
 msgid "Pure Interpreter"
-msgstr ""
+msgstr "Чистый интепретатор"
 
 msgctxt "#30092"
 msgid "Cached Interpreter"
-msgstr ""
+msgstr "Кеш-интепретатор"
 
 msgctxt "#30093"
 msgid "Dynarec"
-msgstr ""
+msgstr "Dynarec"
 
 msgctxt "#30094"
 msgid "Select a RSP Plugin, use HLE for best performance, ParaLLEl for best LLE Performance and CXD4 as LLE fallback"
-msgstr ""
+msgstr "Выберите плагин RSP, используйте HLE для лучшей производительности, ParaLLEl для лучшей LLE производительности и CXD4 как резервный вариант"
 
 msgctxt "#30095"
 msgid "ParaLLEl"
-msgstr ""
+msgstr "ParaLLEl"
 
 msgctxt "#30096"
 msgid "CXD4"
-msgstr ""
+msgstr "CXD4"
 
 msgctxt "#30097"
 msgid "HLE"
-msgstr ""
+msgstr "HLE"
 
 msgctxt "#30098"
 msgid "Enable Frame duplication to improve smoothing on low-end. Different from frameskip."
-msgstr ""
+msgstr "Включите дублирование кадров для улучшения плавности. Не путать с пропуском кадров."
 
 msgctxt "#30099"
 msgid "Fullspeed will enforce Count per Op 1 and FBEmu settings, this will break some games!"
-msgstr ""
+msgstr "Полная скорость будет форсировать 1 в счётчике, что может сломать некоторые игры!"
 
 msgctxt "#30100"
 msgid "Select a VI Refresh clock, Auto does not impact behaviour, other values override CountPerScanline."
-msgstr ""
+msgstr "Выбрать частоту обновления VI, авто не влияет на поведение, другие значения переписывают CountPerScanline."
 
 msgctxt "#30101"
 msgid "Force disable Expansion Pak (might improve performance for some games while reducing emulation accuracy, will break games that require it)."
-msgstr ""
+msgstr "Принудительно выключить Expansion Pak (может улучшить производительность в некоторых играх, ценой потери точности эмуляции, ломает игры требующие это)."
 
 msgctxt "#30102"
 msgid "(HACK) Ignore emulated TLB Exceptions, this might fix some broken romhacks. This option might be removed in the future."
-msgstr ""
+msgstr "(ХАК) Игнорировать эмуляцию TLB исключений, это может исправить проблемы некоторых ром-хаков. Этот параметр будет удалён в будущем."
 
 msgctxt "#30103"
 msgid "Don't Ignore"
-msgstr ""
+msgstr "Не игнорировать"
 
 msgctxt "#30104"
 msgid "Ignore TLB Exceptions if not using TLB"
-msgstr ""
+msgstr "Игнорировать исключения TLB если не используется TLB"
 
 msgctxt "#30105"
 msgid "Always Ignore TLB Exceptions"
-msgstr ""
+msgstr "Всегда игнорировать TLB исключения"
 
 msgctxt "#30106"
 msgid "Count per Op is used to approximate the Counter reg, 0 will use the embedded Database (or default to 2). Changing this will break stuff!"
-msgstr ""
+msgstr "Число тактов счётчика используется для апроусимации регистра счётчика, 0 - использовать встроенную базу (или по-умолчанию 2). Изменение этого может сломать игры!"
 
 msgctxt "#30107"
 msgid "Denominator for Count per Op (allowing sub-1 Count per Op in practice). Changing this can break stuff!"
-msgstr ""
+msgstr "Делитель счётчика на операцию (позволяет на практике считать половину единицы на операцию). Изменение этого может сломать игры!"
 
 msgctxt "#30108"
 msgid "Pak/Controller Options"
-msgstr ""
+msgstr "Настройки контроллера/Pak"
 
 msgctxt "#30109"
 msgid "Configure Core Pak/Controller Options."
-msgstr ""
+msgstr "Настройка Core Pak/ Параметры контролера."
 
 msgctxt "#30110"
 msgid "Size of the non responsive area around an analog stick."
-msgstr ""
+msgstr "Рзамер мертвой зоны вокруг аналогового стика."
 
 msgctxt "#30111"
 msgid "Adjust how far the stick needs to be moved to reach its max value."
-msgstr ""
+msgstr "Настроить как далеко нужно передвинуть стик чтобы достигнуть максимального значения."
 
 msgctxt "#30112"
 msgid "Select Right C Button mapping."
-msgstr ""
+msgstr "Выберите клавишу для правой кнопки C."
 
 msgctxt "#30113"
 msgid "Select Left C Button mapping."
-msgstr ""
+msgstr "Выберите клавишу для левой кнопки C."
 
 msgctxt "#30114"
 msgid "Select Down C Button mapping."
-msgstr ""
+msgstr "Выберите клавишу для нижней кнопки C."
 
 msgctxt "#30115"
 msgid "Select Up C Button mapping."
-msgstr ""
+msgstr "Выберите клавишу для верхней кнопки C."
 
 msgctxt "#30116"
 msgid "Use an alternate control scheme, useful for some 3rdparty controllers."
-msgstr ""
+msgstr "Использовать другую схему управления, полезно для стороних контролеров."
 
 msgctxt "#30117"
 msgid "Select Player 1 Controller Pak."
-msgstr ""
+msgstr "Выбрать Пак игрока 1."
 
 msgctxt "#30118"
 msgid "Select Player 2 Controller Pak."
-msgstr ""
+msgstr "Выбрать Пак игрока 2."
 
 msgctxt "#30119"
 msgid "Select Player 3 Controller Pak."
-msgstr ""
+msgstr "Выбрать Пак игрока 3."
 
 msgctxt "#30120"
 msgid "Select Player 4 Controller Pak."
-msgstr ""
+msgstr "Выбрать Пак игрока 4."
 
 msgctxt "#30121"
 msgid "Configure GLideN64 Options."
-msgstr ""
+msgstr "Настройка параметров GLideN64."
 
 msgctxt "#30122"
 msgid "(GLN64) Select Render Viewport dimensions (4:3)."
-msgstr ""
+msgstr "(GLN64) Выбрать разрешение экрана для 4:3."
 
 msgctxt "#30123"
 msgid "(GLN64) Select Render Viewport dimensions for wider resolutions."
-msgstr ""
+msgstr "(GLN64) Выбрать разрешение экрана для широких мониторов."
 
 msgctxt "#30124"
 msgid "640x360 (16:9)"
-msgstr ""
+msgstr "640x360 (16:9)"
 
 msgctxt "#30125"
 msgid "960x540 (16:9)"
-msgstr ""
+msgstr "960x540 (16:9)"
 
 msgctxt "#30126"
 msgid "1280x720 (16:9)"
-msgstr ""
+msgstr "1280x720 (16:9)"
 
 msgctxt "#30127"
 msgid "1706x720 (64:27)"
-msgstr ""
+msgstr "1706x720 (64:27)"
 
 msgctxt "#30128"
 msgid "1366x768 (16:9)"
-msgstr ""
+msgstr "1366x768 (16:9)"
 
 msgctxt "#30129"
 msgid "1920x810 (64:27)"
-msgstr ""
+msgstr "1920x810 (64:27)"
 
 msgctxt "#30130"
 msgid "1920x1080 (16:9)"
-msgstr ""
+msgstr "1920x1080 (16:9)"
 
 msgctxt "#30131"
 msgid "2560x1080 (64:27)"
-msgstr ""
+msgstr "2560x1080 (64:27)"
 
 msgctxt "#30132"
 msgid "2560x1440 (16:9)"
-msgstr ""
+msgstr "2560x1440 (16:9)"
 
 msgctxt "#30133"
 msgid "3414x1440 (64:27)"
-msgstr ""
+msgstr "3414x1440 (64:27)"
 
 msgctxt "#30134"
 msgid "3840x2160 (16:9)"
-msgstr ""
+msgstr "3840x2160 (16:9)"
 
 msgctxt "#30135"
 msgid "4096x2160 (17:9)"
-msgstr ""
+msgstr "4096x2160 (17:9)"
 
 msgctxt "#30136"
 msgid "5120x1440 (32:9)"
-msgstr ""
+msgstr "5120x1440 (32:9)"
 
 msgctxt "#30137"
 msgid "5120x2160 (64:27)"
-msgstr ""
+msgstr "5120x2160 (64:27)"
 
 msgctxt "#30138"
 msgid "7680x3240 (64:27)"
-msgstr ""
+msgstr "7680x3240 (64:27)"
 
 msgctxt "#30139"
 msgid "7680x4320 (16:9)"
-msgstr ""
+msgstr "7680x4320 (16:9)"
 
 msgctxt "#30140"
 msgid "7680x2160 (32:9)"
-msgstr ""
+msgstr "7680x2160 (32:9)"
 
 msgctxt "#30141"
 msgid "10240x4320 (64:27)"
-msgstr ""
+msgstr "10240x4320 (64:27)"
 
 msgctxt "#30142"
 msgid "(GLN64) Select the aspect ratio. 'adjusted' means essentially Widescreen hacks."
-msgstr ""
+msgstr "(GLN64) Выбрать соотношение сторон. \"Скорректировный\" означает использование хака для широких экранов."
 
 msgctxt "#30143"
 msgid "Original (4:3)"
-msgstr ""
+msgstr "Оригинал (4:3)"
 
 msgctxt "#30144"
 msgid "Wide (Stretched)"
-msgstr ""
+msgstr "Широкий (Растянутый)"
 
 msgctxt "#30145"
 msgid "Wide (Adjusted)"
-msgstr ""
+msgstr "Широкий (Скорректировный)"
 
 msgctxt "#30146"
 msgid "(GLN64) Render at N times the native resolution."
-msgstr ""
+msgstr "(GLN64) Отображать в разрешении в N раз больше оригинала."
 
 msgctxt "#30147"
 msgid "Disabled"
-msgstr ""
+msgstr "Выключено"
 
 msgctxt "#30148"
 msgid "1x"
-msgstr ""
+msgstr "1x"
 
 msgctxt "#30149"
 msgid "2x"
-msgstr ""
+msgstr "2x"
 
 msgctxt "#30150"
 msgid "3x"
-msgstr ""
+msgstr "3x"
 
 msgctxt "#30151"
 msgid "4x"
-msgstr ""
+msgstr "4x"
 
 msgctxt "#30152"
 msgid "5x"
-msgstr ""
+msgstr "5x"
 
 msgctxt "#30153"
 msgid "6x"
-msgstr ""
+msgstr "6x"
 
 msgctxt "#30154"
 msgid "7x"
-msgstr ""
+msgstr "7x"
 
 msgctxt "#30155"
 msgid "8x"
-msgstr ""
+msgstr "8x"
 
 msgctxt "#30156"
 msgid "(GLN64) Use the Threaded Renderer, improves performance but increases input lag."
-msgstr ""
+msgstr "(GLN64) Использовать многопоточный рендеринг, улучшает производительность, но увеличивает задержку ввода."
 
 msgctxt "#30157"
 msgid "Enabled"
-msgstr ""
+msgstr "Включено"
 
 msgctxt "#30158"
 msgid "(GLN64) Select a Bilinear filtering method, 3point is the original system specific way."
-msgstr ""
+msgstr "(GLN64) Выберите метод билинейной фильтрации, 3point это оригинальный способ системы."
 
 msgctxt "#30159"
 msgid "(GLN64) Hybrid integer scaling filter, this can be slow with low-end GPUs."
@@ -683,11 +683,11 @@ msgstr ""
 
 msgctxt "#30165"
 msgid "(GLN64) Anti-Aliasing level (0 = disabled)."
-msgstr ""
+msgstr "(GLN64) Уровень сглаживания (0 = выключено)."
 
 msgctxt "#30166"
 msgid "(GLN64) Fast Approximate Anti-Aliasing shader, moderately blur textures (0 = disabled)."
-msgstr ""
+msgstr "(GLN64) FXAA шейдер сглаживания, умерено размывает текстуры (0 = выключено)."
 
 msgctxt "#30167"
 msgid "(GLN64) Calculate per-pixel Level Of Details to select texture mip levels and blend them with each other using LOD fraction."
@@ -755,43 +755,43 @@ msgstr ""
 
 msgctxt "#30183"
 msgid "(GLN64) Enable N64 depth compare instead of OpenGL standard one. Experimental, Fast mode will have more glitches."
-msgstr ""
+msgstr "(GLN64) Включить сравнение глубины из N64 вместо стандартного OpenGL. Эксперементально, Быстрый режим имеет больше искажений."
 
 msgctxt "#30184"
 msgid "Off"
-msgstr ""
+msgstr "Выключен"
 
 msgctxt "#30185"
 msgid "Fast"
-msgstr ""
+msgstr "Быстрый"
 
 msgctxt "#30186"
 msgid "(GLN64) Use persistent storage for compiled shaders."
-msgstr ""
+msgstr "(GLN64) Использовать постоянное хранилище для скомпилированных шейдеров."
 
 msgctxt "#30187"
 msgid "(GLN64) Save texture cache to hard disk."
-msgstr ""
+msgstr "(GLN64) Сохранять кеш текстур в жёсткий диск."
 
 msgctxt "#30188"
 msgid "(GLN64) Crop black borders from the overscan region around the screen."
-msgstr ""
+msgstr "(GLN64) Обрезать черные рамки вызванные overscan вокруг экрана."
 
 msgctxt "#30189"
 msgid "(GLN64) Overscan Top Offset."
-msgstr ""
+msgstr "(GLN64) Overscan. Смещение сверху."
 
 msgctxt "#30190"
 msgid "(GLN64) Overscan Left Offset."
-msgstr ""
+msgstr "(GLN64) Overscan. Смещение слева."
 
 msgctxt "#30191"
 msgid "(GLN64) Overscan Right Offset."
-msgstr ""
+msgstr "(GLN64) Overscan. Смещение справа."
 
 msgctxt "#30192"
 msgid "(GLN64) Overscan Bottom Offset."
-msgstr ""
+msgstr "(GLN64) Overscan. Смещение снизу."
 
 msgctxt "#30193"
 msgid "(GLN64) Limit High-Res textures size in VRAM (in MB, 0 = no limit)."
@@ -855,7 +855,7 @@ msgstr ""
 
 msgctxt "#30208"
 msgid "Configure ParaLLEl-RDP Options."
-msgstr ""
+msgstr "Настройка параметров ParaLLEl-RDP."
 
 msgctxt "#30209"
 msgid "Enable full accuracy for CPU accessed frame buffers."
@@ -871,11 +871,11 @@ msgstr ""
 
 msgctxt "#30212"
 msgid "Allow VI gamma dither."
-msgstr ""
+msgstr "Разрешить VI гамма-фильтр."
 
 msgctxt "#30213"
 msgid "Allow VI anti-aliased fetch filter, smooths polygon edges."
-msgstr ""
+msgstr "Разрешить VI сглаживание, улучшает края полигонов."
 
 msgctxt "#30214"
 msgid "Allow VI bilinear scaling on scanout."
@@ -915,7 +915,7 @@ msgstr ""
 
 msgctxt "#30223"
 msgid "Configure Angrylion Options."
-msgstr ""
+msgstr "Настройка параметров Angrylion."
 
 msgctxt "#30224"
 msgid "(AL) Select VI Overlay filtering. 'Filtered' is the original system rendering."
@@ -931,7 +931,7 @@ msgstr ""
 
 msgctxt "#30227"
 msgid "(AL) Hide overscan borders."
-msgstr ""
+msgstr "(AL) Скрыть overscan рамки."
 
 #~ msgctxt "#30000"
 #~ msgid "Settings"

@@ -44,8 +44,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -66,7 +66,7 @@
 					<default>Auto</default>
 					<constraints>
 						<options>
-							<option>Auto</option>
+							<option label="16316">Auto</option>
 							<option>1500</option>
 							<option>2200</option>
 						</options>
@@ -78,8 +78,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -239,8 +239,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -250,7 +250,7 @@
 					<default>memory</default>
 					<constraints>
 						<options>
-							<option>none</option>
+							<option label="231">none</option>
 							<option>memory</option>
 							<option>rumble</option>
 							<option>transfer</option>
@@ -263,7 +263,7 @@
 					<default>none</default>
 					<constraints>
 						<options>
-							<option>none</option>
+							<option label="231">none</option>
 							<option>memory</option>
 							<option>rumble</option>
 							<option>transfer</option>
@@ -276,7 +276,7 @@
 					<default>none</default>
 					<constraints>
 						<options>
-							<option>none</option>
+							<option label="231">none</option>
 							<option>memory</option>
 							<option>rumble</option>
 							<option>transfer</option>
@@ -289,7 +289,7 @@
 					<default>none</default>
 					<constraints>
 						<options>
-							<option>none</option>
+							<option label="231">none</option>
 							<option>memory</option>
 							<option>rumble</option>
 							<option>transfer</option>
@@ -478,8 +478,8 @@
 					<default>True</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -489,8 +489,8 @@
 					<default>True</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -500,8 +500,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -511,7 +511,7 @@
 					<default>Async</default>
 					<constraints>
 						<options>
-							<option>Off</option>
+							<option label="351">Off</option>
 							<option>Sync</option>
 							<option label="30171">Async</option>
 							<option label="30172">TripleBuffer</option>
@@ -524,8 +524,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -535,7 +535,7 @@
 					<default>Software</default>
 					<constraints>
 						<options>
-							<option>Off</option>
+							<option label="351">Off</option>
 							<option>Software</option>
 							<option>FromMem</option>
 						</options>
@@ -558,8 +558,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -569,8 +569,8 @@
 					<default>Off</default>
 					<constraints>
 						<options>
-							<option>Off</option>
-							<option>Auto</option>
+							<option label="351">Off</option>
+							<option label="16316">Auto</option>
 							<option>Force</option>
 						</options>
 					</constraints>
@@ -581,8 +581,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -592,8 +592,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -603,7 +603,7 @@
 					<default>Disabled</default>
 					<constraints>
 						<options>
-							<option>Disabled</option>
+							<option label="13106">Disabled</option>
 							<option>Unoptimized</option>
 							<option>Optimized</option>
 						</options>
@@ -615,8 +615,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -626,8 +626,8 @@
 					<default>True</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -649,8 +649,8 @@
 					<default>True</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -660,8 +660,8 @@
 					<default>True</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -671,8 +671,8 @@
 					<default>Enabled</default>
 					<constraints>
 						<options>
-							<option>Disabled</option>
-							<option>Enabled</option>
+							<option label="13106">Disabled</option>
+							<option label="305">Enabled</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -952,7 +952,7 @@
 					<default>None</default>
 					<constraints>
 						<options>
-							<option>None</option>
+							<option label="231">None</option>
 							<option>Smooth filtering 1</option>
 							<option>Smooth filtering 2</option>
 							<option>Smooth filtering 3</option>
@@ -968,7 +968,7 @@
 					<default>None</default>
 					<constraints>
 						<options>
-							<option>None</option>
+							<option label="231">None</option>
 							<option>As Is</option>
 							<option>X2</option>
 							<option>X2SAI</option>
@@ -991,8 +991,8 @@
 					<default>True</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -1002,8 +1002,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -1013,8 +1013,8 @@
 					<default>True</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -1024,8 +1024,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -1035,8 +1035,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -1046,8 +1046,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -1057,8 +1057,8 @@
 					<default>False</default>
 					<constraints>
 						<options>
-							<option>False</option>
-							<option>True</option>
+							<option label="20424">False</option>
+							<option label="20122">True</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -1379,8 +1379,8 @@
 					<default>disabled</default>
 					<constraints>
 						<options>
-							<option>disabled</option>
-							<option>enabled</option>
+							<option label="13106">disabled</option>
+							<option label="305">enabled</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />

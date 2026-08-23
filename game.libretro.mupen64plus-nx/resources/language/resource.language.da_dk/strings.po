@@ -933,6 +933,134 @@ msgctxt "#30227"
 msgid "(AL) Hide overscan borders."
 msgstr ""
 
+msgctxt "#30228"
+msgid "1500"
+msgstr ""
+
+msgctxt "#30229"
+msgid "2200"
+msgstr ""
+
+msgctxt "#30230"
+msgid "memory"
+msgstr ""
+
+msgctxt "#30231"
+msgid "rumble"
+msgstr ""
+
+msgctxt "#30232"
+msgid "transfer"
+msgstr ""
+
+msgctxt "#30233"
+msgid "Bayer"
+msgstr ""
+
+msgctxt "#30234"
+msgid "Sync"
+msgstr ""
+
+msgctxt "#30235"
+msgid "Software"
+msgstr ""
+
+msgctxt "#30236"
+msgid "FromMem"
+msgstr ""
+
+msgctxt "#30237"
+msgid "Force"
+msgstr ""
+
+msgctxt "#30238"
+msgid "Unoptimized"
+msgstr ""
+
+msgctxt "#30239"
+msgid "Optimized"
+msgstr ""
+
+msgctxt "#30240"
+msgid "Compatible"
+msgstr ""
+
+msgctxt "#30241"
+msgid "Smooth filtering 1"
+msgstr ""
+
+msgctxt "#30242"
+msgid "Smooth filtering 2"
+msgstr ""
+
+msgctxt "#30243"
+msgid "Smooth filtering 3"
+msgstr ""
+
+msgctxt "#30244"
+msgid "Smooth filtering 4"
+msgstr ""
+
+msgctxt "#30245"
+msgid "Sharp filtering 1"
+msgstr ""
+
+msgctxt "#30246"
+msgid "Sharp filtering 2"
+msgstr ""
+
+msgctxt "#30247"
+msgid "As Is"
+msgstr ""
+
+msgctxt "#30248"
+msgid "X2"
+msgstr ""
+
+msgctxt "#30249"
+msgid "X2SAI"
+msgstr ""
+
+msgctxt "#30250"
+msgid "HQ2X"
+msgstr ""
+
+msgctxt "#30251"
+msgid "HQ2XS"
+msgstr ""
+
+msgctxt "#30252"
+msgid "LQ2X"
+msgstr ""
+
+msgctxt "#30253"
+msgid "LQ2XS"
+msgstr ""
+
+msgctxt "#30254"
+msgid "HQ4X"
+msgstr ""
+
+msgctxt "#30255"
+msgid "2xBRZ"
+msgstr ""
+
+msgctxt "#30256"
+msgid "3xBRZ"
+msgstr ""
+
+msgctxt "#30257"
+msgid "4xBRZ"
+msgstr ""
+
+msgctxt "#30258"
+msgid "5xBRZ"
+msgstr ""
+
+msgctxt "#30259"
+msgid "6xBRZ"
+msgstr ""
+
 #~ msgctxt "#30000"
 #~ msgid "Settings"
 #~ msgstr "Indstillinger"

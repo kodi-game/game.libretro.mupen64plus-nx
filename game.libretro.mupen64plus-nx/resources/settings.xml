@@ -67,8 +67,8 @@
 					<constraints>
 						<options>
 							<option label="16316">Auto</option>
-							<option>1500</option>
-							<option>2200</option>
+							<option label="30228">1500</option>
+							<option label="30229">2200</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -251,9 +251,9 @@
 					<constraints>
 						<options>
 							<option label="231">none</option>
-							<option>memory</option>
-							<option>rumble</option>
-							<option>transfer</option>
+							<option label="30230">memory</option>
+							<option label="30231">rumble</option>
+							<option label="30232">transfer</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -264,9 +264,9 @@
 					<constraints>
 						<options>
 							<option label="231">none</option>
-							<option>memory</option>
-							<option>rumble</option>
-							<option>transfer</option>
+							<option label="30230">memory</option>
+							<option label="30231">rumble</option>
+							<option label="30232">transfer</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -277,9 +277,9 @@
 					<constraints>
 						<options>
 							<option label="231">none</option>
-							<option>memory</option>
-							<option>rumble</option>
-							<option>transfer</option>
+							<option label="30230">memory</option>
+							<option label="30231">rumble</option>
+							<option label="30232">transfer</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -290,9 +290,9 @@
 					<constraints>
 						<options>
 							<option label="231">none</option>
-							<option>memory</option>
-							<option>rumble</option>
-							<option>transfer</option>
+							<option label="30230">memory</option>
+							<option label="30231">rumble</option>
+							<option label="30232">transfer</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -441,7 +441,7 @@
 					<constraints>
 						<options>
 							<option label="30147">False</option>
-							<option>Bayer</option>
+							<option label="30233">Bayer</option>
 							<option label="30163">MagicSquare</option>
 							<option label="30164">BlueNoise</option>
 						</options>
@@ -512,7 +512,7 @@
 					<constraints>
 						<options>
 							<option label="351">Off</option>
-							<option>Sync</option>
+							<option label="30234">Sync</option>
 							<option label="30171">Async</option>
 							<option label="30172">TripleBuffer</option>
 						</options>
@@ -536,8 +536,8 @@
 					<constraints>
 						<options>
 							<option label="351">Off</option>
-							<option>Software</option>
-							<option>FromMem</option>
+							<option label="30235">Software</option>
+							<option label="30236">FromMem</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -571,7 +571,7 @@
 						<options>
 							<option label="351">Off</option>
 							<option label="16316">Auto</option>
-							<option>Force</option>
+							<option label="30237">Force</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -604,8 +604,8 @@
 					<constraints>
 						<options>
 							<option label="13106">Disabled</option>
-							<option>Unoptimized</option>
-							<option>Optimized</option>
+							<option label="30238">Unoptimized</option>
+							<option label="30239">Optimized</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -639,7 +639,7 @@
 						<options>
 							<option label="30184">False</option>
 							<option label="30185">True</option>
-							<option>Compatible</option>
+							<option label="30240">Compatible</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -953,12 +953,12 @@
 					<constraints>
 						<options>
 							<option label="231">None</option>
-							<option>Smooth filtering 1</option>
-							<option>Smooth filtering 2</option>
-							<option>Smooth filtering 3</option>
-							<option>Smooth filtering 4</option>
-							<option>Sharp filtering 1</option>
-							<option>Sharp filtering 2</option>
+							<option label="30241">Smooth filtering 1</option>
+							<option label="30242">Smooth filtering 2</option>
+							<option label="30243">Smooth filtering 3</option>
+							<option label="30244">Smooth filtering 4</option>
+							<option label="30245">Sharp filtering 1</option>
+							<option label="30246">Sharp filtering 2</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />
@@ -969,19 +969,19 @@
 					<constraints>
 						<options>
 							<option label="231">None</option>
-							<option>As Is</option>
-							<option>X2</option>
-							<option>X2SAI</option>
-							<option>HQ2X</option>
-							<option>HQ2XS</option>
-							<option>LQ2X</option>
-							<option>LQ2XS</option>
-							<option>HQ4X</option>
-							<option>2xBRZ</option>
-							<option>3xBRZ</option>
-							<option>4xBRZ</option>
-							<option>5xBRZ</option>
-							<option>6xBRZ</option>
+							<option label="30247">As Is</option>
+							<option label="30248">X2</option>
+							<option label="30249">X2SAI</option>
+							<option label="30250">HQ2X</option>
+							<option label="30251">HQ2XS</option>
+							<option label="30252">LQ2X</option>
+							<option label="30253">LQ2XS</option>
+							<option label="30254">HQ4X</option>
+							<option label="30255">2xBRZ</option>
+							<option label="30256">3xBRZ</option>
+							<option label="30257">4xBRZ</option>
+							<option label="30258">5xBRZ</option>
+							<option label="30259">6xBRZ</option>
 						</options>
 					</constraints>
 					<control type="list" format="string" />

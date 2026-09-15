@@ -1,7 +1,7 @@
-From 2ae29cff80cedb1d21088310c8501a1ba8e35b95 Mon Sep 17 00:00:00 2001
+From 78234d7a8269fa9c66647b6a1f7b9d742a5f620a Mon Sep 17 00:00:00 2001
 From: Zoe Gidiere <duplexsys@protonmail.com>
 Date: Fri, 17 Oct 2025 13:35:37 -0600
-Subject: [PATCH 2/6] Default to ParaLLEl-RSP
+Subject: [PATCH 2/7] Default to ParaLLEl-RSP
 
 ---
  libretro/libretro_core_options.h | 4 ++--
@@ -27,5 +27,5 @@ index f89a088a..73930937 100644
      {
          CORE_NAME "-FrameDuping",
 -- 
-2.53.0
+2.50.1 (Apple Git-155)
 

@@ -1,13 +1,20 @@
-Subject: [PATCH] GLideN64: Disable rectangle barycoords without coverage
+From a58c102f5b305b8314661dd0c0e03985967e804d Mon Sep 17 00:00:00 2001
+From: Garrett Brown <themagnificentmrb@gmail.com>
+Date: Tue, 15 Sep 2026 15:34:30 -0700
+Subject: [PATCH 7/7] GLideN64: Disable rectangle barycoords without coverage
 
 The rectangle barycentric attribute has a buffer pointer only when
 coverage is available. Enabling it otherwise leaves an enabled attribute
 with no buffer, causing rectangle draws to fail on macOS core OpenGL.
+---
+ GLideN64/src/Graphics/OpenGLContext/opengl_BufferedDrawer.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/GLideN64/src/Graphics/OpenGLContext/opengl_BufferedDrawer.cpp b/GLideN64/src/Graphics/OpenGLContext/opengl_BufferedDrawer.cpp
+index bf781a26..a3089e0c 100644
 --- a/GLideN64/src/Graphics/OpenGLContext/opengl_BufferedDrawer.cpp
 +++ b/GLideN64/src/Graphics/OpenGLContext/opengl_BufferedDrawer.cpp
-@@ -29,7 +29,7 @@ BufferedDrawer::BufferedDrawer(const GLInfo & _glinfo, CachedVertexAttribArray * _ca
+@@ -29,7 +29,7 @@ BufferedDrawer::BufferedDrawer(const GLInfo & _glinfo, CachedVertexAttribArray *
  	m_cachedAttribArray->enableVertexAttribArray(rectAttrib::position, true);
  	m_cachedAttribArray->enableVertexAttribArray(rectAttrib::texcoord0, true);
  	m_cachedAttribArray->enableVertexAttribArray(rectAttrib::texcoord1, true);
@@ -16,3 +23,6 @@ diff --git a/GLideN64/src/Graphics/OpenGLContext/opengl_BufferedDrawer.cpp b/GLi
  	glVertexAttribPointer(rectAttrib::position, 4, GL_FLOAT, GL_FALSE, sizeof(RectVertex), (const GLvoid *)(offsetof(RectVertex, x)));
  	glVertexAttribPointer(rectAttrib::texcoord0, 2, GL_FLOAT, GL_FALSE, sizeof(RectVertex), (const GLvoid *)(offsetof(RectVertex, s0)));
  	glVertexAttribPointer(rectAttrib::texcoord1, 2, GL_FLOAT, GL_FALSE, sizeof(RectVertex), (const GLvoid *)(offsetof(RectVertex, s1)));
+-- 
+2.50.1 (Apple Git-155)
+

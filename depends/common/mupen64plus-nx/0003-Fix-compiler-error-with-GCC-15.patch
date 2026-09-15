@@ -1,7 +1,7 @@
-From 30db70269e4ea9f60e88b9fb43d4ac5ee353de2f Mon Sep 17 00:00:00 2001
+From a0d1d6ea131808761fa2c0c200109bcc734b2277 Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Wed, 3 Sep 2025 15:08:31 -0700
-Subject: [PATCH 3/6] Fix compiler error with GCC 15
+Subject: [PATCH 3/7] Fix compiler error with GCC 15
 
 Error was:
 
@@ -16,7 +16,7 @@ Error was:
  1 file changed, 2 insertions(+)
 
 diff --git a/GLideN64/src/GLideNHQ/TxHiResLoader.h b/GLideN64/src/GLideNHQ/TxHiResLoader.h
-index 4c136512..9dcec141 100644
+index c6c5b78b..e407d7c4 100644
 --- a/GLideN64/src/GLideNHQ/TxHiResLoader.h
 +++ b/GLideN64/src/GLideNHQ/TxHiResLoader.h
 @@ -18,6 +18,8 @@
@@ -29,5 +29,5 @@ index 4c136512..9dcec141 100644
  #define FULLFNAME_CHARTYPE wchar_t
  #else
 -- 
-2.53.0
+2.50.1 (Apple Git-155)
 

@@ -1,7 +1,7 @@
-From 31921a3c3b5879504b95503f9a5ec28f689b736e Mon Sep 17 00:00:00 2001
+From d08f8e3cd952a10bda806dd7d6b0fd67d2950e77 Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Mon, 2 Mar 2026 16:21:18 -0800
-Subject: [PATCH 6/6] mupen64plus-nx: Fix bundled zlib build on macOS
+Subject: [PATCH 6/7] mupen64plus-nx: Fix bundled zlib build on macOS
 
 Stop macro-defining fdopen() to NULL in zutil.h. On macOS fdopen is a real
 function, so the macro override breaks <stdio.h> and causes the build to fail.
@@ -25,5 +25,5 @@ index 24ab06b1..bcd42729 100644
  #  endif
  #endif
 -- 
-2.53.0
+2.50.1 (Apple Git-155)
 

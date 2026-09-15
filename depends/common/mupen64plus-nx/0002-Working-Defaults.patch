@@ -1,25 +1,16 @@
 From 2ae29cff80cedb1d21088310c8501a1ba8e35b95 Mon Sep 17 00:00:00 2001
 From: Zoe Gidiere <duplexsys@protonmail.com>
 Date: Fri, 17 Oct 2025 13:35:37 -0600
-Subject: [PATCH 2/6] Working Defaults
+Subject: [PATCH 2/6] Default to ParaLLEl-RSP
 
 ---
- libretro/libretro_core_options.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ libretro/libretro_core_options.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/libretro/libretro_core_options.h b/libretro/libretro_core_options.h
-index f89a088a..6d766532 100644
+index f89a088a..73930937 100644
 --- a/libretro/libretro_core_options.h
 +++ b/libretro/libretro_core_options.h
-@@ -73,7 +73,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
-             {"gliden64", "GLideN64"},
-             { NULL, NULL },
-         },
--        "gliden64"
-+        "angrylion"
-     },
-     {
-         CORE_NAME "-43screensize",
 @@ -1381,12 +1381,12 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          NULL,
          NULL,

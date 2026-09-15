@@ -5,7 +5,7 @@
 			<group id="1">
 				<setting id="mupen64plus-rdp-plugin" type="string" label="30001" help="30086">
 					<level>0</level>
-					<default>angrylion</default>
+					<default>gliden64</default>
 					<constraints>
 						<options>
 							<option label="30087">angrylion</option>

@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: game.libretro.mupen64plus-nx\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: 2017-02-04 09:56i\n"
-"PO-Revision-Date: 2026-08-22 13:17+0000\n"
-"Last-Translator: Dmitry Petrov <dimakrm361@gmail.com>\n"
+"PO-Revision-Date: 2026-09-15 19:30+0000\n"
+"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://kodi.weblate.cloud/projects/kodi-add-ons-game/game-libretro-mupen64plus-nx/ru_ru/>\n"
 "Language: ru_ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2026.8.1\n"
+"X-Generator: Weblate 2026.9.1\n"
 
 msgctxt "Addon Summary"
 msgid "Nintendo - Nintendo 64 (Mupen64Plus-Next)"
@@ -383,7 +383,7 @@ msgstr "GLideN64"
 
 msgctxt "#30090"
 msgid "Select the R4300 CPU Backend, use Interpreter for best compability"
-msgstr "Выберите движок ЦПУ R4300, используйте интепретатор для лучшей совместимости"
+msgstr "Выберите движок ЦП R4300, используйте интерпретатор для лучшей совместимости"
 
 msgctxt "#30091"
 msgid "Pure Interpreter"
@@ -659,27 +659,27 @@ msgstr "(GLN64) Выберите метод билинейной фильтра�
 
 msgctxt "#30159"
 msgid "(GLN64) Hybrid integer scaling filter, this can be slow with low-end GPUs."
-msgstr ""
+msgstr "(GLN64) Гибридный фильтр целочисленного масштабирования, может работать медленно на слабых ГП."
 
 msgctxt "#30160"
 msgid "(GLN64) Applies dithering pattern to output image."
-msgstr ""
+msgstr "(GLN64) Применяет узор дизеринга к выходному изображению."
 
 msgctxt "#30161"
 msgid "(GLN64) Dither with color quantization."
-msgstr ""
+msgstr "(GLN64) Дизеринг с цветовым квантованием."
 
 msgctxt "#30162"
 msgid "(GLN64) Dithering mode for image in RDRAM."
-msgstr ""
+msgstr "(GLN64) Режим дизеринга для изображения в RDRAM."
 
 msgctxt "#30163"
 msgid "Magic Square"
-msgstr ""
+msgstr "Магический квадрат"
 
 msgctxt "#30164"
 msgid "Blue Noise"
-msgstr ""
+msgstr "Синий шум"
 
 msgctxt "#30165"
 msgid "(GLN64) Anti-Aliasing level (0 = disabled)."
@@ -691,67 +691,67 @@ msgstr "(GLN64) FXAA шейдер сглаживания, умерено раз�
 
 msgctxt "#30167"
 msgid "(GLN64) Calculate per-pixel Level Of Details to select texture mip levels and blend them with each other using LOD fraction."
-msgstr ""
+msgstr "(GLN64) Вычислять попиксельный уровень детализации для выбора мип-уровней текстуры и смешивать их друг с другом с использованием дробной части LOD."
 
 msgctxt "#30168"
 msgid "(GLN64) Frame/depth buffer emulation. Disabling it can shorten input lag for particular games, but also break some special effects."
-msgstr ""
+msgstr "(GLN64) Эмуляция кадрового/глубинного буфера. Отключение может сократить задержку ввода для отдельных игр, но также сломать некоторые специальные эффекты."
 
 msgctxt "#30169"
 msgid "(GLN64) Copy auxiliary buffers to RDRAM (fixes some Game artifacts like Paper Mario Intro)."
-msgstr ""
+msgstr "(GLN64) Копировать вспомогательные буферы в RDRAM (исправляет некоторые артефакты игр, например вступление Paper Mario)."
 
 msgctxt "#30170"
 msgid "(GLN64) Color buffer copy to RDRAM (Off will trade compatibility for Performance)."
-msgstr ""
+msgstr "(GLN64) Копирование цветового буфера в RDRAM (отключение обменяет совместимость на производительность)."
 
 msgctxt "#30171"
 msgid "DoubleBuffer"
-msgstr ""
+msgstr "Двойная буферизация"
 
 msgctxt "#30172"
 msgid "TripleBuffer"
-msgstr ""
+msgstr "Тройная буферизация"
 
 msgctxt "#30173"
 msgid "(GLN64) Enable color buffer copy from RDRAM."
-msgstr ""
+msgstr "(GLN64) Включить копирование цветового буфера из RDRAM."
 
 msgctxt "#30174"
 msgid "(GLN64) Depth buffer copy to RDRAM (Off will trade compatibility for Performance)."
-msgstr ""
+msgstr "(GLN64) Копирование глубинного буфера в RDRAM (отключение обменяет совместимость на производительность)."
 
 msgctxt "#30175"
 msgid "(GLN64) Render backgrounds mode (HLE only). One piece (fast), Stripped (precise)."
-msgstr ""
+msgstr "(GLN64) Режим отрисовки фонов (только HLE). Одним куском (быстро), разбитым (точно)."
 
 msgctxt "#30176"
 msgid "(GLN64) Standard per-vertex lighting when disabled. Slightly different rendering."
-msgstr ""
+msgstr "(GLN64) Стандартное попиксельное освещение вершин при отключении. Немного другая отрисовка."
 
 msgctxt "#30177"
 msgid "(GLN64) Make texrect coordinates continuous to avoid black lines between them."
-msgstr ""
+msgstr "(GLN64) Делать координаты texrect непрерывными, чтобы избежать чёрных линий между ними."
 
 msgctxt "#30178"
 msgid "(GLN64) Enables inaccurate texture coordinate calculations. This can improve performance and texture pack compatibity at the cost of accuracy."
-msgstr ""
+msgstr "(GLN64) Включает неточные вычисления координат текстур. Это может повысить производительность и совместимость с пакетами текстур за счёт точности."
 
 msgctxt "#30179"
 msgid "(GLN64) Bound texture rectangle texture coordinates to the values they take in native resolutions. It prevents garbage due to fetching out of texture bounds, but can result in hard edges."
-msgstr ""
+msgstr "(GLN64) Ограничивать координаты текстуры прямоугольника значениями, которые они принимают в нативных разрешениях. Это предотвращает мусор из-за выборки за границами текстуры, но может привести к жёстким краям."
 
 msgctxt "#30180"
 msgid "(GLN64) Render 2D texrects in native resolution to fix misalignment between parts of 2D image (example: Mario Kart driver selection portraits)."
-msgstr ""
+msgstr "(GLN64) Отрисовывать 2D texrect в нативном разрешении, чтобы исправить несовпадение между частями 2D-изображения (пример: портреты выбора персонажа в Mario Kart)."
 
 msgctxt "#30181"
 msgid "(GLN64) Do not use shaders to emulate N64 blending modes. Works faster on slow GPU. Can cause glitches."
-msgstr ""
+msgstr "(GLN64) Не использовать шейдеры для эмуляции режимов смешивания N64. Работает быстрее на слабом ГП. Может вызвать сбои."
 
 msgctxt "#30182"
 msgid "(GLN64) Enable writing of fragment depth. Some mobile GPUs do not support it, thus it's optional. Leave enabled."
-msgstr ""
+msgstr "(GLN64) Включить запись глубины фрагмента. Некоторые мобильные ГП её не поддерживают, поэтому это необязательно. Оставьте включённым."
 
 msgctxt "#30183"
 msgid "(GLN64) Enable N64 depth compare instead of OpenGL standard one. Experimental, Fast mode will have more glitches."
@@ -795,63 +795,63 @@ msgstr "(GLN64) Overscan. Смещение снизу."
 
 msgctxt "#30193"
 msgid "(GLN64) Limit High-Res textures size in VRAM (in MB, 0 = no limit)."
-msgstr ""
+msgstr "(GLN64) Ограничить размер текстур высокого разрешения в VRAM (в МБ, 0 = без ограничения)."
 
 msgctxt "#30194"
 msgid "(GLN64) Set Max texture cache size (in elements). Reduce it if you experience black textures leading to a crash."
-msgstr ""
+msgstr "(GLN64) Задать максимальный размер кэша текстур (в элементах). Уменьшите его, если сталкиваетесь с чёрными текстурами, приводящими к аварийному завершению."
 
 msgctxt "#30195"
 msgid "(GLN64) Select Texture Filtering mode."
-msgstr ""
+msgstr "(GLN64) Выберите режим фильтрации текстур."
 
 msgctxt "#30196"
 msgid "(GLN64) Various Texture Filters ('As-Is' will just cache)."
-msgstr ""
+msgstr "(GLN64) Различные фильтры текстур («Как есть» будет просто кэшировать)."
 
 msgctxt "#30197"
 msgid "(GLN64) Ignore filtering for Background Textures."
-msgstr ""
+msgstr "(GLN64) Игнорировать фильтрацию для фоновых текстур."
 
 msgctxt "#30198"
 msgid "(GLN64) Enable High-Res Texture packs if available."
-msgstr ""
+msgstr "(GLN64) Включить пакеты текстур высокого разрешения, если доступны."
 
 msgctxt "#30199"
 msgid "(GLN64) Compress created texture caches."
-msgstr ""
+msgstr "(GLN64) Сжимать созданные кэши текстур."
 
 msgctxt "#30200"
 msgid "(GLN64) This should be enabled unless it's a old RICE Texture pack."
-msgstr ""
+msgstr "(GLN64) Это следует включать, если только это не старый пакет текстур RICE."
 
 msgctxt "#30201"
 msgid "(GLN64) Use in addition to Texture cache, will use lazy loading and trade memory consumption against loading speeds."
-msgstr ""
+msgstr "(GLN64) Использовать в дополнение к кэшу текстур, будет применять ленивую загрузку и обменивать потребление памяти на скорость загрузки."
 
 msgctxt "#30202"
 msgid "(GLN64) Use an alternative method for High-Res paletted textures CRC calculations."
-msgstr ""
+msgstr "(GLN64) Использовать альтернативный метод для вычислений CRC палитровых текстур высокого разрешения."
 
 msgctxt "#30203"
 msgid "(GLN64) Use in addition to High-Res textures, will use lazy loading and trade memory consumption against loading speeds."
-msgstr ""
+msgstr "(GLN64) Использовать в дополнение к текстурам высокого разрешения, будет применять ленивую загрузку и обменивать потребление памяти на скорость загрузки."
 
 msgctxt "#30204"
 msgid "(GLN64) Specifies INI Settings behaviour. This should really only contain essential options. Changing this can and will break ROM's, if the correct options aren't set manually. Some options may only be set via INI (fbInfoDisabled)."
-msgstr ""
+msgstr "(GLN64) Определяет поведение настроек INI. В них действительно должны содержаться только основные параметры. Изменение этого может и будет ломать ROM, если правильные параметры не заданы вручную. Некоторые параметры могут задаваться только через INI (fbInfoDisabled)."
 
 msgctxt "#30205"
 msgid "Prioritize INI over Core Options"
-msgstr ""
+msgstr "Приоритет INI над параметрами ядра"
 
 msgctxt "#30206"
 msgid "Prioritize Core Options over INI"
-msgstr ""
+msgstr "Приоритет параметров ядра над INI"
 
 msgctxt "#30207"
 msgid "Disable INI"
-msgstr ""
+msgstr "Отключить INI"
 
 msgctxt "#30208"
 msgid "Configure ParaLLEl-RDP Options."
@@ -859,15 +859,15 @@ msgstr "Настройка параметров ParaLLEl-RDP."
 
 msgctxt "#30209"
 msgid "Enable full accuracy for CPU accessed frame buffers."
-msgstr ""
+msgstr "Включить полную точность для кадровых буферов, к которым обращается ЦП."
 
 msgctxt "#30210"
 msgid "Crop pixels around edge of screen."
-msgstr ""
+msgstr "Обрезать пиксели по краю экрана."
 
 msgctxt "#30211"
 msgid "Allow VI divot filter, cleans up stray black pixels."
-msgstr ""
+msgstr "Разрешить фильтр выемок VI, очищает случайные чёрные пиксели."
 
 msgctxt "#30212"
 msgid "Allow VI gamma dither."
@@ -879,39 +879,39 @@ msgstr "Разрешить VI сглаживание, улучшает края 
 
 msgctxt "#30214"
 msgid "Allow VI bilinear scaling on scanout."
-msgstr ""
+msgstr "Разрешить билинейное масштабирование VI при выводе развёртки."
 
 msgctxt "#30215"
 msgid "Allow VI de-dither filter, recovers significant color depth."
-msgstr ""
+msgstr "Разрешить фильтр удаления дизеринга VI, восстанавливает значительную глубину цвета."
 
 msgctxt "#30216"
 msgid "Apply internal upscaling factor."
-msgstr ""
+msgstr "Применить коэффициент внутреннего масштабирования."
 
 msgctxt "#30217"
 msgid "Super sample framebuffer effects. May introduce artifacts."
-msgstr ""
+msgstr "Суперсэмплировать эффекты кадрового буфера. Может вносить артефакты."
 
 msgctxt "#30218"
 msgid "Dither super sampled framebuffer effects."
-msgstr ""
+msgstr "Дизеринг суперсэмплированных эффектов кадрового буфера."
 
 msgctxt "#30219"
 msgid "Downscales output after VI, equivalent to SSAA."
-msgstr ""
+msgstr "Понижает дискретизацию вывода после VI, эквивалентно SSAA."
 
 msgctxt "#30220"
 msgid "Use native texture LOD computation when upscaling, effectively a LOD bias."
-msgstr ""
+msgstr "Использовать нативное вычисление LOD текстур при масштабировании, фактически смещение LOD."
 
 msgctxt "#30221"
 msgid "TEX_RECT primitives should generally be rendered at native resolution to avoid seams."
-msgstr ""
+msgstr "Примитивы TEX_RECT обычно следует отрисовывать в нативном разрешении, чтобы избежать швов."
 
 msgctxt "#30222"
 msgid "Weave should only be used with 1x scaling factor and special CRT shaders."
-msgstr ""
+msgstr "«Чересстрочное объединение» следует использовать только с коэффициентом масштабирования 1x и специальными ЭЛТ-шейдерами."
 
 msgctxt "#30223"
 msgid "Configure Angrylion Options."
@@ -919,15 +919,15 @@ msgstr "Настройка параметров Angrylion."
 
 msgctxt "#30224"
 msgid "(AL) Select VI Overlay filtering. 'Filtered' is the original system rendering."
-msgstr ""
+msgstr "(AL) Выберите фильтрацию наложения VI. «С фильтрацией» — оригинальная отрисовка системы."
 
 msgctxt "#30225"
 msgid "(AL) Select Sync level (trades accuracy for performance)."
-msgstr ""
+msgstr "(AL) Выберите уровень синхронизации (обменивает точность на производительность)."
 
 msgctxt "#30226"
 msgid "(AL) Default 'all threads' is prefered to have it match your Physical CPU Core count. '1' should behave as the original angrylion, possibly fixing some bugs."
-msgstr ""
+msgstr "(AL) По умолчанию предпочтительнее «все потоки», чтобы это соответствовало количеству физических ядер вашего ЦП. «1» должно вести себя как оригинальный angrylion, возможно, исправляя некоторые ошибки."
 
 msgctxt "#30227"
 msgid "(AL) Hide overscan borders."
@@ -935,131 +935,131 @@ msgstr "(AL) Скрыть overscan рамки."
 
 msgctxt "#30228"
 msgid "1500"
-msgstr ""
+msgstr "1500"
 
 msgctxt "#30229"
 msgid "2200"
-msgstr ""
+msgstr "2200"
 
 msgctxt "#30230"
 msgid "memory"
-msgstr ""
+msgstr "память"
 
 msgctxt "#30231"
 msgid "rumble"
-msgstr ""
+msgstr "вибрация"
 
 msgctxt "#30232"
 msgid "transfer"
-msgstr ""
+msgstr "передача"
 
 msgctxt "#30233"
 msgid "Bayer"
-msgstr ""
+msgstr "Байер"
 
 msgctxt "#30234"
 msgid "Sync"
-msgstr ""
+msgstr "Синхронизация"
 
 msgctxt "#30235"
 msgid "Software"
-msgstr ""
+msgstr "Программный"
 
 msgctxt "#30236"
 msgid "FromMem"
-msgstr ""
+msgstr "Из памяти"
 
 msgctxt "#30237"
 msgid "Force"
-msgstr ""
+msgstr "Принудительно"
 
 msgctxt "#30238"
 msgid "Unoptimized"
-msgstr ""
+msgstr "Неоптимизированный"
 
 msgctxt "#30239"
 msgid "Optimized"
-msgstr ""
+msgstr "Оптимизированный"
 
 msgctxt "#30240"
 msgid "Compatible"
-msgstr ""
+msgstr "Совместимый"
 
 msgctxt "#30241"
 msgid "Smooth filtering 1"
-msgstr ""
+msgstr "Плавная фильтрация 1"
 
 msgctxt "#30242"
 msgid "Smooth filtering 2"
-msgstr ""
+msgstr "Плавная фильтрация 2"
 
 msgctxt "#30243"
 msgid "Smooth filtering 3"
-msgstr ""
+msgstr "Плавная фильтрация 3"
 
 msgctxt "#30244"
 msgid "Smooth filtering 4"
-msgstr ""
+msgstr "Плавная фильтрация 4"
 
 msgctxt "#30245"
 msgid "Sharp filtering 1"
-msgstr ""
+msgstr "Резкая фильтрация 1"
 
 msgctxt "#30246"
 msgid "Sharp filtering 2"
-msgstr ""
+msgstr "Резкая фильтрация 2"
 
 msgctxt "#30247"
 msgid "As Is"
-msgstr ""
+msgstr "Как есть"
 
 msgctxt "#30248"
 msgid "X2"
-msgstr ""
+msgstr "X2"
 
 msgctxt "#30249"
 msgid "X2SAI"
-msgstr ""
+msgstr "X2SAI"
 
 msgctxt "#30250"
 msgid "HQ2X"
-msgstr ""
+msgstr "HQ2X"
 
 msgctxt "#30251"
 msgid "HQ2XS"
-msgstr ""
+msgstr "HQ2XS"
 
 msgctxt "#30252"
 msgid "LQ2X"
-msgstr ""
+msgstr "LQ2X"
 
 msgctxt "#30253"
 msgid "LQ2XS"
-msgstr ""
+msgstr "LQ2XS"
 
 msgctxt "#30254"
 msgid "HQ4X"
-msgstr ""
+msgstr "HQ4X"
 
 msgctxt "#30255"
 msgid "2xBRZ"
-msgstr ""
+msgstr "2xBRZ"
 
 msgctxt "#30256"
 msgid "3xBRZ"
-msgstr ""
+msgstr "3xBRZ"
 
 msgctxt "#30257"
 msgid "4xBRZ"
-msgstr ""
+msgstr "4xBRZ"
 
 msgctxt "#30258"
 msgid "5xBRZ"
-msgstr ""
+msgstr "5xBRZ"
 
 msgctxt "#30259"
 msgid "6xBRZ"
-msgstr ""
+msgstr "6xBRZ"
 
 #~ msgctxt "#30000"
 #~ msgid "Settings"

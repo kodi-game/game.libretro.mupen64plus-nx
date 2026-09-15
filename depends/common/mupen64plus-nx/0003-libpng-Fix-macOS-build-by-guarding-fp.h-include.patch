@@ -1,7 +1,7 @@
-From 80392705ad6ccf8a77d534c2e9b24f5e3909d211 Mon Sep 17 00:00:00 2001
+From 40b28b343a8d029ac415b59b391e034744749325 Mon Sep 17 00:00:00 2001
 From: Garrett Brown <garrett.brown@aclima.earth>
 Date: Mon, 2 Mar 2026 15:58:06 -0800
-Subject: [PATCH 5/7] libpng: Fix macOS build by guarding <fp.h> include
+Subject: [PATCH 3/6] libpng: Fix macOS build by guarding <fp.h> include
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit

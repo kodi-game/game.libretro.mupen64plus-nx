@@ -1,7 +1,7 @@
-From 8edf2e9f5320b805426f29247b73bc1c3b9e097b Mon Sep 17 00:00:00 2001
+From d861bd896451f1871a83e2b59d1b6fb4315fcd65 Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Wed, 3 Sep 2025 16:59:04 -0700
-Subject: [PATCH 4/7] Fix compiler error on Windows
+Subject: [PATCH 2/6] Fix compiler error on Windows
 
 Error was:
 

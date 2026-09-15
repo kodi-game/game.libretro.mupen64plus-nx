@@ -1,7 +1,7 @@
-From 8ba314ebae126ea324679e196f038503dc12726a Mon Sep 17 00:00:00 2001
+From b218d650c8e8f832a8450c6011fe0f8737e4952f Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Tue, 15 Sep 2026 15:34:30 -0700
-Subject: [PATCH 6/6] GLideN64: Disable rectangle barycoords without coverage
+Subject: [PATCH 5/7] GLideN64: Disable rectangle barycoords without coverage
 
 The rectangle barycentric attribute has a buffer pointer only when
 coverage is available. Enabling it otherwise leaves an enabled attribute

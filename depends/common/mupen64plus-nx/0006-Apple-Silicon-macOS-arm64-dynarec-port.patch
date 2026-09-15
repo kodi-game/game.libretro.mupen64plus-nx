@@ -1,0 +1,719 @@
+From 73a8104ea8fe9e7ea5e5935fea70983d668b054f Mon Sep 17 00:00:00 2001
+From: AurisDSP <235008503+AurisDSP@users.noreply.github.com>
+Date: Tue, 5 May 2026 20:37:41 -0400
+Subject: [PATCH 6/7] Apple Silicon (macOS arm64) dynarec port
+
+Brings the aarch64 dynarec online on macOS Apple Silicon. The host code
+ports cleanly with a handful of platform shims:
+
+* Build (Makefile): enable WITH_DYNAREC=aarch64 on osx for native arm64;
+  keep -DNO_ASM only when no dynarec backend is in use.
+
+* Assembly (linkage_arm64.S): Apple's clang assembler treats ';' as a
+  comment delimiter, so the GAS-style cpp macros that emit multiple
+  directives on one line don't work. Switched GLOBAL_FUNCTION /
+  LOCAL_FUNCTION / GLOBAL_VARIABLE to assembler-side .macro definitions
+  on Apple, with an _-prefixed Mach-O symbol and .private_extern. Added
+  an ADRP_LO12 macro that selects between :lo12: (GAS) and @PAGE/@PAGEOFF
+  (Apple) syntax. Internal references to jump_vaddr changed to use the
+  underscored Mach-O symbol; b.ne/b.eq new_dyna_stop now goes through a
+  local L-label so Apple's assembler doesn't reject the conditional
+  branch's external target.
+
+* JIT memory (new_dynarec.c): macOS Hardened Runtime forbids RWX in a
+  single mapping, so on Apple we mmap the cache with MAP_JIT and toggle
+  protection per-thread via pthread_jit_write_protect_np(). To handle
+  set_jump_target() being called from inside new_recompile_block (where
+  the page is already in write mode), the BEGIN/END pair nests via a
+  per-thread depth counter; END clamps to zero so cache_flush() called
+  from invalidation paths still lands the page in execute mode.
+
+* W^X helpers (new_dynarec.h): M64P_JIT_WRITE_BEGIN / M64P_JIT_WRITE_END
+  macros wrap pthread_jit_write_protect_np with the nesting counter on
+  Apple, no-ops elsewhere.
+
+* Cache flush (assem_arm64.c): on Apple, replaced the manual
+  dc civac / ic ivau loop with sys_icache_invalidate() and a paired
+  M64P_JIT_WRITE_END so freshly-emitted code is visible and executable
+  before it's invoked. arch_init() and set_jump_target() now wrap their
+  writes with M64P_JIT_WRITE_BEGIN / M64P_JIT_WRITE_END.
+
+* Portability (custom/dependencies): pngpriv.h's TARGET_OS_MAC branch
+  pulls in <fp.h> (a Mac OS 9 header), so it's been excluded on modern
+  macOS. zutil.h's MACOS branch redefines fdopen, which collides with
+  Apple's stdio.h __memcpy_chk-style macros; skip the redefinition on
+  __APPLE__.
+
+Mario Kart 64 boots and runs with audio + video on M-series hardware
+(cached_interpreter and dynamic_recompiler both work; angrylion + HLE
+RSP avoids paraLLEl-RDP's macOS mutex thread bug).
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+---
+ Makefile                                      |   9 +-
+ custom/dependencies/libpng/pngpriv.h          |   2 +-
+ custom/dependencies/libzlib/zutil.h           |   2 +-
+ .../r4300/new_dynarec/arm64/assem_arm64.c     |  34 ++-
+ .../r4300/new_dynarec/arm64/linkage_arm64.S   | 210 ++++++++++++------
+ .../device/r4300/new_dynarec/new_dynarec.c    |  64 +++++-
+ .../device/r4300/new_dynarec/new_dynarec.h    |  34 +++
+ 7 files changed, 273 insertions(+), 82 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 2443f80e..526a2539 100644
+--- a/Makefile
++++ b/Makefile
+@@ -404,12 +404,17 @@ else ifneq (,$(findstring osx,$(platform)))
+         LDFLAGS += -mmacosx-version-min=10.7
+    LDFLAGS += -stdlib=libc++
+ 
+-   PLATCFLAGS += -D__MACOSX__ -DOSX -DOS_MAC_OS_X -DHAVE_UNISTD_H=1 -DHAVE_POSIX_MEMALIGN -DNO_ASM -DGL_SILENCE_DEPRECATION=1
++   PLATCFLAGS += -D__MACOSX__ -DOSX -DOS_MAC_OS_X -DHAVE_UNISTD_H=1 -DHAVE_POSIX_MEMALIGN -DGL_SILENCE_DEPRECATION=1
+    GL_LIB := -framework OpenGL
+    LDFLAGS += -framework AudioToolbox
+ 
+    # Target Dynarec
+-   WITH_DYNAREC =
++   ifeq ($(ARCH), arm64)
++      WITH_DYNAREC = aarch64
++   else
++      WITH_DYNAREC =
++      PLATCFLAGS += -DNO_ASM
++   endif
+ 
+    HAVE_PARALLEL_RSP = 1
+    HAVE_PARALLEL_RDP = 1
+diff --git a/custom/dependencies/libpng/pngpriv.h b/custom/dependencies/libpng/pngpriv.h
+index bcedea7f..d53eb4c8 100644
+--- a/custom/dependencies/libpng/pngpriv.h
++++ b/custom/dependencies/libpng/pngpriv.h
+@@ -509,7 +509,7 @@
+ #  include <float.h>
+ 
+ #  if (defined(__MWERKS__) && defined(macintosh)) || defined(applec) || \
+-    defined(THINK_C) || defined(__SC__) || defined(TARGET_OS_MAC)
++    defined(THINK_C) || defined(__SC__)
+    /* We need to check that <math.h> hasn't already been included earlier
+     * as it seems it doesn't agree with <fp.h>, yet we should really use
+     * <fp.h> if possible.
+diff --git a/custom/dependencies/libzlib/zutil.h b/custom/dependencies/libzlib/zutil.h
+index 24ab06b1..0e3da570 100644
+--- a/custom/dependencies/libzlib/zutil.h
++++ b/custom/dependencies/libzlib/zutil.h
+@@ -123,7 +123,7 @@ extern z_const char * const z_errmsg[10]; /* indexed by 2-zlib_error */
+ #  ifndef Z_SOLO
+ #    if defined(__MWERKS__) && __dest_os != __be_os && __dest_os != __win32_os
+ #      include <unix.h> /* for fdopen */
+-#    else
++#    elif !defined(__APPLE__)
+ #      ifndef fdopen
+ #        define fdopen(fd,mode) NULL /* No fdopen() */
+ #      endif
+diff --git a/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.c b/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.c
+index 46243eca..f699e791 100644
+--- a/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.c
++++ b/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.c
+@@ -261,9 +261,19 @@ static uintptr_t jump_table_symbols[] = {
+   (intptr_t)breakpoint
+ };
+ 
++#if defined(__APPLE__)
++#include <libkern/OSCacheControl.h>
++#endif
++
+ static void cache_flush(char* start, char* end)
+ {
+-#ifndef WIN32
++#if defined(__APPLE__)
++    /* Make freshly-written instructions visible and flip the JIT page
++     * back to execute mode (it was writable while we emitted the
++     * block). */
++    sys_icache_invalidate(start, (size_t)(end - start));
++    M64P_JIT_WRITE_END();
++#elif !defined(WIN32)
+     // Don't rely on GCC's __clear_cache implementation, as it caches
+     // icache/dcache cache line sizes, that can vary between cores on
+     // big.LITTLE architectures.
+@@ -304,6 +314,12 @@ static void set_jump_target(intptr_t addr,uintptr_t target)
+   if(!ptr) // Indiana Jones is weird
+     return;
+ 
++  /* This patches an instruction inside an already-emitted JIT block;
++   * on Apple Silicon the page is in execute mode, so flip to write
++   * before the store and back to execute (with icache invalidate)
++   * after. The macros are no-ops on non-Apple platforms. */
++  M64P_JIT_WRITE_BEGIN();
++
+   if((*ptr&0xFC000000)==0x14000000) {
+     assert(offset>=-134217728LL&&offset<134217728LL);
+     *ptr=(*ptr&0xFC000000)|((offset>>2)&0x3ffffff);
+@@ -323,6 +339,12 @@ static void set_jump_target(intptr_t addr,uintptr_t target)
+   }
+   else
+     assert(0); /*Should not happen*/
++
++  M64P_JIT_WRITE_END();
++#if defined(__APPLE__)
++  /* Make the patched instruction visible to the icache. */
++  sys_icache_invalidate((void *)addr, 4);
++#endif
+ }
+ 
+ /* Literal pool */
+@@ -4582,6 +4604,11 @@ static void invalidate_addr(u_int addr)
+ // CPU-architecture-specific initialization
+ static void arch_init(void) {
+ 
++#if defined(__APPLE__)
++  /* The trampolines below are emitted into the JIT cache; cache_flush()
++   * at the end of this function will flip them back to execute mode. */
++  M64P_JIT_WRITE_BEGIN();
++#endif
+   assert((fp_memory_map&7)==0);
+   g_dev.r4300.new_dynarec_hot_state.rounding_modes[0]=0x0<<22; // round
+   g_dev.r4300.new_dynarec_hot_state.rounding_modes[1]=0x3<<22; // trunc
+@@ -4625,5 +4652,8 @@ static void arch_init(void) {
+     ptr3+=2;
+   }
+ 
+-  __clear_cache((char *)base_addr+(1<<TARGET_SIZE_2)-JUMP_TABLE_SIZE,(char *)base_addr+(1<<TARGET_SIZE_2));
++  /* Use our cache_flush helper rather than __clear_cache so that on
++   * Apple Silicon the JIT page is flipped from write to execute mode
++   * before the trampoline jumps are first invoked. */
++  cache_flush((char *)base_addr+(1<<TARGET_SIZE_2)-JUMP_TABLE_SIZE,(char *)base_addr+(1<<TARGET_SIZE_2));
+ }
+diff --git a/mupen64plus-core/src/device/r4300/new_dynarec/arm64/linkage_arm64.S b/mupen64plus-core/src/device/r4300/new_dynarec/arm64/linkage_arm64.S
+index c4e340d8..d997fe41 100644
+--- a/mupen64plus-core/src/device/r4300/new_dynarec/arm64/linkage_arm64.S
++++ b/mupen64plus-core/src/device/r4300/new_dynarec/arm64/linkage_arm64.S
+@@ -18,16 +18,65 @@
+  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
+  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+ 
++#if defined(__APPLE__)
++
++/* Apple's arm64 clang assembler treats ';' as a comment delimiter,
++ * not a statement separator, so a single-line cpp macro can't emit
++ * the .globl/.private_extern/label triple. Use assembler-side macros
++ * which support multi-line bodies natively. The cpp wrapper drops the
++ * trailing ':' that GAS-style call sites add. */
++.macro GLOBAL_FUNCTION_M name
++.globl _\name
++.private_extern _\name
++_\name:
++.endm
++
++.macro LOCAL_FUNCTION_M name
++.private_extern _\name
++_\name:
++.endm
++
++/* The cpp macro forwards to the asm-side macro which emits the full
++ * .globl / .private_extern / label sequence on separate lines.
++ * Note: call sites must NOT end with ':' on Apple — the asm macro
++ * provides the label colon. The Linux GAS branch also provides the
++ * label, so both are consistent. */
++#define GLOBAL_FUNCTION(name) GLOBAL_FUNCTION_M name
++#define LOCAL_FUNCTION(name)  LOCAL_FUNCTION_M name
++
++.macro GLOBAL_VARIABLE_M name
++.globl _\name
++.private_extern _\name
++.endm
++#define GLOBAL_VARIABLE(name, size_) GLOBAL_VARIABLE_M name
++
++/* On Apple, all C symbols carry a leading underscore in Mach-O.
++ * Internal symbols defined in this file use the L-label fallback
++ * generated by GLOBAL_FUNCTION/LOCAL_FUNCTION above.
++ * Pure external symbols are rewritten with the cpp defines below. */
++#define get_addr               _get_addr
++#define get_addr_ht            _get_addr_ht
++#define new_recompile_block    _new_recompile_block
++#define verify_dirty           _verify_dirty
++#define cop1_unusable          _cop1_unusable
++#define dynamic_linker         _dynamic_linker
++#define dynamic_linker_ds      _dynamic_linker_ds
++#define dynarec_gen_interrupt  _dynarec_gen_interrupt
++#define SYSCALL_new            _SYSCALL_new
++#define ERET_new               _ERET_new
++
++#else
++
+ #define GLOBAL_FUNCTION(name)  \
+     .globl name;               \
+     .hidden name;              \
+     .type name, %function;     \
+-    name
++    name:
+ 
+ #define LOCAL_FUNCTION(name)  \
+     .hidden name;             \
+     .type name, %function;    \
+-    name
++    name:
+ 
+ #define GLOBAL_VARIABLE(name, size_) \
+     .global name;                    \
+@@ -35,11 +84,25 @@
+     .type   name, %object;           \
+     .size   name, size_
+ 
++#endif
++
+ .macro movl Wn, imm
+     movz    \Wn, (\imm >> 16) & 0xFFFF, lsl 16
+     movk    \Wn,  \imm & 0xFFFF
+ .endm
+ 
++#if defined(__APPLE__)
++.macro ADRP_LO12 reg, sym
++    adrp    \reg, _\sym@PAGE
++    add     \reg, \reg, _\sym@PAGEOFF
++.endm
++#else
++.macro ADRP_LO12 reg, sym
++    adrp    \reg, \sym
++    add     \reg, \reg, :lo12:\sym
++.endm
++#endif
++
+ #define TEXT_SECTION .text
+ #define END_SECTION
+ 
+@@ -56,117 +119,117 @@ fp_stop                = offsetof_struct_new_dynarec_hot_state_stop
+ 
+ TEXT_SECTION
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x0):
+-    b      jump_vaddr
++GLOBAL_FUNCTION(jump_vaddr_x0)
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x1):
++GLOBAL_FUNCTION(jump_vaddr_x1)
+     mov    w0, w1
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x2):
++GLOBAL_FUNCTION(jump_vaddr_x2)
+     mov    w0, w2
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x3):
++GLOBAL_FUNCTION(jump_vaddr_x3)
+     mov    w0, w3
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x4):
++GLOBAL_FUNCTION(jump_vaddr_x4)
+     mov    w0, w4
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x5):
++GLOBAL_FUNCTION(jump_vaddr_x5)
+     mov    w0, w5
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x6):
++GLOBAL_FUNCTION(jump_vaddr_x6)
+     mov    w0, w6
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x8):
++GLOBAL_FUNCTION(jump_vaddr_x8)
+     mov    w0, w8
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x9):
++GLOBAL_FUNCTION(jump_vaddr_x9)
+     mov    w0, w9
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x10):
++GLOBAL_FUNCTION(jump_vaddr_x10)
+     mov    w0, w10
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x11):
++GLOBAL_FUNCTION(jump_vaddr_x11)
+     mov    w0, w11
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x12):
++GLOBAL_FUNCTION(jump_vaddr_x12)
+     mov    w0, w12
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x13):
++GLOBAL_FUNCTION(jump_vaddr_x13)
+     mov    w0, w13
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x14):
++GLOBAL_FUNCTION(jump_vaddr_x14)
+     mov    w0, w14
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x15):
++GLOBAL_FUNCTION(jump_vaddr_x15)
+     mov    w0, w15
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x16):
++GLOBAL_FUNCTION(jump_vaddr_x16)
+     mov    w0, w16
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x17):
++GLOBAL_FUNCTION(jump_vaddr_x17)
+     mov    w0, w17
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x19):
++GLOBAL_FUNCTION(jump_vaddr_x19)
+     mov    w0, w19
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x21):
++GLOBAL_FUNCTION(jump_vaddr_x21)
+     mov    w0, w21
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x22):
++GLOBAL_FUNCTION(jump_vaddr_x22)
+     mov    w0, w22
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x23):
++GLOBAL_FUNCTION(jump_vaddr_x23)
+     mov    w0, w23
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x24):
++GLOBAL_FUNCTION(jump_vaddr_x24)
+     mov    w0, w24
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x25):
++GLOBAL_FUNCTION(jump_vaddr_x25)
+     mov    w0, w25
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x26):
++GLOBAL_FUNCTION(jump_vaddr_x26)
+     mov    w0, w26
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x27):
++GLOBAL_FUNCTION(jump_vaddr_x27)
+     mov    w0, w27
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x28):
++GLOBAL_FUNCTION(jump_vaddr_x28)
+     mov    w0, w28
+-    b      jump_vaddr
++    b      _jump_vaddr
+ 
+-GLOBAL_FUNCTION(jump_vaddr_x7):
++GLOBAL_FUNCTION(jump_vaddr_x7)
+     mov    w0, w7
+ 
+-GLOBAL_FUNCTION(jump_vaddr):
++GLOBAL_FUNCTION(jump_vaddr)
+     bl     get_addr_ht
+     br     x0
+ 
+-GLOBAL_FUNCTION(verify_code):
++GLOBAL_FUNCTION(verify_code)
+     /* x0 = head */
+     mov    x21, x30 /* Save link register */
+     bl     verify_dirty
+@@ -178,7 +241,7 @@ GLOBAL_FUNCTION(verify_code):
+     bl     get_addr
+     br     x0
+ 
+-GLOBAL_FUNCTION(cc_interrupt):
++GLOBAL_FUNCTION(cc_interrupt)
+     str    w20, [x29, #fp_cycle_count]
+     str    wzr, [x29, #fp_pending_exception]
+     mov    x20, x30 /* Save link register */
+@@ -188,7 +251,7 @@ GLOBAL_FUNCTION(cc_interrupt):
+     ldr    w1, [x29, #fp_pending_exception]
+     ldr    w2, [x29, #fp_stop]
+     tst    w2, w2
+-    b.ne   new_dyna_stop
++    b.ne   Lnew_dyna_stop
+     tst    w1, w1
+     b.ne   .E1
+     ret
+@@ -197,7 +260,8 @@ GLOBAL_FUNCTION(cc_interrupt):
+     bl     get_addr_ht
+     br     x0
+ 
+-LOCAL_FUNCTION(new_dyna_stop):
++LOCAL_FUNCTION(new_dyna_stop)
++Lnew_dyna_stop:
+     add    x16, x29, #saved_context
+     ldp    x19,x20,[x16,#0]
+     ldp    x21,x22,[x16,#16]
+@@ -207,48 +271,46 @@ LOCAL_FUNCTION(new_dyna_stop):
+     ldp    x29,x30,[x16,#80]
+     ret
+ 
+-GLOBAL_FUNCTION(do_interrupt):
++GLOBAL_FUNCTION(do_interrupt)
+     ldr    w2, [x29, #fp_stop]
+     tst    w2, w2
+-    b.ne   new_dyna_stop
++    b.ne   Lnew_dyna_stop
+     ldr    w0, [x29, #fp_pcaddr]
+     bl     get_addr_ht
+     ldr    w20, [x29, #fp_cycle_count]
+     br     x0
+ 
+-GLOBAL_FUNCTION(fp_exception):
++GLOBAL_FUNCTION(fp_exception)
+     str    w0, [x29, #fp_pcaddr]
+     bl     cop1_unusable
+     br     x0
+ 
+-GLOBAL_FUNCTION(jump_syscall):
++GLOBAL_FUNCTION(jump_syscall)
+     str    w0, [x29, #fp_pcaddr]
+     bl     SYSCALL_new
+     br     x0
+ 
+-GLOBAL_FUNCTION(jump_eret):
++GLOBAL_FUNCTION(jump_eret)
+     str    w20, [x29, #fp_cycle_count]
+     bl     ERET_new
+     ldr    w20, [x29, #fp_cycle_count]
+     tst    w0, w0
+-    b.eq   new_dyna_stop
++    b.eq   Lnew_dyna_stop
+     br     x0
+ 
+-GLOBAL_FUNCTION(dyna_linker):
++GLOBAL_FUNCTION(dyna_linker)
+     bl     dynamic_linker
+     br     x0
+ 
+-GLOBAL_FUNCTION(dyna_linker_ds):
++GLOBAL_FUNCTION(dyna_linker_ds)
+     bl     dynamic_linker_ds
+     br     x0
+ 
+-GLOBAL_FUNCTION(new_dyna_start):
+-    adrp   x16, g_dev
+-    add    x16, x16, :lo12:g_dev
++GLOBAL_FUNCTION(new_dyna_start)
++    ADRP_LO12 x16, g_dev
+     movl   x1, (device_r4300_new_dynarec_hot_state_dynarec_local + saved_context)
+     add    x16, x16, x1
+-    adrp   x1, base_addr_rx
+-    add    x1, x1, :lo12:base_addr_rx
++    ADRP_LO12 x1, base_addr_rx
+     mov    w0, #0xa4000000
+     stp    x19,x20,[x16,#0]
+     stp    x21,x22,[x16,#16]
+@@ -263,7 +325,7 @@ GLOBAL_FUNCTION(new_dyna_start):
+     ldr    w20, [x29, #fp_cycle_count]
+     br     x19
+ 
+-GLOBAL_FUNCTION(breakpoint):
++GLOBAL_FUNCTION(breakpoint)
+     brk 0
+     ret
+ 
+diff --git a/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.c b/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.c
+index 8b0df163..14108312 100644
+--- a/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.c
++++ b/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.c
+@@ -25,6 +25,12 @@
+ #include <sys/types.h> // needed for u_int, u_char, etc
+ #include <assert.h>
+ #include <sys/types.h>
++#if defined(__APPLE__)
++#include <pthread.h>
++#include <errno.h>
++/* Storage for the per-thread W^X nesting counter declared in new_dynarec.h. */
++_Thread_local int m64p_jit_write_depth;
++#endif
+ 
+ #if defined(__APPLE__)
+ #define MAP_ANONYMOUS MAP_ANON
+@@ -8638,6 +8644,15 @@ void new_dynarec_init(void)
+ {
+   DebugMessage(M64MSG_INFO, "Init new dynarec");
+ 
++#if defined(__APPLE__) && NEW_DYNAREC == NEW_DYNAREC_ARM64
++  /* Defensively zero the W^X nesting counter for this thread. If a
++   * previous emulation cycle aborted with the counter unbalanced (e.g.
++   * an assert fired between BEGIN and END), the counter could otherwise
++   * carry over and prevent the next cycle from flipping into write
++   * mode when it tries to emit code. */
++  m64p_jit_write_depth = 0;
++#endif
++
+ #if defined(RECOMPILER_DEBUG) && !defined(RECOMP_DBG)
+   recomp_dbg_init();
+ #endif
+@@ -8652,6 +8667,12 @@ void new_dynarec_init(void)
+ // Default to fixed cache address
+ #ifdef HAVE_LIBNX
+ #define CACHE_ADDR DOUBLE_CACHE_ADDR
++#elif defined(__APPLE__)
++/* Apple Silicon: only MAP_JIT pages can be both writable and executable
++ * (toggled per-thread via pthread_jit_write_protect_np). All code-write
++ * sites are wrapped with M64P_JIT_WRITE_BEGIN / M64P_JIT_WRITE_END to
++ * flip the protection. */
++#define CACHE_ADDR DYNAMIC_CACHE_ADDR
+ #else
+ #define CACHE_ADDR FIXED_CACHE_ADDR
+ #endif
+@@ -8665,13 +8686,30 @@ void new_dynarec_init(void)
+   #include <sys/types.h>
+   #include <fcntl.h>
+ 
+-  int fd = shm_open("/new_dynarec", O_RDWR | O_CREAT | O_EXCL, 0600);
++  /* Use a unique shm name per call to avoid EEXIST when new_dynarec_init
++   * is invoked multiple times (cleanup + reinit on hard reset, etc.). */
++  static unsigned int shm_counter;
++  char shm_name[32];
++  snprintf(shm_name, sizeof(shm_name), "/m64p_jit_%d_%u",
++           (int)getpid(), shm_counter++);
++  int fd = shm_open(shm_name, O_RDWR | O_CREAT | O_EXCL, 0600);
+   assert(fd!=-1);
+-  shm_unlink("/new_dynarec");
++  shm_unlink(shm_name);
+   ftruncate(fd, 1<<TARGET_SIZE_2);
++
++#if defined(__APPLE__)
++  /* MAP_FIXED at extra_memory's address fails on macOS Hardened Runtime;
++   * let the kernel pick both addresses freely. The dynarec only needs
++   * base_addr (RW) and base_addr_rx (RX) — they don't need to live at
++   * any specific virtual address. */
++  base_addr = mmap(NULL, 1<<TARGET_SIZE_2,
++                 PROT_READ | PROT_WRITE,
++                 MAP_SHARED, fd, 0);
++#else
+   base_addr = mmap((u_char *)g_dev.r4300.extra_memory, 1<<TARGET_SIZE_2,
+                  PROT_READ | PROT_WRITE,
+                  MAP_FIXED | MAP_SHARED, fd, 0);
++#endif
+ 
+   assert(base_addr!=(void*)-1);
+ 
+@@ -8688,10 +8726,29 @@ void new_dynarec_init(void)
+   base_addr = g_dev.r4300.extra_memory;
+   base_addr_rx = base_addr;
+ #else /*DYNAMIC_CACHE_ADDR*/
++#if defined(__APPLE__)
++  /* MAP_JIT requires the com.apple.security.cs.allow-jit entitlement on
++   * the host process. Page protection is then toggled per-thread via
++   * pthread_jit_write_protect_np(). Bail loudly if the kernel refuses
++   * (no entitlement, sandbox restriction, etc.) instead of letting a
++   * (void*)-1 base_addr propagate into every JIT pointer arithmetic. */
++  base_addr = mmap (NULL, 1<<TARGET_SIZE_2,
++                    PROT_READ | PROT_WRITE | PROT_EXEC,
++                    MAP_PRIVATE | MAP_ANON | MAP_JIT,
++                    -1, 0);
++  if (base_addr == MAP_FAILED) {
++    DebugMessage(M64MSG_ERROR,
++                 "MAP_JIT mmap failed (errno=%d). Host process likely "
++                 "lacks the com.apple.security.cs.allow-jit entitlement.",
++                 errno);
++    base_addr = (void*)-1;
++  }
++#else
+   base_addr = mmap (NULL, 1<<TARGET_SIZE_2,
+                     PROT_READ | PROT_WRITE | PROT_EXEC,
+                     MAP_PRIVATE | MAP_ANONYMOUS,
+                     -1, 0);
++#endif
+   base_addr_rx = base_addr;
+ #endif
+ #elif NEW_DYNAREC == NEW_DYNAREC_ARM
+@@ -8783,6 +8840,9 @@ void new_dynarec_cleanup(void)
+ 
+ int new_recompile_block(int addr)
+ {
++#if defined(__APPLE__) && NEW_DYNAREC == NEW_DYNAREC_ARM64
++  M64P_JIT_WRITE_BEGIN();
++#endif
+ #if defined(RECOMPILER_DEBUG) && !defined(RECOMP_DBG)
+   recomp_dbg_block(addr);
+ #endif
+diff --git a/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.h b/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.h
+index a8fd37c3..1b537f0e 100644
+--- a/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.h
++++ b/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.h
+@@ -27,6 +27,40 @@
+ #include <stddef.h>
+ #include <stdint.h>
+ 
++/* Apple Silicon W^X helpers: every site that writes to or patches the
++ * MAP_JIT code cache must wrap the access with a write/execute toggle.
++ * Calls nest — only the outermost BEGIN/END pair actually flips the
++ * page protection so that helpers like set_jump_target can be called
++ * from within new_recompile_block without prematurely re-locking the
++ * page. The depth counter is thread-local because
++ * pthread_jit_write_protect_np() itself is per-thread; sharing the
++ * counter across threads would let one thread's nesting leak into
++ * another thread's view of the page state.
++ * On other platforms these macros expand to nothing. */
++#if defined(__APPLE__)
++#include <pthread.h>
++extern _Thread_local int m64p_jit_write_depth;
++static inline void m64p_jit_write_begin(void) {
++  if (m64p_jit_write_depth++ == 0) pthread_jit_write_protect_np(0);
++}
++static inline void m64p_jit_write_end(void) {
++  /* Clamp to zero: cache_flush may be invoked from invalidation paths
++   * without a paired BEGIN, in which case we still want to land in
++   * execute mode without making the depth go negative. */
++  if (m64p_jit_write_depth <= 1) {
++    m64p_jit_write_depth = 0;
++    pthread_jit_write_protect_np(1);
++  } else {
++    m64p_jit_write_depth--;
++  }
++}
++#define M64P_JIT_WRITE_BEGIN()  m64p_jit_write_begin()
++#define M64P_JIT_WRITE_END()    m64p_jit_write_end()
++#else
++#define M64P_JIT_WRITE_BEGIN()  ((void)0)
++#define M64P_JIT_WRITE_END()    ((void)0)
++#endif
++
+ #define NEW_DYNAREC_X86 1
+ #define NEW_DYNAREC_X64 2
+ #define NEW_DYNAREC_ARM 3
+-- 
+2.50.1 (Apple Git-155)
+

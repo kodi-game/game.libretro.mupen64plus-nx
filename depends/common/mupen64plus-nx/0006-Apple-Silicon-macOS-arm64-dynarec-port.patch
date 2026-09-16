@@ -1,63 +1,38 @@
-From 73a8104ea8fe9e7ea5e5935fea70983d668b054f Mon Sep 17 00:00:00 2001
+From 5899ca8f144f4f95a53d2dfce25518d62d8f575d Mon Sep 17 00:00:00 2001
 From: AurisDSP <235008503+AurisDSP@users.noreply.github.com>
 Date: Tue, 5 May 2026 20:37:41 -0400
 Subject: [PATCH 6/7] Apple Silicon (macOS arm64) dynarec port
 
-Brings the aarch64 dynarec online on macOS Apple Silicon. The host code
-ports cleanly with a handful of platform shims:
+Enable the native macOS ARM64 dynarec with Mach-O assembly, MAP_JIT,
+and per-thread JIT write protection. Keep the allow-jit entitlement
+requirement for Hardened Runtime hosts.
 
-* Build (Makefile): enable WITH_DYNAREC=aarch64 on osx for native arm64;
-  keep -DNO_ASM only when no dynarec backend is in use.
+Give compilation, branch patching, and trampoline initialization their
+own balanced write scopes. Cache flushing only synchronizes instructions;
+unmapped compilation failures also restore executable state. Assert scope
+imbalances instead of resetting or clamping the nesting depth.
 
-* Assembly (linkage_arm64.S): Apple's clang assembler treats ';' as a
-  comment delimiter, so the GAS-style cpp macros that emit multiple
-  directives on one line don't work. Switched GLOBAL_FUNCTION /
-  LOCAL_FUNCTION / GLOBAL_VARIABLE to assembler-side .macro definitions
-  on Apple, with an _-prefixed Mach-O symbol and .private_extern. Added
-  an ADRP_LO12 macro that selects between :lo12: (GAS) and @PAGE/@PAGEOFF
-  (Apple) syntax. Internal references to jump_vaddr changed to use the
-  underscored Mach-O symbol; b.ne/b.eq new_dyna_stop now goes through a
-  local L-label so Apple's assembler doesn't reject the conditional
-  branch's external target.
+Reserve Apple's x18 register and use IP0 for far-branch trampolines.
+Preserve d8-d15 when switching libretro coroutines. Report MAP_JIT
+allocation errors and return failed startup or reset to the frontend
+without resuming a completed coroutine.
 
-* JIT memory (new_dynarec.c): macOS Hardened Runtime forbids RWX in a
-  single mapping, so on Apple we mmap the cache with MAP_JIT and toggle
-  protection per-thread via pthread_jit_write_protect_np(). To handle
-  set_jump_target() being called from inside new_recompile_block (where
-  the page is already in write mode), the BEGIN/END pair nests via a
-  per-thread depth counter; END clamps to zero so cache_flush() called
-  from invalidation paths still lands the page in execute mode.
-
-* W^X helpers (new_dynarec.h): M64P_JIT_WRITE_BEGIN / M64P_JIT_WRITE_END
-  macros wrap pthread_jit_write_protect_np with the nesting counter on
-  Apple, no-ops elsewhere.
-
-* Cache flush (assem_arm64.c): on Apple, replaced the manual
-  dc civac / ic ivau loop with sys_icache_invalidate() and a paired
-  M64P_JIT_WRITE_END so freshly-emitted code is visible and executable
-  before it's invoked. arch_init() and set_jump_target() now wrap their
-  writes with M64P_JIT_WRITE_BEGIN / M64P_JIT_WRITE_END.
-
-* Portability (custom/dependencies): pngpriv.h's TARGET_OS_MAC branch
-  pulls in <fp.h> (a Mac OS 9 header), so it's been excluded on modern
-  macOS. zutil.h's MACOS branch redefines fdopen, which collides with
-  Apple's stdio.h __memcpy_chk-style macros; skip the redefinition on
-  __APPLE__.
-
-Mario Kart 64 boots and runs with audio + video on M-series hardware
-(cached_interpreter and dynamic_recompiler both work; angrylion + HLE
-RSP avoids paraLLEl-RDP's macOS mutex thread bug).
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+Keep non-Apple behavior and portable assembly symbol references intact.
 ---
  Makefile                                      |   9 +-
  custom/dependencies/libpng/pngpriv.h          |   2 +-
  custom/dependencies/libzlib/zutil.h           |   2 +-
- .../r4300/new_dynarec/arm64/assem_arm64.c     |  34 ++-
- .../r4300/new_dynarec/arm64/linkage_arm64.S   | 210 ++++++++++++------
- .../device/r4300/new_dynarec/new_dynarec.c    |  64 +++++-
- .../device/r4300/new_dynarec/new_dynarec.h    |  34 +++
- 7 files changed, 273 insertions(+), 82 deletions(-)
+ libretro-common/libco/aarch64.c               |  15 ++
+ libretro/libretro.c                           |  49 ++++
+ mupen64plus-core/src/device/r4300/interrupt.c |   6 +-
+ .../r4300/new_dynarec/arm64/assem_arm64.c     |  31 ++-
+ .../r4300/new_dynarec/arm64/assem_arm64.h     |  10 +
+ .../r4300/new_dynarec/arm64/linkage_arm64.S   | 211 ++++++++++++------
+ .../device/r4300/new_dynarec/new_dynarec.c    |  86 ++++++-
+ .../device/r4300/new_dynarec/new_dynarec.h    |  27 ++-
+ .../src/device/r4300/r4300_core.c             |   8 +-
+ mupen64plus-core/src/main/main.c              |   2 +
+ 13 files changed, 355 insertions(+), 103 deletions(-)
 
 diff --git a/Makefile b/Makefile
 index 2443f80e..526a2539 100644
@@ -109,11 +84,199 @@ index 24ab06b1..0e3da570 100644
  #      ifndef fdopen
  #        define fdopen(fd,mode) NULL /* No fdopen() */
  #      endif
+diff --git a/libretro-common/libco/aarch64.c b/libretro-common/libco/aarch64.c
+index 516443fd..340dfec3 100644
+--- a/libretro-common/libco/aarch64.c
++++ b/libretro-common/libco/aarch64.c
+@@ -39,6 +39,12 @@ asm (
+       "  stp x28, x29, [x1, #144]\n"
+       "  mov x16, sp\n"
+       "  stp x16, x30, [x1, #160]\n"
++#ifdef __APPLE__
++      "  stp d8,  d9,  [x1, #176]\n"
++      "  stp d10, d11, [x1, #192]\n"
++      "  stp d12, d13, [x1, #208]\n"
++      "  stp d14, d15, [x1, #224]\n"
++#endif
+ 
+       "  ldp x8,  x9,  [x0]\n"
+       "  ldp x10, x11, [x0, #16]\n"
+@@ -51,6 +57,12 @@ asm (
+       "  ldp x26, x27, [x0, #128]\n"
+       "  ldp x28, x29, [x0, #144]\n"
+       "  ldp x16, x17, [x0, #160]\n"
++#ifdef __APPLE__
++      "  ldp d8,  d9,  [x0, #176]\n"
++      "  ldp d10, d11, [x0, #192]\n"
++      "  ldp d12, d13, [x0, #208]\n"
++      "  ldp d14, d15, [x0, #224]\n"
++#endif
+       "  mov sp, x16\n"
+       "  br x17\n"
+     );
+@@ -103,6 +115,9 @@ cothread_t co_create(unsigned int size, void (*entrypoint)(void))
+    ptr[20] = (uintptr_t)ptr + size + 512 - 16; /* x30, stack pointer */
+    ptr[19] = ptr[20]; /* x29, frame pointer */
+    ptr[21] = (uintptr_t)entrypoint; /* PC (link register x31 gets saved here). */
++#ifdef __APPLE__
++   memset(ptr + 22, 0, 8 * sizeof(*ptr)); /* d8-d15 */
++#endif
+    return handle;
+ }
+ 
+diff --git a/libretro/libretro.c b/libretro/libretro.c
+index 86e336f1..2837eabf 100644
+--- a/libretro/libretro.c
++++ b/libretro/libretro.c
+@@ -119,6 +119,9 @@ save_memory_data saved_memory;
+ 
+ static cothread_t game_thread;
+ cothread_t retro_thread;
++#if defined(__APPLE__) && defined(__aarch64__)
++static bool emu_thread_finished;
++#endif
+ 
+ int astick_deadzone;
+ int astick_sensitivity;
+@@ -491,6 +494,14 @@ static void* EmuThreadFunction(void* param)
+         // Unset
+         emuThreadRunning = false;
+     }
++#if defined(__APPLE__) && defined(__aarch64__)
++    else
++    {
++        emu_thread_finished = true;
++        /* A coroutine must yield its caller's context, even after startup failure. */
++        co_switch(retro_thread);
++    }
++#endif
+ 
+     return NULL;
+ }
+@@ -693,6 +704,9 @@ void copy_file(char * ininame, char * fileName)
+ 
+ void retro_init(void)
+ {
++#if defined(__APPLE__) && defined(__aarch64__)
++    emu_thread_finished = false;
++#endif
+     char* sys_pathname;
+     wchar_t w_pathname[PATH_SIZE];
+     environ_cb(RETRO_ENVIRONMENT_GET_SYSTEM_DIRECTORY, &sys_pathname);
+@@ -742,6 +756,9 @@ void retro_deinit(void)
+        if(!(current_rdp_type == RDP_PLUGIN_GLIDEN64 && EnableThreadedRenderer))
+        {
+            CoreDoCommand(M64CMD_STOP, 0, NULL);
++#if defined(__APPLE__) && defined(__aarch64__)
++           if (!emu_thread_finished)
++#endif
+            co_switch(game_thread); /* Let the core thread finish */
+            CoreDoCommand(M64CMD_ROM_CLOSE, 0, NULL);
+        }
+@@ -2045,6 +2062,10 @@ void retro_unload_game(void)
+ 
+ void retro_run (void)
+ {
++#if defined(__APPLE__) && defined(__aarch64__)
++    if (emu_thread_finished)
++        return;
++#endif
+     libretro_swap_buffer = false;
+     static bool updated = false;
+ 
+@@ -2071,6 +2092,14 @@ void retro_run (void)
+     {
+        glsm_ctl(GLSM_CTL_STATE_UNBIND, NULL);
+     }
++
++#if defined(__APPLE__) && defined(__aarch64__)
++    if (emu_thread_finished)
++    {
++        environ_cb(RETRO_ENVIRONMENT_SHUTDOWN, NULL);
++        return;
++    }
++#endif
+     
+     if (libretro_swap_buffer)
+     {
+@@ -2138,6 +2167,10 @@ size_t retro_serialize_size (void)
+ 
+ bool retro_serialize(void *data, size_t size)
+ {
++#if defined(__APPLE__) && defined(__aarch64__)
++   if (emu_thread_finished)
++      return false;
++#endif
+    if (initializing)
+       return false;
+ 
+@@ -2159,6 +2192,10 @@ bool retro_serialize(void *data, size_t size)
+    while (!retro_savestate_complete)
+    {
+       co_switch(game_thread);
++#if defined(__APPLE__) && defined(__aarch64__)
++      if (emu_thread_finished)
++         break;
++#endif
+    }
+ 
+    if (current_rdp_type == RDP_PLUGIN_GLIDEN64)
+@@ -2171,6 +2208,10 @@ bool retro_serialize(void *data, size_t size)
+ 
+ bool retro_unserialize(const void *data, size_t size)
+ {
++#if defined(__APPLE__) && defined(__aarch64__)
++   if (emu_thread_finished)
++      return false;
++#endif
+    if (initializing)
+       return false;
+ 
+@@ -2192,6 +2233,10 @@ bool retro_unserialize(const void *data, size_t size)
+    while (!retro_savestate_complete)
+    {
+       co_switch(game_thread);
++#if defined(__APPLE__) && defined(__aarch64__)
++      if (emu_thread_finished)
++         break;
++#endif
+    }
+ 
+    if (current_rdp_type == RDP_PLUGIN_GLIDEN64)
+@@ -2199,7 +2244,11 @@ bool retro_unserialize(const void *data, size_t size)
+       glsm_ctl(GLSM_CTL_STATE_UNBIND, NULL);
+    }
+ 
++#if defined(__APPLE__) && defined(__aarch64__)
++   return !emu_thread_finished;
++#else
+    return true;
++#endif
+ }
+ 
+ //Needed to be able to detach controllers for Lylat Wars multiplayer
+diff --git a/mupen64plus-core/src/device/r4300/interrupt.c b/mupen64plus-core/src/device/r4300/interrupt.c
+index 9c81a184..116a1797 100644
+--- a/mupen64plus-core/src/device/r4300/interrupt.c
++++ b/mupen64plus-core/src/device/r4300/interrupt.c
+@@ -504,7 +504,11 @@ void reset_hard_handler(void* opaque)
+     {
+ #ifdef NEW_DYNAREC
+         new_dynarec_cleanup();
+-        new_dynarec_init();
++        if (!new_dynarec_init())
++        {
++            *r4300_stop(r4300) = 1;
++            return;
++        }
+ #else
+ #if defined(__x86_64__)
+         r4300->recomp.save_rsp = save_rsp;
 diff --git a/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.c b/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.c
-index 46243eca..f699e791 100644
+index 46243eca..6089e45f 100644
 --- a/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.c
 +++ b/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.c
-@@ -261,9 +261,19 @@ static uintptr_t jump_table_symbols[] = {
+@@ -261,9 +261,15 @@ static uintptr_t jump_table_symbols[] = {
    (intptr_t)breakpoint
  };
  
@@ -125,65 +288,120 @@ index 46243eca..f699e791 100644
  {
 -#ifndef WIN32
 +#if defined(__APPLE__)
-+    /* Make freshly-written instructions visible and flip the JIT page
-+     * back to execute mode (it was writable while we emitted the
-+     * block). */
 +    sys_icache_invalidate(start, (size_t)(end - start));
-+    M64P_JIT_WRITE_END();
 +#elif !defined(WIN32)
      // Don't rely on GCC's __clear_cache implementation, as it caches
      // icache/dcache cache line sizes, that can vary between cores on
      // big.LITTLE architectures.
-@@ -304,6 +314,12 @@ static void set_jump_target(intptr_t addr,uintptr_t target)
+@@ -304,6 +310,8 @@ static void set_jump_target(intptr_t addr,uintptr_t target)
    if(!ptr) // Indiana Jones is weird
      return;
  
-+  /* This patches an instruction inside an already-emitted JIT block;
-+   * on Apple Silicon the page is in execute mode, so flip to write
-+   * before the store and back to execute (with icache invalidate)
-+   * after. The macros are no-ops on non-Apple platforms. */
 +  M64P_JIT_WRITE_BEGIN();
 +
    if((*ptr&0xFC000000)==0x14000000) {
      assert(offset>=-134217728LL&&offset<134217728LL);
      *ptr=(*ptr&0xFC000000)|((offset>>2)&0x3ffffff);
-@@ -323,6 +339,12 @@ static void set_jump_target(intptr_t addr,uintptr_t target)
+@@ -323,6 +331,11 @@ static void set_jump_target(intptr_t addr,uintptr_t target)
    }
    else
      assert(0); /*Should not happen*/
 +
-+  M64P_JIT_WRITE_END();
 +#if defined(__APPLE__)
-+  /* Make the patched instruction visible to the icache. */
-+  sys_icache_invalidate((void *)addr, 4);
++  cache_flush((char *)addr, (char *)addr + 4);
 +#endif
++  M64P_JIT_WRITE_END();
  }
  
  /* Literal pool */
-@@ -4582,6 +4604,11 @@ static void invalidate_addr(u_int addr)
+@@ -3003,7 +3016,7 @@ static void save_regs(u_int reglist)
+   int index=0;
+   int offset=0;
+ 
+-  reglist&=CALLER_SAVED_REGS; // only save the caller-save registers, x0-x18
++  reglist&=CALLER_SAVED_REGS;
+   if(!reglist) return;
+ 
+   int i;
+@@ -3036,7 +3049,7 @@ static void restore_regs(u_int reglist)
+   int index=0;
+   int offset=0;
+ 
+-  reglist&=CALLER_SAVED_REGS; // only restore the caller-save registers, x0-x18
++  reglist&=CALLER_SAVED_REGS;
+   if(!reglist) return;
+ 
+   int i;
+@@ -4521,8 +4534,8 @@ static void do_miniht_jump(int rs,int rh,int ht) {
+   emit_cmp(rh,rs);
+   intptr_t jaddr=(intptr_t)out;
+   emit_jeq(0);
+-  if(rs==18) {
+-    // x18 is used for trampoline jumps, move it to another register (x0)
++  if(rs==HOST_TRAMPREG) {
++    // Preserve the destination across the trampoline.
+     emit_mov(rs,0);
+     rs=0;
+   }
+@@ -4582,6 +4595,7 @@ static void invalidate_addr(u_int addr)
  // CPU-architecture-specific initialization
  static void arch_init(void) {
  
-+#if defined(__APPLE__)
-+  /* The trampolines below are emitted into the JIT cache; cache_flush()
-+   * at the end of this function will flip them back to execute mode. */
 +  M64P_JIT_WRITE_BEGIN();
-+#endif
    assert((fp_memory_map&7)==0);
    g_dev.r4300.new_dynarec_hot_state.rounding_modes[0]=0x0<<22; // round
    g_dev.r4300.new_dynarec_hot_state.rounding_modes[1]=0x3<<22; // trunc
-@@ -4625,5 +4652,8 @@ static void arch_init(void) {
+@@ -4615,8 +4629,8 @@ static void arch_init(void) {
+     if(offset>=-134217728LL&&offset<134217728LL) {
+       *ptr4=0x14000000|((offset>>2)&0x3ffffff); // direct branch
+     }else{
+-      *ptr4=0x58000000|((8>>2)<<5)|18; // ldr x18,[pc,#8]
+-      *(ptr4+1)=0xd61f0000|(18<<5);
++      *ptr4=0x58000000|((8>>2)<<5)|HOST_TRAMPREG; // ldr scratch,[pc,#8]
++      *(ptr4+1)=0xd61f0000|(HOST_TRAMPREG<<5);
+     }
+     ptr2++;
+     *ptr2=*ptr;
+@@ -4625,5 +4639,6 @@ static void arch_init(void) {
      ptr3+=2;
    }
  
 -  __clear_cache((char *)base_addr+(1<<TARGET_SIZE_2)-JUMP_TABLE_SIZE,(char *)base_addr+(1<<TARGET_SIZE_2));
-+  /* Use our cache_flush helper rather than __clear_cache so that on
-+   * Apple Silicon the JIT page is flipped from write to execute mode
-+   * before the trampoline jumps are first invoked. */
 +  cache_flush((char *)base_addr+(1<<TARGET_SIZE_2)-JUMP_TABLE_SIZE,(char *)base_addr+(1<<TARGET_SIZE_2));
++  M64P_JIT_WRITE_END();
  }
+diff --git a/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.h b/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.h
+index 79978d66..d5c298d4 100644
+--- a/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.h
++++ b/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.h
+@@ -4,7 +4,13 @@
+ #define HOST_REGS 29
+ #define HOST_CCREG 20 /* callee-save */
+ #define HOST_BTREG 19 /* callee-save */
++#if defined(__APPLE__)
++#define EXCLUDE_REG 18 /* Reserved by the Apple ABI */
++#define HOST_TRAMPREG 16 /* IP0 */
++#else
+ #define EXCLUDE_REG 29 /* FP */
++#define HOST_TRAMPREG 18
++#endif
+ 
+ //#define DISABLE_BLOCK_LINKING 1
+ #define NATIVE_64 1
+@@ -36,7 +42,11 @@
+ #define LR 30
+ #define WZR 31
+ #define XZR WZR
++#if defined(__APPLE__)
++#define CALLER_SAVED_REGS 0x3ffff
++#else
+ #define CALLER_SAVED_REGS 0x7ffff
++#endif
+ #define HOST_TEMPREG 30
+ 
+ // Note: FP is set to &dynarec_local when executing generated code.
 diff --git a/mupen64plus-core/src/device/r4300/new_dynarec/arm64/linkage_arm64.S b/mupen64plus-core/src/device/r4300/new_dynarec/arm64/linkage_arm64.S
-index c4e340d8..d997fe41 100644
+index c4e340d8..836800aa 100644
 --- a/mupen64plus-core/src/device/r4300/new_dynarec/arm64/linkage_arm64.S
 +++ b/mupen64plus-core/src/device/r4300/new_dynarec/arm64/linkage_arm64.S
 @@ -18,16 +18,65 @@
@@ -280,164 +498,164 @@ index c4e340d8..d997fe41 100644
  #define TEXT_SECTION .text
  #define END_SECTION
  
-@@ -56,117 +119,117 @@ fp_stop                = offsetof_struct_new_dynarec_hot_state_stop
+@@ -56,117 +119,118 @@ fp_stop                = offsetof_struct_new_dynarec_hot_state_stop
  
  TEXT_SECTION
  
 -GLOBAL_FUNCTION(jump_vaddr_x0):
 -    b      jump_vaddr
 +GLOBAL_FUNCTION(jump_vaddr_x0)
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x1):
 +GLOBAL_FUNCTION(jump_vaddr_x1)
      mov    w0, w1
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x2):
 +GLOBAL_FUNCTION(jump_vaddr_x2)
      mov    w0, w2
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x3):
 +GLOBAL_FUNCTION(jump_vaddr_x3)
      mov    w0, w3
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x4):
 +GLOBAL_FUNCTION(jump_vaddr_x4)
      mov    w0, w4
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x5):
 +GLOBAL_FUNCTION(jump_vaddr_x5)
      mov    w0, w5
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x6):
 +GLOBAL_FUNCTION(jump_vaddr_x6)
      mov    w0, w6
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x8):
 +GLOBAL_FUNCTION(jump_vaddr_x8)
      mov    w0, w8
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x9):
 +GLOBAL_FUNCTION(jump_vaddr_x9)
      mov    w0, w9
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x10):
 +GLOBAL_FUNCTION(jump_vaddr_x10)
      mov    w0, w10
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x11):
 +GLOBAL_FUNCTION(jump_vaddr_x11)
      mov    w0, w11
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x12):
 +GLOBAL_FUNCTION(jump_vaddr_x12)
      mov    w0, w12
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x13):
 +GLOBAL_FUNCTION(jump_vaddr_x13)
      mov    w0, w13
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x14):
 +GLOBAL_FUNCTION(jump_vaddr_x14)
      mov    w0, w14
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x15):
 +GLOBAL_FUNCTION(jump_vaddr_x15)
      mov    w0, w15
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x16):
 +GLOBAL_FUNCTION(jump_vaddr_x16)
      mov    w0, w16
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x17):
 +GLOBAL_FUNCTION(jump_vaddr_x17)
      mov    w0, w17
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x19):
 +GLOBAL_FUNCTION(jump_vaddr_x19)
      mov    w0, w19
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x21):
 +GLOBAL_FUNCTION(jump_vaddr_x21)
      mov    w0, w21
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x22):
 +GLOBAL_FUNCTION(jump_vaddr_x22)
      mov    w0, w22
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x23):
 +GLOBAL_FUNCTION(jump_vaddr_x23)
      mov    w0, w23
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x24):
 +GLOBAL_FUNCTION(jump_vaddr_x24)
      mov    w0, w24
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x25):
 +GLOBAL_FUNCTION(jump_vaddr_x25)
      mov    w0, w25
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x26):
 +GLOBAL_FUNCTION(jump_vaddr_x26)
      mov    w0, w26
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x27):
 +GLOBAL_FUNCTION(jump_vaddr_x27)
      mov    w0, w27
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x28):
 +GLOBAL_FUNCTION(jump_vaddr_x28)
      mov    w0, w28
 -    b      jump_vaddr
-+    b      _jump_vaddr
++    b      Ljump_vaddr
  
 -GLOBAL_FUNCTION(jump_vaddr_x7):
 +GLOBAL_FUNCTION(jump_vaddr_x7)
@@ -445,6 +663,7 @@ index c4e340d8..d997fe41 100644
  
 -GLOBAL_FUNCTION(jump_vaddr):
 +GLOBAL_FUNCTION(jump_vaddr)
++Ljump_vaddr:
      bl     get_addr_ht
      br     x0
  
@@ -453,7 +672,7 @@ index c4e340d8..d997fe41 100644
      /* x0 = head */
      mov    x21, x30 /* Save link register */
      bl     verify_dirty
-@@ -178,7 +241,7 @@ GLOBAL_FUNCTION(verify_code):
+@@ -178,7 +242,7 @@ GLOBAL_FUNCTION(verify_code):
      bl     get_addr
      br     x0
  
@@ -462,7 +681,7 @@ index c4e340d8..d997fe41 100644
      str    w20, [x29, #fp_cycle_count]
      str    wzr, [x29, #fp_pending_exception]
      mov    x20, x30 /* Save link register */
-@@ -188,7 +251,7 @@ GLOBAL_FUNCTION(cc_interrupt):
+@@ -188,7 +252,7 @@ GLOBAL_FUNCTION(cc_interrupt):
      ldr    w1, [x29, #fp_pending_exception]
      ldr    w2, [x29, #fp_stop]
      tst    w2, w2
@@ -471,7 +690,7 @@ index c4e340d8..d997fe41 100644
      tst    w1, w1
      b.ne   .E1
      ret
-@@ -197,7 +260,8 @@ GLOBAL_FUNCTION(cc_interrupt):
+@@ -197,7 +261,8 @@ GLOBAL_FUNCTION(cc_interrupt):
      bl     get_addr_ht
      br     x0
  
@@ -481,7 +700,7 @@ index c4e340d8..d997fe41 100644
      add    x16, x29, #saved_context
      ldp    x19,x20,[x16,#0]
      ldp    x21,x22,[x16,#16]
-@@ -207,48 +271,46 @@ LOCAL_FUNCTION(new_dyna_stop):
+@@ -207,48 +272,46 @@ LOCAL_FUNCTION(new_dyna_stop):
      ldp    x29,x30,[x16,#80]
      ret
  
@@ -541,7 +760,7 @@ index c4e340d8..d997fe41 100644
      mov    w0, #0xa4000000
      stp    x19,x20,[x16,#0]
      stp    x21,x22,[x16,#16]
-@@ -263,7 +325,7 @@ GLOBAL_FUNCTION(new_dyna_start):
+@@ -263,7 +326,7 @@ GLOBAL_FUNCTION(new_dyna_start):
      ldr    w20, [x29, #fp_cycle_count]
      br     x19
  
@@ -551,39 +770,77 @@ index c4e340d8..d997fe41 100644
      ret
  
 diff --git a/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.c b/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.c
-index 8b0df163..14108312 100644
+index 8b0df163..ffd97939 100644
 --- a/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.c
 +++ b/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.c
-@@ -25,6 +25,12 @@
+@@ -25,12 +25,16 @@
  #include <sys/types.h> // needed for u_int, u_char, etc
  #include <assert.h>
  #include <sys/types.h>
-+#if defined(__APPLE__)
-+#include <pthread.h>
-+#include <errno.h>
-+/* Storage for the per-thread W^X nesting counter declared in new_dynarec.h. */
-+_Thread_local int m64p_jit_write_depth;
-+#endif
- 
+-
  #if defined(__APPLE__)
  #define MAP_ANONYMOUS MAP_ANON
-@@ -8638,6 +8644,15 @@ void new_dynarec_init(void)
+ #endif
+ 
+ #include "new_dynarec.h"
++
++#if defined(__APPLE__) && defined(__aarch64__) && NEW_DYNAREC == NEW_DYNAREC_ARM64 && !defined(RECOMP_DBG)
++#include <errno.h>
++_Thread_local int m64p_jit_write_depth;
++#endif
+ #include "api/m64p_types.h"
+ #include "api/callbacks.h"
+ #include "main/main.h"
+@@ -4741,8 +4745,8 @@ static void do_ccstub(int n)
+         r=get_reg(branch_regs[i].regmap,RTEMP);
+       }
+ #if NEW_DYNAREC==NEW_DYNAREC_ARM64
+-      if(r==18) {
+-        // x18 is used for trampoline jumps, move it to another register (x0)
++      if(r==HOST_TRAMPREG) {
++        // Preserve the destination across the trampoline.
+         emit_mov(r,0);
+         r=0;
+         stubs[n][2]=jump_vaddr_reg[0];
+@@ -7257,8 +7261,8 @@ static void rjump_assemble(int i,struct regstat *i_regs)
+   #endif
+   {
+ #if NEW_DYNAREC==NEW_DYNAREC_ARM64
+-  if(rs==18) {
+-    // x18 is used for trampoline jumps, move it to another register (x0)
++  if(rs==HOST_TRAMPREG) {
++    // Preserve the destination across the trampoline.
+     emit_mov(rs,0);
+     rs=0;
+   }
+@@ -8618,8 +8622,8 @@ static void pagespan_ds(void)
+   emit_jeq(0);
+   store_regs_bt(regs[0].regmap,regs[0].is32,regs[0].dirty,-1);
+ #if NEW_DYNAREC==NEW_DYNAREC_ARM64
+-  if(btaddr==18) {
+-    // x18 is used for trampoline jumps, move it to another register (x0)
++  if(btaddr==HOST_TRAMPREG) {
++    // Preserve the destination across the trampoline.
+     emit_mov(btaddr,0);
+     btaddr=0;
+   }
+@@ -8634,10 +8638,14 @@ static void pagespan_ds(void)
+ #ifdef HAVE_LIBNX
+ ALIGN(4096, char jit_memory[33554432]) __attribute__((section(".text")));
+ #endif
+-void new_dynarec_init(void)
++int new_dynarec_init(void)
  {
    DebugMessage(M64MSG_INFO, "Init new dynarec");
  
-+#if defined(__APPLE__) && NEW_DYNAREC == NEW_DYNAREC_ARM64
-+  /* Defensively zero the W^X nesting counter for this thread. If a
-+   * previous emulation cycle aborted with the counter unbalanced (e.g.
-+   * an assert fired between BEGIN and END), the counter could otherwise
-+   * carry over and prevent the next cycle from flipping into write
-+   * mode when it tries to emit code. */
-+  m64p_jit_write_depth = 0;
++#if defined(__APPLE__) && defined(__aarch64__) && NEW_DYNAREC == NEW_DYNAREC_ARM64 && !defined(RECOMP_DBG)
++  assert(m64p_jit_write_depth == 0);
 +#endif
 +
  #if defined(RECOMPILER_DEBUG) && !defined(RECOMP_DBG)
    recomp_dbg_init();
  #endif
-@@ -8652,6 +8667,12 @@ void new_dynarec_init(void)
+@@ -8652,6 +8660,12 @@ void new_dynarec_init(void)
  // Default to fixed cache address
  #ifdef HAVE_LIBNX
  #define CACHE_ADDR DOUBLE_CACHE_ADDR
@@ -596,7 +853,7 @@ index 8b0df163..14108312 100644
  #else
  #define CACHE_ADDR FIXED_CACHE_ADDR
  #endif
-@@ -8665,13 +8686,30 @@ void new_dynarec_init(void)
+@@ -8665,13 +8679,30 @@ void new_dynarec_init(void)
    #include <sys/types.h>
    #include <fcntl.h>
  
@@ -629,26 +886,22 @@ index 8b0df163..14108312 100644
  
    assert(base_addr!=(void*)-1);
  
-@@ -8688,10 +8726,29 @@ void new_dynarec_init(void)
+@@ -8688,10 +8719,25 @@ void new_dynarec_init(void)
    base_addr = g_dev.r4300.extra_memory;
    base_addr_rx = base_addr;
  #else /*DYNAMIC_CACHE_ADDR*/
 +#if defined(__APPLE__)
-+  /* MAP_JIT requires the com.apple.security.cs.allow-jit entitlement on
-+   * the host process. Page protection is then toggled per-thread via
-+   * pthread_jit_write_protect_np(). Bail loudly if the kernel refuses
-+   * (no entitlement, sandbox restriction, etc.) instead of letting a
-+   * (void*)-1 base_addr propagate into every JIT pointer arithmetic. */
++  /* Hardened Runtime hosts need com.apple.security.cs.allow-jit. */
 +  base_addr = mmap (NULL, 1<<TARGET_SIZE_2,
 +                    PROT_READ | PROT_WRITE | PROT_EXEC,
 +                    MAP_PRIVATE | MAP_ANON | MAP_JIT,
 +                    -1, 0);
 +  if (base_addr == MAP_FAILED) {
-+    DebugMessage(M64MSG_ERROR,
-+                 "MAP_JIT mmap failed (errno=%d). Host process likely "
-+                 "lacks the com.apple.security.cs.allow-jit entitlement.",
-+                 errno);
-+    base_addr = (void*)-1;
++    int error = errno;
++    base_addr_rx = MAP_FAILED;
++    DebugMessage(M64MSG_ERROR, "MAP_JIT mmap failed: %s (errno=%d)",
++                 strerror(error), error);
++    return 0;
 +  }
 +#else
    base_addr = mmap (NULL, 1<<TARGET_SIZE_2,
@@ -659,61 +912,144 @@ index 8b0df163..14108312 100644
    base_addr_rx = base_addr;
  #endif
  #elif NEW_DYNAREC == NEW_DYNAREC_ARM
-@@ -8783,6 +8840,9 @@ void new_dynarec_cleanup(void)
+@@ -8754,10 +8800,14 @@ void new_dynarec_init(void)
+ 
+   tlb_speed_hacks();
+   arch_init();
++  return 1;
+ }
+ 
+ void new_dynarec_cleanup(void)
+ {
++#if defined(__APPLE__) && defined(__aarch64__) && NEW_DYNAREC == NEW_DYNAREC_ARM64 && !defined(RECOMP_DBG)
++  assert(m64p_jit_write_depth == 0);
++#endif
+ #if defined(RECOMPILER_DEBUG) && !defined(RECOMP_DBG)
+   recomp_dbg_cleanup();
+ #endif
+@@ -8770,6 +8820,13 @@ void new_dynarec_cleanup(void)
+ #if !defined(RECOMP_DBG)
+   #if defined(WIN32)
+     VirtualFree(base_addr, 0, MEM_RELEASE);
++  #elif NEW_DYNAREC == NEW_DYNAREC_ARM64 && defined(__APPLE__)
++    if (base_addr_rx != MAP_FAILED)
++    {
++      if (munmap(base_addr_rx, 1<<TARGET_SIZE_2) < 0)
++        DebugMessage(M64MSG_ERROR, "munmap() failed: %s", strerror(errno));
++      base_addr = base_addr_rx = MAP_FAILED;
++    }
+   #elif NEW_DYNAREC == NEW_DYNAREC_ARM64 && CACHE_ADDR!=FIXED_CACHE_ADDR
+     if (munmap (base_addr_rx, 1<<TARGET_SIZE_2) < 0) {DebugMessage(M64MSG_ERROR, "munmap() failed");}
+   #else
+@@ -8783,6 +8840,8 @@ void new_dynarec_cleanup(void)
  
  int new_recompile_block(int addr)
  {
-+#if defined(__APPLE__) && NEW_DYNAREC == NEW_DYNAREC_ARM64
++  int result = 0;
 +  M64P_JIT_WRITE_BEGIN();
-+#endif
  #if defined(RECOMPILER_DEBUG) && !defined(RECOMP_DBG)
    recomp_dbg_block(addr);
  #endif
+@@ -8825,7 +8884,8 @@ int new_recompile_block(int addr)
+     else {
+       assem_debug("Compile at unmapped memory address: %x ", (int)addr);
+       //assem_debug("start: %x next: %x",g_dev.r4300.new_dynarec_hot_state.memory_map[start>>12],g_dev.r4300.new_dynarec_hot_state.memory_map[(start+4096)>>12]);
+-      return 1; // Caller will invoke exception handler
++      result = 1; // Caller will invoke exception handler
++      goto cleanup;
+     }
+     //DebugMessage(M64MSG_VERBOSE, "source= %x",(intptr_t)source);
+   }
+@@ -11909,5 +11969,7 @@ int new_recompile_block(int addr)
+     }
+     expirep=(expirep+1)&65535;
+   }
+-  return 0;
++cleanup:
++  M64P_JIT_WRITE_END();
++  return result;
+ }
 diff --git a/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.h b/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.h
-index a8fd37c3..1b537f0e 100644
+index a8fd37c3..e734224e 100644
 --- a/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.h
 +++ b/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.h
-@@ -27,6 +27,40 @@
- #include <stddef.h>
- #include <stdint.h>
+@@ -32,6 +32,31 @@
+ #define NEW_DYNAREC_ARM 3
+ #define NEW_DYNAREC_ARM64 4
  
-+/* Apple Silicon W^X helpers: every site that writes to or patches the
-+ * MAP_JIT code cache must wrap the access with a write/execute toggle.
-+ * Calls nest — only the outermost BEGIN/END pair actually flips the
-+ * page protection so that helpers like set_jump_target can be called
-+ * from within new_recompile_block without prematurely re-locking the
-+ * page. The depth counter is thread-local because
-+ * pthread_jit_write_protect_np() itself is per-thread; sharing the
-+ * counter across threads would let one thread's nesting leak into
-+ * another thread's view of the page state.
-+ * On other platforms these macros expand to nothing. */
-+#if defined(__APPLE__)
++#if defined(__APPLE__) && defined(__aarch64__) && NEW_DYNAREC == NEW_DYNAREC_ARM64 && !defined(RECOMP_DBG)
++#include <assert.h>
 +#include <pthread.h>
++
++/* JIT protection is per-thread; nested writers retain the outer write scope. */
 +extern _Thread_local int m64p_jit_write_depth;
-+static inline void m64p_jit_write_begin(void) {
-+  if (m64p_jit_write_depth++ == 0) pthread_jit_write_protect_np(0);
++static inline void m64p_jit_write_begin(void)
++{
++  assert(m64p_jit_write_depth >= 0);
++  if (m64p_jit_write_depth++ == 0)
++    pthread_jit_write_protect_np(0);
 +}
-+static inline void m64p_jit_write_end(void) {
-+  /* Clamp to zero: cache_flush may be invoked from invalidation paths
-+   * without a paired BEGIN, in which case we still want to land in
-+   * execute mode without making the depth go negative. */
-+  if (m64p_jit_write_depth <= 1) {
-+    m64p_jit_write_depth = 0;
++static inline void m64p_jit_write_end(void)
++{
++  assert(m64p_jit_write_depth > 0);
++  if (--m64p_jit_write_depth == 0)
 +    pthread_jit_write_protect_np(1);
-+  } else {
-+    m64p_jit_write_depth--;
-+  }
 +}
-+#define M64P_JIT_WRITE_BEGIN()  m64p_jit_write_begin()
-+#define M64P_JIT_WRITE_END()    m64p_jit_write_end()
++#define M64P_JIT_WRITE_BEGIN() m64p_jit_write_begin()
++#define M64P_JIT_WRITE_END()   m64p_jit_write_end()
 +#else
-+#define M64P_JIT_WRITE_BEGIN()  ((void)0)
-+#define M64P_JIT_WRITE_END()    ((void)0)
++#define M64P_JIT_WRITE_BEGIN() ((void)0)
++#define M64P_JIT_WRITE_END()   ((void)0)
 +#endif
 +
- #define NEW_DYNAREC_X86 1
- #define NEW_DYNAREC_X64 2
- #define NEW_DYNAREC_ARM 3
--- 
-2.50.1 (Apple Git-155)
-
+ #define WRITE_PROTECT ((uintptr_t)1<<((sizeof(uintptr_t)<<3)-2))
+ 
+ struct r4300_core;
+@@ -90,7 +115,7 @@ extern unsigned int stop_after_jal;
+ extern unsigned int using_tlb;
+ 
+ void invalidate_cached_code_new_dynarec(struct r4300_core* r4300, uint32_t address, size_t size);
+-void new_dynarec_init(void);
++int new_dynarec_init(void);
+ void new_dyna_start(void);
+ void new_dynarec_cleanup(void);
+ 
+diff --git a/mupen64plus-core/src/device/r4300/r4300_core.c b/mupen64plus-core/src/device/r4300/r4300_core.c
+index 76e9f50d..472f0e8a 100644
+--- a/mupen64plus-core/src/device/r4300/r4300_core.c
++++ b/mupen64plus-core/src/device/r4300/r4300_core.c
+@@ -154,9 +154,11 @@ void run_r4300(struct r4300_core* r4300)
+         r4300->emumode = EMUMODE_DYNAREC;
+         init_blocks(&r4300->cached_interp);
+ #ifdef NEW_DYNAREC
+-        new_dynarec_init();
+-        new_dyna_start();
+-        new_dynarec_cleanup();
++        if (new_dynarec_init())
++        {
++            new_dyna_start();
++            new_dynarec_cleanup();
++        }
+ #else
+         r4300->cached_interp.fin_block = dynarec_fin_block;
+         r4300->cached_interp.not_compiled = dynarec_notcompiled;
+diff --git a/mupen64plus-core/src/main/main.c b/mupen64plus-core/src/main/main.c
+index 3ef61a27..913bf3f9 100644
+--- a/mupen64plus-core/src/main/main.c
++++ b/mupen64plus-core/src/main/main.c
+@@ -1761,6 +1761,7 @@ m64p_error main_run(void)
+     g_EmulatorRunning = 0;
+     StateChanged(M64CORE_EMU_STATE, M64EMU_STOPPED);
+ 
++#if !defined(__APPLE__) || !defined(__aarch64__)
+     /**
+      * Actually never returns.
+      * Jump back to frontend for deinit
+@@ -1772,6 +1773,7 @@ m64p_error main_run(void)
+     {
+         co_switch(retro_thread);
+     }
++#endif
+ 
+     return M64ERR_SUCCESS;
+ 

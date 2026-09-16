@@ -29,7 +29,7 @@
 				</setting>
 				<setting id="mupen64plus-rsp-plugin" type="string" label="30048" help="30094">
 					<level>0</level>
-					<default>parallel</default>
+					<default>hle</default>
 					<constraints>
 						<options>
 							<option label="30095">parallel</option>

@@ -32,8 +32,8 @@
 					<default>hle</default>
 					<constraints>
 						<options>
-							<option label="30095">parallel</option>
 							<option label="30096">cxd4</option>
+							<option label="30095">parallel</option>
 							<option label="30097">hle</option>
 						</options>
 					</constraints>

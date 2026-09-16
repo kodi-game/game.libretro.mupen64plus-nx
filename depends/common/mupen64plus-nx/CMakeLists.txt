@@ -97,6 +97,7 @@ elseif(CORE_SYSTEM_NAME STREQUAL osx)
                     CC=${CMAKE_C_COMPILER}
                     CXX=${CMAKE_CXX_COMPILER}
                     arch=${ARCH}
+                    ARCH=${CPU}
                     ${LIBRETRO_CROSS_COMPILE}
                     GIT_VERSION=
                     SDKROOT=${CMAKE_OSX_SYSROOT}

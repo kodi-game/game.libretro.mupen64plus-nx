@@ -1,7 +1,7 @@
-From 0f4e2451ef69fd785a27d5c25e6de39a1f5a290a Mon Sep 17 00:00:00 2001
+From d0e2c4a82b0a037da3769c55862caae99c18ab3c Mon Sep 17 00:00:00 2001
 From: AurisDSP <235008503+AurisDSP@users.noreply.github.com>
 Date: Tue, 5 May 2026 20:37:41 -0400
-Subject: [PATCH 7/7] audio_libretro: defensive fixes against bad input and OOM
+Subject: [PATCH 7/8] audio_libretro: defensive fixes against bad input and OOM
 
 These don't address any specific reported bug, just hardening that
 fell out of an audit while looking at the Apple AudioConverter path.

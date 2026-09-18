@@ -1,7 +1,7 @@
 From 5899ca8f144f4f95a53d2dfce25518d62d8f575d Mon Sep 17 00:00:00 2001
 From: AurisDSP <235008503+AurisDSP@users.noreply.github.com>
 Date: Tue, 5 May 2026 20:37:41 -0400
-Subject: [PATCH 6/7] Apple Silicon (macOS arm64) dynarec port
+Subject: [PATCH 6/8] Apple Silicon (macOS arm64) dynarec port
 
 Enable the native macOS ARM64 dynarec with Mach-O assembly, MAP_JIT,
 and per-thread JIT write protection. Keep the allow-jit entitlement
@@ -1053,3 +1053,6 @@ index 3ef61a27..913bf3f9 100644
  
      return M64ERR_SUCCESS;
  
+-- 
+2.50.1 (Apple Git-155)
+

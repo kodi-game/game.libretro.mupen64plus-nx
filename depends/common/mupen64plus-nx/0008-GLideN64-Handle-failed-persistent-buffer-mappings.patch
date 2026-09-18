@@ -1,0 +1,133 @@
+From 077b7fe4b167a26a78e637739d4ec45a35fe5306 Mon Sep 17 00:00:00 2001
+From: Garrett Brown <themagnificentmrb@gmail.com>
+Date: Thu, 17 Sep 2026 22:02:57 -0700
+Subject: [PATCH 8/8] GLideN64: Handle failed persistent buffer mappings
+
+Buffer-storage support can be advertised while persistent mapping fails.
+The null mapping was later used as a memcpy destination.
+
+Recreate failed persistent buffers as mutable storage and select upload
+paths per buffer. Unbind before replacement to keep binding caches valid
+when buffer names are reused, and warn once per failed initialization.
+
+Use glBufferSubData on ordinary mapping failures, including threaded
+uploads, to avoid null memcpy and unmapping buffers that were not mapped.
+---
+ .../ThreadedOpenGl/opengl_WrappedFunctions.h  |  7 +++-
+ .../ThreadedOpenGl/opengl_Wrapper.cpp         |  2 +
+ .../OpenGLContext/opengl_BufferedDrawer.cpp   | 39 ++++++++++++++++---
+ 3 files changed, 41 insertions(+), 7 deletions(-)
+
+diff --git a/GLideN64/src/Graphics/OpenGLContext/ThreadedOpenGl/opengl_WrappedFunctions.h b/GLideN64/src/Graphics/OpenGLContext/ThreadedOpenGl/opengl_WrappedFunctions.h
+index 58cf3193..7a6ca2bc 100644
+--- a/GLideN64/src/Graphics/OpenGLContext/ThreadedOpenGl/opengl_WrappedFunctions.h
++++ b/GLideN64/src/Graphics/OpenGLContext/ThreadedOpenGl/opengl_WrappedFunctions.h
+@@ -3360,7 +3360,12 @@ public:
+ 	{
+ 		const char* data = OpenGlCommand::m_ringBufferPool.getBufferFromPool(m_data);
+ 		void* buffer_pointer = ptrMapBufferRange(m_target, m_offset, m_length, m_access);
+-		std::copy_n(data, m_length, reinterpret_cast<char*>(buffer_pointer));
++		if (buffer_pointer != nullptr) {
++			std::copy_n(data, m_length, reinterpret_cast<char*>(buffer_pointer));
++			ptrUnmapBuffer(m_target);
++		} else {
++			ptrBufferSubData(m_target, m_offset, m_length, data);
++		}
+ 		OpenGlCommand::m_ringBufferPool.removeBufferFromPool(m_data);
+ 	}
+ 
+diff --git a/GLideN64/src/Graphics/OpenGLContext/ThreadedOpenGl/opengl_Wrapper.cpp b/GLideN64/src/Graphics/OpenGLContext/ThreadedOpenGl/opengl_Wrapper.cpp
+index ab7bca3f..428f0706 100644
+--- a/GLideN64/src/Graphics/OpenGLContext/ThreadedOpenGl/opengl_Wrapper.cpp
++++ b/GLideN64/src/Graphics/OpenGLContext/ThreadedOpenGl/opengl_Wrapper.cpp
+@@ -1069,6 +1069,8 @@ namespace opengl {
+ 				PoolBufferPointer buffer = OpenGlCommand::m_ringBufferPool.createPoolBuffer(reinterpret_cast<char*>(dataToCopy->data()), dataToCopy->size());
+ 				executeCommand(GlMapBufferRangeWriteAsyncCommand::get(targetTemp, offsetTemp, lengthTemp, accessTemp, buffer));
+ 				GlMapBufferRangeWriteAsyncCommand::setTemp(0, 0, 0, 0);
++				// The upload command unmaps only if its real GL mapping succeeds.
++				return GL_TRUE;
+ 			}
+ 
+ 			executeCommand(GlUnmapBufferAsyncCommand::get(target));
+diff --git a/GLideN64/src/Graphics/OpenGLContext/opengl_BufferedDrawer.cpp b/GLideN64/src/Graphics/OpenGLContext/opengl_BufferedDrawer.cpp
+index a3089e0c..be22d73a 100644
+--- a/GLideN64/src/Graphics/OpenGLContext/opengl_BufferedDrawer.cpp
++++ b/GLideN64/src/Graphics/OpenGLContext/opengl_BufferedDrawer.cpp
+@@ -1,9 +1,15 @@
+ #include <Config.h>
+ #include <CRC.h>
++#include <Log.h>
+ #include "GLFunctions.h"
+ #include "opengl_Attributes.h"
+ #include "opengl_BufferedDrawer.h"
+ 
++#ifdef __LIBRETRO__
++#include <libretro.h>
++extern retro_log_printf_t log_cb;
++#endif
++
+ using namespace graphics;
+ using namespace opengl;
+ 
+@@ -64,9 +70,26 @@ void BufferedDrawer::_initBuffer(Buffer & _buffer, GLuint _bufSize)
+ 	if (m_glInfo.bufferStorage) {
+ 		glBufferStorage(_buffer.type, _bufSize, nullptr, m_bufAccessBits);
+ 		_buffer.data = (GLubyte*)glMapBufferRange(_buffer.type, 0, _bufSize, m_bufMapBits);
+-	} else {
+-		glBufferData(_buffer.type, _bufSize, nullptr, GL_DYNAMIC_DRAW);
++		if (_buffer.data != nullptr)
++			return;
++
++#ifdef __LIBRETRO__
++		// LOG is disabled in release builds; report the fallback to the frontend.
++		if (log_cb != nullptr)
++			log_cb(RETRO_LOG_WARN, "GLideN64: Persistent mapping failed for buffer %u (target 0x%x); falling back to mutable storage\n",
++				_buffer.handle, _buffer.type);
++#else
++		LOG(LOG_WARNING, "Persistent mapping failed for buffer %u (target 0x%x); falling back to mutable storage",
++			_buffer.handle, _buffer.type);
++#endif
++		// Immutable storage cannot be replaced with glBufferData. Unbind first
++		// so binding caches stay valid even if glGenBuffers reuses the name.
++		m_bindBuffer->bind(Parameter(_buffer.type), ObjectHandle::null);
++		glDeleteBuffers(1, &_buffer.handle);
++		glGenBuffers(1, &_buffer.handle);
++		m_bindBuffer->bind(Parameter(_buffer.type), ObjectHandle(_buffer.handle));
+ 	}
++	glBufferData(_buffer.type, _bufSize, nullptr, GL_DYNAMIC_DRAW);
+ }
+ 
+ BufferedDrawer::~BufferedDrawer()
+@@ -87,13 +110,17 @@ void BufferedDrawer::_updateBuffer(Buffer & _buffer, u32 _count, u32 _dataSize,
+ 		_buffer.pos = 0;
+ 	}
+ 
+-	if (m_glInfo.bufferStorage) {
++	if (_buffer.data != nullptr) {
+ 		memcpy(&_buffer.data[_buffer.offset], _data, _dataSize);
+ 	} else {
+ 		m_bindBuffer->bind(Parameter(_buffer.type), ObjectHandle(_buffer.handle));
+ 		void* buffer_pointer = glMapBufferRange(_buffer.type, _buffer.offset, _dataSize, GL_MAP_WRITE_BIT | GL_MAP_UNSYNCHRONIZED_BIT);
+-		memcpy(buffer_pointer, _data, _dataSize);
+-		glUnmapBuffer(_buffer.type);
++		if (buffer_pointer != nullptr) {
++			memcpy(buffer_pointer, _data, _dataSize);
++			glUnmapBuffer(_buffer.type);
++		} else {
++			glBufferSubData(_buffer.type, _buffer.offset, _dataSize, _data);
++		}
+ 	}
+ 
+ 	_buffer.offset += _dataSize;
+@@ -111,7 +138,7 @@ void BufferedDrawer::_updateRectBuffer(const graphics::Context::DrawRectParamete
+ 	Buffer & buffer = m_rectsBuffers.vbo;
+ 	const u32 dataSize = _params.verticesCount * static_cast<u32>(sizeof(RectVertex));
+ 
+-	if (m_glInfo.bufferStorage) {
++	if (buffer.data != nullptr) {
+ 		_updateBuffer(buffer, _params.verticesCount, dataSize, _params.vertices);
+ 		return;
+ 	}
+-- 
+2.50.1 (Apple Git-155)
+

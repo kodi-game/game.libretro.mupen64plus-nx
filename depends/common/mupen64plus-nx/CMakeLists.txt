@@ -155,6 +155,7 @@ elseif(CORE_SYSTEM_NAME STREQUAL android)
                                     NDK_LIBS_OUT=${PROJECT_SOURCE_DIR}/${LIBRETRO_BINARY_DIR}
                                     V=1
                                     V7NEONOPTIMIZATION=1
+                                    GLES3=1
                                     HAVE_THR_AL=1 LLE=1 HAVE_PARALLEL_RSP=1
                     && cp ${PROJECT_SOURCE_DIR}/${LIBRETRO_BINARY_DIR}/${PLATFORM}/${LIBRETRO_JNISONAME} ${PROJECT_SOURCE_DIR}/${LIBRETRO_BINARY_DIR}/${LIBRETRO_SONAME})
 elseif(CORE_SYSTEM_NAME STREQUAL freebsd)

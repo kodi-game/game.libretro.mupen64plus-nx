@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: game.libretro.mupen64plus-nx\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: 2017-02-04 09:56i\n"
-"PO-Revision-Date: 2026-09-15 19:30+0000\n"
+"PO-Revision-Date: 2026-09-30 19:16+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://kodi.weblate.cloud/projects/kodi-add-ons-game/game-libretro-mupen64plus-nx/ru_ru/>\n"
 "Language: ru_ru\n"
@@ -611,7 +611,7 @@ msgstr "(GLN64) Отображать в разрешении в N раз бол�
 
 msgctxt "#30147"
 msgid "Disabled"
-msgstr "Выключено"
+msgstr "Отключено"
 
 msgctxt "#30148"
 msgid "1x"

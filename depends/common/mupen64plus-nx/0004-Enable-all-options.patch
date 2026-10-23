@@ -1,7 +1,7 @@
-From 1ecf609f3b9a324bd4e22aa4fa48efdde13618ea Mon Sep 17 00:00:00 2001
+From c4617317965296562450cb7c036c558ed62f7b70 Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Tue, 2 Sep 2025 23:55:00 -0700
-Subject: [PATCH 4/8] Enable all options
+Subject: [PATCH 4/9] Enable all options
 
 ---
  libretro/libretro_core_options.h | 24 ------------------------

@@ -1,0 +1,25 @@
+From d9e4b2063f34bc13cdd7352156dec1cbe0a94ef5 Mon Sep 17 00:00:00 2001
+From: Garrett Brown <themagnificentmrb@gmail.com>
+Date: Fri, 23 Oct 2026 06:01:27 -0700
+Subject: [PATCH 9/9] Set default analog deadzone to zero
+
+---
+ libretro/libretro_core_options.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libretro/libretro_core_options.h b/libretro/libretro_core_options.h
+index f89a088a..85c5dea1 100644
+--- a/libretro/libretro_core_options.h
++++ b/libretro/libretro_core_options.h
+@@ -1523,7 +1523,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
+             {"30", NULL},
+             { NULL, NULL },
+         },
+-        "15"
++        "0"
+     },
+     {
+         CORE_NAME "-astick-sensitivity",
+-- 
+2.54.0 (Apple Git-157)
+

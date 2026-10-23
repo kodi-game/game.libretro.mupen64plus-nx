@@ -1,7 +1,7 @@
-From 6f075902c8b4761a6e56ff56ccc4b50470fc41ef Mon Sep 17 00:00:00 2001
+From 50a5f491c66ec7fd88be563938b613ee0da74f20 Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Wed, 3 Sep 2025 15:08:31 -0700
-Subject: [PATCH 1/8] Fix compiler error with GCC 15
+Subject: [PATCH 1/9] Fix compiler error with GCC 15
 
 Error was:
 

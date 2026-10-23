@@ -1,7 +1,7 @@
-From 03a1a986924267f1ed2ab9f35cd8ecaa8f2887dc Mon Sep 17 00:00:00 2001
+From 902004c3f23bb42b3e25dc959c7e803b5bbf87f4 Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Thu, 17 Sep 2026 22:02:57 -0700
-Subject: [PATCH 8/8] GLideN64: Handle failed persistent buffer mappings
+Subject: [PATCH 8/9] GLideN64: Handle failed persistent buffer mappings
 
 Buffer-storage support can be advertised while persistent mapping fails.
 The null mapping was later used as a memcpy destination.

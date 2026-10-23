@@ -1,4 +1,4 @@
-From 1c0ad0240f0978aa0df12340157cd5ee812b9fcb Mon Sep 17 00:00:00 2001
+From 1ecf609f3b9a324bd4e22aa4fa48efdde13618ea Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Tue, 2 Sep 2025 23:55:00 -0700
 Subject: [PATCH 4/8] Enable all options
@@ -137,5 +137,5 @@ index fb39aa98..f89a088a 100644
              { NULL, NULL },
          },
 -- 
-2.50.1 (Apple Git-155)
+2.54.0 (Apple Git-157)
 

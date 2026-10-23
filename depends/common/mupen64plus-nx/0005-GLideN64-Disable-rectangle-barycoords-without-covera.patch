@@ -1,4 +1,4 @@
-From b218d650c8e8f832a8450c6011fe0f8737e4952f Mon Sep 17 00:00:00 2001
+From dde076245f30df9c2397fecaf0d744d92a08b83e Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Tue, 15 Sep 2026 15:34:30 -0700
 Subject: [PATCH 5/8] GLideN64: Disable rectangle barycoords without coverage
@@ -24,5 +24,5 @@ index bf781a26..a3089e0c 100644
  	glVertexAttribPointer(rectAttrib::texcoord0, 2, GL_FLOAT, GL_FALSE, sizeof(RectVertex), (const GLvoid *)(offsetof(RectVertex, s0)));
  	glVertexAttribPointer(rectAttrib::texcoord1, 2, GL_FLOAT, GL_FALSE, sizeof(RectVertex), (const GLvoid *)(offsetof(RectVertex, s1)));
 -- 
-2.50.1 (Apple Git-155)
+2.54.0 (Apple Git-157)
 

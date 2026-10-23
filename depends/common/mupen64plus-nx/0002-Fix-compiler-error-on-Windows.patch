@@ -1,4 +1,4 @@
-From d861bd896451f1871a83e2b59d1b6fb4315fcd65 Mon Sep 17 00:00:00 2001
+From 4f944666e5a64d6c69f30ef0d1aa8d7386e21756 Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Wed, 3 Sep 2025 16:59:04 -0700
 Subject: [PATCH 2/8] Fix compiler error on Windows
@@ -14,7 +14,7 @@ Error was:
  1 file changed, 3 insertions(+)
 
 diff --git a/libretro/libretro.c b/libretro/libretro.c
-index 76656668..86e336f1 100644
+index 4a9f1297..2da1b7b5 100644
 --- a/libretro/libretro.c
 +++ b/libretro/libretro.c
 @@ -19,6 +19,9 @@
@@ -28,5 +28,5 @@ index 76656668..86e336f1 100644
  #include <string.h>
  #include <compat/strl.h>
 -- 
-2.50.1 (Apple Git-155)
+2.54.0 (Apple Git-157)
 

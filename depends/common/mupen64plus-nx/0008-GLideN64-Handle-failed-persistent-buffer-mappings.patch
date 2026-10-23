@@ -1,4 +1,4 @@
-From 077b7fe4b167a26a78e637739d4ec45a35fe5306 Mon Sep 17 00:00:00 2001
+From 03a1a986924267f1ed2ab9f35cd8ecaa8f2887dc Mon Sep 17 00:00:00 2001
 From: Garrett Brown <themagnificentmrb@gmail.com>
 Date: Thu, 17 Sep 2026 22:02:57 -0700
 Subject: [PATCH 8/8] GLideN64: Handle failed persistent buffer mappings
@@ -129,5 +129,5 @@ index a3089e0c..be22d73a 100644
  		return;
  	}
 -- 
-2.50.1 (Apple Git-155)
+2.54.0 (Apple Git-157)
 

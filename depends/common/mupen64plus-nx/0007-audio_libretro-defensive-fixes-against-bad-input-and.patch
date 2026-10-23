@@ -1,4 +1,4 @@
-From d0e2c4a82b0a037da3769c55862caae99c18ab3c Mon Sep 17 00:00:00 2001
+From 9603eedb6ad07a7ba96fd00d5edf77b27112e3e4 Mon Sep 17 00:00:00 2001
 From: AurisDSP <235008503+AurisDSP@users.noreply.github.com>
 Date: Tue, 5 May 2026 20:37:41 -0400
 Subject: [PATCH 7/8] audio_libretro: defensive fixes against bad input and OOM
@@ -152,5 +152,5 @@ index 15a490f1..ca556f4b 100644
     ai->regs[AI_DRAM_ADDR_REG] = saved_ai_dram;
  }
 -- 
-2.50.1 (Apple Git-155)
+2.54.0 (Apple Git-157)
 

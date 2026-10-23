@@ -1,4 +1,4 @@
-From 5899ca8f144f4f95a53d2dfce25518d62d8f575d Mon Sep 17 00:00:00 2001
+From a3c34c86a27e3fe9757f1eda7890f4b8292317c0 Mon Sep 17 00:00:00 2001
 From: AurisDSP <235008503+AurisDSP@users.noreply.github.com>
 Date: Tue, 5 May 2026 20:37:41 -0400
 Subject: [PATCH 6/8] Apple Silicon (macOS arm64) dynarec port
@@ -28,11 +28,11 @@ Keep non-Apple behavior and portable assembly symbol references intact.
  .../r4300/new_dynarec/arm64/assem_arm64.c     |  31 ++-
  .../r4300/new_dynarec/arm64/assem_arm64.h     |  10 +
  .../r4300/new_dynarec/arm64/linkage_arm64.S   | 211 ++++++++++++------
- .../device/r4300/new_dynarec/new_dynarec.c    |  86 ++++++-
+ .../device/r4300/new_dynarec/new_dynarec.c    |  85 ++++++-
  .../device/r4300/new_dynarec/new_dynarec.h    |  27 ++-
  .../src/device/r4300/r4300_core.c             |   8 +-
  mupen64plus-core/src/main/main.c              |   2 +
- 13 files changed, 355 insertions(+), 103 deletions(-)
+ 13 files changed, 355 insertions(+), 102 deletions(-)
 
 diff --git a/Makefile b/Makefile
 index 2443f80e..526a2539 100644
@@ -125,7 +125,7 @@ index 516443fd..340dfec3 100644
  }
  
 diff --git a/libretro/libretro.c b/libretro/libretro.c
-index 86e336f1..2837eabf 100644
+index 2da1b7b5..b482759f 100644
 --- a/libretro/libretro.c
 +++ b/libretro/libretro.c
 @@ -119,6 +119,9 @@ save_memory_data saved_memory;
@@ -138,7 +138,7 @@ index 86e336f1..2837eabf 100644
  
  int astick_deadzone;
  int astick_sensitivity;
-@@ -491,6 +494,14 @@ static void* EmuThreadFunction(void* param)
+@@ -493,6 +496,14 @@ static void* EmuThreadFunction(void* param)
          // Unset
          emuThreadRunning = false;
      }
@@ -153,7 +153,7 @@ index 86e336f1..2837eabf 100644
  
      return NULL;
  }
-@@ -693,6 +704,9 @@ void copy_file(char * ininame, char * fileName)
+@@ -695,6 +706,9 @@ void copy_file(char * ininame, char * fileName)
  
  void retro_init(void)
  {
@@ -163,7 +163,7 @@ index 86e336f1..2837eabf 100644
      char* sys_pathname;
      wchar_t w_pathname[PATH_SIZE];
      environ_cb(RETRO_ENVIRONMENT_GET_SYSTEM_DIRECTORY, &sys_pathname);
-@@ -742,6 +756,9 @@ void retro_deinit(void)
+@@ -744,6 +758,9 @@ void retro_deinit(void)
         if(!(current_rdp_type == RDP_PLUGIN_GLIDEN64 && EnableThreadedRenderer))
         {
             CoreDoCommand(M64CMD_STOP, 0, NULL);
@@ -173,7 +173,7 @@ index 86e336f1..2837eabf 100644
             co_switch(game_thread); /* Let the core thread finish */
             CoreDoCommand(M64CMD_ROM_CLOSE, 0, NULL);
         }
-@@ -2045,6 +2062,10 @@ void retro_unload_game(void)
+@@ -2047,6 +2064,10 @@ void retro_unload_game(void)
  
  void retro_run (void)
  {
@@ -184,7 +184,7 @@ index 86e336f1..2837eabf 100644
      libretro_swap_buffer = false;
      static bool updated = false;
  
-@@ -2071,6 +2092,14 @@ void retro_run (void)
+@@ -2073,6 +2094,14 @@ void retro_run (void)
      {
         glsm_ctl(GLSM_CTL_STATE_UNBIND, NULL);
      }
@@ -199,7 +199,7 @@ index 86e336f1..2837eabf 100644
      
      if (libretro_swap_buffer)
      {
-@@ -2138,6 +2167,10 @@ size_t retro_serialize_size (void)
+@@ -2140,6 +2169,10 @@ size_t retro_serialize_size (void)
  
  bool retro_serialize(void *data, size_t size)
  {
@@ -210,7 +210,7 @@ index 86e336f1..2837eabf 100644
     if (initializing)
        return false;
  
-@@ -2159,6 +2192,10 @@ bool retro_serialize(void *data, size_t size)
+@@ -2161,6 +2194,10 @@ bool retro_serialize(void *data, size_t size)
     while (!retro_savestate_complete)
     {
        co_switch(game_thread);
@@ -221,7 +221,7 @@ index 86e336f1..2837eabf 100644
     }
  
     if (current_rdp_type == RDP_PLUGIN_GLIDEN64)
-@@ -2171,6 +2208,10 @@ bool retro_serialize(void *data, size_t size)
+@@ -2173,6 +2210,10 @@ bool retro_serialize(void *data, size_t size)
  
  bool retro_unserialize(const void *data, size_t size)
  {
@@ -232,7 +232,7 @@ index 86e336f1..2837eabf 100644
     if (initializing)
        return false;
  
-@@ -2192,6 +2233,10 @@ bool retro_unserialize(const void *data, size_t size)
+@@ -2194,6 +2235,10 @@ bool retro_unserialize(const void *data, size_t size)
     while (!retro_savestate_complete)
     {
        co_switch(game_thread);
@@ -243,7 +243,7 @@ index 86e336f1..2837eabf 100644
     }
  
     if (current_rdp_type == RDP_PLUGIN_GLIDEN64)
-@@ -2199,7 +2244,11 @@ bool retro_unserialize(const void *data, size_t size)
+@@ -2201,7 +2246,11 @@ bool retro_unserialize(const void *data, size_t size)
        glsm_ctl(GLSM_CTL_STATE_UNBIND, NULL);
     }
  
@@ -273,7 +273,7 @@ index 9c81a184..116a1797 100644
  #if defined(__x86_64__)
          r4300->recomp.save_rsp = save_rsp;
 diff --git a/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.c b/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.c
-index 46243eca..6089e45f 100644
+index 98dea54f..c1b2c154 100644
 --- a/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.c
 +++ b/mupen64plus-core/src/device/r4300/new_dynarec/arm64/assem_arm64.c
 @@ -261,9 +261,15 @@ static uintptr_t jump_table_symbols[] = {
@@ -293,7 +293,7 @@ index 46243eca..6089e45f 100644
      // Don't rely on GCC's __clear_cache implementation, as it caches
      // icache/dcache cache line sizes, that can vary between cores on
      // big.LITTLE architectures.
-@@ -304,6 +310,8 @@ static void set_jump_target(intptr_t addr,uintptr_t target)
+@@ -305,6 +311,8 @@ static void set_jump_target(intptr_t addr,uintptr_t target)
    if(!ptr) // Indiana Jones is weird
      return;
  
@@ -302,7 +302,7 @@ index 46243eca..6089e45f 100644
    if((*ptr&0xFC000000)==0x14000000) {
      assert(offset>=-134217728LL&&offset<134217728LL);
      *ptr=(*ptr&0xFC000000)|((offset>>2)&0x3ffffff);
-@@ -323,6 +331,11 @@ static void set_jump_target(intptr_t addr,uintptr_t target)
+@@ -324,6 +332,11 @@ static void set_jump_target(intptr_t addr,uintptr_t target)
    }
    else
      assert(0); /*Should not happen*/
@@ -314,7 +314,7 @@ index 46243eca..6089e45f 100644
  }
  
  /* Literal pool */
-@@ -3003,7 +3016,7 @@ static void save_regs(u_int reglist)
+@@ -3043,7 +3056,7 @@ static void save_regs(u_int reglist)
    int index=0;
    int offset=0;
  
@@ -323,7 +323,7 @@ index 46243eca..6089e45f 100644
    if(!reglist) return;
  
    int i;
-@@ -3036,7 +3049,7 @@ static void restore_regs(u_int reglist)
+@@ -3076,7 +3089,7 @@ static void restore_regs(u_int reglist)
    int index=0;
    int offset=0;
  
@@ -332,7 +332,7 @@ index 46243eca..6089e45f 100644
    if(!reglist) return;
  
    int i;
-@@ -4521,8 +4534,8 @@ static void do_miniht_jump(int rs,int rh,int ht) {
+@@ -4562,8 +4575,8 @@ static void do_miniht_jump(int rs,int rh,int ht) {
    emit_cmp(rh,rs);
    intptr_t jaddr=(intptr_t)out;
    emit_jeq(0);
@@ -343,7 +343,7 @@ index 46243eca..6089e45f 100644
      emit_mov(rs,0);
      rs=0;
    }
-@@ -4582,6 +4595,7 @@ static void invalidate_addr(u_int addr)
+@@ -4623,6 +4636,7 @@ static void invalidate_addr(u_int addr)
  // CPU-architecture-specific initialization
  static void arch_init(void) {
  
@@ -351,7 +351,7 @@ index 46243eca..6089e45f 100644
    assert((fp_memory_map&7)==0);
    g_dev.r4300.new_dynarec_hot_state.rounding_modes[0]=0x0<<22; // round
    g_dev.r4300.new_dynarec_hot_state.rounding_modes[1]=0x3<<22; // trunc
-@@ -4615,8 +4629,8 @@ static void arch_init(void) {
+@@ -4656,8 +4670,8 @@ static void arch_init(void) {
      if(offset>=-134217728LL&&offset<134217728LL) {
        *ptr4=0x14000000|((offset>>2)&0x3ffffff); // direct branch
      }else{
@@ -362,7 +362,7 @@ index 46243eca..6089e45f 100644
      }
      ptr2++;
      *ptr2=*ptr;
-@@ -4625,5 +4639,6 @@ static void arch_init(void) {
+@@ -4666,5 +4680,6 @@ static void arch_init(void) {
      ptr3+=2;
    }
  
@@ -770,16 +770,10 @@ index c4e340d8..836800aa 100644
      ret
  
 diff --git a/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.c b/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.c
-index 8b0df163..ffd97939 100644
+index 1e8f261b..ccd34c6f 100644
 --- a/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.c
 +++ b/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.c
-@@ -25,12 +25,16 @@
- #include <sys/types.h> // needed for u_int, u_char, etc
- #include <assert.h>
- #include <sys/types.h>
--
- #if defined(__APPLE__)
- #define MAP_ANONYMOUS MAP_ANON
+@@ -41,6 +41,11 @@
  #endif
  
  #include "new_dynarec.h"
@@ -791,7 +785,7 @@ index 8b0df163..ffd97939 100644
  #include "api/m64p_types.h"
  #include "api/callbacks.h"
  #include "main/main.h"
-@@ -4741,8 +4745,8 @@ static void do_ccstub(int n)
+@@ -4809,8 +4814,8 @@ static void do_ccstub(int n)
          r=get_reg(branch_regs[i].regmap,RTEMP);
        }
  #if NEW_DYNAREC==NEW_DYNAREC_ARM64
@@ -802,7 +796,7 @@ index 8b0df163..ffd97939 100644
          emit_mov(r,0);
          r=0;
          stubs[n][2]=jump_vaddr_reg[0];
-@@ -7257,8 +7261,8 @@ static void rjump_assemble(int i,struct regstat *i_regs)
+@@ -7329,8 +7334,8 @@ static void rjump_assemble(int i,struct regstat *i_regs)
    #endif
    {
  #if NEW_DYNAREC==NEW_DYNAREC_ARM64
@@ -813,7 +807,7 @@ index 8b0df163..ffd97939 100644
      emit_mov(rs,0);
      rs=0;
    }
-@@ -8618,8 +8622,8 @@ static void pagespan_ds(void)
+@@ -8690,8 +8695,8 @@ static void pagespan_ds(void)
    emit_jeq(0);
    store_regs_bt(regs[0].regmap,regs[0].is32,regs[0].dirty,-1);
  #if NEW_DYNAREC==NEW_DYNAREC_ARM64
@@ -824,7 +818,7 @@ index 8b0df163..ffd97939 100644
      emit_mov(btaddr,0);
      btaddr=0;
    }
-@@ -8634,10 +8638,14 @@ static void pagespan_ds(void)
+@@ -8706,11 +8711,15 @@ static void pagespan_ds(void)
  #ifdef HAVE_LIBNX
  ALIGN(4096, char jit_memory[33554432]) __attribute__((section(".text")));
  #endif
@@ -832,6 +826,7 @@ index 8b0df163..ffd97939 100644
 +int new_dynarec_init(void)
  {
    DebugMessage(M64MSG_INFO, "Init new dynarec");
+   ensure_dynarec_cache_alignment();
  
 +#if defined(__APPLE__) && defined(__aarch64__) && NEW_DYNAREC == NEW_DYNAREC_ARM64 && !defined(RECOMP_DBG)
 +  assert(m64p_jit_write_depth == 0);
@@ -840,7 +835,7 @@ index 8b0df163..ffd97939 100644
  #if defined(RECOMPILER_DEBUG) && !defined(RECOMP_DBG)
    recomp_dbg_init();
  #endif
-@@ -8652,6 +8660,12 @@ void new_dynarec_init(void)
+@@ -8725,6 +8734,12 @@ void new_dynarec_init(void)
  // Default to fixed cache address
  #ifdef HAVE_LIBNX
  #define CACHE_ADDR DOUBLE_CACHE_ADDR
@@ -853,7 +848,7 @@ index 8b0df163..ffd97939 100644
  #else
  #define CACHE_ADDR FIXED_CACHE_ADDR
  #endif
-@@ -8665,13 +8679,30 @@ void new_dynarec_init(void)
+@@ -8738,13 +8753,30 @@ void new_dynarec_init(void)
    #include <sys/types.h>
    #include <fcntl.h>
  
@@ -886,7 +881,7 @@ index 8b0df163..ffd97939 100644
  
    assert(base_addr!=(void*)-1);
  
-@@ -8688,10 +8719,25 @@ void new_dynarec_init(void)
+@@ -8761,10 +8793,25 @@ void new_dynarec_init(void)
    base_addr = g_dev.r4300.extra_memory;
    base_addr_rx = base_addr;
  #else /*DYNAMIC_CACHE_ADDR*/
@@ -912,7 +907,7 @@ index 8b0df163..ffd97939 100644
    base_addr_rx = base_addr;
  #endif
  #elif NEW_DYNAREC == NEW_DYNAREC_ARM
-@@ -8754,10 +8800,14 @@ void new_dynarec_init(void)
+@@ -8826,10 +8873,14 @@ void new_dynarec_init(void)
  
    tlb_speed_hacks();
    arch_init();
@@ -927,7 +922,7 @@ index 8b0df163..ffd97939 100644
  #if defined(RECOMPILER_DEBUG) && !defined(RECOMP_DBG)
    recomp_dbg_cleanup();
  #endif
-@@ -8770,6 +8820,13 @@ void new_dynarec_cleanup(void)
+@@ -8842,6 +8893,13 @@ void new_dynarec_cleanup(void)
  #if !defined(RECOMP_DBG)
    #if defined(WIN32)
      VirtualFree(base_addr, 0, MEM_RELEASE);
@@ -941,7 +936,7 @@ index 8b0df163..ffd97939 100644
    #elif NEW_DYNAREC == NEW_DYNAREC_ARM64 && CACHE_ADDR!=FIXED_CACHE_ADDR
      if (munmap (base_addr_rx, 1<<TARGET_SIZE_2) < 0) {DebugMessage(M64MSG_ERROR, "munmap() failed");}
    #else
-@@ -8783,6 +8840,8 @@ void new_dynarec_cleanup(void)
+@@ -8855,6 +8913,8 @@ void new_dynarec_cleanup(void)
  
  int new_recompile_block(int addr)
  {
@@ -950,7 +945,7 @@ index 8b0df163..ffd97939 100644
  #if defined(RECOMPILER_DEBUG) && !defined(RECOMP_DBG)
    recomp_dbg_block(addr);
  #endif
-@@ -8825,7 +8884,8 @@ int new_recompile_block(int addr)
+@@ -8897,7 +8957,8 @@ int new_recompile_block(int addr)
      else {
        assem_debug("Compile at unmapped memory address: %x ", (int)addr);
        //assem_debug("start: %x next: %x",g_dev.r4300.new_dynarec_hot_state.memory_map[start>>12],g_dev.r4300.new_dynarec_hot_state.memory_map[(start+4096)>>12]);
@@ -960,7 +955,7 @@ index 8b0df163..ffd97939 100644
      }
      //DebugMessage(M64MSG_VERBOSE, "source= %x",(intptr_t)source);
    }
-@@ -11909,5 +11969,7 @@ int new_recompile_block(int addr)
+@@ -11983,5 +12044,7 @@ int new_recompile_block(int addr)
      }
      expirep=(expirep+1)&65535;
    }
@@ -970,12 +965,12 @@ index 8b0df163..ffd97939 100644
 +  return result;
  }
 diff --git a/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.h b/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.h
-index a8fd37c3..e734224e 100644
+index 44310d7e..d8bb4d96 100644
 --- a/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.h
 +++ b/mupen64plus-core/src/device/r4300/new_dynarec/new_dynarec.h
-@@ -32,6 +32,31 @@
- #define NEW_DYNAREC_ARM 3
- #define NEW_DYNAREC_ARM64 4
+@@ -35,6 +35,31 @@
+ #define NEW_DYNAREC_CACHE_SIZE       (1u << 25)
+ #define NEW_DYNAREC_CACHE_PAGE_PAD   0x200000u
  
 +#if defined(__APPLE__) && defined(__aarch64__) && NEW_DYNAREC == NEW_DYNAREC_ARM64 && !defined(RECOMP_DBG)
 +#include <assert.h>
@@ -1005,7 +1000,7 @@ index a8fd37c3..e734224e 100644
  #define WRITE_PROTECT ((uintptr_t)1<<((sizeof(uintptr_t)<<3)-2))
  
  struct r4300_core;
-@@ -90,7 +115,7 @@ extern unsigned int stop_after_jal;
+@@ -93,7 +118,7 @@ extern unsigned int stop_after_jal;
  extern unsigned int using_tlb;
  
  void invalidate_cached_code_new_dynarec(struct r4300_core* r4300, uint32_t address, size_t size);
@@ -1034,10 +1029,10 @@ index 76e9f50d..472f0e8a 100644
          r4300->cached_interp.fin_block = dynarec_fin_block;
          r4300->cached_interp.not_compiled = dynarec_notcompiled;
 diff --git a/mupen64plus-core/src/main/main.c b/mupen64plus-core/src/main/main.c
-index 3ef61a27..913bf3f9 100644
+index 620f4cea..211d3ad3 100644
 --- a/mupen64plus-core/src/main/main.c
 +++ b/mupen64plus-core/src/main/main.c
-@@ -1761,6 +1761,7 @@ m64p_error main_run(void)
+@@ -1762,6 +1762,7 @@ m64p_error main_run(void)
      g_EmulatorRunning = 0;
      StateChanged(M64CORE_EMU_STATE, M64EMU_STOPPED);
  
@@ -1045,7 +1040,7 @@ index 3ef61a27..913bf3f9 100644
      /**
       * Actually never returns.
       * Jump back to frontend for deinit
-@@ -1772,6 +1773,7 @@ m64p_error main_run(void)
+@@ -1773,6 +1774,7 @@ m64p_error main_run(void)
      {
          co_switch(retro_thread);
      }
@@ -1054,5 +1049,5 @@ index 3ef61a27..913bf3f9 100644
      return M64ERR_SUCCESS;
  
 -- 
-2.50.1 (Apple Git-155)
+2.54.0 (Apple Git-157)
 

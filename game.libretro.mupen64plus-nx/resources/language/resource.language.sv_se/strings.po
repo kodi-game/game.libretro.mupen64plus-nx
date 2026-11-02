@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: game.libretro.mupen64plus-nx\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: 2017-02-04 09:56i\n"
-"PO-Revision-Date: 2026-05-14 16:33+0000\n"
+"PO-Revision-Date: 2026-11-02 20:49+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://kodi.weblate.cloud/projects/kodi-add-ons-game/game-libretro-mupen64plus-nx/sv_se/>\n"
 "Language: sv_se\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17.1\n"
+"X-Generator: Weblate 2026.10.1\n"
 
 msgctxt "Addon Summary"
 msgid "Nintendo - Nintendo 64 (Mupen64Plus-Next)"
@@ -61,15 +61,13 @@ msgctxt "#30009"
 msgid "Dithering"
 msgstr "Dithering"
 
-#, fuzzy
 msgctxt "#30010"
 msgid "Dithering Quantization"
-msgstr "Dithering Kvantisering"
+msgstr "Ditheringkvantisering"
 
-#, fuzzy
 msgctxt "#30011"
 msgid "Image Dithering Mode"
-msgstr "Dithering-läge för bild"
+msgstr "Bildditheringläge"
 
 msgctxt "#30012"
 msgid "MSAA level"
@@ -83,15 +81,13 @@ msgctxt "#30014"
 msgid "LOD Emulation"
 msgstr "LOD-emulering"
 
-#, fuzzy
 msgctxt "#30015"
 msgid "Framebuffer Emulation"
-msgstr "Emulering av framebuffert"
+msgstr "Emulering av bildbuffert"
 
-#, fuzzy
 msgctxt "#30016"
 msgid "Copy auxiliary buffers to RDRAM"
-msgstr "Kopiera hjälpbuffertar till RDRAM"
+msgstr "Kopiera hjälpbufferter till RDRAM"
 
 msgctxt "#30017"
 msgid "Color buffer to RDRAM"
@@ -105,88 +101,73 @@ msgctxt "#30019"
 msgid "Background Mode"
 msgstr "Bakgrundsläge"
 
-#, fuzzy
 msgctxt "#30020"
 msgid "Hardware per-pixel lighting"
-msgstr "Hårdvara för per-pixel-belysning"
+msgstr "Maskinvarubaserad ljussättning per bildpunkt"
 
-#, fuzzy
 msgctxt "#30021"
 msgid "Continuous texrect coords"
 msgstr "Kontinuerliga texrect-koordinater"
 
-#, fuzzy
 msgctxt "#30022"
 msgid "Enable inaccurate texture coordinates"
 msgstr "Aktivera felaktiga texturkoordinater"
 
-#, fuzzy
 msgctxt "#30023"
 msgid "Enable native-res boundaries for texture coordinates"
-msgstr "Aktivera native-res-gränser för texturkoordinater"
+msgstr "Aktivera inhemska upplösningsgränser för texturkoordinater"
 
-#, fuzzy
 msgctxt "#30024"
 msgid "Native res. 2D texrects"
-msgstr "Ursprunglig res. 2D-texter"
+msgstr "Texrects i 2D med inhemsk upplösning"
 
-#, fuzzy
 msgctxt "#30025"
 msgid "Less accurate blending mode"
-msgstr "Mindre exakt blandningsläge"
+msgstr "Mindre noggrant blandningsläge"
 
-#, fuzzy
 msgctxt "#30026"
 msgid "GPU shader depth write"
-msgstr "Skrivning av GPU-shaderdjup"
+msgstr "Djupskrivning för GPU-skuggning"
 
 msgctxt "#30027"
 msgid "N64 Depth Compare"
 msgstr "N64 djupjämförelse"
 
-#, fuzzy
 msgctxt "#30028"
 msgid "Cache GPU Shaders"
-msgstr "Cache GPU-shaders"
+msgstr "Cacha GPU-skuggning"
 
-#, fuzzy
 msgctxt "#30029"
 msgid "Cache Textures"
-msgstr "Cache-texturer"
+msgstr "Cacha texturer"
 
 msgctxt "#30030"
 msgid "Overscan"
 msgstr "Överskanning"
 
-#, fuzzy
 msgctxt "#30031"
 msgid "Overscan Offset (Top)"
-msgstr "Offset för överskanning (topp)"
+msgstr "Överskanningsförskjutning (överst)"
 
-#, fuzzy
 msgctxt "#30032"
 msgid "Overscan Offset (Left)"
-msgstr "Offset för överskanning (vänster)"
+msgstr "Överskanningsförskjutning (vänster)"
 
-#, fuzzy
 msgctxt "#30033"
 msgid "Overscan Offset (Right)"
-msgstr "Offset för överskanning (höger)"
+msgstr "Överskanningsförskjutning (höger)"
 
-#, fuzzy
 msgctxt "#30034"
 msgid "Overscan Offset (Bottom)"
-msgstr "Offset för överskanning (botten)"
+msgstr "Överskanningsförskjutning (nederst)"
 
-#, fuzzy
 msgctxt "#30035"
 msgid "Max High-Res VRAM Limit"
-msgstr "Max VRAM-gräns för högupplösta bilder"
+msgstr "Högsta VRAM-gräns för hög upplösning"
 
-#, fuzzy
 msgctxt "#30036"
 msgid "Max texture cache size"
-msgstr "Maximal storlek på texturcache"
+msgstr "Högsta storlek för texturcache"
 
 msgctxt "#30037"
 msgid "Texture filter"
@@ -196,40 +177,33 @@ msgctxt "#30038"
 msgid "Texture Enhancement"
 msgstr "Förbättring av textur"
 
-#, fuzzy
 msgctxt "#30039"
 msgid "Don't filter background textures"
 msgstr "Filtrera inte bakgrundstexturer"
 
-#, fuzzy
 msgctxt "#30040"
 msgid "Use High-Res textures"
-msgstr "Använd högupplösta texturer"
+msgstr "Använd texturer med hög upplösning"
 
-#, fuzzy
 msgctxt "#30041"
 msgid "Use High-Res Texture Cache Compression"
-msgstr "Använd komprimering av texturcache för högupplösta bilder"
+msgstr "Använd komprimering av texturcache med hög upplösning"
 
-#, fuzzy
 msgctxt "#30042"
 msgid "Use High-Res Full Alpha Channel"
-msgstr "Använd full alfakanal i högupplöst format"
+msgstr "Använd full alfakanal med hög upplösning"
 
-#, fuzzy
 msgctxt "#30043"
 msgid "Use enhanced Texture Storage"
 msgstr "Använd förbättrad texturlagring"
 
-#, fuzzy
 msgctxt "#30044"
 msgid "Use alternative method for High-Res Checksums"
-msgstr "Använd alternativ metod för High-Res Checksums"
+msgstr "Använd alternativ metod för kontrollsummor med hög upplösning"
 
-#, fuzzy
 msgctxt "#30045"
 msgid "Use enhanced Hi-Res Storage"
-msgstr "Använd förbättrad Hi-Res-lagring"
+msgstr "Använd förbättrad högupplöst lagring"
 
 msgctxt "#30046"
 msgid "INI Behaviour"
@@ -243,38 +217,33 @@ msgctxt "#30048"
 msgid "RSP Plugin"
 msgstr "RSP-insticksmodul"
 
-#, fuzzy
 msgctxt "#30049"
 msgid "Frame Duplication"
-msgstr "Duplicering av ramar"
+msgstr "Bildruteduplicering"
 
 msgctxt "#30050"
 msgid "Framerate"
 msgstr "Bildfrekvens"
 
-#, fuzzy
 msgctxt "#30051"
 msgid "VI Refresh (Overclock)"
-msgstr "VI Uppdatering (överklockning)"
+msgstr "VI-uppdatering (överklockning)"
 
 msgctxt "#30052"
 msgid "Disable Expansion Pak"
 msgstr "Inaktivera Expansion Pak"
 
-#, fuzzy
 msgctxt "#30053"
 msgid "Ignore emulated TLB Exceptions"
 msgstr "Ignorera emulerade TLB-undantag"
 
-#, fuzzy
 msgctxt "#30054"
 msgid "Count Per Op"
-msgstr "Antal per operation"
+msgstr "Antal per åtgärd"
 
-#, fuzzy
 msgctxt "#30055"
 msgid "Count Per Op Divider (Overclock)"
-msgstr "Räkning per op-delare (överklockning)"
+msgstr "Delare för antal per operation (överklockning)"
 
 msgctxt "#30056"
 msgid "Analog Deadzone (percent)"
@@ -300,802 +269,797 @@ msgctxt "#30061"
 msgid "Up C Button"
 msgstr "Upp C-knapp"
 
-#, fuzzy
 msgctxt "#30062"
 msgid "Independent C-button Controls"
-msgstr "Oberoende kontroller med C-knapp"
+msgstr "Oberoende kontroller för C-knappar"
 
-#, fuzzy
 msgctxt "#30063"
 msgid "Player 1 Pak"
-msgstr "Spelare 1 Pak"
+msgstr "Pak för spelare 1"
 
-#, fuzzy
 msgctxt "#30064"
 msgid "Player 2 Pak"
-msgstr "Spelare 2 Pak"
+msgstr "Pak för spelare 2"
 
-#, fuzzy
 msgctxt "#30065"
 msgid "Player 3 Pak"
-msgstr "Spelare 3 Pak"
+msgstr "Pak för spelare 3"
 
-#, fuzzy
 msgctxt "#30066"
 msgid "Player 4 Pak"
-msgstr "Spelare 4 Pak"
+msgstr "Pak för spelare 4"
 
 msgctxt "#30067"
 msgid "Enable color buffer copy from RDRAM"
-msgstr ""
+msgstr "Aktivera kopiering av färgbuffert från RDRAM"
 
 msgctxt "#30068"
 msgid "(ParaLLEl-RDP) Synchronous RDP"
-msgstr ""
+msgstr "(ParaLLEl-RDP) Synkron RDP"
 
 msgctxt "#30069"
 msgid "(ParaLLEl-RDP) Crop overscan"
-msgstr ""
+msgstr "(ParaLLEl-RDP) Beskär överskanning"
 
 msgctxt "#30070"
 msgid "(ParaLLEl-RDP) VI Divot filter"
-msgstr ""
+msgstr "(ParaLLEl-RDP) VI Divot-filter"
 
 msgctxt "#30071"
 msgid "(ParaLLEl-RDP) VI Gamma dither"
-msgstr ""
+msgstr "(ParaLLEl-RDP) VI-gammadithering"
 
 msgctxt "#30072"
 msgid "(ParaLLEl-RDP) VI anti-aliasing"
-msgstr ""
+msgstr "(ParaLLEl-RDP) VI-kantutjämning"
 
 msgctxt "#30073"
 msgid "(ParaLLEl-RDP) VI bilinear"
-msgstr ""
+msgstr "(ParaLLEl-RDP) VI-bilinjär"
 
 msgctxt "#30074"
 msgid "(ParaLLEl-RDP) VI dither filter"
-msgstr ""
+msgstr "(ParaLLEl-RDP) VI-ditherfilter"
 
 msgctxt "#30075"
 msgid "(ParaLLEl-RDP) Upscaling factor (restart)"
-msgstr ""
+msgstr "(ParaLLEl-RDP) Uppskalningsfaktor (kräver omstart)"
 
 msgctxt "#30076"
 msgid "(ParaLLEl-RDP) SSAA framebuffer effects (restart)"
-msgstr ""
+msgstr "(ParaLLEl-RDP) SSAA-effekter för bildbuffert (kräver omstart)"
 
 msgctxt "#30077"
 msgid "(ParaLLEl-RDP) Dither SSAA framebuffer effects (restart)"
-msgstr ""
+msgstr "(ParaLLEl-RDP) Dither-SSAA-effekter för bildbuffert (kräver omstart)"
 
 msgctxt "#30078"
 msgid "(ParaLLEl-RDP) Downsampling factor"
-msgstr ""
+msgstr "(ParaLLEl-RDP) Nedsamplingsfaktor"
 
 msgctxt "#30079"
 msgid "(ParaLLEl-RDP) Native texture LOD"
-msgstr ""
+msgstr "(ParaLLEl-RDP) Inhemsk textur-LOD"
 
 msgctxt "#30080"
 msgid "(ParaLLEl-RDP) Native resolution TEX_RECT"
-msgstr ""
+msgstr "(ParaLLEl-RDP) TEX_RECT med inhemsk upplösning"
 
 msgctxt "#30081"
 msgid "(ParaLLEl-RDP) Deinterlacing method"
-msgstr ""
+msgstr "(ParaLLEl-RDP) Avflätningsmetod"
 
 msgctxt "#30082"
 msgid "VI Overlay"
-msgstr ""
+msgstr "VI-överlägg"
 
 msgctxt "#30083"
 msgid "Thread sync level"
-msgstr ""
+msgstr "Trådsynkroniseringsnivå"
 
 msgctxt "#30084"
 msgid "Multi-threading"
-msgstr ""
+msgstr "Flertrådning"
 
 msgctxt "#30085"
 msgid "Hide overscan"
-msgstr ""
+msgstr "Dölj överskanning"
 
 msgctxt "#30086"
 msgid "Select a RDP Plugin, use Angrylion (if available) for best compability, GLideN64 for Performance"
-msgstr ""
+msgstr "Välj en RDP-insticksmodul; använd Angrylion (om tillgänglig) för bäst kompatibilitet, GLideN64 för prestanda"
 
 msgctxt "#30087"
 msgid "Angrylion"
-msgstr ""
+msgstr "Angrylion"
 
 msgctxt "#30088"
 msgid "ParaLLEl-RDP"
-msgstr ""
+msgstr "ParaLLEl-RDP"
 
 msgctxt "#30089"
 msgid "GLideN64"
-msgstr ""
+msgstr "GLideN64"
 
 msgctxt "#30090"
 msgid "Select the R4300 CPU Backend, use Interpreter for best compability"
-msgstr ""
+msgstr "Välj R4300-CPU-bakände; använd tolk för bäst kompatibilitet"
 
 msgctxt "#30091"
 msgid "Pure Interpreter"
-msgstr ""
+msgstr "Ren tolk"
 
 msgctxt "#30092"
 msgid "Cached Interpreter"
-msgstr ""
+msgstr "Cachad tolk"
 
 msgctxt "#30093"
 msgid "Dynarec"
-msgstr ""
+msgstr "Dynarec"
 
 msgctxt "#30094"
 msgid "Select a RSP Plugin, use HLE for best performance, ParaLLEl for best LLE Performance and CXD4 as LLE fallback"
-msgstr ""
+msgstr "Välj en RSP-insticksmodul; använd HLE för bäst prestanda, ParaLLEl för bäst LLE-prestanda och CXD4 som LLE-reserv"
 
 msgctxt "#30095"
 msgid "ParaLLEl"
-msgstr ""
+msgstr "ParaLLEl"
 
 msgctxt "#30096"
 msgid "CXD4"
-msgstr ""
+msgstr "CXD4"
 
 msgctxt "#30097"
 msgid "HLE"
-msgstr ""
+msgstr "HLE"
 
 msgctxt "#30098"
 msgid "Enable Frame duplication to improve smoothing on low-end. Different from frameskip."
-msgstr ""
+msgstr "Aktivera bildruteduplicering för att förbättra jämnheten på enklare maskinvara. Skiljer sig från bildrutehoppning."
 
 msgctxt "#30099"
 msgid "Fullspeed will enforce Count per Op 1 and FBEmu settings, this will break some games!"
-msgstr ""
+msgstr "Full hastighet tvingar inställningarna Antal per operation 1 och FBEmu, vilket kan förstöra vissa spel!"
 
 msgctxt "#30100"
 msgid "Select a VI Refresh clock, Auto does not impact behaviour, other values override CountPerScanline."
-msgstr ""
+msgstr "Välj en VI-uppdateringsklocka. Automatiskt påverkar inte beteendet; andra värden åsidosätter AntalPerSkanningsrad."
 
 msgctxt "#30101"
 msgid "Force disable Expansion Pak (might improve performance for some games while reducing emulation accuracy, will break games that require it)."
-msgstr ""
+msgstr "Tvinga inaktivering av Expansion Pak (kan förbättra prestandan för vissa spel men minska emuleringsnoggrannheten; förstör spel som kräver den)."
 
 msgctxt "#30102"
 msgid "(HACK) Ignore emulated TLB Exceptions, this might fix some broken romhacks. This option might be removed in the future."
-msgstr ""
+msgstr "(HACK) Ignorera emulerade TLB-undantag. Detta kan rätta vissa felaktiga ROM-hack. Alternativet kan tas bort i framtiden."
 
 msgctxt "#30103"
 msgid "Don't Ignore"
-msgstr ""
+msgstr "Ignorera inte"
 
 msgctxt "#30104"
 msgid "Ignore TLB Exceptions if not using TLB"
-msgstr ""
+msgstr "Ignorera TLB-undantag om TLB inte används"
 
 msgctxt "#30105"
 msgid "Always Ignore TLB Exceptions"
-msgstr ""
+msgstr "Ignorera alltid TLB-undantag"
 
 msgctxt "#30106"
 msgid "Count per Op is used to approximate the Counter reg, 0 will use the embedded Database (or default to 2). Changing this will break stuff!"
-msgstr ""
+msgstr "Antal per operation används för att ungefärligt efterlikna räknarregistret. 0 använder den inbäddade databasen (eller 2 som standard). En ändring förstör saker!"
 
 msgctxt "#30107"
 msgid "Denominator for Count per Op (allowing sub-1 Count per Op in practice). Changing this can break stuff!"
-msgstr ""
+msgstr "Nämnare för antal per operation (vilket i praktiken tillåter antal per operation under 1). En ändring kan förstöra saker!"
 
 msgctxt "#30108"
 msgid "Pak/Controller Options"
-msgstr ""
+msgstr "Alternativ för Pak/handkontroll"
 
 msgctxt "#30109"
 msgid "Configure Core Pak/Controller Options."
-msgstr ""
+msgstr "Konfigurera alternativ för kärnans Pak/handkontroll."
 
 msgctxt "#30110"
 msgid "Size of the non responsive area around an analog stick."
-msgstr ""
+msgstr "Storlek på det okänsliga området runt en analogspak."
 
 msgctxt "#30111"
 msgid "Adjust how far the stick needs to be moved to reach its max value."
-msgstr ""
+msgstr "Justerar hur långt spaken måste flyttas för att nå sitt högsta värde."
 
 msgctxt "#30112"
 msgid "Select Right C Button mapping."
-msgstr ""
+msgstr "Välj mappning för höger C-knapp."
 
 msgctxt "#30113"
 msgid "Select Left C Button mapping."
-msgstr ""
+msgstr "Välj mappning för vänster C-knapp."
 
 msgctxt "#30114"
 msgid "Select Down C Button mapping."
-msgstr ""
+msgstr "Välj mappning för nedre C-knapp."
 
 msgctxt "#30115"
 msgid "Select Up C Button mapping."
-msgstr ""
+msgstr "Välj mappning för övre C-knapp."
 
 msgctxt "#30116"
 msgid "Use an alternate control scheme, useful for some 3rdparty controllers."
-msgstr ""
+msgstr "Använd ett alternativt styrschema, användbart för vissa handkontroller från tredje part."
 
 msgctxt "#30117"
 msgid "Select Player 1 Controller Pak."
-msgstr ""
+msgstr "Välj handkontroll-Pak för spelare 1."
 
 msgctxt "#30118"
 msgid "Select Player 2 Controller Pak."
-msgstr ""
+msgstr "Välj handkontroll-Pak för spelare 2."
 
 msgctxt "#30119"
 msgid "Select Player 3 Controller Pak."
-msgstr ""
+msgstr "Välj handkontroll-Pak för spelare 3."
 
 msgctxt "#30120"
 msgid "Select Player 4 Controller Pak."
-msgstr ""
+msgstr "Välj handkontroll-Pak för spelare 4."
 
 msgctxt "#30121"
 msgid "Configure GLideN64 Options."
-msgstr ""
+msgstr "Konfigurera GLideN64-alternativ."
 
 msgctxt "#30122"
 msgid "(GLN64) Select Render Viewport dimensions (4:3)."
-msgstr ""
+msgstr "(GLN64) Välj dimensioner för återgivningsvisningsyta (4:3)."
 
 msgctxt "#30123"
 msgid "(GLN64) Select Render Viewport dimensions for wider resolutions."
-msgstr ""
+msgstr "(GLN64) Välj renderingsytans mått för bredare upplösningar."
 
 msgctxt "#30124"
 msgid "640x360 (16:9)"
-msgstr ""
+msgstr "640x360 (16:9)"
 
 msgctxt "#30125"
 msgid "960x540 (16:9)"
-msgstr ""
+msgstr "960x540 (16:9)"
 
 msgctxt "#30126"
 msgid "1280x720 (16:9)"
-msgstr ""
+msgstr "1280x720 (16:9)"
 
 msgctxt "#30127"
 msgid "1706x720 (64:27)"
-msgstr ""
+msgstr "1706x720 (64:27)"
 
 msgctxt "#30128"
 msgid "1366x768 (16:9)"
-msgstr ""
+msgstr "1366x768 (16:9)"
 
 msgctxt "#30129"
 msgid "1920x810 (64:27)"
-msgstr ""
+msgstr "1920x810 (64:27)"
 
 msgctxt "#30130"
 msgid "1920x1080 (16:9)"
-msgstr ""
+msgstr "1920x1080 (16:9)"
 
 msgctxt "#30131"
 msgid "2560x1080 (64:27)"
-msgstr ""
+msgstr "2560x1080 (64:27)"
 
 msgctxt "#30132"
 msgid "2560x1440 (16:9)"
-msgstr ""
+msgstr "2560x1440 (16:9)"
 
 msgctxt "#30133"
 msgid "3414x1440 (64:27)"
-msgstr ""
+msgstr "3414x1440 (64:27)"
 
 msgctxt "#30134"
 msgid "3840x2160 (16:9)"
-msgstr ""
+msgstr "3840x2160 (16:9)"
 
 msgctxt "#30135"
 msgid "4096x2160 (17:9)"
-msgstr ""
+msgstr "4096x2160 (17:9)"
 
 msgctxt "#30136"
 msgid "5120x1440 (32:9)"
-msgstr ""
+msgstr "5120x1440 (32:9)"
 
 msgctxt "#30137"
 msgid "5120x2160 (64:27)"
-msgstr ""
+msgstr "5120x2160 (64:27)"
 
 msgctxt "#30138"
 msgid "7680x3240 (64:27)"
-msgstr ""
+msgstr "7680x3240 (64:27)"
 
 msgctxt "#30139"
 msgid "7680x4320 (16:9)"
-msgstr ""
+msgstr "7680x4320 (16:9)"
 
 msgctxt "#30140"
 msgid "7680x2160 (32:9)"
-msgstr ""
+msgstr "7680x2160 (32:9)"
 
 msgctxt "#30141"
 msgid "10240x4320 (64:27)"
-msgstr ""
+msgstr "10240x4320 (64:27)"
 
 msgctxt "#30142"
 msgid "(GLN64) Select the aspect ratio. 'adjusted' means essentially Widescreen hacks."
-msgstr ""
+msgstr "(GLN64) Välj bildförhållande. \"Justerat\" avser i praktiken bredbildshack."
 
 msgctxt "#30143"
 msgid "Original (4:3)"
-msgstr ""
+msgstr "Original (4:3)"
 
 msgctxt "#30144"
 msgid "Wide (Stretched)"
-msgstr ""
+msgstr "Bred (utsträckt)"
 
 msgctxt "#30145"
 msgid "Wide (Adjusted)"
-msgstr ""
+msgstr "Bred (justerad)"
 
 msgctxt "#30146"
 msgid "(GLN64) Render at N times the native resolution."
-msgstr ""
+msgstr "(GLN64) Rendera med N gånger den ursprungliga upplösningen."
 
 msgctxt "#30147"
 msgid "Disabled"
-msgstr ""
+msgstr "Inaktiverad"
 
 msgctxt "#30148"
 msgid "1x"
-msgstr ""
+msgstr "1x"
 
 msgctxt "#30149"
 msgid "2x"
-msgstr ""
+msgstr "2x"
 
 msgctxt "#30150"
 msgid "3x"
-msgstr ""
+msgstr "3x"
 
 msgctxt "#30151"
 msgid "4x"
-msgstr ""
+msgstr "4x"
 
 msgctxt "#30152"
 msgid "5x"
-msgstr ""
+msgstr "5x"
 
 msgctxt "#30153"
 msgid "6x"
-msgstr ""
+msgstr "6x"
 
 msgctxt "#30154"
 msgid "7x"
-msgstr ""
+msgstr "7x"
 
 msgctxt "#30155"
 msgid "8x"
-msgstr ""
+msgstr "8x"
 
 msgctxt "#30156"
 msgid "(GLN64) Use the Threaded Renderer, improves performance but increases input lag."
-msgstr ""
+msgstr "(GLN64) Använd den trådade renderaren. Det förbättrar prestandan men ökar inmatningsfördröjningen."
 
 msgctxt "#30157"
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiverad"
 
 msgctxt "#30158"
 msgid "(GLN64) Select a Bilinear filtering method, 3point is the original system specific way."
-msgstr ""
+msgstr "(GLN64) Välj metod för bilinjär filtrering. 3-punktsmetoden är det ursprungliga systemspecifika sättet."
 
 msgctxt "#30159"
 msgid "(GLN64) Hybrid integer scaling filter, this can be slow with low-end GPUs."
-msgstr ""
+msgstr "(GLN64) Hybridfilter för heltalsskalning. Det kan vara långsamt med enklare grafikprocessorer."
 
 msgctxt "#30160"
 msgid "(GLN64) Applies dithering pattern to output image."
-msgstr ""
+msgstr "(GLN64) Tillämpar ett dithermönster på utdatabilden."
 
 msgctxt "#30161"
 msgid "(GLN64) Dither with color quantization."
-msgstr ""
+msgstr "(GLN64) Använd dither med färgkvantisering."
 
 msgctxt "#30162"
 msgid "(GLN64) Dithering mode for image in RDRAM."
-msgstr ""
+msgstr "(GLN64) Ditherläge för bilden i RDRAM."
 
 msgctxt "#30163"
 msgid "Magic Square"
-msgstr ""
+msgstr "Magisk kvadrat"
 
 msgctxt "#30164"
 msgid "Blue Noise"
-msgstr ""
+msgstr "Blått brus"
 
 msgctxt "#30165"
 msgid "(GLN64) Anti-Aliasing level (0 = disabled)."
-msgstr ""
+msgstr "(GLN64) Kantutjämningsnivå (0 = inaktiverad)."
 
 msgctxt "#30166"
 msgid "(GLN64) Fast Approximate Anti-Aliasing shader, moderately blur textures (0 = disabled)."
-msgstr ""
+msgstr "(GLN64) Snabb approximativ kantutjämningsshader, suddar ut texturer måttligt (0 = inaktiverad)."
 
 msgctxt "#30167"
 msgid "(GLN64) Calculate per-pixel Level Of Details to select texture mip levels and blend them with each other using LOD fraction."
-msgstr ""
+msgstr "(GLN64) Beräkna detaljnivå per bildpunkt för att välja texturernas mipnivåer och blanda dem med varandra med LOD-andelen."
 
 msgctxt "#30168"
 msgid "(GLN64) Frame/depth buffer emulation. Disabling it can shorten input lag for particular games, but also break some special effects."
-msgstr ""
+msgstr "(GLN64) Emulering av bild-/djupbuffert. Om den inaktiveras kan inmatningsfördröjningen bli kortare i vissa spel, men särskilda effekter kan sluta fungera."
 
 msgctxt "#30169"
 msgid "(GLN64) Copy auxiliary buffers to RDRAM (fixes some Game artifacts like Paper Mario Intro)."
-msgstr ""
+msgstr "(GLN64) Kopiera hjälpbuffertar till RDRAM (åtgärdar vissa spelartefakter, till exempel Paper Mario-introt)."
 
 msgctxt "#30170"
 msgid "(GLN64) Color buffer copy to RDRAM (Off will trade compatibility for Performance)."
-msgstr ""
+msgstr "(GLN64) Kopiering av färgbuffert till RDRAM (av byter kompatibilitet mot prestanda)."
 
 msgctxt "#30171"
 msgid "DoubleBuffer"
-msgstr ""
+msgstr "Dubbelbuffert"
 
 msgctxt "#30172"
 msgid "TripleBuffer"
-msgstr ""
+msgstr "Trippelbuffert"
 
 msgctxt "#30173"
 msgid "(GLN64) Enable color buffer copy from RDRAM."
-msgstr ""
+msgstr "(GLN64) Aktivera kopiering av färgbuffert från RDRAM."
 
 msgctxt "#30174"
 msgid "(GLN64) Depth buffer copy to RDRAM (Off will trade compatibility for Performance)."
-msgstr ""
+msgstr "(GLN64) Kopiering av djupbuffert till RDRAM (av byter kompatibilitet mot prestanda)."
 
 msgctxt "#30175"
 msgid "(GLN64) Render backgrounds mode (HLE only). One piece (fast), Stripped (precise)."
-msgstr ""
+msgstr "(GLN64) Renderingsläge för bakgrunder (endast HLE). I ett stycke (snabbt), remsor (precist)."
 
 msgctxt "#30176"
 msgid "(GLN64) Standard per-vertex lighting when disabled. Slightly different rendering."
-msgstr ""
+msgstr "(GLN64) Standardbelysning per hörnpunkt när den är inaktiverad. Något annorlunda rendering."
 
 msgctxt "#30177"
 msgid "(GLN64) Make texrect coordinates continuous to avoid black lines between them."
-msgstr ""
+msgstr "(GLN64) Gör texrect-koordinater sammanhängande för att undvika svarta linjer mellan dem."
 
 msgctxt "#30178"
 msgid "(GLN64) Enables inaccurate texture coordinate calculations. This can improve performance and texture pack compatibity at the cost of accuracy."
-msgstr ""
+msgstr "(GLN64) Aktiverar oprecisa beräkningar av texturkoordinater. Det kan förbättra prestandan och kompatibiliteten med texturpaket på bekostnad av precisionen."
 
 msgctxt "#30179"
 msgid "(GLN64) Bound texture rectangle texture coordinates to the values they take in native resolutions. It prevents garbage due to fetching out of texture bounds, but can result in hard edges."
-msgstr ""
+msgstr "(GLN64) Begränsa texturkoordinater för texturrektanglar till deras värden vid ursprungliga upplösningar. Det förhindrar skräp vid hämtning utanför texturgränserna, men kan ge hårda kanter."
 
 msgctxt "#30180"
 msgid "(GLN64) Render 2D texrects in native resolution to fix misalignment between parts of 2D image (example: Mario Kart driver selection portraits)."
-msgstr ""
+msgstr "(GLN64) Rendera 2D-texrects i ursprunglig upplösning för att rätta till felpassning mellan delar av 2D-bilden (till exempel porträtt vid förarvalet i Mario Kart)."
 
 msgctxt "#30181"
 msgid "(GLN64) Do not use shaders to emulate N64 blending modes. Works faster on slow GPU. Can cause glitches."
-msgstr ""
+msgstr "(GLN64) Använd inte shaderprogram för att emulera N64:s blandningslägen. Det går snabbare på långsamma grafikprocessorer men kan orsaka grafikfel."
 
 msgctxt "#30182"
 msgid "(GLN64) Enable writing of fragment depth. Some mobile GPUs do not support it, thus it's optional. Leave enabled."
-msgstr ""
+msgstr "(GLN64) Aktivera skrivning av fragmentdjup. Vissa mobila grafikprocessorer stöder det inte, därför är det valfritt. Låt det vara aktiverat."
 
 msgctxt "#30183"
 msgid "(GLN64) Enable N64 depth compare instead of OpenGL standard one. Experimental, Fast mode will have more glitches."
-msgstr ""
+msgstr "(GLN64) Aktivera N64:s djupjämförelse i stället för OpenGL:s standard. Experimentellt; snabbt läge ger fler grafikfel."
 
 msgctxt "#30184"
 msgid "Off"
-msgstr ""
+msgstr "Av"
 
 msgctxt "#30185"
 msgid "Fast"
-msgstr ""
+msgstr "Snabb"
 
 msgctxt "#30186"
 msgid "(GLN64) Use persistent storage for compiled shaders."
-msgstr ""
+msgstr "(GLN64) Använd beständig lagring för kompilerade shaderprogram."
 
 msgctxt "#30187"
 msgid "(GLN64) Save texture cache to hard disk."
-msgstr ""
+msgstr "(GLN64) Spara texturcachen på hårddisken."
 
 msgctxt "#30188"
 msgid "(GLN64) Crop black borders from the overscan region around the screen."
-msgstr ""
+msgstr "(GLN64) Beskär svarta kanter från överskanningsområdet runt skärmen."
 
 msgctxt "#30189"
 msgid "(GLN64) Overscan Top Offset."
-msgstr ""
+msgstr "(GLN64) Förskjutning för övre överskanningskant."
 
 msgctxt "#30190"
 msgid "(GLN64) Overscan Left Offset."
-msgstr ""
+msgstr "(GLN64) Förskjutning för vänster överskanningskant."
 
 msgctxt "#30191"
 msgid "(GLN64) Overscan Right Offset."
-msgstr ""
+msgstr "(GLN64) Förskjutning för höger överskanningskant."
 
 msgctxt "#30192"
 msgid "(GLN64) Overscan Bottom Offset."
-msgstr ""
+msgstr "(GLN64) Förskjutning för nedre överskanningskant."
 
 msgctxt "#30193"
 msgid "(GLN64) Limit High-Res textures size in VRAM (in MB, 0 = no limit)."
-msgstr ""
+msgstr "(GLN64) Begränsa storleken på högupplösta texturer i VRAM (i MB, 0 = ingen gräns)."
 
 msgctxt "#30194"
 msgid "(GLN64) Set Max texture cache size (in elements). Reduce it if you experience black textures leading to a crash."
-msgstr ""
+msgstr "(GLN64) Ange maximal storlek på texturcachen (i element). Minska den om du får svarta texturer som leder till en krasch."
 
 msgctxt "#30195"
 msgid "(GLN64) Select Texture Filtering mode."
-msgstr ""
+msgstr "(GLN64) Välj läge för texturfiltrering."
 
 msgctxt "#30196"
 msgid "(GLN64) Various Texture Filters ('As-Is' will just cache)."
-msgstr ""
+msgstr "(GLN64) Olika texturfilter (\"Som den är\" använder bara cache)."
 
 msgctxt "#30197"
 msgid "(GLN64) Ignore filtering for Background Textures."
-msgstr ""
+msgstr "(GLN64) Ignorera filtrering för bakgrundstexturer."
 
 msgctxt "#30198"
 msgid "(GLN64) Enable High-Res Texture packs if available."
-msgstr ""
+msgstr "(GLN64) Aktivera högupplösta texturpaket om de finns."
 
 msgctxt "#30199"
 msgid "(GLN64) Compress created texture caches."
-msgstr ""
+msgstr "(GLN64) Komprimera skapade texturcachar."
 
 msgctxt "#30200"
 msgid "(GLN64) This should be enabled unless it's a old RICE Texture pack."
-msgstr ""
+msgstr "(GLN64) Det här bör vara aktiverat, såvida det inte är ett gammalt RICE-texturpaket."
 
 msgctxt "#30201"
 msgid "(GLN64) Use in addition to Texture cache, will use lazy loading and trade memory consumption against loading speeds."
-msgstr ""
+msgstr "(GLN64) Använd utöver texturcachen. Det använder fördröjd inläsning och byter minnesförbrukning mot inläsningshastighet."
 
 msgctxt "#30202"
 msgid "(GLN64) Use an alternative method for High-Res paletted textures CRC calculations."
-msgstr ""
+msgstr "(GLN64) Använd en alternativ metod för CRC-beräkningar för högupplösta palettbaserade texturer."
 
 msgctxt "#30203"
 msgid "(GLN64) Use in addition to High-Res textures, will use lazy loading and trade memory consumption against loading speeds."
-msgstr ""
+msgstr "(GLN64) Använd utöver högupplösta texturer. Det använder fördröjd inläsning och byter minnesförbrukning mot inläsningshastighet."
 
 msgctxt "#30204"
 msgid "(GLN64) Specifies INI Settings behaviour. This should really only contain essential options. Changing this can and will break ROM's, if the correct options aren't set manually. Some options may only be set via INI (fbInfoDisabled)."
-msgstr ""
+msgstr "(GLN64) Anger hur INI-inställningar fungerar. Den bör egentligen bara innehålla grundläggande alternativ. Ändringar kan göra att ROM:ar slutar fungera om korrekta alternativ inte ställs in manuellt. Vissa alternativ kan bara ställas in via INI (fbInfoDisabled)."
 
 msgctxt "#30205"
 msgid "Prioritize INI over Core Options"
-msgstr ""
+msgstr "Prioritera INI före kärnalternativ"
 
 msgctxt "#30206"
 msgid "Prioritize Core Options over INI"
-msgstr ""
+msgstr "Prioritera kärnalternativ före INI"
 
 msgctxt "#30207"
 msgid "Disable INI"
-msgstr ""
+msgstr "Inaktivera INI"
 
 msgctxt "#30208"
 msgid "Configure ParaLLEl-RDP Options."
-msgstr ""
+msgstr "Konfigurera ParaLLEl-RDP-alternativ."
 
 msgctxt "#30209"
 msgid "Enable full accuracy for CPU accessed frame buffers."
-msgstr ""
+msgstr "Aktivera full precision för bildbuffertar som används av processorn."
 
 msgctxt "#30210"
 msgid "Crop pixels around edge of screen."
-msgstr ""
+msgstr "Beskär bildpunkter vid skärmens kant."
 
 msgctxt "#30211"
 msgid "Allow VI divot filter, cleans up stray black pixels."
-msgstr ""
+msgstr "Tillåt VI:s divotfilter, som rensar bort enstaka svarta bildpunkter."
 
 msgctxt "#30212"
 msgid "Allow VI gamma dither."
-msgstr ""
+msgstr "Tillåt VI:s gammadiother."
 
 msgctxt "#30213"
 msgid "Allow VI anti-aliased fetch filter, smooths polygon edges."
-msgstr ""
+msgstr "Tillåt VI:s kantutjämnade hämtningsfilter, som mjukar upp polygonkanter."
 
 msgctxt "#30214"
 msgid "Allow VI bilinear scaling on scanout."
-msgstr ""
+msgstr "Tillåt VI:s bilinjär skalning vid utmatning."
 
 msgctxt "#30215"
 msgid "Allow VI de-dither filter, recovers significant color depth."
-msgstr ""
+msgstr "Tillåt VI:s avditherfilter, som återställer betydande färgdjup."
 
 msgctxt "#30216"
 msgid "Apply internal upscaling factor."
-msgstr ""
+msgstr "Tillämpa intern uppskalningsfaktor."
 
 msgctxt "#30217"
 msgid "Super sample framebuffer effects. May introduce artifacts."
-msgstr ""
+msgstr "Supersampla bildbufferteffekter. Kan ge artefakter."
 
 msgctxt "#30218"
 msgid "Dither super sampled framebuffer effects."
-msgstr ""
+msgstr "Dithra supersamplade bildbufferteffekter."
 
 msgctxt "#30219"
 msgid "Downscales output after VI, equivalent to SSAA."
-msgstr ""
+msgstr "Nedskalar utdata efter VI, motsvarar SSAA."
 
 msgctxt "#30220"
 msgid "Use native texture LOD computation when upscaling, effectively a LOD bias."
-msgstr ""
+msgstr "Använd ursprunglig LOD-beräkning för texturer vid uppskalning, i praktiken en LOD-bias."
 
 msgctxt "#30221"
 msgid "TEX_RECT primitives should generally be rendered at native resolution to avoid seams."
-msgstr ""
+msgstr "TEX_RECT-primitiver bör i allmänhet renderas i ursprunglig upplösning för att undvika skarvar."
 
 msgctxt "#30222"
 msgid "Weave should only be used with 1x scaling factor and special CRT shaders."
-msgstr ""
+msgstr "Weave bör endast användas med skalningsfaktorn 1x och särskilda CRT-shaderprogram."
 
 msgctxt "#30223"
 msgid "Configure Angrylion Options."
-msgstr ""
+msgstr "Konfigurera Angrylion-alternativ."
 
 msgctxt "#30224"
 msgid "(AL) Select VI Overlay filtering. 'Filtered' is the original system rendering."
-msgstr ""
+msgstr "(AL) Välj VI-överläggsfiltrering. \"Filtrerad\" är det ursprungliga systemets rendering."
 
 msgctxt "#30225"
 msgid "(AL) Select Sync level (trades accuracy for performance)."
-msgstr ""
+msgstr "(AL) Välj synkroniseringsnivå (byter precision mot prestanda)."
 
 msgctxt "#30226"
 msgid "(AL) Default 'all threads' is prefered to have it match your Physical CPU Core count. '1' should behave as the original angrylion, possibly fixing some bugs."
-msgstr ""
+msgstr "(AL) Standardvärdet \"alla trådar\" bör föredras för att motsvara antalet fysiska processorkärnor. \"1\" bör fungera som ursprungliga angrylion och kan åtgärda vissa fel."
 
 msgctxt "#30227"
 msgid "(AL) Hide overscan borders."
-msgstr ""
+msgstr "(AL) Dölj överskanningskanter."
 
 msgctxt "#30228"
 msgid "1500"
-msgstr ""
+msgstr "1500"
 
 msgctxt "#30229"
 msgid "2200"
-msgstr ""
+msgstr "2200"
 
 msgctxt "#30230"
 msgid "memory"
-msgstr ""
+msgstr "minne"
 
 msgctxt "#30231"
 msgid "rumble"
-msgstr ""
+msgstr "rumble"
 
 msgctxt "#30232"
 msgid "transfer"
-msgstr ""
+msgstr "överföring"
 
 msgctxt "#30233"
 msgid "Bayer"
-msgstr ""
+msgstr "Bayer"
 
 msgctxt "#30234"
 msgid "Sync"
-msgstr ""
+msgstr "Synkronisering"
 
 msgctxt "#30235"
 msgid "Software"
-msgstr ""
+msgstr "Programvara"
 
 msgctxt "#30236"
 msgid "FromMem"
-msgstr ""
+msgstr "Från minne"
 
 msgctxt "#30237"
 msgid "Force"
-msgstr ""
+msgstr "Tvinga"
 
 msgctxt "#30238"
 msgid "Unoptimized"
-msgstr ""
+msgstr "Ooptimerad"
 
 msgctxt "#30239"
 msgid "Optimized"
-msgstr ""
+msgstr "Optimerad"
 
 msgctxt "#30240"
 msgid "Compatible"
-msgstr ""
+msgstr "Kompatibel"
 
 msgctxt "#30241"
 msgid "Smooth filtering 1"
-msgstr ""
+msgstr "Mjuk filtrering 1"
 
 msgctxt "#30242"
 msgid "Smooth filtering 2"
-msgstr ""
+msgstr "Mjuk filtrering 2"
 
 msgctxt "#30243"
 msgid "Smooth filtering 3"
-msgstr ""
+msgstr "Mjuk filtrering 3"
 
 msgctxt "#30244"
 msgid "Smooth filtering 4"
-msgstr ""
+msgstr "Mjuk filtrering 4"
 
 msgctxt "#30245"
 msgid "Sharp filtering 1"
-msgstr ""
+msgstr "Skarp filtrering 1"
 
 msgctxt "#30246"
 msgid "Sharp filtering 2"
-msgstr ""
+msgstr "Skarp filtrering 2"
 
 msgctxt "#30247"
 msgid "As Is"
-msgstr ""
+msgstr "Som den är"
 
 msgctxt "#30248"
 msgid "X2"
-msgstr ""
+msgstr "X2"
 
 msgctxt "#30249"
 msgid "X2SAI"
-msgstr ""
+msgstr "X2SAI"
 
 msgctxt "#30250"
 msgid "HQ2X"
-msgstr ""
+msgstr "HQ2X"
 
 msgctxt "#30251"
 msgid "HQ2XS"
-msgstr ""
+msgstr "HQ2XS"
 
 msgctxt "#30252"
 msgid "LQ2X"
-msgstr ""
+msgstr "LQ2X"
 
 msgctxt "#30253"
 msgid "LQ2XS"
-msgstr ""
+msgstr "LQ2XS"
 
 msgctxt "#30254"
 msgid "HQ4X"
-msgstr ""
+msgstr "HQ4X"
 
 msgctxt "#30255"
 msgid "2xBRZ"
-msgstr ""
+msgstr "2xBRZ"
 
 msgctxt "#30256"
 msgid "3xBRZ"
-msgstr ""
+msgstr "3xBRZ"
 
 msgctxt "#30257"
 msgid "4xBRZ"
-msgstr ""
+msgstr "4xBRZ"
 
 msgctxt "#30258"
 msgid "5xBRZ"
-msgstr ""
+msgstr "5xBRZ"
 
 msgctxt "#30259"
 msgid "6xBRZ"
-msgstr ""
+msgstr "6xBRZ"
 
 #~ msgctxt "#30000"
 #~ msgid "Settings"

@@ -293,62 +293,6 @@ msgctxt "#30067"
 msgid "Enable color buffer copy from RDRAM"
 msgstr "启用从 RDRAM 复制颜色缓冲区"
 
-msgctxt "#30068"
-msgid "(ParaLLEl-RDP) Synchronous RDP"
-msgstr "(ParaLLEl-RDP) 同步 RDP 渲染"
-
-msgctxt "#30069"
-msgid "(ParaLLEl-RDP) Crop overscan"
-msgstr "(ParaLLEl-RDP) 裁剪过扫描区域"
-
-msgctxt "#30070"
-msgid "(ParaLLEl-RDP) VI Divot filter"
-msgstr "(ParaLLEl-RDP) VI 凹陷修正滤镜"
-
-msgctxt "#30071"
-msgid "(ParaLLEl-RDP) VI Gamma dither"
-msgstr "(ParaLLEl-RDP) VI 伽马抖动"
-
-msgctxt "#30072"
-msgid "(ParaLLEl-RDP) VI anti-aliasing"
-msgstr "(ParaLLEl-RDP) VI 抗锯齿"
-
-msgctxt "#30073"
-msgid "(ParaLLEl-RDP) VI bilinear"
-msgstr "(ParaLLEl-RDP) VI 双线性过滤"
-
-msgctxt "#30074"
-msgid "(ParaLLEl-RDP) VI dither filter"
-msgstr "(ParaLLEl-RDP) VI 抖动滤镜"
-
-msgctxt "#30075"
-msgid "(ParaLLEl-RDP) Upscaling factor (restart)"
-msgstr "(ParaLLEl-RDP) 画面放大倍率（需重启）"
-
-msgctxt "#30076"
-msgid "(ParaLLEl-RDP) SSAA framebuffer effects (restart)"
-msgstr "(ParaLLEl-RDP) SSAA 帧缓冲特效（需重启）"
-
-msgctxt "#30077"
-msgid "(ParaLLEl-RDP) Dither SSAA framebuffer effects (restart)"
-msgstr "(ParaLLEl-RDP) 抖动式 SSAA 帧缓冲特效（需重启）"
-
-msgctxt "#30078"
-msgid "(ParaLLEl-RDP) Downsampling factor"
-msgstr "(ParaLLEl-RDP) 画面缩小倍率"
-
-msgctxt "#30079"
-msgid "(ParaLLEl-RDP) Native texture LOD"
-msgstr "(ParaLLEl-RDP) 原生纹理 LOD 层级"
-
-msgctxt "#30080"
-msgid "(ParaLLEl-RDP) Native resolution TEX_RECT"
-msgstr "(ParaLLEl-RDP) 原生分辨率 TEX_RECT"
-
-msgctxt "#30081"
-msgid "(ParaLLEl-RDP) Deinterlacing method"
-msgstr "(ParaLLEl-RDP) 逐行扫描方式"
-
 msgctxt "#30082"
 msgid "VI Overlay"
 msgstr "VI 画面叠加层"
@@ -1060,6 +1004,118 @@ msgstr ""
 msgctxt "#30259"
 msgid "6xBRZ"
 msgstr ""
+
+msgctxt "#30260"
+msgid "Synchronous RDP"
+msgstr "同步 RDP 渲染"
+
+msgctxt "#30261"
+msgid "Crop overscan"
+msgstr "裁剪过扫描区域"
+
+msgctxt "#30262"
+msgid "VI Divot filter"
+msgstr "VI 凹陷修正滤镜"
+
+msgctxt "#30263"
+msgid "VI Gamma dither"
+msgstr "VI 伽马抖动"
+
+msgctxt "#30264"
+msgid "VI anti-aliasing"
+msgstr "VI 抗锯齿"
+
+msgctxt "#30265"
+msgid "VI bilinear"
+msgstr "VI 双线性过滤"
+
+msgctxt "#30266"
+msgid "VI dither filter"
+msgstr "VI 抖动滤镜"
+
+msgctxt "#30267"
+msgid "Upscaling factor (restart)"
+msgstr "画面放大倍率（需重启）"
+
+msgctxt "#30268"
+msgid "SSAA framebuffer effects (restart)"
+msgstr "SSAA 帧缓冲特效（需重启）"
+
+msgctxt "#30269"
+msgid "Dither SSAA framebuffer effects (restart)"
+msgstr "抖动式 SSAA 帧缓冲特效（需重启）"
+
+msgctxt "#30270"
+msgid "Downsampling factor"
+msgstr "画面缩小倍率"
+
+msgctxt "#30271"
+msgid "Native texture LOD"
+msgstr "原生纹理 LOD 层级"
+
+msgctxt "#30272"
+msgid "Native resolution TEX_RECT"
+msgstr "原生分辨率 TEX_RECT"
+
+msgctxt "#30273"
+msgid "Deinterlacing method"
+msgstr "逐行扫描方式"
+
+#~ msgctxt "#30068"
+#~ msgid "(ParaLLEl-RDP) Synchronous RDP"
+#~ msgstr "(ParaLLEl-RDP) 同步 RDP 渲染"
+
+#~ msgctxt "#30069"
+#~ msgid "(ParaLLEl-RDP) Crop overscan"
+#~ msgstr "(ParaLLEl-RDP) 裁剪过扫描区域"
+
+#~ msgctxt "#30070"
+#~ msgid "(ParaLLEl-RDP) VI Divot filter"
+#~ msgstr "(ParaLLEl-RDP) VI 凹陷修正滤镜"
+
+#~ msgctxt "#30071"
+#~ msgid "(ParaLLEl-RDP) VI Gamma dither"
+#~ msgstr "(ParaLLEl-RDP) VI 伽马抖动"
+
+#~ msgctxt "#30072"
+#~ msgid "(ParaLLEl-RDP) VI anti-aliasing"
+#~ msgstr "(ParaLLEl-RDP) VI 抗锯齿"
+
+#~ msgctxt "#30073"
+#~ msgid "(ParaLLEl-RDP) VI bilinear"
+#~ msgstr "(ParaLLEl-RDP) VI 双线性过滤"
+
+#~ msgctxt "#30074"
+#~ msgid "(ParaLLEl-RDP) VI dither filter"
+#~ msgstr "(ParaLLEl-RDP) VI 抖动滤镜"
+
+#~ msgctxt "#30075"
+#~ msgid "(ParaLLEl-RDP) Upscaling factor (restart)"
+#~ msgstr "(ParaLLEl-RDP) 画面放大倍率（需重启）"
+
+#~ msgctxt "#30076"
+#~ msgid "(ParaLLEl-RDP) SSAA framebuffer effects (restart)"
+#~ msgstr "(ParaLLEl-RDP) SSAA 帧缓冲特效（需重启）"
+
+#~ msgctxt "#30077"
+#~ msgid "(ParaLLEl-RDP) Dither SSAA framebuffer effects (restart)"
+#~ msgstr "(ParaLLEl-RDP) 抖动式 SSAA 帧缓冲特效（需重启）"
+
+#~ msgctxt "#30078"
+#~ msgid "(ParaLLEl-RDP) Downsampling factor"
+#~ msgstr "(ParaLLEl-RDP) 画面缩小倍率"
+
+#~ msgctxt "#30079"
+#~ msgid "(ParaLLEl-RDP) Native texture LOD"
+#~ msgstr "(ParaLLEl-RDP) 原生纹理 LOD 层级"
+
+#~ msgctxt "#30080"
+#~ msgid "(ParaLLEl-RDP) Native resolution TEX_RECT"
+#~ msgstr "(ParaLLEl-RDP) 原生分辨率 TEX_RECT"
+
+#~ msgctxt "#30081"
+#~ msgid "(ParaLLEl-RDP) Deinterlacing method"
+#~ msgstr "(ParaLLEl-RDP) 逐行扫描方式"
 
 #~ msgctxt "#30000"
 #~ msgid "Settings"

@@ -293,62 +293,6 @@ msgctxt "#30067"
 msgid "Enable color buffer copy from RDRAM"
 msgstr "Activar copia de buffer de color desde RDRAM"
 
-msgctxt "#30068"
-msgid "(ParaLLEl-RDP) Synchronous RDP"
-msgstr "(ParaLLEl-RDP) RDP Síncrono"
-
-msgctxt "#30069"
-msgid "(ParaLLEl-RDP) Crop overscan"
-msgstr "(ParaLLEl-RDP) Cortar exceso de pantalla"
-
-msgctxt "#30070"
-msgid "(ParaLLEl-RDP) VI Divot filter"
-msgstr "(ParaLLEl-RDP) Filtro VI Divot"
-
-msgctxt "#30071"
-msgid "(ParaLLEl-RDP) VI Gamma dither"
-msgstr "(ParaLLEl-RDP) Difuminado VI Gamma"
-
-msgctxt "#30072"
-msgid "(ParaLLEl-RDP) VI anti-aliasing"
-msgstr "(ParaLLEl-RDP) Anti-aliasing VI"
-
-msgctxt "#30073"
-msgid "(ParaLLEl-RDP) VI bilinear"
-msgstr "(ParaLLEl-RDP) Bilinear VI"
-
-msgctxt "#30074"
-msgid "(ParaLLEl-RDP) VI dither filter"
-msgstr "(ParaLLEl-RDP) Filtro de difuminado VI"
-
-msgctxt "#30075"
-msgid "(ParaLLEl-RDP) Upscaling factor (restart)"
-msgstr "(ParaLLEl-RDP) Factor de reescalado (reinicio)"
-
-msgctxt "#30076"
-msgid "(ParaLLEl-RDP) SSAA framebuffer effects (restart)"
-msgstr "(ParaLLEl-RDP) Efectos framebuffer SSAA (reinicio)"
-
-msgctxt "#30077"
-msgid "(ParaLLEl-RDP) Dither SSAA framebuffer effects (restart)"
-msgstr "(ParaLLEl-RDP) Efectos de Difuminado SSAA (reinicio)"
-
-msgctxt "#30078"
-msgid "(ParaLLEl-RDP) Downsampling factor"
-msgstr "(ParaLLEl-RDP) Factor de reescalado negativo"
-
-msgctxt "#30079"
-msgid "(ParaLLEl-RDP) Native texture LOD"
-msgstr "(ParaLLEl-RDP) Textura LOD nativa"
-
-msgctxt "#30080"
-msgid "(ParaLLEl-RDP) Native resolution TEX_RECT"
-msgstr "(ParaLLEl-RDP) Resolución nativa TEX_RECT"
-
-msgctxt "#30081"
-msgid "(ParaLLEl-RDP) Deinterlacing method"
-msgstr "(ParaLLEl-RDP) Método de desentrelazado"
-
 msgctxt "#30082"
 msgid "VI Overlay"
 msgstr "Superposición VI"
@@ -1060,6 +1004,118 @@ msgstr ""
 msgctxt "#30259"
 msgid "6xBRZ"
 msgstr ""
+
+msgctxt "#30260"
+msgid "Synchronous RDP"
+msgstr "RDP Síncrono"
+
+msgctxt "#30261"
+msgid "Crop overscan"
+msgstr "Cortar exceso de pantalla"
+
+msgctxt "#30262"
+msgid "VI Divot filter"
+msgstr "Filtro VI Divot"
+
+msgctxt "#30263"
+msgid "VI Gamma dither"
+msgstr "Difuminado VI Gamma"
+
+msgctxt "#30264"
+msgid "VI anti-aliasing"
+msgstr "Anti-aliasing VI"
+
+msgctxt "#30265"
+msgid "VI bilinear"
+msgstr "Bilinear VI"
+
+msgctxt "#30266"
+msgid "VI dither filter"
+msgstr "Filtro de difuminado VI"
+
+msgctxt "#30267"
+msgid "Upscaling factor (restart)"
+msgstr "Factor de reescalado (reinicio)"
+
+msgctxt "#30268"
+msgid "SSAA framebuffer effects (restart)"
+msgstr "Efectos framebuffer SSAA (reinicio)"
+
+msgctxt "#30269"
+msgid "Dither SSAA framebuffer effects (restart)"
+msgstr "Efectos de Difuminado SSAA (reinicio)"
+
+msgctxt "#30270"
+msgid "Downsampling factor"
+msgstr "Factor de reescalado negativo"
+
+msgctxt "#30271"
+msgid "Native texture LOD"
+msgstr "Textura LOD nativa"
+
+msgctxt "#30272"
+msgid "Native resolution TEX_RECT"
+msgstr "Resolución nativa TEX_RECT"
+
+msgctxt "#30273"
+msgid "Deinterlacing method"
+msgstr "Método de desentrelazado"
+
+#~ msgctxt "#30068"
+#~ msgid "(ParaLLEl-RDP) Synchronous RDP"
+#~ msgstr "(ParaLLEl-RDP) RDP Síncrono"
+
+#~ msgctxt "#30069"
+#~ msgid "(ParaLLEl-RDP) Crop overscan"
+#~ msgstr "(ParaLLEl-RDP) Cortar exceso de pantalla"
+
+#~ msgctxt "#30070"
+#~ msgid "(ParaLLEl-RDP) VI Divot filter"
+#~ msgstr "(ParaLLEl-RDP) Filtro VI Divot"
+
+#~ msgctxt "#30071"
+#~ msgid "(ParaLLEl-RDP) VI Gamma dither"
+#~ msgstr "(ParaLLEl-RDP) Difuminado VI Gamma"
+
+#~ msgctxt "#30072"
+#~ msgid "(ParaLLEl-RDP) VI anti-aliasing"
+#~ msgstr "(ParaLLEl-RDP) Anti-aliasing VI"
+
+#~ msgctxt "#30073"
+#~ msgid "(ParaLLEl-RDP) VI bilinear"
+#~ msgstr "(ParaLLEl-RDP) Bilinear VI"
+
+#~ msgctxt "#30074"
+#~ msgid "(ParaLLEl-RDP) VI dither filter"
+#~ msgstr "(ParaLLEl-RDP) Filtro de difuminado VI"
+
+#~ msgctxt "#30075"
+#~ msgid "(ParaLLEl-RDP) Upscaling factor (restart)"
+#~ msgstr "(ParaLLEl-RDP) Factor de reescalado (reinicio)"
+
+#~ msgctxt "#30076"
+#~ msgid "(ParaLLEl-RDP) SSAA framebuffer effects (restart)"
+#~ msgstr "(ParaLLEl-RDP) Efectos framebuffer SSAA (reinicio)"
+
+#~ msgctxt "#30077"
+#~ msgid "(ParaLLEl-RDP) Dither SSAA framebuffer effects (restart)"
+#~ msgstr "(ParaLLEl-RDP) Efectos de Difuminado SSAA (reinicio)"
+
+#~ msgctxt "#30078"
+#~ msgid "(ParaLLEl-RDP) Downsampling factor"
+#~ msgstr "(ParaLLEl-RDP) Factor de reescalado negativo"
+
+#~ msgctxt "#30079"
+#~ msgid "(ParaLLEl-RDP) Native texture LOD"
+#~ msgstr "(ParaLLEl-RDP) Textura LOD nativa"
+
+#~ msgctxt "#30080"
+#~ msgid "(ParaLLEl-RDP) Native resolution TEX_RECT"
+#~ msgstr "(ParaLLEl-RDP) Resolución nativa TEX_RECT"
+
+#~ msgctxt "#30081"
+#~ msgid "(ParaLLEl-RDP) Deinterlacing method"
+#~ msgstr "(ParaLLEl-RDP) Método de desentrelazado"
 
 #~ msgctxt "#30000"
 #~ msgid "Settings"

@@ -293,62 +293,6 @@ msgctxt "#30067"
 msgid "Enable color buffer copy from RDRAM"
 msgstr "Включить копирование буфера цвета из RDRAM"
 
-msgctxt "#30068"
-msgid "(ParaLLEl-RDP) Synchronous RDP"
-msgstr "(ParaLLEl-RDP) Синхронный RDP"
-
-msgctxt "#30069"
-msgid "(ParaLLEl-RDP) Crop overscan"
-msgstr "(ParaLLEl-RDP) Обрезать вылет за края"
-
-msgctxt "#30070"
-msgid "(ParaLLEl-RDP) VI Divot filter"
-msgstr "(ParaLLEl-RDP) Фильтр выемок VI"
-
-msgctxt "#30071"
-msgid "(ParaLLEl-RDP) VI Gamma dither"
-msgstr "(ParaLLEl-RDP) Гамма-дизеринг VI"
-
-msgctxt "#30072"
-msgid "(ParaLLEl-RDP) VI anti-aliasing"
-msgstr "(ParaLLEl-RDP) Сглаживание VI"
-
-msgctxt "#30073"
-msgid "(ParaLLEl-RDP) VI bilinear"
-msgstr "(ParaLLEl-RDP) Билинейная фильтрация VI"
-
-msgctxt "#30074"
-msgid "(ParaLLEl-RDP) VI dither filter"
-msgstr "(ParaLLEl-RDP) Фильтр дизеринга VI"
-
-msgctxt "#30075"
-msgid "(ParaLLEl-RDP) Upscaling factor (restart)"
-msgstr "(ParaLLEl-RDP) Коэффициент повышения разрешения (требуется перезапуск)"
-
-msgctxt "#30076"
-msgid "(ParaLLEl-RDP) SSAA framebuffer effects (restart)"
-msgstr "(ParaLLEl-RDP) Эффекты кадрового буфера SSAA (требуется перезапуск)"
-
-msgctxt "#30077"
-msgid "(ParaLLEl-RDP) Dither SSAA framebuffer effects (restart)"
-msgstr "(ParaLLEl-RDP) Дизеринг эффектов кадрового буфера SSAA (требуется перезапуск)"
-
-msgctxt "#30078"
-msgid "(ParaLLEl-RDP) Downsampling factor"
-msgstr "(ParaLLEl-RDP) Коэффициент понижения разрешения"
-
-msgctxt "#30079"
-msgid "(ParaLLEl-RDP) Native texture LOD"
-msgstr "(ParaLLEl-RDP) Родной LOD текстур"
-
-msgctxt "#30080"
-msgid "(ParaLLEl-RDP) Native resolution TEX_RECT"
-msgstr "(ParaLLEl-RDP) Родное разрешение TEX_RECT"
-
-msgctxt "#30081"
-msgid "(ParaLLEl-RDP) Deinterlacing method"
-msgstr "(ParaLLEl-RDP) Метод чересстрочной развёртки"
-
 msgctxt "#30082"
 msgid "VI Overlay"
 msgstr "Наложение VI"
@@ -1060,6 +1004,118 @@ msgstr "5xBRZ"
 msgctxt "#30259"
 msgid "6xBRZ"
 msgstr "6xBRZ"
+
+msgctxt "#30260"
+msgid "Synchronous RDP"
+msgstr "Синхронный RDP"
+
+msgctxt "#30261"
+msgid "Crop overscan"
+msgstr "Обрезать вылет за края"
+
+msgctxt "#30262"
+msgid "VI Divot filter"
+msgstr "Фильтр выемок VI"
+
+msgctxt "#30263"
+msgid "VI Gamma dither"
+msgstr "Гамма-дизеринг VI"
+
+msgctxt "#30264"
+msgid "VI anti-aliasing"
+msgstr "Сглаживание VI"
+
+msgctxt "#30265"
+msgid "VI bilinear"
+msgstr "Билинейная фильтрация VI"
+
+msgctxt "#30266"
+msgid "VI dither filter"
+msgstr "Фильтр дизеринга VI"
+
+msgctxt "#30267"
+msgid "Upscaling factor (restart)"
+msgstr "Коэффициент повышения разрешения (требуется перезапуск)"
+
+msgctxt "#30268"
+msgid "SSAA framebuffer effects (restart)"
+msgstr "Эффекты кадрового буфера SSAA (требуется перезапуск)"
+
+msgctxt "#30269"
+msgid "Dither SSAA framebuffer effects (restart)"
+msgstr "Дизеринг эффектов кадрового буфера SSAA (требуется перезапуск)"
+
+msgctxt "#30270"
+msgid "Downsampling factor"
+msgstr "Коэффициент понижения разрешения"
+
+msgctxt "#30271"
+msgid "Native texture LOD"
+msgstr "Родной LOD текстур"
+
+msgctxt "#30272"
+msgid "Native resolution TEX_RECT"
+msgstr "Родное разрешение TEX_RECT"
+
+msgctxt "#30273"
+msgid "Deinterlacing method"
+msgstr "Метод чересстрочной развёртки"
+
+#~ msgctxt "#30068"
+#~ msgid "(ParaLLEl-RDP) Synchronous RDP"
+#~ msgstr "(ParaLLEl-RDP) Синхронный RDP"
+
+#~ msgctxt "#30069"
+#~ msgid "(ParaLLEl-RDP) Crop overscan"
+#~ msgstr "(ParaLLEl-RDP) Обрезать вылет за края"
+
+#~ msgctxt "#30070"
+#~ msgid "(ParaLLEl-RDP) VI Divot filter"
+#~ msgstr "(ParaLLEl-RDP) Фильтр выемок VI"
+
+#~ msgctxt "#30071"
+#~ msgid "(ParaLLEl-RDP) VI Gamma dither"
+#~ msgstr "(ParaLLEl-RDP) Гамма-дизеринг VI"
+
+#~ msgctxt "#30072"
+#~ msgid "(ParaLLEl-RDP) VI anti-aliasing"
+#~ msgstr "(ParaLLEl-RDP) Сглаживание VI"
+
+#~ msgctxt "#30073"
+#~ msgid "(ParaLLEl-RDP) VI bilinear"
+#~ msgstr "(ParaLLEl-RDP) Билинейная фильтрация VI"
+
+#~ msgctxt "#30074"
+#~ msgid "(ParaLLEl-RDP) VI dither filter"
+#~ msgstr "(ParaLLEl-RDP) Фильтр дизеринга VI"
+
+#~ msgctxt "#30075"
+#~ msgid "(ParaLLEl-RDP) Upscaling factor (restart)"
+#~ msgstr "(ParaLLEl-RDP) Коэффициент повышения разрешения (требуется перезапуск)"
+
+#~ msgctxt "#30076"
+#~ msgid "(ParaLLEl-RDP) SSAA framebuffer effects (restart)"
+#~ msgstr "(ParaLLEl-RDP) Эффекты кадрового буфера SSAA (требуется перезапуск)"
+
+#~ msgctxt "#30077"
+#~ msgid "(ParaLLEl-RDP) Dither SSAA framebuffer effects (restart)"
+#~ msgstr "(ParaLLEl-RDP) Дизеринг эффектов кадрового буфера SSAA (требуется перезапуск)"
+
+#~ msgctxt "#30078"
+#~ msgid "(ParaLLEl-RDP) Downsampling factor"
+#~ msgstr "(ParaLLEl-RDP) Коэффициент понижения разрешения"
+
+#~ msgctxt "#30079"
+#~ msgid "(ParaLLEl-RDP) Native texture LOD"
+#~ msgstr "(ParaLLEl-RDP) Родной LOD текстур"
+
+#~ msgctxt "#30080"
+#~ msgid "(ParaLLEl-RDP) Native resolution TEX_RECT"
+#~ msgstr "(ParaLLEl-RDP) Родное разрешение TEX_RECT"
+
+#~ msgctxt "#30081"
+#~ msgid "(ParaLLEl-RDP) Deinterlacing method"
+#~ msgstr "(ParaLLEl-RDP) Метод чересстрочной развёртки"
 
 #~ msgctxt "#30000"
 #~ msgid "Settings"

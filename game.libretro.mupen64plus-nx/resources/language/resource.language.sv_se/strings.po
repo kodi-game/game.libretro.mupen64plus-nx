@@ -293,62 +293,6 @@ msgctxt "#30067"
 msgid "Enable color buffer copy from RDRAM"
 msgstr "Aktivera kopiering av färgbuffert från RDRAM"
 
-msgctxt "#30068"
-msgid "(ParaLLEl-RDP) Synchronous RDP"
-msgstr "(ParaLLEl-RDP) Synkron RDP"
-
-msgctxt "#30069"
-msgid "(ParaLLEl-RDP) Crop overscan"
-msgstr "(ParaLLEl-RDP) Beskär överskanning"
-
-msgctxt "#30070"
-msgid "(ParaLLEl-RDP) VI Divot filter"
-msgstr "(ParaLLEl-RDP) VI Divot-filter"
-
-msgctxt "#30071"
-msgid "(ParaLLEl-RDP) VI Gamma dither"
-msgstr "(ParaLLEl-RDP) VI-gammadithering"
-
-msgctxt "#30072"
-msgid "(ParaLLEl-RDP) VI anti-aliasing"
-msgstr "(ParaLLEl-RDP) VI-kantutjämning"
-
-msgctxt "#30073"
-msgid "(ParaLLEl-RDP) VI bilinear"
-msgstr "(ParaLLEl-RDP) VI-bilinjär"
-
-msgctxt "#30074"
-msgid "(ParaLLEl-RDP) VI dither filter"
-msgstr "(ParaLLEl-RDP) VI-ditherfilter"
-
-msgctxt "#30075"
-msgid "(ParaLLEl-RDP) Upscaling factor (restart)"
-msgstr "(ParaLLEl-RDP) Uppskalningsfaktor (kräver omstart)"
-
-msgctxt "#30076"
-msgid "(ParaLLEl-RDP) SSAA framebuffer effects (restart)"
-msgstr "(ParaLLEl-RDP) SSAA-effekter för bildbuffert (kräver omstart)"
-
-msgctxt "#30077"
-msgid "(ParaLLEl-RDP) Dither SSAA framebuffer effects (restart)"
-msgstr "(ParaLLEl-RDP) Dither-SSAA-effekter för bildbuffert (kräver omstart)"
-
-msgctxt "#30078"
-msgid "(ParaLLEl-RDP) Downsampling factor"
-msgstr "(ParaLLEl-RDP) Nedsamplingsfaktor"
-
-msgctxt "#30079"
-msgid "(ParaLLEl-RDP) Native texture LOD"
-msgstr "(ParaLLEl-RDP) Inhemsk textur-LOD"
-
-msgctxt "#30080"
-msgid "(ParaLLEl-RDP) Native resolution TEX_RECT"
-msgstr "(ParaLLEl-RDP) TEX_RECT med inhemsk upplösning"
-
-msgctxt "#30081"
-msgid "(ParaLLEl-RDP) Deinterlacing method"
-msgstr "(ParaLLEl-RDP) Avflätningsmetod"
-
 msgctxt "#30082"
 msgid "VI Overlay"
 msgstr "VI-överlägg"
@@ -1060,6 +1004,118 @@ msgstr "5xBRZ"
 msgctxt "#30259"
 msgid "6xBRZ"
 msgstr "6xBRZ"
+
+msgctxt "#30260"
+msgid "Synchronous RDP"
+msgstr "Synkron RDP"
+
+msgctxt "#30261"
+msgid "Crop overscan"
+msgstr "Beskär överskanning"
+
+msgctxt "#30262"
+msgid "VI Divot filter"
+msgstr "VI Divot-filter"
+
+msgctxt "#30263"
+msgid "VI Gamma dither"
+msgstr "VI-gammadithering"
+
+msgctxt "#30264"
+msgid "VI anti-aliasing"
+msgstr "VI-kantutjämning"
+
+msgctxt "#30265"
+msgid "VI bilinear"
+msgstr "VI-bilinjär"
+
+msgctxt "#30266"
+msgid "VI dither filter"
+msgstr "VI-ditherfilter"
+
+msgctxt "#30267"
+msgid "Upscaling factor (restart)"
+msgstr "Uppskalningsfaktor (kräver omstart)"
+
+msgctxt "#30268"
+msgid "SSAA framebuffer effects (restart)"
+msgstr "SSAA-effekter för bildbuffert (kräver omstart)"
+
+msgctxt "#30269"
+msgid "Dither SSAA framebuffer effects (restart)"
+msgstr "Dither-SSAA-effekter för bildbuffert (kräver omstart)"
+
+msgctxt "#30270"
+msgid "Downsampling factor"
+msgstr "Nedsamplingsfaktor"
+
+msgctxt "#30271"
+msgid "Native texture LOD"
+msgstr "Inhemsk textur-LOD"
+
+msgctxt "#30272"
+msgid "Native resolution TEX_RECT"
+msgstr "TEX_RECT med inhemsk upplösning"
+
+msgctxt "#30273"
+msgid "Deinterlacing method"
+msgstr "Avflätningsmetod"
+
+#~ msgctxt "#30068"
+#~ msgid "(ParaLLEl-RDP) Synchronous RDP"
+#~ msgstr "(ParaLLEl-RDP) Synkron RDP"
+
+#~ msgctxt "#30069"
+#~ msgid "(ParaLLEl-RDP) Crop overscan"
+#~ msgstr "(ParaLLEl-RDP) Beskär överskanning"
+
+#~ msgctxt "#30070"
+#~ msgid "(ParaLLEl-RDP) VI Divot filter"
+#~ msgstr "(ParaLLEl-RDP) VI Divot-filter"
+
+#~ msgctxt "#30071"
+#~ msgid "(ParaLLEl-RDP) VI Gamma dither"
+#~ msgstr "(ParaLLEl-RDP) VI-gammadithering"
+
+#~ msgctxt "#30072"
+#~ msgid "(ParaLLEl-RDP) VI anti-aliasing"
+#~ msgstr "(ParaLLEl-RDP) VI-kantutjämning"
+
+#~ msgctxt "#30073"
+#~ msgid "(ParaLLEl-RDP) VI bilinear"
+#~ msgstr "(ParaLLEl-RDP) VI-bilinjär"
+
+#~ msgctxt "#30074"
+#~ msgid "(ParaLLEl-RDP) VI dither filter"
+#~ msgstr "(ParaLLEl-RDP) VI-ditherfilter"
+
+#~ msgctxt "#30075"
+#~ msgid "(ParaLLEl-RDP) Upscaling factor (restart)"
+#~ msgstr "(ParaLLEl-RDP) Uppskalningsfaktor (kräver omstart)"
+
+#~ msgctxt "#30076"
+#~ msgid "(ParaLLEl-RDP) SSAA framebuffer effects (restart)"
+#~ msgstr "(ParaLLEl-RDP) SSAA-effekter för bildbuffert (kräver omstart)"
+
+#~ msgctxt "#30077"
+#~ msgid "(ParaLLEl-RDP) Dither SSAA framebuffer effects (restart)"
+#~ msgstr "(ParaLLEl-RDP) Dither-SSAA-effekter för bildbuffert (kräver omstart)"
+
+#~ msgctxt "#30078"
+#~ msgid "(ParaLLEl-RDP) Downsampling factor"
+#~ msgstr "(ParaLLEl-RDP) Nedsamplingsfaktor"
+
+#~ msgctxt "#30079"
+#~ msgid "(ParaLLEl-RDP) Native texture LOD"
+#~ msgstr "(ParaLLEl-RDP) Inhemsk textur-LOD"
+
+#~ msgctxt "#30080"
+#~ msgid "(ParaLLEl-RDP) Native resolution TEX_RECT"
+#~ msgstr "(ParaLLEl-RDP) TEX_RECT med inhemsk upplösning"
+
+#~ msgctxt "#30081"
+#~ msgid "(ParaLLEl-RDP) Deinterlacing method"
+#~ msgstr "(ParaLLEl-RDP) Avflätningsmetod"
 
 #~ msgctxt "#30000"
 #~ msgid "Settings"

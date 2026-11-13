@@ -293,62 +293,6 @@ msgctxt "#30067"
 msgid "Enable color buffer copy from RDRAM"
 msgstr "Povolit kopírování barevného bufferu z RDRAM"
 
-msgctxt "#30068"
-msgid "(ParaLLEl-RDP) Synchronous RDP"
-msgstr "(ParaLLEl-RDP) synchronní RDP"
-
-msgctxt "#30069"
-msgid "(ParaLLEl-RDP) Crop overscan"
-msgstr "(ParaLLEl-RDP) oříznout overscan"
-
-msgctxt "#30070"
-msgid "(ParaLLEl-RDP) VI Divot filter"
-msgstr "(ParaLLEl-RDP) filtr VI Divot"
-
-msgctxt "#30071"
-msgid "(ParaLLEl-RDP) VI Gamma dither"
-msgstr "(ParaLLEl-RDP) VI gamma dithering"
-
-msgctxt "#30072"
-msgid "(ParaLLEl-RDP) VI anti-aliasing"
-msgstr "(ParaLLEl-RDP) VI vyhlazování"
-
-msgctxt "#30073"
-msgid "(ParaLLEl-RDP) VI bilinear"
-msgstr "(ParaLLEl-RDP) VI bilineární filtrování"
-
-msgctxt "#30074"
-msgid "(ParaLLEl-RDP) VI dither filter"
-msgstr "(ParaLLEl-RDP) VI filtr ditheringu"
-
-msgctxt "#30075"
-msgid "(ParaLLEl-RDP) Upscaling factor (restart)"
-msgstr "(ParaLLEl-RDP) faktor škálování nahoru (vyžaduje restart)"
-
-msgctxt "#30076"
-msgid "(ParaLLEl-RDP) SSAA framebuffer effects (restart)"
-msgstr "(ParaLLEl-RDP) SSAA efekty framebufferu (vyžaduje restart)"
-
-msgctxt "#30077"
-msgid "(ParaLLEl-RDP) Dither SSAA framebuffer effects (restart)"
-msgstr "(ParaLLEl-RDP) dithering SSAA efektů framebufferu (vyžaduje restart)"
-
-msgctxt "#30078"
-msgid "(ParaLLEl-RDP) Downsampling factor"
-msgstr "(ParaLLEl-RDP) faktor downsamplingu"
-
-msgctxt "#30079"
-msgid "(ParaLLEl-RDP) Native texture LOD"
-msgstr "(ParaLLEl-RDP) nativní LOD textur"
-
-msgctxt "#30080"
-msgid "(ParaLLEl-RDP) Native resolution TEX_RECT"
-msgstr "(ParaLLEl-RDP) TEX_RECT v nativním rozlišení"
-
-msgctxt "#30081"
-msgid "(ParaLLEl-RDP) Deinterlacing method"
-msgstr "(ParaLLEl-RDP) metoda zrušení prokládání"
-
 msgctxt "#30082"
 msgid "VI Overlay"
 msgstr "Překryv VI"
@@ -1060,3 +1004,115 @@ msgstr "5xBRZ"
 msgctxt "#30259"
 msgid "6xBRZ"
 msgstr "6xBRZ"
+
+msgctxt "#30260"
+msgid "Synchronous RDP"
+msgstr "Synchronní RDP"
+
+msgctxt "#30261"
+msgid "Crop overscan"
+msgstr "Oříznout overscan"
+
+msgctxt "#30262"
+msgid "VI Divot filter"
+msgstr "Filtr VI Divot"
+
+msgctxt "#30263"
+msgid "VI Gamma dither"
+msgstr "VI gamma dithering"
+
+msgctxt "#30264"
+msgid "VI anti-aliasing"
+msgstr "VI vyhlazování"
+
+msgctxt "#30265"
+msgid "VI bilinear"
+msgstr "VI bilineární filtrování"
+
+msgctxt "#30266"
+msgid "VI dither filter"
+msgstr "VI filtr ditheringu"
+
+msgctxt "#30267"
+msgid "Upscaling factor (restart)"
+msgstr "Faktor škálování nahoru (vyžaduje restart)"
+
+msgctxt "#30268"
+msgid "SSAA framebuffer effects (restart)"
+msgstr "SSAA efekty framebufferu (vyžaduje restart)"
+
+msgctxt "#30269"
+msgid "Dither SSAA framebuffer effects (restart)"
+msgstr "Dithering SSAA efektů framebufferu (vyžaduje restart)"
+
+msgctxt "#30270"
+msgid "Downsampling factor"
+msgstr "Faktor downsamplingu"
+
+msgctxt "#30271"
+msgid "Native texture LOD"
+msgstr "Nativní LOD textur"
+
+msgctxt "#30272"
+msgid "Native resolution TEX_RECT"
+msgstr "TEX_RECT v nativním rozlišení"
+
+msgctxt "#30273"
+msgid "Deinterlacing method"
+msgstr "Metoda zrušení prokládání"
+
+#~ msgctxt "#30068"
+#~ msgid "(ParaLLEl-RDP) Synchronous RDP"
+#~ msgstr "(ParaLLEl-RDP) synchronní RDP"
+
+#~ msgctxt "#30069"
+#~ msgid "(ParaLLEl-RDP) Crop overscan"
+#~ msgstr "(ParaLLEl-RDP) oříznout overscan"
+
+#~ msgctxt "#30070"
+#~ msgid "(ParaLLEl-RDP) VI Divot filter"
+#~ msgstr "(ParaLLEl-RDP) filtr VI Divot"
+
+#~ msgctxt "#30071"
+#~ msgid "(ParaLLEl-RDP) VI Gamma dither"
+#~ msgstr "(ParaLLEl-RDP) VI gamma dithering"
+
+#~ msgctxt "#30072"
+#~ msgid "(ParaLLEl-RDP) VI anti-aliasing"
+#~ msgstr "(ParaLLEl-RDP) VI vyhlazování"
+
+#~ msgctxt "#30073"
+#~ msgid "(ParaLLEl-RDP) VI bilinear"
+#~ msgstr "(ParaLLEl-RDP) VI bilineární filtrování"
+
+#~ msgctxt "#30074"
+#~ msgid "(ParaLLEl-RDP) VI dither filter"
+#~ msgstr "(ParaLLEl-RDP) VI filtr ditheringu"
+
+#~ msgctxt "#30075"
+#~ msgid "(ParaLLEl-RDP) Upscaling factor (restart)"
+#~ msgstr "(ParaLLEl-RDP) faktor škálování nahoru (vyžaduje restart)"
+
+#~ msgctxt "#30076"
+#~ msgid "(ParaLLEl-RDP) SSAA framebuffer effects (restart)"
+#~ msgstr "(ParaLLEl-RDP) SSAA efekty framebufferu (vyžaduje restart)"
+
+#~ msgctxt "#30077"
+#~ msgid "(ParaLLEl-RDP) Dither SSAA framebuffer effects (restart)"
+#~ msgstr "(ParaLLEl-RDP) dithering SSAA efektů framebufferu (vyžaduje restart)"
+
+#~ msgctxt "#30078"
+#~ msgid "(ParaLLEl-RDP) Downsampling factor"
+#~ msgstr "(ParaLLEl-RDP) faktor downsamplingu"
+
+#~ msgctxt "#30079"
+#~ msgid "(ParaLLEl-RDP) Native texture LOD"
+#~ msgstr "(ParaLLEl-RDP) nativní LOD textur"
+
+#~ msgctxt "#30080"
+#~ msgid "(ParaLLEl-RDP) Native resolution TEX_RECT"
+#~ msgstr "(ParaLLEl-RDP) TEX_RECT v nativním rozlišení"
+
+#~ msgctxt "#30081"
+#~ msgid "(ParaLLEl-RDP) Deinterlacing method"
+#~ msgstr "(ParaLLEl-RDP) metoda zrušení prokládání"

@@ -1079,7 +1079,7 @@
 		</category>
 		<category id="parallel_rdp" label="30088" help="30208">
 			<group id="1">
-				<setting id="mupen64plus-parallel-rdp-synchronous" type="string" label="30068" help="30209">
+				<setting id="mupen64plus-parallel-rdp-synchronous" type="string" label="30260" help="30209">
 					<level>0</level>
 					<default>True</default>
 					<constraints>
@@ -1090,7 +1090,7 @@
 					</constraints>
 					<control type="list" format="string" />
 				</setting>
-				<setting id="mupen64plus-parallel-rdp-overscan" type="string" label="30069" help="30210">
+				<setting id="mupen64plus-parallel-rdp-overscan" type="string" label="30261" help="30210">
 					<level>0</level>
 					<default>0</default>
 					<constraints>
@@ -1132,7 +1132,7 @@
 					</constraints>
 					<control type="list" format="string" />
 				</setting>
-				<setting id="mupen64plus-parallel-rdp-divot-filter" type="string" label="30070" help="30211">
+				<setting id="mupen64plus-parallel-rdp-divot-filter" type="string" label="30262" help="30211">
 					<level>0</level>
 					<default>True</default>
 					<constraints>
@@ -1143,7 +1143,7 @@
 					</constraints>
 					<control type="list" format="string" />
 				</setting>
-				<setting id="mupen64plus-parallel-rdp-gamma-dither" type="string" label="30071" help="30212">
+				<setting id="mupen64plus-parallel-rdp-gamma-dither" type="string" label="30263" help="30212">
 					<level>0</level>
 					<default>True</default>
 					<constraints>
@@ -1154,7 +1154,7 @@
 					</constraints>
 					<control type="list" format="string" />
 				</setting>
-				<setting id="mupen64plus-parallel-rdp-vi-aa" type="string" label="30072" help="30213">
+				<setting id="mupen64plus-parallel-rdp-vi-aa" type="string" label="30264" help="30213">
 					<level>0</level>
 					<default>True</default>
 					<constraints>
@@ -1165,7 +1165,7 @@
 					</constraints>
 					<control type="list" format="string" />
 				</setting>
-				<setting id="mupen64plus-parallel-rdp-vi-bilinear" type="string" label="30073" help="30214">
+				<setting id="mupen64plus-parallel-rdp-vi-bilinear" type="string" label="30265" help="30214">
 					<level>0</level>
 					<default>True</default>
 					<constraints>
@@ -1176,7 +1176,7 @@
 					</constraints>
 					<control type="list" format="string" />
 				</setting>
-				<setting id="mupen64plus-parallel-rdp-dither-filter" type="string" label="30074" help="30215">
+				<setting id="mupen64plus-parallel-rdp-dither-filter" type="string" label="30266" help="30215">
 					<level>0</level>
 					<default>True</default>
 					<constraints>
@@ -1187,7 +1187,7 @@
 					</constraints>
 					<control type="list" format="string" />
 				</setting>
-				<setting id="mupen64plus-parallel-rdp-upscaling" type="string" label="30075" help="30216">
+				<setting id="mupen64plus-parallel-rdp-upscaling" type="string" label="30267" help="30216">
 					<level>0</level>
 					<default>1x</default>
 					<constraints>
@@ -1200,7 +1200,7 @@
 					</constraints>
 					<control type="list" format="string" />
 				</setting>
-				<setting id="mupen64plus-parallel-rdp-super-sampled-read-back" type="string" label="30076" help="30217">
+				<setting id="mupen64plus-parallel-rdp-super-sampled-read-back" type="string" label="30268" help="30217">
 					<level>0</level>
 					<default>False</default>
 					<constraints>
@@ -1211,7 +1211,7 @@
 					</constraints>
 					<control type="list" format="string" />
 				</setting>
-				<setting id="mupen64plus-parallel-rdp-super-sampled-read-back-dither" type="string" label="30077" help="30218">
+				<setting id="mupen64plus-parallel-rdp-super-sampled-read-back-dither" type="string" label="30269" help="30218">
 					<level>0</level>
 					<default>True</default>
 					<constraints>
@@ -1222,7 +1222,7 @@
 					</constraints>
 					<control type="list" format="string" />
 				</setting>
-				<setting id="mupen64plus-parallel-rdp-downscaling" type="string" label="30078" help="30219">
+				<setting id="mupen64plus-parallel-rdp-downscaling" type="string" label="30270" help="30219">
 					<level>0</level>
 					<default>disable</default>
 					<constraints>
@@ -1235,7 +1235,7 @@
 					</constraints>
 					<control type="list" format="string" />
 				</setting>
-				<setting id="mupen64plus-parallel-rdp-native-texture-lod" type="string" label="30079" help="30220">
+				<setting id="mupen64plus-parallel-rdp-native-texture-lod" type="string" label="30271" help="30220">
 					<level>0</level>
 					<default>False</default>
 					<constraints>
@@ -1246,7 +1246,7 @@
 					</constraints>
 					<control type="list" format="string" />
 				</setting>
-				<setting id="mupen64plus-parallel-rdp-native-tex-rect" type="string" label="30080" help="30221">
+				<setting id="mupen64plus-parallel-rdp-native-tex-rect" type="string" label="30272" help="30221">
 					<level>0</level>
 					<default>True</default>
 					<constraints>
@@ -1257,7 +1257,7 @@
 					</constraints>
 					<control type="list" format="string" />
 				</setting>
-				<setting id="mupen64plus-parallel-rdp-deinterlace-method" type="string" label="30081" help="30222">
+				<setting id="mupen64plus-parallel-rdp-deinterlace-method" type="string" label="30273" help="30222">
 					<level>0</level>
 					<default>Bob</default>
 					<constraints>
